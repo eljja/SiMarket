@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiMarket - Interactive DRAM Market History Dashboard (1970–2026)</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore the comprehensive history of the global DRAM semiconductor market from 1970 to 2026. Interactive charts, market sizes, quarterly shares, and historical milestones.">
+  <meta name="keywords" content="DRAM, Semiconductor, Market Share, Memory Market, Samsung, SK Hynix, Micron, Elpida, Qimonda, Interactive Chart, Bar Chart Race">
+  <meta name="author" content="SiMarket Group">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="glass-panel">
+      <div class="logo-section">
+        <h1>Si<span>Market</span></h1>
+        <p>Semiconductor Memory Intelligence Analytics</p>
+      </div>
+      <div class="controls-global">
+        <!-- Optional global settings can go here -->
+      </div>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <main class="dashboard-grid">
+      
+      <!-- Left Column: Interactive Race Chart & Playback -->
+      <section class="glass-panel main-viz-panel" aria-labelledby="viz-title-id">
+        <div class="viz-header">
+          <div class="viz-title">
+            <h2 id="viz-title-id">Global DRAM Supplier Market Rank & Size</h2>
+            <p>Animated ranking changes and individual supplier share metrics over time</p>
+          </div>
+          <div class="viz-actions">
+            <button id="toggle-revenue" class="btn-toggle active" aria-pressed="true">Revenue (USD)</button>
+            <button id="toggle-bytes" class="btn-toggle" aria-pressed="false">Capacity (Bytes)</button>
+          </div>
+        </div>
+
+        <!-- Main Chart Area -->
+        <div class="chart-container-race">
+          <div id="race-chart" style="width: 100%; height: 100%;"></div>
+          <!-- Huge Floating Year Background -->
+          <div id="floating-year-display" class="year-display-huge">1970</div>
+        </div>
+
+        <!-- Timeline Control Bar -->
+        <div class="timeline-bar">
+          <div class="play-controls">
+            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline">
+              <!-- Play Icon SVG -->
+              <svg viewBox="0 0 24 24" id="play-icon">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <!-- Pause Icon SVG -->
+              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+            
+            <select id="speed-control" class="speed-control" aria-label="Playback Speed">
+              <option value="2000">Slow (2s)</option>
+              <option value="1000" selected>Normal (1s)</option>
+              <option value="500">Fast (0.5s)</option>
+            </select>
+          </div>
+
+          <div class="slider-container">
+            <input type="range" id="timeline-slider" aria-label="Timeline Slider" value="0">
+            <span id="current-period" class="time-label-current">1970</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Sidebar Analytics -->
+      <aside class="sidebar-panel">
+        
+        <!-- Total Market stats card -->
+        <div class="glass-panel stats-card">
+          <div class="stat-item">
+            <span class="stat-label">Total DRAM Market Revenue</span>
+            <div class="stat-value-container">
+              <span class="stat-unit">$</span>
+              <span id="stat-revenue-val" class="stat-value">0.00</span>
+              <span class="stat-unit">Billion</span>
+            </div>
+          </div>
+          
+          <div class="stat-divider"></div>
+          
+          <div class="stat-item">
+            <span class="stat-label">Total Byte Capacity Shipped</span>
+            <div class="stat-value-container">
+              <span id="stat-capacity-val" class="stat-value">0</span>
+              <span id="stat-capacity-unit" class="stat-unit">Bytes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historical Milestone Card -->
+        <div class="glass-panel milestone-card" aria-labelledby="milestone-title-id">
+          <div id="milestone-title-id" class="card-title-sec">
+            <!-- Info Icon SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            Historical Context & Milestones
+          </div>
+          <div id="milestone-text" class="milestone-content empty">
+            No major industry event recorded for this period.
+          </div>
+        </div>
+
+        <!-- History Trend Charts -->
+        <div class="glass-panel trend-card" aria-labelledby="trend-title-id">
+          <div id="trend-title-id" class="card-title-sec">
+            <!-- Chart Icon SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+            </svg>
+            Historical Size Growth Trend (1970–2026)
+          </div>
+          <div class="chart-container-trend">
+            <div id="trend-chart" style="width: 100%; height: 100%;"></div>
+          </div>
+        </div>
+
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- Apache ECharts Library -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  
+  <!-- Local Database and Logic -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
