@@ -10,10 +10,18 @@
   <meta name="keywords" content="DRAM, Flash, NAND, Logic, Semiconductor, Market Share, Memory Market, Samsung, SK Hynix, Micron, Kioxia, NVIDIA, Intel, AMD, TSMC, Bar Chart Race">
   <meta name="author" content="SiMarket Group">
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0f1d'/%3E%3Ctext x='4' y='23' font-family='system-ui' font-size='18' font-weight='800' fill='%2300e5ff'%3ESi%3C/text%3E%3C/svg%3E">
+
+  <!-- Font Preloading (BUG FIX #11: move from CSS @import for faster load) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="market-dram">
 
   <div class="app-container">
     <header class="glass-panel">
@@ -69,6 +77,7 @@
               <option value="2000">Slow (2s)</option>
               <option value="1000" selected>Normal (1s)</option>
               <option value="500">Fast (0.5s)</option>
+              <option value="200">Turbo (0.2s)</option>
             </select>
           </div>
 
@@ -125,7 +134,7 @@
             <svg viewBox="0 0 24 24">
               <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
             </svg>
-            Historical Size Growth Trend (1970–2026)
+            Market Growth Trend
           </div>
           <div class="chart-container-trend">
             <div id="trend-chart" style="width: 100%; height: 100%;"></div>

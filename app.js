@@ -1,15 +1,20 @@
-// app.js - Expanded Semiconductor Market Dashboard Logic
+// app.js - Semiconductor Market Dashboard Logic (Bug-fixed & Enhanced)
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Application State
+  // ─── Application State ───────────────────────────────────────
   let currentMarket = 'dram'; // 'dram', 'flash', or 'logic'
   let activeIndex = 0;
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000; // ms per step
   let currentMetric = 'revenue'; // 'revenue' or 'bytes'
-  
-  // DOM Elements
+
+  // Animated counter state
+  let animatedRevenue = 0;
+  let animatedCapacity = 0;
+  let counterAnimFrame = null;
+
+  // ─── DOM Elements ────────────────────────────────────────────
   const playBtn = document.getElementById('play-btn');
   const playIcon = document.getElementById('play-icon');
   const pauseIcon = document.getElementById('pause-icon');
@@ -18,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentPeriodLabel = document.getElementById('current-period');
   const toggleRevenueBtn = document.getElementById('toggle-revenue');
   const toggleBytesBtn = document.getElementById('toggle-bytes');
-  
+
   const statRevenueLabel = document.getElementById('stat-revenue-label');
   const statRevenueVal = document.getElementById('stat-revenue-val');
   const statCapacityLabel = document.getElementById('stat-capacity-label');
@@ -26,20 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const statCapacityUnit = document.getElementById('stat-capacity-unit');
   const milestoneContent = document.getElementById('milestone-text');
   const floatingYearDisplay = document.getElementById('floating-year-display');
-  
+  const dashboardGrid = document.querySelector('.dashboard-grid');
+
   // Tab Switcher Buttons
   const tabDram = document.getElementById('tab-dram');
   const tabFlash = document.getElementById('tab-flash');
   const tabLogic = document.getElementById('tab-logic');
 
-  // Initialize ECharts instances
+  // ─── Initialize ECharts ──────────────────────────────────────
   const raceChartDom = document.getElementById('race-chart');
   const raceChart = echarts.init(raceChartDom);
-  
+
   const trendChartDom = document.getElementById('trend-chart');
   const trendChart = echarts.init(trendChartDom);
 
-  // Helper functions to get active database and styles
+  // ─── Data Accessors ──────────────────────────────────────────
   function getActiveTimelineData() {
     if (currentMarket === 'dram') return dramTimelineData;
     if (currentMarket === 'flash') return flashTimelineData;
@@ -52,12 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return logicCompanyColors;
   }
 
-  // Formatting helpers
+  // ─── Smart Start Index ───────────────────────────────────────
+  // Find the first index with non-zero revenue (skips empty early years)
+  function getSmartStartIndex(timelineData) {
+    for (let i = 0; i < timelineData.length; i++) {
+      if (timelineData[i].total_revenue > 0 && Object.keys(timelineData[i].shares).length > 0) {
+        return i;
+      }
+    }
+    return 0;
+  }
+
+  // ─── Formatting Helpers ──────────────────────────────────────
   function formatBytes(bytes) {
-    if (bytes === 0) return { val: '0', unit: 'Bytes' };
+    if (!bytes || bytes <= 0) return { val: '0', unit: 'Bytes' };
     const k = 1000;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
-    const i = Math.floor(Math.log10(bytes) / 3);
+    const i = Math.min(Math.floor(Math.log10(bytes) / 3), sizes.length - 1);
     const val = parseFloat((bytes / Math.pow(k, i)).toFixed(2));
     return {
       val: val.toLocaleString(),
@@ -66,36 +83,137 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function formatTransistors(count) {
-    if (count === 0) return { val: '0', unit: 'Transistors' };
+    if (!count || count <= 0) return { val: '0', unit: 'Transistors' };
     const k = 1000;
-    const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT', 'SX']; // Thousand, Million, Billion, Trillion, etc.
-    const i = Math.floor(Math.log10(count) / 3);
+    const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT', 'SX'];
+    const i = Math.min(Math.floor(Math.log10(count) / 3), sizes.length - 1);
     const val = parseFloat((count / Math.pow(k, i)).toFixed(2));
     return {
       val: val.toLocaleString(),
-      unit: sizes[i] + ' Transistors'
+      unit: (sizes[i] ? sizes[i] + ' ' : '') + 'Transistors'
     };
   }
 
   function formatMetricValue(value) {
     if (currentMarket === 'logic') {
       return formatTransistors(value);
+    }
+    return formatBytes(value);
+  }
+
+  // Fixed-scale axis formatter — picks one unit for all ticks based on max value
+  function makeAxisFormatter(maxValue, isRevenue) {
+    if (isRevenue) {
+      return function(value) {
+        return '$' + value.toFixed(1) + 'B';
+      };
+    }
+
+    const isLogic = currentMarket === 'logic';
+
+    if (isLogic) {
+      // Transistor units
+      const units = [
+        { threshold: 1e21, divisor: 1e21, suffix: 'SX' },
+        { threshold: 1e18, divisor: 1e18, suffix: 'QT' },
+        { threshold: 1e15, divisor: 1e15, suffix: 'QD' },
+        { threshold: 1e12, divisor: 1e12, suffix: 'T' },
+        { threshold: 1e9,  divisor: 1e9,  suffix: 'B' },
+        { threshold: 1e6,  divisor: 1e6,  suffix: 'M' },
+        { threshold: 1e3,  divisor: 1e3,  suffix: 'K' },
+      ];
+      let chosenUnit = { divisor: 1, suffix: '' };
+      for (const u of units) {
+        if (maxValue >= u.threshold) { chosenUnit = u; break; }
+      }
+      return function(value) {
+        if (value === 0) return '0';
+        return (value / chosenUnit.divisor).toFixed(1) + chosenUnit.suffix;
+      };
     } else {
-      return formatBytes(value);
+      // Byte units
+      const units = [
+        { threshold: 1e18, divisor: 1e18, suffix: 'EB' },
+        { threshold: 1e15, divisor: 1e15, suffix: 'PB' },
+        { threshold: 1e12, divisor: 1e12, suffix: 'TB' },
+        { threshold: 1e9,  divisor: 1e9,  suffix: 'GB' },
+        { threshold: 1e6,  divisor: 1e6,  suffix: 'MB' },
+        { threshold: 1e3,  divisor: 1e3,  suffix: 'KB' },
+      ];
+      let chosenUnit = { divisor: 1, suffix: 'B' };
+      for (const u of units) {
+        if (maxValue >= u.threshold) { chosenUnit = u; break; }
+      }
+      return function(value) {
+        if (value === 0) return '0';
+        return (value / chosenUnit.divisor).toFixed(1) + chosenUnit.suffix;
+      };
     }
   }
 
-  // Setup options for the Trend Area/Line Chart (Dual Y-Axis: Revenue & Capacity Log scale)
+  // Fixed-scale label formatter for race chart bar labels
+  function makeBarLabelFormatter(maxValue, isRevenue) {
+    if (isRevenue) {
+      return function(params) {
+        const share = params.data.share;
+        return '$' + params.value.toFixed(2) + 'B (' + share.toFixed(1) + '%)';
+      };
+    }
+
+    const isLogic = currentMarket === 'logic';
+    const units = isLogic
+      ? [
+          { threshold: 1e21, divisor: 1e21, suffix: 'SX' },
+          { threshold: 1e18, divisor: 1e18, suffix: 'QT' },
+          { threshold: 1e15, divisor: 1e15, suffix: 'QD' },
+          { threshold: 1e12, divisor: 1e12, suffix: 'T' },
+          { threshold: 1e9,  divisor: 1e9,  suffix: 'B' },
+          { threshold: 1e6,  divisor: 1e6,  suffix: 'M' },
+          { threshold: 1e3,  divisor: 1e3,  suffix: 'K' },
+        ]
+      : [
+          { threshold: 1e18, divisor: 1e18, suffix: 'EB' },
+          { threshold: 1e15, divisor: 1e15, suffix: 'PB' },
+          { threshold: 1e12, divisor: 1e12, suffix: 'TB' },
+          { threshold: 1e9,  divisor: 1e9,  suffix: 'GB' },
+          { threshold: 1e6,  divisor: 1e6,  suffix: 'MB' },
+          { threshold: 1e3,  divisor: 1e3,  suffix: 'KB' },
+        ];
+
+    let chosenUnit = { divisor: 1, suffix: isLogic ? '' : 'B' };
+    for (const u of units) {
+      if (maxValue >= u.threshold) { chosenUnit = u; break; }
+    }
+
+    return function(params) {
+      const share = params.data.share;
+      const scaled = (params.value / chosenUnit.divisor).toFixed(2);
+      return scaled + ' ' + chosenUnit.suffix + ' (' + share.toFixed(1) + '%)';
+    };
+  }
+
+  // ─── Market Theme Colors ─────────────────────────────────────
+  const marketThemes = {
+    dram:  { accent: '#00e5ff', glow: 'rgba(0, 229, 255, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' },
+    flash: { accent: '#e6007e', glow: 'rgba(230, 0, 126, 0.35)', trendRight: 'rgba(255, 98, 0, 0.4)',   trendRightLine: '#ff6200' },
+    logic: { accent: '#76b900', glow: 'rgba(118, 185, 0, 0.35)', trendRight: 'rgba(118, 185, 0, 0.4)',   trendRightLine: '#76b900' }
+  };
+
+  function getTheme() {
+    return marketThemes[currentMarket] || marketThemes.dram;
+  }
+
+  // ─── Trend Chart ─────────────────────────────────────────────
   function getTrendChartOptions() {
     const timelineData = getActiveTimelineData();
     const dates = timelineData.map(d => d.label);
     const revenues = timelineData.map(d => d.total_revenue);
-    const capacities = timelineData.map(d => d.total_bytes);
-    
+    // BUG FIX #2: Replace 0 with null for log axis (log(0) is undefined)
+    const capacities = timelineData.map(d => (d.total_bytes > 0 ? d.total_bytes : null));
+
     const isLogic = currentMarket === 'logic';
     const capName = isLogic ? 'Transistors' : 'Capacity';
-    const rightAxisColor = isLogic ? 'rgba(118, 185, 0, 0.4)' : 'rgba(168, 85, 247, 0.4)';
-    const rightLineColor = isLogic ? '#76b900' : '#a855f7';
+    const theme = getTheme();
 
     return {
       backgroundColor: 'transparent',
@@ -108,17 +226,33 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         },
         backgroundColor: 'rgba(13, 20, 35, 0.95)',
-        borderColor: 'rgba(0, 229, 255, 0.2)',
+        borderColor: theme.accent + '33',
         textStyle: {
           color: '#f3f4f6',
           fontFamily: 'Outfit'
+        },
+        formatter: function(params) {
+          let html = '<div style="font-weight:600;margin-bottom:4px;">' + params[0].axisValue + '</div>';
+          params.forEach(p => {
+            if (p.value != null) {
+              let valStr;
+              if (p.seriesIndex === 0) {
+                valStr = '$' + p.value.toFixed(2) + 'B';
+              } else {
+                const fmt = formatMetricValue(p.value);
+                valStr = fmt.val + ' ' + fmt.unit;
+              }
+              html += '<div>' + p.marker + ' ' + p.seriesName + ': <b>' + valStr + '</b></div>';
+            }
+          });
+          return html;
         }
       },
       grid: {
         top: 40,
         bottom: 30,
-        left: 55,
-        right: 65
+        left: 60,
+        right: 70
       },
       xAxis: {
         type: 'category',
@@ -132,24 +266,35 @@ document.addEventListener('DOMContentLoaded', () => {
         axisLabel: {
           color: '#9ca3af',
           fontFamily: 'Outfit',
-          interval: function(index, value) {
-            return index % 12 === 0 || index === dates.length - 1;
+          interval: function(index) {
+            // Show every ~5th year label for readability
+            const label = dates[index];
+            if (!label) return false;
+            const year = parseInt(label);
+            if (isNaN(year)) return false;
+            // Show full year labels (not quarters) at ~5-year intervals
+            return (label.indexOf('Q') === -1) && (year % 5 === 0);
           }
         }
       },
       yAxis: [
         {
           type: 'value',
-          name: 'Revenue',
+          name: 'Revenue ($B)',
+          nameTextStyle: { color: '#9ca3af', fontFamily: 'Outfit', fontSize: 11 },
           position: 'left',
           axisLine: {
             show: true,
             lineStyle: {
-              color: 'rgba(0, 229, 255, 0.3)'
+              color: theme.accent + '4D'
             }
           },
           axisLabel: {
-            formatter: '${value}B',
+            formatter: function(value) {
+              if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'T';
+              if (value >= 1) return '$' + value.toFixed(0) + 'B';
+              return '$' + (value * 1000).toFixed(0) + 'M';
+            },
             color: '#9ca3af',
             fontFamily: 'Outfit'
           },
@@ -162,29 +307,33 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           type: 'log',
           name: capName,
+          nameTextStyle: { color: '#9ca3af', fontFamily: 'Outfit', fontSize: 11 },
           position: 'right',
           logBase: 10,
           axisLine: {
             show: true,
             lineStyle: {
-              color: rightAxisColor
+              color: theme.trendRight
             }
           },
           axisLabel: {
             formatter: function(value) {
               if (isLogic) {
-                if (value >= 1e18) return (value / 1e18) + 'SX';
-                if (value >= 1e15) return (value / 1e15) + 'QT';
-                if (value >= 1e12) return (value / 1e12) + 'QD';
-                if (value >= 1e9) return (value / 1e9) + 'B';
-                if (value >= 1e6) return (value / 1e6) + 'M';
+                if (value >= 1e21) return (value / 1e21).toFixed(0) + 'SX';
+                if (value >= 1e18) return (value / 1e18).toFixed(0) + 'QT';
+                if (value >= 1e15) return (value / 1e15).toFixed(0) + 'QD';
+                if (value >= 1e12) return (value / 1e12).toFixed(0) + 'T';
+                if (value >= 1e9)  return (value / 1e9).toFixed(0)  + 'B';
+                if (value >= 1e6)  return (value / 1e6).toFixed(0)  + 'M';
+                if (value >= 1e3)  return (value / 1e3).toFixed(0)  + 'K';
                 return value;
               } else {
-                if (value >= 1e18) return (value / 1e18) + 'EB';
-                if (value >= 1e15) return (value / 1e15) + 'PB';
-                if (value >= 1e12) return (value / 1e12) + 'TB';
-                if (value >= 1e9) return (value / 1e9) + 'GB';
-                if (value >= 1e6) return (value / 1e6) + 'MB';
+                if (value >= 1e18) return (value / 1e18).toFixed(0) + 'EB';
+                if (value >= 1e15) return (value / 1e15).toFixed(0) + 'PB';
+                if (value >= 1e12) return (value / 1e12).toFixed(0) + 'TB';
+                if (value >= 1e9)  return (value / 1e9).toFixed(0)  + 'GB';
+                if (value >= 1e6)  return (value / 1e6).toFixed(0)  + 'MB';
+                if (value >= 1e3)  return (value / 1e3).toFixed(0)  + 'KB';
                 return value;
               }
             },
@@ -205,13 +354,13 @@ document.addEventListener('DOMContentLoaded', () => {
           showSymbol: false,
           data: revenues,
           lineStyle: {
-            color: '#00e5ff',
+            color: theme.accent,
             width: 2
           },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: 'rgba(0, 229, 255, 0.25)' },
-              { offset: 1, color: 'rgba(0, 229, 255, 0.0)' }
+              { offset: 0, color: theme.accent + '40' },
+              { offset: 1, color: theme.accent + '00' }
             ])
           }
         },
@@ -222,8 +371,9 @@ document.addEventListener('DOMContentLoaded', () => {
           smooth: true,
           showSymbol: false,
           data: capacities,
+          connectNulls: true, // BUG FIX #2: Connect line across null gaps
           lineStyle: {
-            color: rightLineColor,
+            color: theme.trendRightLine,
             width: 2
           }
         }
@@ -231,15 +381,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // Update Trend Chart vertical line cursor
+  // BUG FIX #8: Clear markLine properly by using full option replacement for markLine
   function updateTrendChartCursor() {
     const timelineData = getActiveTimelineData();
+    if (activeIndex >= timelineData.length) return;
     const label = timelineData[activeIndex].label;
+    const theme = getTheme();
+
     trendChart.setOption({
       series: [
         {
           name: 'Total Revenue',
           markLine: {
+            silent: true,
             symbol: 'none',
             label: { show: false },
             lineStyle: {
@@ -249,31 +403,60 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             data: [{ xAxis: label }]
           }
+        },
+        {
+          // Second series — explicitly clear any accidental markLine
         }
       ]
     });
   }
 
-  // Update Main Bar Chart Race
+  // ─── Race Bar Chart ──────────────────────────────────────────
   function updateRaceChart() {
     const timelineData = getActiveTimelineData();
     const companyColors = getActiveCompanyColors();
+
+    if (activeIndex >= timelineData.length) return;
     const activeData = timelineData[activeIndex];
-    
+
     const totalRev = activeData.total_revenue;
     const totalCap = activeData.total_bytes;
     const shares = activeData.shares;
-    
+
+    // BUG FIX #1: Guard against empty shares
+    if (!shares || Object.keys(shares).length === 0 || totalRev <= 0) {
+      raceChart.setOption({
+        backgroundColor: 'transparent',
+        title: {
+          text: 'No market data for this period',
+          left: 'center',
+          top: 'center',
+          textStyle: {
+            color: 'rgba(255,255,255,0.2)',
+            fontFamily: 'Outfit',
+            fontSize: 18,
+            fontWeight: 400
+          }
+        },
+        xAxis: { show: false },
+        yAxis: { show: false },
+        series: []
+      }, true); // true = notMerge, clear old chart
+      return;
+    }
+
     // Calculate sizes based on selected metric
+    const isRev = currentMetric === 'revenue';
     const chartData = [];
     for (const [company, share] of Object.entries(shares)) {
+      if (share <= 0) continue; // Skip zero-share companies for cleaner chart
       let value = 0;
-      if (currentMetric === 'revenue') {
+      if (isRev) {
         value = totalRev * (share / 100);
       } else {
         value = totalCap * (share / 100);
       }
-      
+
       chartData.push({
         name: company,
         value: parseFloat(value.toFixed(4)),
@@ -290,20 +473,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sort descending by value
     chartData.sort((a, b) => b.value - a.value);
 
-    // Dynamic scale helper for xAxis label formatter
-    const isRev = currentMetric === 'revenue';
-    
+    // BUG FIX #5: Dynamic yAxis max based on actual data count
+    const yAxisMax = Math.min(chartData.length - 1, 8);
+
+    // BUG FIX #4: Consistent scale formatter
+    const maxValue = chartData.length > 0 ? chartData[0].value : 1;
+    const axisFormatter = makeAxisFormatter(maxValue, isRev);
+    const labelFormatter = makeBarLabelFormatter(maxValue, isRev);
+
+    const theme = getTheme();
+
     const option = {
       backgroundColor: 'transparent',
+      // BUG FIX #6: Add tooltip
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: 'rgba(13, 20, 35, 0.95)',
+        borderColor: theme.accent + '33',
+        textStyle: {
+          color: '#f3f4f6',
+          fontFamily: 'Outfit',
+          fontSize: 13
+        },
+        formatter: function(params) {
+          const d = params.data;
+          let valStr;
+          if (isRev) {
+            valStr = '$' + params.value.toFixed(2) + 'B';
+          } else {
+            const fmt = formatMetricValue(params.value);
+            valStr = fmt.val + ' ' + fmt.unit;
+          }
+          return '<b>' + d.name + '</b><br/>' +
+            'Share: ' + d.share.toFixed(1) + '%<br/>' +
+            (isRev ? 'Revenue: ' : 'Capacity: ') + valStr;
+        }
+      },
       grid: {
         top: 10,
         bottom: 20,
         left: 140,
-        right: 90
+        right: 100
       },
       xAxis: {
         type: 'value',
-        max: 'maxData',
+        max: 'dataMax',
         splitLine: {
           lineStyle: {
             color: 'rgba(255, 255, 255, 0.04)'
@@ -312,21 +526,14 @@ document.addEventListener('DOMContentLoaded', () => {
         axisLabel: {
           color: '#9ca3af',
           fontFamily: 'Outfit',
-          formatter: function(value) {
-            if (isRev) {
-              return '$' + value.toFixed(1) + 'B';
-            } else {
-              const formatted = formatMetricValue(value);
-              return formatted.val + ' ' + formatted.unit;
-            }
-          }
+          formatter: axisFormatter
         }
       },
       yAxis: {
         type: 'category',
         data: chartData.map(item => item.name),
         inverse: true,
-        max: 8, // Show top 9 companies
+        max: yAxisMax,
         axisLine: {
           lineStyle: {
             color: 'rgba(255, 255, 255, 0.1)'
@@ -357,47 +564,77 @@ document.addEventListener('DOMContentLoaded', () => {
             color: '#f3f4f6',
             fontFamily: 'JetBrains Mono',
             fontWeight: 600,
-            fontSize: 12,
-            formatter: function(params) {
-              const share = params.data.share;
-              if (isRev) {
-                return `$${params.value.toFixed(2)}B (${share}%)`;
-              } else {
-                const formatted = formatMetricValue(params.value);
-                return `${formatted.val}${formatted.unit} (${share}%)`;
-              }
-            }
-          }
+            fontSize: 11,
+            formatter: labelFormatter
+          },
+          barMaxWidth: 28
         }
       ],
       animationDuration: 0,
-      animationDurationUpdate: playSpeed,
+      // BUG FIX #3: Use current playSpeed for animation duration
+      animationDurationUpdate: isPlaying ? playSpeed : 500,
       animationEasing: 'linear',
       animationEasingUpdate: 'linear'
     };
 
-    raceChart.setOption(option);
+    raceChart.setOption(option, true); // notMerge = true to clear stale state
   }
 
-  // Update dashboard controls and stats cards
+  // ─── Animated Counter ────────────────────────────────────────
+  // IMPROVEMENT #13: Smooth interpolated number counting animation
+  function animateCounters(targetRevenue, targetCapacity) {
+    if (counterAnimFrame) cancelAnimationFrame(counterAnimFrame);
+
+    const startRevenue = animatedRevenue;
+    const startCapacity = animatedCapacity;
+    const duration = 400; // ms
+    const startTime = performance.now();
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      animatedRevenue = startRevenue + (targetRevenue - startRevenue) * eased;
+      animatedCapacity = startCapacity + (targetCapacity - startCapacity) * eased;
+
+      statRevenueVal.textContent = animatedRevenue.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+
+      const formattedCap = formatMetricValue(animatedCapacity);
+      statCapacityVal.textContent = formattedCap.val;
+      statCapacityUnit.textContent = formattedCap.unit;
+
+      if (progress < 1) {
+        counterAnimFrame = requestAnimationFrame(step);
+      }
+    }
+
+    counterAnimFrame = requestAnimationFrame(step);
+  }
+
+  // ─── Update UI (Master) ──────────────────────────────────────
   function updateUI() {
     const timelineData = getActiveTimelineData();
+    if (activeIndex >= timelineData.length) {
+      activeIndex = timelineData.length - 1;
+    }
     const activeData = timelineData[activeIndex];
-    
+
     // Label and slider update
     currentPeriodLabel.textContent = activeData.label;
-    floatingYearDisplay.textContent = activeData.label.split(' ')[0]; // Show only year in huge display
+    // BUG FIX #10: Show full label including quarter
+    floatingYearDisplay.textContent = activeData.label;
     timelineSlider.value = activeIndex;
-    
-    // Stats cards update
-    statRevenueVal.textContent = activeData.total_revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    
-    const formattedCap = formatMetricValue(activeData.total_bytes);
-    statCapacityVal.textContent = formattedCap.val;
-    statCapacityUnit.textContent = formattedCap.unit;
-    
+
+    // Stats cards — animated (Improvement #13)
+    animateCounters(activeData.total_revenue, activeData.total_bytes);
+
     // Milestone update
-    if (activeData.milestone) {
+    if (activeData.milestone && activeData.milestone.trim() !== '') {
       milestoneContent.textContent = activeData.milestone;
       milestoneContent.classList.remove('empty');
       milestoneContent.parentElement.style.borderColor = 'var(--accent-gold)';
@@ -405,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
         milestoneContent.parentElement.style.borderColor = 'var(--panel-border)';
       }, 800);
     } else {
-      milestoneContent.textContent = "No major industry event recorded for this period.";
+      milestoneContent.textContent = 'No major industry event recorded for this period.';
       milestoneContent.classList.add('empty');
     }
 
@@ -414,13 +651,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTrendChartCursor();
   }
 
-  // Timer loop for Playback
+  // ─── Playback Controls ───────────────────────────────────────
   function playTimeline() {
     const timelineData = getActiveTimelineData();
     if (activeIndex >= timelineData.length - 1) {
-      activeIndex = 0; // Loop back
+      activeIndex = getSmartStartIndex(timelineData); // Loop back to smart start
     }
-    
+
     playInterval = setInterval(() => {
       const currentData = getActiveTimelineData();
       if (activeIndex < currentData.length - 1) {
@@ -436,48 +673,65 @@ document.addEventListener('DOMContentLoaded', () => {
     isPlaying = false;
     clearInterval(playInterval);
     playInterval = null;
-    
-    // UI update
+
     pauseIcon.style.display = 'none';
     playIcon.style.display = 'block';
   }
 
-  // Market Switcher (Tabs)
+  // ─── Market Switcher (Tabs) ──────────────────────────────────
   function switchMarket(market) {
     if (currentMarket === market) return;
     pauseTimeline();
-    currentMarket = market;
-    
-    // Update active tab buttons
-    [tabDram, tabFlash, tabLogic].forEach(tab => tab.classList.remove('active'));
-    if (market === 'dram') tabDram.classList.add('active');
-    else if (market === 'flash') tabFlash.classList.add('active');
-    else if (market === 'logic') tabLogic.classList.add('active');
-    
-    // Update labels and metric controls based on market type
-    const isLogic = market === 'logic';
-    
-    toggleBytesBtn.textContent = isLogic ? 'Transistors' : 'Capacity (Bytes)';
-    statCapacityLabel.textContent = isLogic ? 'Total Transistors Shipped' : 'Total Capacity Shipped';
-    
-    if (currentMetric === 'bytes') {
-      toggleBytesBtn.setAttribute('aria-pressed', 'true');
-      toggleRevenueBtn.setAttribute('aria-pressed', 'false');
-    }
-    
-    // Capping active index for safety
-    const timelineData = getActiveTimelineData();
-    timelineSlider.max = timelineData.length - 1;
-    activeIndex = Math.min(activeIndex, timelineData.length - 1);
-    
-    // Reinitialize trend chart configuration
-    trendChart.setOption(getTrendChartOptions(), true);
-    
-    // Update complete dashboard
-    updateUI();
+
+    // IMPROVEMENT #16: Tab transition animation
+    dashboardGrid.classList.add('transitioning');
+
+    // Small delay for CSS transition to start
+    setTimeout(() => {
+      currentMarket = market;
+
+      // Apply market-specific theme class to body (Improvement #14)
+      document.body.className = 'market-' + market;
+
+      // Update active tab buttons
+      [tabDram, tabFlash, tabLogic].forEach(tab => tab.classList.remove('active'));
+      if (market === 'dram') tabDram.classList.add('active');
+      else if (market === 'flash') tabFlash.classList.add('active');
+      else if (market === 'logic') tabLogic.classList.add('active');
+
+      // Update labels and metric controls based on market type
+      const isLogic = market === 'logic';
+      toggleBytesBtn.textContent = isLogic ? 'Transistors' : 'Capacity (Bytes)';
+      statCapacityLabel.textContent = isLogic ? 'Total Transistors Shipped' : 'Total Capacity Shipped';
+
+      // Capping active index + smart start (Improvement #12)
+      const timelineData = getActiveTimelineData();
+      timelineSlider.max = timelineData.length - 1;
+
+      // Jump to smart start for this market
+      const smartStart = getSmartStartIndex(timelineData);
+      activeIndex = smartStart;
+
+      // Reset animated counter state for smooth transition
+      animatedRevenue = timelineData[activeIndex].total_revenue;
+      animatedCapacity = timelineData[activeIndex].total_bytes;
+
+      // Reinitialize trend chart configuration (full replace)
+      trendChart.setOption(getTrendChartOptions(), true);
+
+      // Update complete dashboard
+      updateUI();
+
+      // BUG FIX #7: Resize charts after tab switch
+      setTimeout(() => {
+        raceChart.resize();
+        trendChart.resize();
+        dashboardGrid.classList.remove('transitioning');
+      }, 60);
+    }, 150); // Wait for fade-out transition
   }
 
-  // Event Listeners
+  // ─── Event Listeners ─────────────────────────────────────────
   playBtn.addEventListener('click', () => {
     if (isPlaying) {
       pauseTimeline();
@@ -489,12 +743,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // BUG FIX #3: Re-render chart on speed change for animation sync
   speedControl.addEventListener('change', (e) => {
     playSpeed = parseInt(e.target.value);
     if (isPlaying) {
       clearInterval(playInterval);
       playTimeline();
     }
+    // Update chart animation duration to match
+    updateRaceChart();
   });
 
   timelineSlider.addEventListener('input', (e) => {
@@ -529,12 +786,27 @@ document.addEventListener('DOMContentLoaded', () => {
   tabLogic.addEventListener('click', () => switchMarket('logic'));
 
   // Handle window resizing
+  let resizeTimeout;
   window.addEventListener('resize', () => {
-    raceChart.resize();
-    trendChart.resize();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      raceChart.resize();
+      trendChart.resize();
+    }, 100);
   });
 
-  // Initial execution
+  // ─── Initial Execution ───────────────────────────────────────
+  document.body.className = 'market-dram';
+
+  const initData = getActiveTimelineData();
+  // BUG FIX #9: Set slider max on init
+  timelineSlider.max = initData.length - 1;
+  activeIndex = getSmartStartIndex(initData);
+
+  // Set initial animated values (no animation for first render)
+  animatedRevenue = initData[activeIndex].total_revenue;
+  animatedCapacity = initData[activeIndex].total_bytes;
+
   trendChart.setOption(getTrendChartOptions());
   updateUI();
 });
