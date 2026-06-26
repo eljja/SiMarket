@@ -1,7 +1,8 @@
-// app.js - Main Application Logic for DRAM Market History Dashboard
+// app.js - Expanded Semiconductor Market Dashboard Logic
 
 document.addEventListener('DOMContentLoaded', () => {
   // Application State
+  let currentMarket = 'dram'; // 'dram', 'flash', or 'logic'
   let activeIndex = 0;
   let isPlaying = false;
   let playInterval = null;
@@ -18,17 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleRevenueBtn = document.getElementById('toggle-revenue');
   const toggleBytesBtn = document.getElementById('toggle-bytes');
   
+  const statRevenueLabel = document.getElementById('stat-revenue-label');
   const statRevenueVal = document.getElementById('stat-revenue-val');
+  const statCapacityLabel = document.getElementById('stat-capacity-label');
   const statCapacityVal = document.getElementById('stat-capacity-val');
   const statCapacityUnit = document.getElementById('stat-capacity-unit');
   const milestoneContent = document.getElementById('milestone-text');
-  
   const floatingYearDisplay = document.getElementById('floating-year-display');
   
-  // Setup timeline slider range
-  timelineSlider.min = 0;
-  timelineSlider.max = dramTimelineData.length - 1;
-  timelineSlider.value = 0;
+  // Tab Switcher Buttons
+  const tabDram = document.getElementById('tab-dram');
+  const tabFlash = document.getElementById('tab-flash');
+  const tabLogic = document.getElementById('tab-logic');
 
   // Initialize ECharts instances
   const raceChartDom = document.getElementById('race-chart');
@@ -37,7 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const trendChartDom = document.getElementById('trend-chart');
   const trendChart = echarts.init(trendChartDom);
 
-  // Helper: Format Bytes into human-readable units (Exabytes, Petabytes, etc.)
+  // Helper functions to get active database and styles
+  function getActiveTimelineData() {
+    if (currentMarket === 'dram') return dramTimelineData;
+    if (currentMarket === 'flash') return flashTimelineData;
+    return logicTimelineData;
+  }
+
+  function getActiveCompanyColors() {
+    if (currentMarket === 'dram') return dramCompanyColors;
+    if (currentMarket === 'flash') return flashCompanyColors;
+    return logicCompanyColors;
+  }
+
+  // Formatting helpers
   function formatBytes(bytes) {
     if (bytes === 0) return { val: '0', unit: 'Bytes' };
     const k = 1000;
@@ -50,11 +65,37 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  function formatTransistors(count) {
+    if (count === 0) return { val: '0', unit: 'Transistors' };
+    const k = 1000;
+    const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT', 'SX']; // Thousand, Million, Billion, Trillion, etc.
+    const i = Math.floor(Math.log10(count) / 3);
+    const val = parseFloat((count / Math.pow(k, i)).toFixed(2));
+    return {
+      val: val.toLocaleString(),
+      unit: sizes[i] + ' Transistors'
+    };
+  }
+
+  function formatMetricValue(value) {
+    if (currentMarket === 'logic') {
+      return formatTransistors(value);
+    } else {
+      return formatBytes(value);
+    }
+  }
+
   // Setup options for the Trend Area/Line Chart (Dual Y-Axis: Revenue & Capacity Log scale)
   function getTrendChartOptions() {
-    const dates = dramTimelineData.map(d => d.label);
-    const revenues = dramTimelineData.map(d => d.total_revenue);
-    const capacities = dramTimelineData.map(d => d.total_bytes);
+    const timelineData = getActiveTimelineData();
+    const dates = timelineData.map(d => d.label);
+    const revenues = timelineData.map(d => d.total_revenue);
+    const capacities = timelineData.map(d => d.total_bytes);
+    
+    const isLogic = currentMarket === 'logic';
+    const capName = isLogic ? 'Transistors' : 'Capacity';
+    const rightAxisColor = isLogic ? 'rgba(118, 185, 0, 0.4)' : 'rgba(168, 85, 247, 0.4)';
+    const rightLineColor = isLogic ? '#76b900' : '#a855f7';
 
     return {
       backgroundColor: 'transparent',
@@ -77,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         top: 40,
         bottom: 30,
         left: 55,
-        right: 55
+        right: 65
       },
       xAxis: {
         type: 'category',
@@ -92,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
           color: '#9ca3af',
           fontFamily: 'Outfit',
           interval: function(index, value) {
-            // Show label every 10 steps or if it's the last one
             return index % 12 === 0 || index === dates.length - 1;
           }
         }
@@ -121,24 +161,32 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           type: 'log',
-          name: 'Capacity',
+          name: capName,
           position: 'right',
           logBase: 10,
           axisLine: {
             show: true,
             lineStyle: {
-              color: 'rgba(168, 85, 247, 0.3)'
+              color: rightAxisColor
             }
           },
           axisLabel: {
             formatter: function(value) {
-              // Convert raw byte logarithm labels to readable labels
-              if (value >= 1e18) return (value / 1e18) + 'EB';
-              if (value >= 1e15) return (value / 1e15) + 'PB';
-              if (value >= 1e12) return (value / 1e12) + 'TB';
-              if (value >= 1e9) return (value / 1e9) + 'GB';
-              if (value >= 1e6) return (value / 1e6) + 'MB';
-              return value;
+              if (isLogic) {
+                if (value >= 1e18) return (value / 1e18) + 'SX';
+                if (value >= 1e15) return (value / 1e15) + 'QT';
+                if (value >= 1e12) return (value / 1e12) + 'QD';
+                if (value >= 1e9) return (value / 1e9) + 'B';
+                if (value >= 1e6) return (value / 1e6) + 'M';
+                return value;
+              } else {
+                if (value >= 1e18) return (value / 1e18) + 'EB';
+                if (value >= 1e15) return (value / 1e15) + 'PB';
+                if (value >= 1e12) return (value / 1e12) + 'TB';
+                if (value >= 1e9) return (value / 1e9) + 'GB';
+                if (value >= 1e6) return (value / 1e6) + 'MB';
+                return value;
+              }
             },
             color: '#9ca3af',
             fontFamily: 'Outfit'
@@ -168,14 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         },
         {
-          name: 'Total Capacity',
+          name: isLogic ? 'Total Transistors' : 'Total Capacity',
           type: 'line',
           yAxisIndex: 1,
           smooth: true,
           showSymbol: false,
           data: capacities,
           lineStyle: {
-            color: '#a855f7',
+            color: rightLineColor,
             width: 2
           }
         }
@@ -185,7 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update Trend Chart vertical line cursor
   function updateTrendChartCursor() {
-    const label = dramTimelineData[activeIndex].label;
+    const timelineData = getActiveTimelineData();
+    const label = timelineData[activeIndex].label;
     trendChart.setOption({
       series: [
         {
@@ -207,7 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update Main Bar Chart Race
   function updateRaceChart() {
-    const activeData = dramTimelineData[activeIndex];
+    const timelineData = getActiveTimelineData();
+    const companyColors = getActiveCompanyColors();
+    const activeData = timelineData[activeIndex];
+    
     const totalRev = activeData.total_revenue;
     const totalCap = activeData.total_bytes;
     const shares = activeData.shares;
@@ -227,10 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
         value: parseFloat(value.toFixed(4)),
         share: share,
         itemStyle: {
-          color: dramCompanyColors[company] || dramCompanyColors['Others'],
+          color: companyColors[company] || companyColors['Others'],
           borderRadius: [0, 4, 4, 0],
           shadowBlur: 8,
-          shadowColor: (dramCompanyColors[company] || dramCompanyColors['Others']) + '55'
+          shadowColor: (companyColors[company] || companyColors['Others']) + '55'
         }
       });
     }
@@ -264,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isRev) {
               return '$' + value.toFixed(1) + 'B';
             } else {
-              const formatted = formatBytes(value);
+              const formatted = formatMetricValue(value);
               return formatted.val + ' ' + formatted.unit;
             }
           }
@@ -311,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
               if (isRev) {
                 return `$${params.value.toFixed(2)}B (${share}%)`;
               } else {
-                const formatted = formatBytes(params.value);
+                const formatted = formatMetricValue(params.value);
                 return `${formatted.val}${formatted.unit} (${share}%)`;
               }
             }
@@ -329,7 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update dashboard controls and stats cards
   function updateUI() {
-    const activeData = dramTimelineData[activeIndex];
+    const timelineData = getActiveTimelineData();
+    const activeData = timelineData[activeIndex];
     
     // Label and slider update
     currentPeriodLabel.textContent = activeData.label;
@@ -339,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Stats cards update
     statRevenueVal.textContent = activeData.total_revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     
-    const formattedCap = formatBytes(activeData.total_bytes);
+    const formattedCap = formatMetricValue(activeData.total_bytes);
     statCapacityVal.textContent = formattedCap.val;
     statCapacityUnit.textContent = formattedCap.unit;
     
@@ -347,7 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeData.milestone) {
       milestoneContent.textContent = activeData.milestone;
       milestoneContent.classList.remove('empty');
-      // Highlight effect
       milestoneContent.parentElement.style.borderColor = 'var(--accent-gold)';
       setTimeout(() => {
         milestoneContent.parentElement.style.borderColor = 'var(--panel-border)';
@@ -364,12 +416,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Timer loop for Playback
   function playTimeline() {
-    if (activeIndex >= dramTimelineData.length - 1) {
+    const timelineData = getActiveTimelineData();
+    if (activeIndex >= timelineData.length - 1) {
       activeIndex = 0; // Loop back
     }
     
     playInterval = setInterval(() => {
-      if (activeIndex < dramTimelineData.length - 1) {
+      const currentData = getActiveTimelineData();
+      if (activeIndex < currentData.length - 1) {
         activeIndex++;
         updateUI();
       } else {
@@ -388,6 +442,41 @@ document.addEventListener('DOMContentLoaded', () => {
     playIcon.style.display = 'block';
   }
 
+  // Market Switcher (Tabs)
+  function switchMarket(market) {
+    if (currentMarket === market) return;
+    pauseTimeline();
+    currentMarket = market;
+    
+    // Update active tab buttons
+    [tabDram, tabFlash, tabLogic].forEach(tab => tab.classList.remove('active'));
+    if (market === 'dram') tabDram.classList.add('active');
+    else if (market === 'flash') tabFlash.classList.add('active');
+    else if (market === 'logic') tabLogic.classList.add('active');
+    
+    // Update labels and metric controls based on market type
+    const isLogic = market === 'logic';
+    
+    toggleBytesBtn.textContent = isLogic ? 'Transistors' : 'Capacity (Bytes)';
+    statCapacityLabel.textContent = isLogic ? 'Total Transistors Shipped' : 'Total Capacity Shipped';
+    
+    if (currentMetric === 'bytes') {
+      toggleBytesBtn.setAttribute('aria-pressed', 'true');
+      toggleRevenueBtn.setAttribute('aria-pressed', 'false');
+    }
+    
+    // Capping active index for safety
+    const timelineData = getActiveTimelineData();
+    timelineSlider.max = timelineData.length - 1;
+    activeIndex = Math.min(activeIndex, timelineData.length - 1);
+    
+    // Reinitialize trend chart configuration
+    trendChart.setOption(getTrendChartOptions(), true);
+    
+    // Update complete dashboard
+    updateUI();
+  }
+
   // Event Listeners
   playBtn.addEventListener('click', () => {
     if (isPlaying) {
@@ -402,8 +491,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   speedControl.addEventListener('change', (e) => {
     playSpeed = parseInt(e.target.value);
-    
-    // Reset timer with new speed if playing
     if (isPlaying) {
       clearInterval(playInterval);
       playTimeline();
@@ -421,6 +508,8 @@ document.addEventListener('DOMContentLoaded', () => {
     currentMetric = 'revenue';
     toggleRevenueBtn.classList.add('active');
     toggleBytesBtn.classList.remove('active');
+    toggleRevenueBtn.setAttribute('aria-pressed', 'true');
+    toggleBytesBtn.setAttribute('aria-pressed', 'false');
     updateRaceChart();
   });
 
@@ -429,8 +518,15 @@ document.addEventListener('DOMContentLoaded', () => {
     currentMetric = 'bytes';
     toggleBytesBtn.classList.add('active');
     toggleRevenueBtn.classList.remove('active');
+    toggleBytesBtn.setAttribute('aria-pressed', 'true');
+    toggleRevenueBtn.setAttribute('aria-pressed', 'false');
     updateRaceChart();
   });
+
+  // Bind tab clicks
+  tabDram.addEventListener('click', () => switchMarket('dram'));
+  tabFlash.addEventListener('click', () => switchMarket('flash'));
+  tabLogic.addEventListener('click', () => switchMarket('logic'));
 
   // Handle window resizing
   window.addEventListener('resize', () => {

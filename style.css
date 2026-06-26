@@ -136,6 +136,39 @@ header::before {
   gap: 1rem;
 }
 
+/* Market Selector Tabs */
+.market-selector {
+  display: flex;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--panel-border);
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 8px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+  background: var(--accent-cyan);
+  color: #030508;
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+}
+
 /* Glass Panel Styling */
 .glass-panel {
   background: var(--panel-bg);

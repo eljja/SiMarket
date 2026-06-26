@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SiMarket - Interactive DRAM Market History Dashboard (1970–2026)</title>
+  <title>SiMarket - Global Semiconductor Market Analytics Dashboard (1970–2026)</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Explore the comprehensive history of the global DRAM semiconductor market from 1970 to 2026. Interactive charts, market sizes, quarterly shares, and historical milestones.">
-  <meta name="keywords" content="DRAM, Semiconductor, Market Share, Memory Market, Samsung, SK Hynix, Micron, Elpida, Qimonda, Interactive Chart, Bar Chart Race">
+  <meta name="description" content="Explore the comprehensive history of the global semiconductor memory and logic markets from 1970 to 2026. Interactive charts, market sizes, and historical milestones.">
+  <meta name="keywords" content="DRAM, Flash, NAND, Logic, Semiconductor, Market Share, Memory Market, Samsung, SK Hynix, Micron, Kioxia, NVIDIA, Intel, AMD, TSMC, Bar Chart Race">
   <meta name="author" content="SiMarket Group">
   
   <!-- CSS Stylesheet -->
@@ -16,14 +16,15 @@
 <body>
 
   <div class="app-container">
-    <!-- Header -->
     <header class="glass-panel">
       <div class="logo-section">
         <h1>Si<span>Market</span></h1>
-        <p>Semiconductor Memory Intelligence Analytics</p>
+        <p>Global Semiconductor Market Intelligence</p>
       </div>
-      <div class="controls-global">
-        <!-- Optional global settings can go here -->
+      <div class="market-selector">
+        <button id="tab-dram" class="tab-btn active">DRAM Market</button>
+        <button id="tab-flash" class="tab-btn">Flash Memory</button>
+        <button id="tab-logic" class="tab-btn">Logic IC</button>
       </div>
     </header>
 
@@ -34,7 +35,7 @@
       <section class="glass-panel main-viz-panel" aria-labelledby="viz-title-id">
         <div class="viz-header">
           <div class="viz-title">
-            <h2 id="viz-title-id">Global DRAM Supplier Market Rank & Size</h2>
+            <h2 id="viz-title-id">Supplier Market Rank & Size</h2>
             <p>Animated ranking changes and individual supplier share metrics over time</p>
           </div>
           <div class="viz-actions">
@@ -84,7 +85,7 @@
         <!-- Total Market stats card -->
         <div class="glass-panel stats-card">
           <div class="stat-item">
-            <span class="stat-label">Total DRAM Market Revenue</span>
+            <span id="stat-revenue-label" class="stat-label">Total Market Revenue</span>
             <div class="stat-value-container">
               <span class="stat-unit">$</span>
               <span id="stat-revenue-val" class="stat-value">0.00</span>
@@ -95,7 +96,7 @@
           <div class="stat-divider"></div>
           
           <div class="stat-item">
-            <span class="stat-label">Total Byte Capacity Shipped</span>
+            <span id="stat-capacity-label" class="stat-label">Total Capacity Shipped</span>
             <div class="stat-value-container">
               <span id="stat-capacity-val" class="stat-value">0</span>
               <span id="stat-capacity-unit" class="stat-unit">Bytes</span>
