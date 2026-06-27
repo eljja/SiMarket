@@ -416,8 +416,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       chartData.push({
-        // Store multi-dimensional value array: [value, companyName, sharePercentage]
-        value: [parseFloat(value.toFixed(4)), company, share],
+        name: company,
+        value: parseFloat(value.toFixed(4)),
+        share: share,
         itemStyle: {
           color: companyColors[company] || companyColors['Others'],
           borderRadius: [0, 4, 4, 0],
@@ -427,14 +428,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Sort descending by value (dimension 0) in JS to find maxValue for xAxis formatting and dynamic yAxisMax
-    chartData.sort((a, b) => b.value[0] - a.value[0]);
+    // Sort descending by value in JS
+    chartData.sort((a, b) => b.value - a.value);
 
     // BUG FIX #5: Dynamic yAxis max based on actual data count (at least 0)
     const yAxisMax = Math.max(0, Math.min(chartData.length - 1, 8));
 
     // BUG FIX #4: Consistent scale formatter
-    const maxValue = chartData.length > 0 ? chartData[0].value[0] : 1;
+    const maxValue = chartData.length > 0 ? chartData[0].value : 1;
     const axisFormatter = makeAxisFormatter(maxValue, isRev);
 
     const theme = getTheme();
@@ -456,18 +457,17 @@ document.addEventListener('DOMContentLoaded', () => {
           fontSize: 13
         },
         formatter: function(params) {
-          if (!params || !params.value) return '';
-          const val = params.value[0];
-          const name = params.value[1];
-          const share = params.value[2];
+          const d = params.data;
+          if (!d) return '';
           let valStr;
           if (isRev) {
-            valStr = '$' + val.toFixed(2) + 'B';
+            valStr = '$' + params.value.toFixed(2) + 'B';
           } else {
-            const fmt = formatMetricValue(val);
+            const fmt = formatMetricValue(params.value);
             valStr = fmt.val + ' ' + fmt.unit;
           }
-          return '<b>' + name + '</b><br/>' +
+          const share = d.share != null ? d.share : 0;
+          return '<b>' + d.name + '</b><br/>' +
             'Share: ' + share.toFixed(1) + '%<br/>' +
             (isRev ? 'Revenue: ' : 'Capacity: ') + valStr;
         }
@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       yAxis: {
         type: 'category',
-        // Omitted data here so ECharts automatically sorts and maps categories dynamically from series.data value dimension
+        data: chartData.map(item => item.name), // Set yAxis categories explicitly every frame to prevent locked category scales
         inverse: true,
         max: yAxisMax,
         axisLine: {
@@ -517,10 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
           seriesLayoutBy: 'column',
           type: 'bar',
           data: chartData,
-          encode: {
-            x: 0, // map value (dimension 0) to x-axis
-            y: 1  // map name (dimension 1) to y-axis
-          },
           label: {
             show: true,
             position: 'right',
@@ -530,9 +526,10 @@ document.addEventListener('DOMContentLoaded', () => {
             fontWeight: 600,
             fontSize: 11,
             formatter: function(params) {
-              if (!params || !params.value) return '';
-              const val = params.value[0];
-              const share = params.value[2];
+              const d = params.data;
+              if (!d) return '';
+              const share = d.share != null ? d.share : 0;
+              const val = typeof params.value === 'number' ? params.value : 0;
               if (isRev) {
                 return '$' + val.toFixed(2) + 'B (' + share.toFixed(1) + '%)';
               } else {
