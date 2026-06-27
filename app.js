@@ -151,46 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Fixed-scale label formatter for race chart bar labels
-  function makeBarLabelFormatter(maxValue, isRevenue) {
-    if (isRevenue) {
-      return function(params) {
-        const share = params.data.share;
-        return '$' + params.value.toFixed(2) + 'B (' + share.toFixed(1) + '%)';
-      };
-    }
-
-    const isLogic = currentMarket === 'logic';
-    const units = isLogic
-      ? [
-          { threshold: 1e21, divisor: 1e21, suffix: 'SX' },
-          { threshold: 1e18, divisor: 1e18, suffix: 'QT' },
-          { threshold: 1e15, divisor: 1e15, suffix: 'QD' },
-          { threshold: 1e12, divisor: 1e12, suffix: 'T' },
-          { threshold: 1e9,  divisor: 1e9,  suffix: 'B' },
-          { threshold: 1e6,  divisor: 1e6,  suffix: 'M' },
-          { threshold: 1e3,  divisor: 1e3,  suffix: 'K' },
-        ]
-      : [
-          { threshold: 1e18, divisor: 1e18, suffix: 'EB' },
-          { threshold: 1e15, divisor: 1e15, suffix: 'PB' },
-          { threshold: 1e12, divisor: 1e12, suffix: 'TB' },
-          { threshold: 1e9,  divisor: 1e9,  suffix: 'GB' },
-          { threshold: 1e6,  divisor: 1e6,  suffix: 'MB' },
-          { threshold: 1e3,  divisor: 1e3,  suffix: 'KB' },
-        ];
-
-    let chosenUnit = { divisor: 1, suffix: isLogic ? '' : 'B' };
-    for (const u of units) {
-      if (maxValue >= u.threshold) { chosenUnit = u; break; }
-    }
-
-    return function(params) {
-      const share = params.data.share;
-      const scaled = (params.value / chosenUnit.divisor).toFixed(2);
-      return scaled + ' ' + chosenUnit.suffix + ' (' + share.toFixed(1) + '%)';
-    };
-  }
+  // makeBarLabelFormatter removed in favor of inline 2D array formatting
 
   // ─── Market Theme Colors ─────────────────────────────────────
   const marketThemes = {
@@ -403,9 +364,6 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             data: [{ xAxis: label }]
           }
-        },
-        {
-          // Second series — explicitly clear any accidental markLine
         }
       ]
     });
@@ -458,9 +416,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       chartData.push({
-        name: company,
-        value: parseFloat(value.toFixed(4)),
-        share: share,
+        // Store multi-dimensional value array: [value, companyName, sharePercentage]
+        value: [parseFloat(value.toFixed(4)), company, share],
         itemStyle: {
           color: companyColors[company] || companyColors['Others'],
           borderRadius: [0, 4, 4, 0],
@@ -470,16 +427,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Sort descending by value
-    chartData.sort((a, b) => b.value - a.value);
+    // Sort descending by value (dimension 0) in JS to find maxValue for xAxis formatting and dynamic yAxisMax
+    chartData.sort((a, b) => b.value[0] - a.value[0]);
 
     // BUG FIX #5: Dynamic yAxis max based on actual data count (at least 0)
     const yAxisMax = Math.max(0, Math.min(chartData.length - 1, 8));
 
     // BUG FIX #4: Consistent scale formatter
-    const maxValue = chartData.length > 0 ? chartData[0].value : 1;
+    const maxValue = chartData.length > 0 ? chartData[0].value[0] : 1;
     const axisFormatter = makeAxisFormatter(maxValue, isRev);
-    const labelFormatter = makeBarLabelFormatter(maxValue, isRev);
 
     const theme = getTheme();
 
@@ -500,17 +456,18 @@ document.addEventListener('DOMContentLoaded', () => {
           fontSize: 13
         },
         formatter: function(params) {
-          const d = params.data;
-          if (!d) return '';
+          if (!params || !params.value) return '';
+          const val = params.value[0];
+          const name = params.value[1];
+          const share = params.value[2];
           let valStr;
           if (isRev) {
-            valStr = '$' + params.value.toFixed(2) + 'B';
+            valStr = '$' + val.toFixed(2) + 'B';
           } else {
-            const fmt = formatMetricValue(params.value);
+            const fmt = formatMetricValue(val);
             valStr = fmt.val + ' ' + fmt.unit;
           }
-          const share = d.share != null ? d.share : 0;
-          return '<b>' + d.name + '</b><br/>' +
+          return '<b>' + name + '</b><br/>' +
             'Share: ' + share.toFixed(1) + '%<br/>' +
             (isRev ? 'Revenue: ' : 'Capacity: ') + valStr;
         }
@@ -537,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       yAxis: {
         type: 'category',
-        // Omitted data here so ECharts automatically sorts and maps categories dynamically from series.data name attribute
+        // Omitted data here so ECharts automatically sorts and maps categories dynamically from series.data value dimension
         inverse: true,
         max: yAxisMax,
         axisLine: {
@@ -561,7 +518,8 @@ document.addEventListener('DOMContentLoaded', () => {
           type: 'bar',
           data: chartData,
           encode: {
-            value: 0
+            x: 0, // map value (dimension 0) to x-axis
+            y: 1  // map name (dimension 1) to y-axis
           },
           label: {
             show: true,
@@ -571,7 +529,17 @@ document.addEventListener('DOMContentLoaded', () => {
             fontFamily: 'JetBrains Mono',
             fontWeight: 600,
             fontSize: 11,
-            formatter: labelFormatter
+            formatter: function(params) {
+              if (!params || !params.value) return '';
+              const val = params.value[0];
+              const share = params.value[2];
+              if (isRev) {
+                return '$' + val.toFixed(2) + 'B (' + share.toFixed(1) + '%)';
+              } else {
+                const formatted = formatMetricValue(val);
+                return formatted.val + ' ' + formatted.unit + ' (' + share.toFixed(1) + '%)';
+              }
+            }
           },
           barMaxWidth: 28
         }
