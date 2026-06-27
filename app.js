@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const statCapacityLabel = document.getElementById('stat-capacity-label');
   const statCapacityVal = document.getElementById('stat-capacity-val');
   const statCapacityUnit = document.getElementById('stat-capacity-unit');
-  const milestoneContent = document.getElementById('milestone-text');
+  const milestoneList = document.getElementById('milestone-list');
   const floatingYearDisplay = document.getElementById('floating-year-display');
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
@@ -605,17 +605,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // Stats cards — animated (Improvement #13)
     animateCounters(activeData.total_revenue, activeData.total_bytes);
 
-    // Milestone update
-    if (activeData.milestone && activeData.milestone.trim() !== '') {
-      milestoneContent.textContent = activeData.milestone;
-      milestoneContent.classList.remove('empty');
-      milestoneContent.parentElement.style.borderColor = 'var(--accent-gold)';
-      setTimeout(() => {
-        milestoneContent.parentElement.style.borderColor = 'var(--panel-border)';
-      }, 800);
+    // Milestone stream update
+    milestoneList.innerHTML = '';
+    let latestMilestoneIndex = -1;
+
+    // Find all milestones up to the current activeIndex
+    const activeMilestones = [];
+    for (let i = 0; i <= activeIndex; i++) {
+      if (timelineData[i].milestone && timelineData[i].milestone.trim() !== '') {
+        activeMilestones.push({
+          index: i,
+          label: timelineData[i].label,
+          text: timelineData[i].milestone
+        });
+        latestMilestoneIndex = i;
+      }
+    }
+
+    if (activeMilestones.length === 0) {
+      milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">No major industry events recorded yet.</div>';
     } else {
-      milestoneContent.textContent = 'No major industry event recorded for this period.';
-      milestoneContent.classList.add('empty');
+      activeMilestones.forEach(m => {
+        const item = document.createElement('div');
+        item.className = 'milestone-item';
+        
+        // If this is the latest milestone, mark it as active; otherwise past (grayed out)
+        if (m.index === latestMilestoneIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.add('past');
+        }
+
+        item.innerHTML = `
+          <span class="milestone-year">${m.label}</span>
+          <p class="milestone-text">${m.text}</p>
+        `;
+        milestoneList.appendChild(item);
+      });
+
+      // Scroll container to the bottom so older events scroll out upwards
+      setTimeout(() => {
+        milestoneList.scrollTop = milestoneList.scrollHeight;
+      }, 50);
     }
 
     // Refresh charts

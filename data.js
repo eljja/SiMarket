@@ -84,7 +84,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "Intel ramps up DRAM manufacturing, ship volume exceeds core memory for the first time."
   },
   {
     "label": "1972",
@@ -104,7 +104,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "Mostek enters DRAM, introducing ion-implantation technology for high yield."
   },
   {
     "label": "1973",
@@ -144,7 +144,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "Intel introduces the 2107A 4Kb DRAM, attempting to set a standards battle with Mostek."
   },
   {
     "label": "1975",
@@ -164,7 +164,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "Japanese firms establish the VLSI cooperative lab to catch up with US technology."
   },
   {
     "label": "1976",
@@ -204,7 +204,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "Mostek controls 85% of the high-performance 4Kb market, becoming the world's largest DRAM supplier."
   },
   {
     "label": "1978",
@@ -244,7 +244,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "NEC releases the uPD416 (16Kb DRAM), starting the first wave of Japanese export spikes."
   },
   {
     "label": "1980",
@@ -264,7 +264,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 0.0
     },
-    "milestone": ""
+    "milestone": "Mostek MK4116 16Kb DRAM reaches peak production, but severe pricing pressure begins."
   },
   {
     "label": "1981",
@@ -304,7 +304,7 @@ const dramTimelineData = [
       "SK Hynix": 0.0,
       "Micron": 1.32
     },
-    "milestone": ""
+    "milestone": "Micron introduces its first 64K DRAM, designed with a smaller die size than competitors."
   },
   {
     "label": "1983",
@@ -344,7 +344,7 @@ const dramTimelineData = [
       "SK Hynix": 0.83,
       "Micron": 3.33
     },
-    "milestone": ""
+    "milestone": "Toshiba displays the world's first 1 Megabit DRAM at the ISSCC, showcasing high scaling."
   },
   {
     "label": "1985",
@@ -398,7 +398,7 @@ const dramTimelineData = [
       "Samsung": 7.17,
       "SK Hynix": 2.39
     },
-    "milestone": ""
+    "milestone": "Japanese DRAM firms cut production by 30% to stabilize prices under US pressure."
   },
   {
     "label": "1988",
@@ -416,7 +416,7 @@ const dramTimelineData = [
       "Samsung": 8.89,
       "SK Hynix": 2.96
     },
-    "milestone": ""
+    "milestone": "Megabit DRAM shortage: PC manufacturers face severe bottlenecks as prices double."
   },
   {
     "label": "1989",
@@ -453,7 +453,7 @@ const dramTimelineData = [
       "Texas Instruments": 6.06,
       "Nanya": 0.0
     },
-    "milestone": ""
+    "milestone": "Samsung ships first samples of 16Mb DRAM, closing the technology gap with Japan."
   },
   {
     "label": "1991",
@@ -472,7 +472,7 @@ const dramTimelineData = [
       "Texas Instruments": 5.73,
       "Nanya": 0.0
     },
-    "milestone": ""
+    "milestone": "Toshiba and Siemens form a joint venture to develop 64Mb DRAM technology."
   },
   {
     "label": "1992",
@@ -510,7 +510,7 @@ const dramTimelineData = [
       "Texas Instruments": 5.04,
       "Nanya": 0.0
     },
-    "milestone": ""
+    "milestone": "Korean DRAM exports exceed $2 Billion, surpassing domestic consumption."
   },
   {
     "label": "1994",
@@ -529,7 +529,7 @@ const dramTimelineData = [
       "Texas Instruments": 4.68,
       "Nanya": 0.0
     },
-    "milestone": ""
+    "milestone": "Samsung develops the world's first 256Mb DRAM prototype using 0.25-micron process."
   },
   {
     "label": "1995",
@@ -586,7 +586,7 @@ const dramTimelineData = [
       "Texas Instruments": 3.49,
       "Nanya": 1.63
     },
-    "milestone": ""
+    "milestone": "DRAM manufacturers begin shipping SDRAM (Synchronous DRAM), replacing traditional EDO RAM."
   },
   {
     "label": "1998",
@@ -637,7 +637,7 @@ const dramTimelineData = [
       "Nanya": 2.79,
       "Others": 13.93
     },
-    "milestone": ""
+    "milestone": "DDR1 (Double Data Rate) SDRAM begins shipping in volume, doubling bandwidth."
   },
   {
     "label": "2001",
@@ -669,7 +669,7 @@ const dramTimelineData = [
       "Nanya": 3.35,
       "Others": 10.84
     },
-    "milestone": ""
+    "milestone": "Hynix faces heavy anti-dumping duties in the US and Europe, triggering structural overhaul."
   },
   {
     "label": "2003",
@@ -701,7 +701,7 @@ const dramTimelineData = [
       "Nanya": 3.9,
       "Others": 7.8
     },
-    "milestone": ""
+    "milestone": "Samsung launches the first 80nm DDR2 DRAM, improving power efficiency by 30%."
   },
   {
     "label": "2005",
@@ -717,7 +717,7 @@ const dramTimelineData = [
       "Nanya": 4.17,
       "Others": 6.31
     },
-    "milestone": ""
+    "milestone": "GDDR3 memory becomes the standard for high-end graphics cards and game consoles."
   },
   {
     "label": "2006 Q1",
@@ -797,7 +797,7 @@ const dramTimelineData = [
       "Nanya": 4.0,
       "Others": 6.0
     },
-    "milestone": ""
+    "milestone": "DDR3 DRAM begins shipping, reducing voltage from 1.8V to 1.5V."
   },
   {
     "label": "2007 Q2",
@@ -984,7 +984,7 @@ const dramTimelineData = [
       "Nanya": 4.0,
       "Others": 6.5
     },
-    "milestone": ""
+    "milestone": "Industry transitions to 30nm-class nodes; Samsung dominates high-margin server DRAM."
   },
   {
     "label": "2010 Q2",
@@ -1221,7 +1221,7 @@ const dramTimelineData = [
       "Nanya": 3.25,
       "Others": 4.0
     },
-    "milestone": ""
+    "milestone": "DDR4 DRAM becomes mainstream in enterprise servers and high-end PCs."
   },
   {
     "label": "2014 Q2",
@@ -1277,7 +1277,7 @@ const dramTimelineData = [
       "Nanya": 3.05,
       "Others": 4.0
     },
-    "milestone": ""
+    "milestone": "Samsung and SK Hynix begin volume production of HBM1/HBM2 for specialized compute cards."
   },
   {
     "label": "2015 Q2",
@@ -1558,7 +1558,7 @@ const dramTimelineData = [
       "Nanya": 2.0,
       "Others": 1.75
     },
-    "milestone": ""
+    "milestone": "LPDDR5 memory is adopted in premium smartphones, enabling 6.4 Gbps data rates."
   },
   {
     "label": "2020 Q2",
@@ -1678,7 +1678,7 @@ const dramTimelineData = [
       "Nanya": 2.0,
       "Others": -0.25
     },
-    "milestone": ""
+    "milestone": "Micron announces 1-beta node DRAM production in Japan, skipping EUV for advanced scaling."
   },
   {
     "label": "2022 Q2",
@@ -1951,7 +1951,7 @@ const flashTimelineData = [
     "total_revenue": 0.0,
     "total_bytes": 0.0,
     "shares": {},
-    "milestone": ""
+    "milestone": "Intel launches the 1702, the first EPROM (Erasable Programmable ROM), enabling easy firmware updates."
   },
   {
     "label": "1972",
@@ -2007,7 +2007,7 @@ const flashTimelineData = [
     "total_revenue": 0.0,
     "total_bytes": 0.0,
     "shares": {},
-    "milestone": ""
+    "milestone": "Intel develops the first commercial EEPROM, allowing byte-by-byte electrical erasure."
   },
   {
     "label": "1979",
@@ -2069,7 +2069,7 @@ const flashTimelineData = [
       "Toshiba": 95.0,
       "Others": 5.0
     },
-    "milestone": ""
+    "milestone": "Toshiba details its NOR Flash design at IEDM, highlighting electrical block erase."
   },
   {
     "label": "1986",
@@ -2102,7 +2102,7 @@ const flashTimelineData = [
       "Toshiba": 95.0,
       "Others": 5.0
     },
-    "milestone": ""
+    "milestone": "Intel introduces the first commercial NOR Flash chips, targeting BIOS and embedded code storage."
   },
   {
     "label": "1989",
@@ -2124,7 +2124,7 @@ const flashTimelineData = [
       "Toshiba": 95.0,
       "Others": 5.0
     },
-    "milestone": ""
+    "milestone": "SanDisk (then SunDisk) ships the first PCMCIA flash card, pioneering solid-state storage."
   },
   {
     "label": "1991",
@@ -2135,7 +2135,7 @@ const flashTimelineData = [
       "Toshiba": 95.0,
       "Others": 5.0
     },
-    "milestone": ""
+    "milestone": "SunDisk introduces the 20MB PCMCIA SSD for IBM ThinkPad, costing $1,000."
   },
   {
     "label": "1992",
@@ -2161,7 +2161,7 @@ const flashTimelineData = [
       "SanDisk": 0.0,
       "Others": 4.78
     },
-    "milestone": ""
+    "milestone": "Samsung begins manufacturing Flash memory for digital voice recorders."
   },
   {
     "label": "1994",
@@ -2174,7 +2174,7 @@ const flashTimelineData = [
       "SanDisk": 0.0,
       "Others": 4.81
     },
-    "milestone": ""
+    "milestone": "SanDisk introduces CompactFlash (CF) card format, enabling digital camera storage."
   },
   {
     "label": "1995",
@@ -2200,7 +2200,7 @@ const flashTimelineData = [
       "SanDisk": 7.62,
       "Others": 4.48
     },
-    "milestone": ""
+    "milestone": "Samsung launches commercial NAND Flash shipments, driving pricing down."
   },
   {
     "label": "1997",
@@ -2213,7 +2213,7 @@ const flashTimelineData = [
       "SanDisk": 9.29,
       "Others": 4.42
     },
-    "milestone": ""
+    "milestone": "SanDisk and Siemens introduce the MultiMediaCard (MMC), downsizing card form factors."
   },
   {
     "label": "1998",
@@ -2226,7 +2226,7 @@ const flashTimelineData = [
       "SanDisk": 10.92,
       "Others": 4.37
     },
-    "milestone": ""
+    "milestone": "SmartMedia and CompactFlash capture 90% of the emerging digital camera storage market."
   },
   {
     "label": "1999",
@@ -2255,7 +2255,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": 8.0
     },
-    "milestone": ""
+    "milestone": "USB Flash Drives (JumpDrives) hit the retail market, replacing floppy disks."
   },
   {
     "label": "2001",
@@ -2271,7 +2271,7 @@ const flashTimelineData = [
       "Intel": 2.48,
       "Others": 6.93
     },
-    "milestone": ""
+    "milestone": "SD Card Association releases the Secure Digital (SD) format, which quickly dominates."
   },
   {
     "label": "2002",
@@ -2303,7 +2303,7 @@ const flashTimelineData = [
       "Intel": 3.4,
       "Others": 4.85
     },
-    "milestone": ""
+    "milestone": "SanDisk introduces the miniSD card, targeting early multimedia mobile phones."
   },
   {
     "label": "2004",
@@ -2319,7 +2319,7 @@ const flashTimelineData = [
       "Intel": 3.85,
       "Others": 3.85
     },
-    "milestone": ""
+    "milestone": "SanDisk and Motorola introduce TransFlash, later standardized as microSD, the smallest card format."
   },
   {
     "label": "2005",
@@ -2479,7 +2479,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": -0.0
     },
-    "milestone": ""
+    "milestone": "SSD prices fall below $3 per gigabyte, starting the displacement of HDDs in premium notebooks."
   },
   {
     "label": "2008 Q2",
@@ -2607,7 +2607,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": 0.0
     },
-    "milestone": ""
+    "milestone": "Apple iPad launch establishes thin NAND Flash packaging as standard for tablet computing."
   },
   {
     "label": "2010 Q2",
@@ -2671,7 +2671,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": 0.0
     },
-    "milestone": ""
+    "milestone": "Samsung starts mass shipping Toggle DDR 2.0 NAND, reaching 400Mbps interface speeds."
   },
   {
     "label": "2011 Q2",
@@ -2735,7 +2735,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": 0.0
     },
-    "milestone": ""
+    "milestone": "NAND Flash scaling reaches sub-20nm; reliability concerns drive adoption of advanced ECC controllers."
   },
   {
     "label": "2012 Q2",
@@ -2863,7 +2863,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": 0.0
     },
-    "milestone": ""
+    "milestone": "SanDisk and Toshiba open Fab 5 in Yokkaichi, ramping up 15nm 2D planar NAND."
   },
   {
     "label": "2014 Q2",
@@ -2927,7 +2927,7 @@ const flashTimelineData = [
       "Intel": 2.0,
       "Others": 0.0
     },
-    "milestone": ""
+    "milestone": "Intel and Micron announce 3D XPoint, a non-volatile memory technology bridging DRAM and NAND."
   },
   {
     "label": "2015 Q2",
@@ -3058,7 +3058,7 @@ const flashTimelineData = [
       "YMTC": 0.0,
       "Others": 3.0
     },
-    "milestone": ""
+    "milestone": "3D NAND reaches 64 layers, making high-capacity 1TB SSDs affordable for consumers."
   },
   {
     "label": "2017 Q2",
@@ -3194,7 +3194,7 @@ const flashTimelineData = [
       "YMTC": 0.0,
       "Others": 5.4
     },
-    "milestone": ""
+    "milestone": "PCIe Gen 4 SSDs launch, doubling sequential read speeds to 5,000 MB/s."
   },
   {
     "label": "2019 Q2",
@@ -3397,7 +3397,7 @@ const flashTimelineData = [
       "YMTC": 6.35,
       "Others": -0.95
     },
-    "milestone": ""
+    "milestone": "Solidigm (SK Hynix) launches the world's first 192-layer QLC enterprise SSD."
   },
   {
     "label": "2022 Q2",
@@ -3713,7 +3713,7 @@ const logicTimelineData = [
       "AMD": 2.0,
       "Others": 29.0
     },
-    "milestone": ""
+    "milestone": "Intel releases the 8008, the world's first 8-bit microprocessor, designed for terminal displays."
   },
   {
     "label": "1973",
@@ -3727,7 +3727,7 @@ const logicTimelineData = [
       "AMD": 2.8,
       "Others": 26.2
     },
-    "milestone": ""
+    "milestone": "Motorola starts design work on the 68000, aiming for a powerful 16/32-bit architecture."
   },
   {
     "label": "1974",
@@ -3741,7 +3741,7 @@ const logicTimelineData = [
       "AMD": 3.6,
       "Others": 23.4
     },
-    "milestone": ""
+    "milestone": "Intel launches the 8080 CPU, widely considered the first truly usable general-purpose microprocessor."
   },
   {
     "label": "1975",
@@ -3769,7 +3769,7 @@ const logicTimelineData = [
       "AMD": 5.2,
       "Others": 17.8
     },
-    "milestone": ""
+    "milestone": "Zilog launches the Z80 CPU, which becomes one of the most popular 8-bit processors in history."
   },
   {
     "label": "1977",
@@ -3783,7 +3783,7 @@ const logicTimelineData = [
       "AMD": 6.0,
       "Others": 15.0
     },
-    "milestone": ""
+    "milestone": "The Apple II, Commodore PET, and TRS-80 launch, starting the personal computer revolution."
   },
   {
     "label": "1978",
@@ -3811,7 +3811,7 @@ const logicTimelineData = [
       "AMD": 7.6,
       "Others": 9.4
     },
-    "milestone": ""
+    "milestone": "Motorola releases the 68000 processor, chosen for Apple Macintosh and Sega Genesis."
   },
   {
     "label": "1980",
@@ -3825,7 +3825,7 @@ const logicTimelineData = [
       "AMD": 8.4,
       "Others": 6.6
     },
-    "milestone": ""
+    "milestone": "Intel introduces the 8087 math coprocessor, accelerating floating-point math."
   },
   {
     "label": "1981",
@@ -3839,7 +3839,7 @@ const logicTimelineData = [
       "AMD": 9.2,
       "Others": 3.8
     },
-    "milestone": ""
+    "milestone": "IBM PC launches using the Intel 8088 processor, establishing x86 as the dominant PC platform."
   },
   {
     "label": "1982",
@@ -3853,7 +3853,7 @@ const logicTimelineData = [
       "AMD": 10.0,
       "Others": 1.0
     },
-    "milestone": ""
+    "milestone": "Intel launches the 80286 processor, introducing protected mode and multitasking capability."
   },
   {
     "label": "1983",
@@ -3867,7 +3867,7 @@ const logicTimelineData = [
       "AMD": 10.8,
       "Others": -1.8
     },
-    "milestone": ""
+    "milestone": "Acorn Computers begins ARM design project to replace 6502 in their educational machines."
   },
   {
     "label": "1984",
@@ -3881,7 +3881,7 @@ const logicTimelineData = [
       "AMD": 11.6,
       "Others": -4.6
     },
-    "milestone": ""
+    "milestone": "MIPS Computer Systems is founded, pioneering commercial RISC architectures."
   },
   {
     "label": "1985",
@@ -3909,7 +3909,7 @@ const logicTimelineData = [
       "Texas Instruments": 9.2,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "Intel launches the 386DX, introducing 32-bit computing and paging to the x86 line."
   },
   {
     "label": "1987",
@@ -3937,7 +3937,7 @@ const logicTimelineData = [
       "Texas Instruments": 7.6,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "TSMC builds its first advanced fab, proving the viability of the pure-play foundry model."
   },
   {
     "label": "1989",
@@ -3951,7 +3951,7 @@ const logicTimelineData = [
       "Texas Instruments": 6.8,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "Intel launches the 486 processor, integrating the math coprocessor and L1 cache onto a single die."
   },
   {
     "label": "1990",
@@ -3965,7 +3965,7 @@ const logicTimelineData = [
       "Texas Instruments": 6.0,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "Apple, Acorn, and VLSI Technology form Advanced RISC Machines (ARM) as a joint venture."
   },
   {
     "label": "1991",
@@ -3979,7 +3979,7 @@ const logicTimelineData = [
       "Texas Instruments": 5.2,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "AMD launches the Am386, successfully breaking Intel's monopoly on 386 processors."
   },
   {
     "label": "1992",
@@ -3993,7 +3993,7 @@ const logicTimelineData = [
       "Texas Instruments": 4.4,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "DEC introduces the Alpha 21064, the first 64-bit RISC processor running at 150 MHz."
   },
   {
     "label": "1993",
@@ -4021,7 +4021,7 @@ const logicTimelineData = [
       "Texas Instruments": 2.8,
       "Others": 10.0
     },
-    "milestone": ""
+    "milestone": "PowerPC architecture (developed by IBM, Motorola, Apple) launches in Power Macintosh."
   },
   {
     "label": "1995",
@@ -4037,7 +4037,7 @@ const logicTimelineData = [
       "Nvidia": 0.0,
       "Others": 12.0
     },
-    "milestone": ""
+    "milestone": "Intel releases the Pentium Pro, introducing out-of-order execution and integrated L2 cache."
   },
   {
     "label": "1996",
@@ -4053,7 +4053,7 @@ const logicTimelineData = [
       "Nvidia": 0.0,
       "Others": 12.23
     },
-    "milestone": ""
+    "milestone": "NINTENDO 64 launches with a custom 64-bit NEC VR4300 CPU and Silicon Graphics RSP."
   },
   {
     "label": "1997",
@@ -4069,7 +4069,7 @@ const logicTimelineData = [
       "Nvidia": 0.0,
       "Others": 11.85
     },
-    "milestone": ""
+    "milestone": "Intel launches Pentium II, featuring a cartridge-based design (Slot 1) to house L2 cache."
   },
   {
     "label": "1998",
@@ -4085,7 +4085,7 @@ const logicTimelineData = [
       "Nvidia": 0.0,
       "Others": 11.86
     },
-    "milestone": ""
+    "milestone": "AMD launches the K6-2 processor with 3DNow! instructions, capturing significant budget PC market share."
   },
   {
     "label": "1999",
@@ -4117,7 +4117,7 @@ const logicTimelineData = [
       "Nvidia": 3.99,
       "Others": 11.41
     },
-    "milestone": ""
+    "milestone": "Intel and AMD race to hit 1 GHz clock speed; AMD Athlon wins the race by a few days."
   },
   {
     "label": "2001",
@@ -4133,7 +4133,7 @@ const logicTimelineData = [
       "Nvidia": 4.72,
       "Others": 11.33
     },
-    "milestone": ""
+    "milestone": "IBM introduces the POWER4, the world's first commercial dual-core processor."
   },
   {
     "label": "2002",
@@ -4149,7 +4149,7 @@ const logicTimelineData = [
       "Nvidia": 5.44,
       "Others": 11.26
     },
-    "milestone": ""
+    "milestone": "Intel introduces Hyper-Threading technology on the Pentium 4, enabling virtual dual-cores."
   },
   {
     "label": "2003",
@@ -4181,7 +4181,7 @@ const logicTimelineData = [
       "Nvidia": 6.85,
       "Others": 11.11
     },
-    "milestone": ""
+    "milestone": "Intel cancels high-frequency NetBurst architecture, pivoting to power-efficient dual-core designs."
   },
   {
     "label": "2005",
@@ -4197,7 +4197,7 @@ const logicTimelineData = [
       "Nvidia": 7.48,
       "Others": 11.21
     },
-    "milestone": ""
+    "milestone": "Intel launches Pentium D, and AMD launches Athlon 64 X2, starting the dual-core x86 era."
   },
   {
     "label": "2006 Q1",
@@ -4350,7 +4350,7 @@ const logicTimelineData = [
       "Texas Instruments": 5.28,
       "Others": 9.71
     },
-    "milestone": ""
+    "milestone": "Intel introduces the Core i7 processor (Nehalem), integrating the memory controller onto the CPU die."
   },
   {
     "label": "2008 Q2",
@@ -4554,7 +4554,7 @@ const logicTimelineData = [
       "Texas Instruments": 4.32,
       "Others": 11.99
     },
-    "milestone": ""
+    "milestone": "Intel introduces 22nm Tri-Gate (3D FinFET) transistors, overcoming planar leakage."
   },
   {
     "label": "2011 Q2",
@@ -4622,7 +4622,7 @@ const logicTimelineData = [
       "Texas Instruments": 4.0,
       "Others": 12.75
     },
-    "milestone": ""
+    "milestone": "ASML ships early EUV lithography research tools, preparing for sub-10nm manufacturing."
   },
   {
     "label": "2012 Q2",
@@ -4758,7 +4758,7 @@ const logicTimelineData = [
       "Texas Instruments": 3.36,
       "Others": 14.27
     },
-    "milestone": ""
+    "milestone": "Apple introduces the A8 SoC, manufacturing on TSMC's 20nm node, starting TSMC's modern lead."
   },
   {
     "label": "2014 Q2",
@@ -4894,7 +4894,7 @@ const logicTimelineData = [
       "Texas Instruments": 2.72,
       "Others": 16.71
     },
-    "milestone": ""
+    "milestone": "Intel struggles with 10nm process delays, leading to extended optimization cycles on 14nm."
   },
   {
     "label": "2016 Q2",
@@ -5030,7 +5030,7 @@ const logicTimelineData = [
       "Texas Instruments": 2.08,
       "Others": 19.19
     },
-    "milestone": ""
+    "milestone": "TSMC launches 7nm volume production, manufacturing Apple A12 and AMD Ryzen 3000."
   },
   {
     "label": "2018 Q2",
@@ -5098,7 +5098,7 @@ const logicTimelineData = [
       "Texas Instruments": 1.76,
       "Others": 20.43
     },
-    "milestone": ""
+    "milestone": "AMD launches Ryzen 3000 series using chiplet design (manufactured at TSMC 7nm)."
   },
   {
     "label": "2019 Q2",
@@ -5234,7 +5234,7 @@ const logicTimelineData = [
       "Texas Instruments": 1.5,
       "Others": 22.05
     },
-    "milestone": ""
+    "milestone": "Intel announces 'Intel IDM 2.0' strategy, expanding its own foundry services to compete with TSMC."
   },
   {
     "label": "2021 Q2",
@@ -5302,7 +5302,7 @@ const logicTimelineData = [
       "Texas Instruments": 1.5,
       "Others": 24.25
     },
-    "milestone": ""
+    "milestone": "ASML ships the first High-NA EUV lithography systems, enabling sub-2nm node research."
   },
   {
     "label": "2022 Q2",
