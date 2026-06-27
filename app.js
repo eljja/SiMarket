@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bytes || bytes <= 0) return { val: '0', unit: 'Bytes' };
     const k = 1000;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
-    const i = Math.min(Math.floor(Math.log10(bytes) / 3), sizes.length - 1);
+    const i = Math.max(0, Math.min(Math.floor(Math.log10(bytes) / 3), sizes.length - 1));
     const val = parseFloat((bytes / Math.pow(k, i)).toFixed(2));
     return {
       val: val.toLocaleString(),
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!count || count <= 0) return { val: '0', unit: 'Transistors' };
     const k = 1000;
     const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT', 'SX'];
-    const i = Math.min(Math.floor(Math.log10(count) / 3), sizes.length - 1);
+    const i = Math.max(0, Math.min(Math.floor(Math.log10(count) / 3), sizes.length - 1));
     const val = parseFloat((count / Math.pow(k, i)).toFixed(2));
     return {
       val: val.toLocaleString(),
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
         xAxis: { show: false },
         yAxis: { show: false },
         series: []
-      }, true); // true = notMerge, clear old chart
+      }, true); // true = notMerge to clear old chart
       return;
     }
 
@@ -473,8 +473,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sort descending by value
     chartData.sort((a, b) => b.value - a.value);
 
-    // BUG FIX #5: Dynamic yAxis max based on actual data count
-    const yAxisMax = Math.min(chartData.length - 1, 8);
+    // BUG FIX #5: Dynamic yAxis max based on actual data count (at least 0)
+    const yAxisMax = Math.max(0, Math.min(chartData.length - 1, 8));
 
     // BUG FIX #4: Consistent scale formatter
     const maxValue = chartData.length > 0 ? chartData[0].value : 1;
@@ -485,6 +485,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const option = {
       backgroundColor: 'transparent',
+      title: {
+        text: '', // clear empty placeholder if it was there
+        show: false
+      },
       // BUG FIX #6: Add tooltip
       tooltip: {
         trigger: 'item',
@@ -497,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         formatter: function(params) {
           const d = params.data;
+          if (!d) return '';
           let valStr;
           if (isRev) {
             valStr = '$' + params.value.toFixed(2) + 'B';
@@ -504,8 +509,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const fmt = formatMetricValue(params.value);
             valStr = fmt.val + ' ' + fmt.unit;
           }
+          const share = d.share != null ? d.share : 0;
           return '<b>' + d.name + '</b><br/>' +
-            'Share: ' + d.share.toFixed(1) + '%<br/>' +
+            'Share: ' + share.toFixed(1) + '%<br/>' +
             (isRev ? 'Revenue: ' : 'Capacity: ') + valStr;
         }
       },
@@ -531,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       yAxis: {
         type: 'category',
-        data: chartData.map(item => item.name),
+        // Omitted data here so ECharts automatically sorts and maps categories dynamically from series.data name attribute
         inverse: true,
         max: yAxisMax,
         axisLine: {
@@ -577,7 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
       animationEasingUpdate: 'linear'
     };
 
-    raceChart.setOption(option, true); // notMerge = true to clear stale state
+    // Remove true (notMerge) parameter to enable ECharts option merging for smooth transition animations
+    raceChart.setOption(option);
   }
 
   // ─── Animated Counter ────────────────────────────────────────
@@ -718,6 +725,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Reinitialize trend chart configuration (full replace)
       trendChart.setOption(getTrendChartOptions(), true);
+
+      // Clear the race chart to avoid blending companies from different markets
+      raceChart.clear();
 
       // Update complete dashboard
       updateUI();
