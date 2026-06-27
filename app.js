@@ -344,8 +344,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // BUG FIX #8: Clear markLine properly by using full option replacement for markLine
   function updateTrendChartCursor() {
+    if (typeof trendChart === 'undefined' || !trendChart) return;
     const timelineData = getActiveTimelineData();
-    if (activeIndex >= timelineData.length) return;
+    if (!timelineData || activeIndex >= timelineData.length) return;
     const label = timelineData[activeIndex].label;
     const theme = getTheme();
 
@@ -371,10 +372,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Race Bar Chart ──────────────────────────────────────────
   function updateRaceChart() {
+    if (typeof raceChart === 'undefined' || !raceChart) return;
     const timelineData = getActiveTimelineData();
     const companyColors = getActiveCompanyColors();
 
-    if (activeIndex >= timelineData.length) return;
+    if (!timelineData || activeIndex >= timelineData.length) return;
     const activeData = timelineData[activeIndex];
 
     const totalRev = activeData.total_revenue;
@@ -571,14 +573,16 @@ document.addEventListener('DOMContentLoaded', () => {
       animatedRevenue = startRevenue + (targetRevenue - startRevenue) * eased;
       animatedCapacity = startCapacity + (targetCapacity - startCapacity) * eased;
 
-      statRevenueVal.textContent = animatedRevenue.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
+      if (statRevenueVal) {
+        statRevenueVal.textContent = animatedRevenue.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+      }
 
       const formattedCap = formatMetricValue(animatedCapacity);
-      statCapacityVal.textContent = formattedCap.val;
-      statCapacityUnit.textContent = formattedCap.unit;
+      if (statCapacityVal) statCapacityVal.textContent = formattedCap.val;
+      if (statCapacityUnit) statCapacityUnit.textContent = formattedCap.unit;
 
       if (progress < 1) {
         counterAnimFrame = requestAnimationFrame(step);
@@ -591,62 +595,67 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── Update UI (Master) ──────────────────────────────────────
   function updateUI() {
     const timelineData = getActiveTimelineData();
+    if (!timelineData || timelineData.length === 0) return;
     if (activeIndex >= timelineData.length) {
       activeIndex = timelineData.length - 1;
     }
     const activeData = timelineData[activeIndex];
+    if (!activeData) return;
 
     // Label and slider update
-    currentPeriodLabel.textContent = activeData.label;
-    // BUG FIX #10: Show full label including quarter
-    floatingYearDisplay.textContent = activeData.label;
-    timelineSlider.value = activeIndex;
+    if (currentPeriodLabel) currentPeriodLabel.textContent = activeData.label;
+    if (floatingYearDisplay) floatingYearDisplay.textContent = activeData.label;
+    if (timelineSlider) timelineSlider.value = activeIndex;
 
     // Stats cards — animated (Improvement #13)
     animateCounters(activeData.total_revenue, activeData.total_bytes);
 
     // Milestone stream update
-    milestoneList.innerHTML = '';
-    let latestMilestoneIndex = -1;
+    if (milestoneList) {
+      milestoneList.innerHTML = '';
+      let latestMilestoneIndex = -1;
 
-    // Find all milestones up to the current activeIndex
-    const activeMilestones = [];
-    for (let i = 0; i <= activeIndex; i++) {
-      if (timelineData[i].milestone && timelineData[i].milestone.trim() !== '') {
-        activeMilestones.push({
-          index: i,
-          label: timelineData[i].label,
-          text: timelineData[i].milestone
-        });
-        latestMilestoneIndex = i;
-      }
-    }
-
-    if (activeMilestones.length === 0) {
-      milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">No major industry events recorded yet.</div>';
-    } else {
-      activeMilestones.forEach(m => {
-        const item = document.createElement('div');
-        item.className = 'milestone-item';
-        
-        // If this is the latest milestone, mark it as active; otherwise past (grayed out)
-        if (m.index === latestMilestoneIndex) {
-          item.classList.add('active');
-        } else {
-          item.classList.add('past');
+      // Find all milestones up to the current activeIndex
+      const activeMilestones = [];
+      for (let i = 0; i <= activeIndex; i++) {
+        if (timelineData[i] && timelineData[i].milestone && timelineData[i].milestone.trim() !== '') {
+          activeMilestones.push({
+            index: i,
+            label: timelineData[i].label,
+            text: timelineData[i].milestone
+          });
+          latestMilestoneIndex = i;
         }
+      }
 
-        item.innerHTML = `
-          <span class="milestone-year">${m.label}</span>
-          <p class="milestone-text">${m.text}</p>
-        `;
-        milestoneList.appendChild(item);
-      });
+      if (activeMilestones.length === 0) {
+        milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">No major industry events recorded yet.</div>';
+      } else {
+        activeMilestones.forEach(m => {
+          const item = document.createElement('div');
+          item.className = 'milestone-item';
+          
+          // If this is the latest milestone, mark it as active; otherwise past (grayed out)
+          if (m.index === latestMilestoneIndex) {
+            item.classList.add('active');
+          } else {
+            item.classList.add('past');
+          }
 
-      // Scroll container to the bottom so older events scroll out upwards
-      setTimeout(() => {
-        milestoneList.scrollTop = milestoneList.scrollHeight;
-      }, 50);
+          item.innerHTML = `
+            <span class="milestone-year">${m.label}</span>
+            <p class="milestone-text">${m.text}</p>
+          `;
+          milestoneList.appendChild(item);
+        });
+
+        // Scroll container to the bottom so older events scroll out upwards
+        setTimeout(() => {
+          if (milestoneList) {
+            milestoneList.scrollTop = milestoneList.scrollHeight;
+          }
+        }, 50);
+      }
     }
 
     // Refresh charts
