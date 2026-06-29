@@ -734,3 +734,44 @@ header::before {
     font-size: 0.78rem;
   }
 }
+
+/* ─── Language Switcher Button ─── */
+.lang-switch-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid var(--panel-border);
+}
+
+.lang-switch-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.lang-switch-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-switch-btn.active {
+  background: var(--accent-primary);
+  color: #030508;
+  box-shadow: 0 0 8px var(--accent-primary-glow);
+}
+

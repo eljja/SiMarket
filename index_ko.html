@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SiMarket - Global Semiconductor Market Analytics Dashboard (1970–2026)</title>
+  <title>SiMarket - 글로벌 반도체 시장 분석 대시보드 (1970–2026)</title>
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Explore the comprehensive history of the global semiconductor memory and logic markets from 1970 to 2026. Interactive charts, market sizes, and historical milestones.">
-  <meta name="keywords" content="DRAM, Flash, NAND, Logic, Semiconductor, Market Share, Memory Market, Samsung, SK Hynix, Micron, Kioxia, NVIDIA, Intel, AMD, TSMC, Bar Chart Race">
+  <!-- SEO 메타 태그 -->
+  <meta name="description" content="1970년부터 2026년까지의 글로벌 반도체 메모리 및 로직 시장의 종합 역사를 탐색합니다. 인터랙티브 차트, 시장 규모 및 역사적 마일스톤 제공.">
+  <meta name="keywords" content="DRAM, 플래시, NAND, 로직, 반도체, 시장 점유율, 메모리 시장, 삼성전자, SK하이닉스, 마이크론, 키옥시아, 엔비디아, 인텔, AMD, TSMC, 바 차트 레이스">
   <meta name="author" content="SiMarket Group">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0f1d'/%3E%3Ctext x='4' y='23' font-family='system-ui' font-size='18' font-weight='800' fill='%2300e5ff'%3ESi%3C/text%3E%3C/svg%3E">
 
-  <!-- Font Preloading (BUG FIX #11: move from CSS @import for faster load) -->
+  <!-- 폰트 로드 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
 
-  <!-- CSS Stylesheet -->
+  <!-- CSS 스타일시트 -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="market-dram">
@@ -29,118 +29,118 @@
         <div style="display: flex; align-items: center; gap: 10px;">
           <h1>Si<span>Market</span></h1>
           <div class="lang-switch-container">
-            <span class="lang-switch-btn active">EN</span>
-            <a href="index_ko.html" class="lang-switch-btn">KO</a>
+            <a href="index.html" class="lang-switch-btn">EN</a>
+            <span class="lang-switch-btn active">KO</span>
           </div>
         </div>
-        <p>Global Semiconductor Market Intelligence</p>
+        <p>글로벌 반도체 시장 인텔리전스</p>
       </div>
       <div class="market-selector">
-        <button id="tab-dram" class="tab-btn active">DRAM Market</button>
-        <button id="tab-flash" class="tab-btn">Flash Memory</button>
-        <button id="tab-logic" class="tab-btn">Logic IC</button>
+        <button id="tab-dram" class="tab-btn active">DRAM 시장</button>
+        <button id="tab-flash" class="tab-btn">플래시 메모리</button>
+        <button id="tab-logic" class="tab-btn">로직 IC</button>
       </div>
     </header>
 
-    <!-- Main Dashboard Grid -->
+    <!-- 메인 대시보드 그리드 -->
     <main class="dashboard-grid">
       
-      <!-- Left Column: Interactive Race Chart & Playback -->
+      <!-- 왼쪽 열: 인터랙티브 레이스 차트 및 재생 컨트롤 -->
       <section class="glass-panel main-viz-panel" aria-labelledby="viz-title-id">
         <div class="viz-header">
           <div class="viz-title">
-            <h2 id="viz-title-id">Supplier Market Rank & Size</h2>
-            <p>Animated ranking changes and individual supplier share metrics over time</p>
+            <h2 id="viz-title-id">공급업체 시장 순위 및 규모</h2>
+            <p>시간의 흐름에 따른 제조사별 점유율 및 순위 변동 추이</p>
           </div>
           <div class="viz-actions">
-            <button id="toggle-revenue" class="btn-toggle active" aria-pressed="true">Revenue (USD)</button>
-            <button id="toggle-bytes" class="btn-toggle" aria-pressed="false">Capacity (Bytes)</button>
+            <button id="toggle-revenue" class="btn-toggle active" aria-pressed="true">매출액 (USD)</button>
+            <button id="toggle-bytes" class="btn-toggle" aria-pressed="false">생산 용량 (Byte)</button>
           </div>
         </div>
 
-        <!-- Main Chart Area -->
+        <!-- 메인 차트 영역 -->
         <div class="chart-container-race">
           <div id="race-chart" style="width: 100%; height: 100%;"></div>
-          <!-- Huge Floating Year Background -->
+          <!-- 워터마크 연도 표시 -->
           <div id="floating-year-display" class="year-display-huge">1970</div>
         </div>
 
-        <!-- Timeline Control Bar -->
+        <!-- 타임라인 제어 바 -->
         <div class="timeline-bar">
           <div class="play-controls">
-            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline">
-              <!-- Play Icon SVG -->
+            <button id="play-btn" class="btn-icon" aria-label="타임라인 재생/일시정지">
+              <!-- 재생 아이콘 SVG -->
               <svg viewBox="0 0 24 24" id="play-icon">
                 <path d="M8 5v14l11-7z"/>
               </svg>
-              <!-- Pause Icon SVG -->
+              <!-- 일시정지 아이콘 SVG -->
               <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
               </svg>
             </button>
             
-            <select id="speed-control" class="speed-control" aria-label="Playback Speed">
-              <option value="2000">Slow (2s)</option>
-              <option value="1000" selected>Normal (1s)</option>
-              <option value="500">Fast (0.5s)</option>
-              <option value="200">Turbo (0.2s)</option>
+            <select id="speed-control" class="speed-control" aria-label="재생 속도 조절">
+              <option value="2000">느리게 (2초)</option>
+              <option value="1000" selected>보통 (1초)</option>
+              <option value="500">빠르게 (0.5초)</option>
+              <option value="200">터보 (0.2초)</option>
             </select>
           </div>
 
           <div class="slider-container">
-            <input type="range" id="timeline-slider" aria-label="Timeline Slider" value="0">
+            <input type="range" id="timeline-slider" aria-label="타임라인 슬라이더" value="0">
             <span id="current-period" class="time-label-current">1970</span>
           </div>
         </div>
       </section>
 
-      <!-- Right Column: Sidebar Analytics -->
+      <!-- 오른쪽 열: 사이드바 분석 패널 -->
       <aside class="sidebar-panel">
         
-        <!-- Total Market stats card -->
+        <!-- 전체 시장 통계 카드 -->
         <div class="glass-panel stats-card">
           <div class="stat-item">
-            <span id="stat-revenue-label" class="stat-label">Total Market Revenue</span>
+            <span id="stat-revenue-label" class="stat-label">전체 시장 매출액</span>
             <div class="stat-value-container">
               <span class="stat-unit">$</span>
               <span id="stat-revenue-val" class="stat-value">0.00</span>
-              <span class="stat-unit">Billion</span>
+              <span class="stat-unit">십억 달러 ($B)</span>
             </div>
           </div>
           
           <div class="stat-divider"></div>
           
           <div class="stat-item">
-            <span id="stat-capacity-label" class="stat-label">Total Capacity Shipped</span>
+            <span id="stat-capacity-label" class="stat-label">전체 생산 용량</span>
             <div class="stat-value-container">
               <span id="stat-capacity-val" class="stat-value">0</span>
-              <span id="stat-capacity-unit" class="stat-unit">Bytes</span>
+              <span id="stat-capacity-unit" class="stat-unit">Byte</span>
             </div>
           </div>
         </div>
 
-        <!-- Historical Milestone Card -->
+        <!-- 역사적 마일스톤 카드 -->
         <div class="glass-panel milestone-card" aria-labelledby="milestone-title-id">
           <div id="milestone-title-id" class="card-title-sec">
-            <!-- Info Icon SVG -->
+            <!-- 정보 아이콘 SVG -->
             <svg viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
             </svg>
-            Historical Context & Milestones
+            역사적 배경 및 주요 사건
           </div>
           <div id="milestone-list" class="milestone-stream">
-            <!-- Dynamic milestone items will be inserted here -->
+            <!-- 마일스톤 항목이 여기에 동적으로 추가됩니다 -->
           </div>
         </div>
 
-        <!-- History Trend Charts -->
+        <!-- 역사적 성장 트렌드 차트 -->
         <div class="glass-panel trend-card" aria-labelledby="trend-title-id">
           <div id="trend-title-id" class="card-title-sec">
-            <!-- Chart Icon SVG -->
+            <!-- 차트 아이콘 SVG -->
             <svg viewBox="0 0 24 24">
               <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
             </svg>
-            Market Growth Trend
+            시장 성장 트렌드
           </div>
           <div class="chart-container-trend">
             <div id="trend-chart" style="width: 100%; height: 100%;"></div>
@@ -152,11 +152,11 @@
     </main>
   </div>
 
-  <!-- Apache ECharts Library -->
+  <!-- Apache ECharts 라이브러리 -->
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   
-  <!-- Local Database and Logic -->
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <!-- 로컬 데이터베이스 및 실행 로직 -->
+  <script src="data_ko.js"></script>
+  <script src="app_ko.js"></script>
 </body>
 </html>
