@@ -30,6 +30,11 @@
 }
 
 /* ─── Market-Specific Theme Overrides (Improvement #14) ─── */
+body.market-total {
+  --accent-primary: #38bdf8;
+  --accent-primary-glow: rgba(56, 189, 248, 0.35);
+}
+
 body.market-dram {
   --accent-primary: #00e5ff;
   --accent-primary-glow: rgba(0, 229, 255, 0.35);
@@ -43,6 +48,26 @@ body.market-flash {
 body.market-logic {
   --accent-primary: #76b900;
   --accent-primary-glow: rgba(118, 185, 0, 0.35);
+}
+
+body.market-analog {
+  --accent-primary: #ff9100;
+  --accent-primary-glow: rgba(255, 145, 0, 0.35);
+}
+
+body.market-opto {
+  --accent-primary: #ff2a85;
+  --accent-primary-glow: rgba(255, 42, 133, 0.35);
+}
+
+body.market-power {
+  --accent-primary: #ffd600;
+  --accent-primary-glow: rgba(255, 214, 0, 0.35);
+}
+
+body.market-mcu {
+  --accent-primary: #00bfa5;
+  --accent-primary-glow: rgba(0, 191, 165, 0.35);
 }
 
 /* Reset and Base Styles */

@@ -1,20 +1,20 @@
-// app_ko.js - Semiconductor Market Dashboard Logic (Korean Localized)
+// app_ko.js - 글로벌 반도체 시장 대시보드 로직 (8개 시장 한국어 판)
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ─── Application State ───────────────────────────────────────
-  let currentMarket = 'dram'; // 'dram', 'flash', or 'logic'
+  // ─── 애플리케이션 상태 ───────────────────────────────────────
+  let currentMarket = 'total'; // 'total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu'
   let activeIndex = 0;
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000; // ms per step
   let currentMetric = 'revenue'; // 'revenue' or 'bytes'
 
-  // Animated counter state
+  // 애니메이션 카운터 상태
   let animatedRevenue = 0;
   let animatedCapacity = 0;
   let counterAnimFrame = null;
 
-  // ─── DOM Elements ────────────────────────────────────────────
+  // ─── DOM 엘리먼트 ────────────────────────────────────────────
   const playBtn = document.getElementById('play-btn');
   const playIcon = document.getElementById('play-icon');
   const pauseIcon = document.getElementById('pause-icon');
@@ -33,33 +33,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingYearDisplay = document.getElementById('floating-year-display');
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
-  // Tab Switcher Buttons
-  const tabDram = document.getElementById('tab-dram');
-  const tabFlash = document.getElementById('tab-flash');
-  const tabLogic = document.getElementById('tab-logic');
+  // 탭 스위처 버튼 명칭 리스트
+  const marketTabs = ['total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu'];
 
-  // ─── Initialize ECharts ──────────────────────────────────────
+  // ─── ECharts 초기화 ──────────────────────────────────────────
   const raceChartDom = document.getElementById('race-chart');
   const raceChart = echarts.init(raceChartDom);
 
   const trendChartDom = document.getElementById('trend-chart');
   const trendChart = echarts.init(trendChartDom);
 
-  // ─── Data Accessors ──────────────────────────────────────────
+  // ─── 데이터 접근자 ──────────────────────────────────────────
   function getActiveTimelineData() {
+    if (currentMarket === 'total') return totalTimelineData;
     if (currentMarket === 'dram') return dramTimelineData;
     if (currentMarket === 'flash') return flashTimelineData;
-    return logicTimelineData;
+    if (currentMarket === 'logic') return logicTimelineData;
+    if (currentMarket === 'analog') return analogTimelineData;
+    if (currentMarket === 'opto') return optoTimelineData;
+    if (currentMarket === 'power') return powerTimelineData;
+    return mcuTimelineData;
   }
 
   function getActiveCompanyColors() {
+    if (currentMarket === 'total') return totalCompanyColors;
     if (currentMarket === 'dram') return dramCompanyColors;
     if (currentMarket === 'flash') return flashCompanyColors;
-    return logicCompanyColors;
+    if (currentMarket === 'logic') return logicCompanyColors;
+    if (currentMarket === 'analog') return analogCompanyColors;
+    if (currentMarket === 'opto') return optoCompanyColors;
+    if (currentMarket === 'power') return powerCompanyColors;
+    return mcuCompanyColors;
   }
 
-  // ─── Smart Start Index ───────────────────────────────────────
-  // Find the first index with non-zero revenue (skips empty early years)
+  // ─── 스마트 시작 인덱스 탐색 ─────────────────────────────────
   function getSmartStartIndex(timelineData) {
     for (let i = 0; i < timelineData.length; i++) {
       if (timelineData[i].total_revenue > 0 && Object.keys(timelineData[i].shares).length > 0) {
@@ -69,39 +76,46 @@ document.addEventListener('DOMContentLoaded', () => {
     return 0;
   }
 
-  // ─── Formatting Helpers ──────────────────────────────────────
-  function formatBytes(bytes) {
-    if (!bytes || bytes <= 0) return { val: '0', unit: 'Byte' };
-    const k = 1000;
-    const sizes = ['Byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
-    const i = Math.max(0, Math.min(Math.floor(Math.log10(bytes) / 3), sizes.length - 1));
-    const val = parseFloat((bytes / Math.pow(k, i)).toFixed(2));
-    return {
-      val: val.toLocaleString(),
-      unit: sizes[i]
-    };
-  }
-
-  function formatTransistors(count) {
-    if (!count || count <= 0) return { val: '0', unit: '개' };
-    const k = 1000;
-    const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT', 'SX'];
-    const i = Math.max(0, Math.min(Math.floor(Math.log10(count) / 3), sizes.length - 1));
-    const val = parseFloat((count / Math.pow(k, i)).toFixed(2));
-    return {
-      val: val.toLocaleString(),
-      unit: (sizes[i] ? sizes[i] : '') + '개 (트랜지스터)'
-    };
-  }
-
+  // ─── 포맷팅 헬퍼 ─────────────────────────────────────────────
   function formatMetricValue(value) {
-    if (currentMarket === 'logic') {
-      return formatTransistors(value);
+    if (!value || value <= 0) {
+      if (currentMarket === 'dram' || currentMarket === 'flash') {
+        return { val: '0', unit: 'Byte' };
+      }
+      if (currentMarket === 'logic') {
+        return { val: '0', unit: '개 (트랜지스터)' };
+      }
+      return { val: '0', unit: '개' };
     }
-    return formatBytes(value);
+    const k = 1000;
+    
+    // 용량 포맷 (DRAM / Flash)
+    if (currentMarket === 'dram' || currentMarket === 'flash') {
+      const sizes = ['Byte', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB'];
+      const i = Math.max(0, Math.min(Math.floor(Math.log10(value) / 3), sizes.length - 1));
+      const val = parseFloat((value / Math.pow(k, i)).toFixed(2));
+      return { val: val.toLocaleString(), unit: sizes[i] };
+    }
+    
+    // 개수 포맷
+    let unitLabel = '개';
+    if (currentMarket === 'logic') unitLabel = '개 (트랜지스터)';
+    else if (currentMarket === 'total') unitLabel = '개 (통합 출하량)';
+    else if (currentMarket === 'analog') unitLabel = '개 (아날로그)';
+    else if (currentMarket === 'opto') unitLabel = '개 (센서/광소자)';
+    else if (currentMarket === 'power') unitLabel = '개 (전력/개별소자)';
+    else if (currentMarket === 'mcu') unitLabel = '개 (MCU)';
+
+    const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT'];
+    const i = Math.max(0, Math.min(Math.floor(Math.log10(value) / 3), sizes.length - 1));
+    const val = parseFloat((value / Math.pow(k, i)).toFixed(2));
+    return {
+      val: val.toLocaleString(),
+      unit: (sizes[i] ? sizes[i] : '') + unitLabel
+    };
   }
 
-  // Fixed-scale axis formatter — picks one unit for all ticks based on max value
+  // 일관적인 축 포맷 생성기
   function makeAxisFormatter(maxValue, isRevenue) {
     if (isRevenue) {
       return function(value) {
@@ -109,68 +123,63 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }
 
-    const isLogic = currentMarket === 'logic';
+    const isBytes = (currentMarket === 'dram' || currentMarket === 'flash');
+    const suffixList = isBytes 
+      ? ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB']
+      : ['', 'K', 'M', 'B', 'T', 'QD', 'QT'];
 
-    if (isLogic) {
-      // Transistor units
-      const units = [
-        { threshold: 1e21, divisor: 1e21, suffix: 'SX' },
-        { threshold: 1e18, divisor: 1e18, suffix: 'QT' },
-        { threshold: 1e15, divisor: 1e15, suffix: 'QD' },
-        { threshold: 1e12, divisor: 1e12, suffix: 'T' },
-        { threshold: 1e9,  divisor: 1e9,  suffix: 'B' },
-        { threshold: 1e6,  divisor: 1e6,  suffix: 'M' },
-        { threshold: 1e3,  divisor: 1e3,  suffix: 'K' },
-      ];
-      let chosenUnit = { divisor: 1, suffix: '' };
-      for (const u of units) {
-        if (maxValue >= u.threshold) { chosenUnit = u; break; }
+    const divisorList = [1, 1e3, 1e6, 1e9, 1e12, 1e15, 1e18];
+
+    let idx = 0;
+    for (let i = 0; i < divisorList.length; i++) {
+      if (maxValue >= divisorList[i]) {
+        idx = i;
       }
-      return function(value) {
-        if (value === 0) return '0';
-        return (value / chosenUnit.divisor).toFixed(1) + chosenUnit.suffix;
-      };
-    } else {
-      // Byte units
-      const units = [
-        { threshold: 1e18, divisor: 1e18, suffix: 'EB' },
-        { threshold: 1e15, divisor: 1e15, suffix: 'PB' },
-        { threshold: 1e12, divisor: 1e12, suffix: 'TB' },
-        { threshold: 1e9,  divisor: 1e9,  suffix: 'GB' },
-        { threshold: 1e6,  divisor: 1e6,  suffix: 'MB' },
-        { threshold: 1e3,  divisor: 1e3,  suffix: 'KB' },
-      ];
-      let chosenUnit = { divisor: 1, suffix: 'B' };
-      for (const u of units) {
-        if (maxValue >= u.threshold) { chosenUnit = u; break; }
-      }
-      return function(value) {
-        if (value === 0) return '0';
-        return (value / chosenUnit.divisor).toFixed(1) + chosenUnit.suffix;
-      };
     }
+
+    const divisor = divisorList[idx];
+    const suffix = suffixList[idx];
+
+    return function(value) {
+      if (value === 0) return '0';
+      return (value / divisor).toFixed(1) + suffix;
+    };
   }
 
-  // ─── Market Theme Colors ─────────────────────────────────────
+  // ─── 마켓 테마 설정 ──────────────────────────────────────────
   const marketThemes = {
+    total:  { accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.35)', trendRight: 'rgba(255, 255, 255, 0.3)', trendRightLine: '#ffffff' },
     dram:  { accent: '#00e5ff', glow: 'rgba(0, 229, 255, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' },
     flash: { accent: '#e6007e', glow: 'rgba(230, 0, 126, 0.35)', trendRight: 'rgba(255, 98, 0, 0.4)',   trendRightLine: '#ff6200' },
-    logic: { accent: '#76b900', glow: 'rgba(118, 185, 0, 0.35)', trendRight: 'rgba(255, 179, 0, 0.4)',   trendRightLine: '#ffb300' }
+    logic: { accent: '#76b900', glow: 'rgba(118, 185, 0, 0.35)', trendRight: 'rgba(255, 179, 0, 0.4)',   trendRightLine: '#ffb300' },
+    analog: { accent: '#ff9100', glow: 'rgba(255, 145, 0, 0.35)', trendRight: 'rgba(56, 189, 248, 0.4)', trendRightLine: '#38bdf8' },
+    opto: { accent: '#ff2a85', glow: 'rgba(255, 42, 133, 0.35)', trendRight: 'rgba(0, 229, 255, 0.4)',  trendRightLine: '#00e5ff' },
+    power: { accent: '#ffd600', glow: 'rgba(255, 214, 0, 0.35)', trendRight: 'rgba(0, 191, 165, 0.4)',  trendRightLine: '#00bfa5' },
+    mcu: { accent: '#00bfa5', glow: 'rgba(0, 191, 165, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' }
   };
 
   function getTheme() {
-    return marketThemes[currentMarket] || marketThemes.dram;
+    return marketThemes[currentMarket] || marketThemes.total;
   }
 
-  // ─── Trend Chart ─────────────────────────────────────────────
+  function getRightAxisName() {
+    if (currentMarket === 'logic') return '트랜지스터 수량';
+    if (currentMarket === 'total') return '통합 출하 지수';
+    if (currentMarket === 'analog') return '아날로그 출하량';
+    if (currentMarket === 'opto') return '센서 및 광소자 수량';
+    if (currentMarket === 'power') return '전력/개별소자 수량';
+    if (currentMarket === 'mcu') return 'MCU 출하량';
+    return '생산 용량';
+  }
+
+  // ─── 트렌드 차트 옵션 설정 ─────────────────────────────────────
   function getTrendChartOptions() {
     const timelineData = getActiveTimelineData();
     const dates = timelineData.map(d => d.label);
     const revenues = timelineData.map(d => d.total_revenue);
     const capacities = timelineData.map(d => (d.total_bytes > 0 ? d.total_bytes : null));
 
-    const isLogic = currentMarket === 'logic';
-    const capName = isLogic ? '트랜지스터 수량' : '생산 용량';
+    const capName = getRightAxisName();
     const theme = getTheme();
 
     return {
@@ -194,22 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
           params.forEach(p => {
             if (p.value != null) {
               let valStr;
-              let seriesName = p.seriesName;
-              if (seriesName === 'Total Revenue') {
-                seriesName = '총 매출액';
-                valStr = '$' + p.value.toFixed(2) + 'B (십억 달러)';
-              } else if (seriesName === 'Total Transistors') {
-                seriesName = '총 트랜지스터 수량';
-                const fmt = formatMetricValue(p.value);
-                valStr = fmt.val + ' ' + fmt.unit;
-              } else if (seriesName === 'Total Capacity') {
-                seriesName = '총 생산 용량';
-                const fmt = formatMetricValue(p.value);
-                valStr = fmt.val + ' ' + fmt.unit;
+              if (p.seriesIndex === 0) {
+                valStr = '$' + p.value.toFixed(2) + 'B';
               } else {
-                valStr = p.value;
+                const fmt = formatMetricValue(p.value);
+                valStr = fmt.val + ' ' + fmt.unit;
               }
-              html += '<div>' + p.marker + ' ' + seriesName + ': <b>' + valStr + '</b></div>';
+              html += '<div>' + p.marker + ' ' + p.seriesName + ': <b>' + valStr + '</b></div>';
             }
           });
           return html;
@@ -283,24 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           axisLabel: {
             formatter: function(value) {
-              if (isLogic) {
-                if (value >= 1e21) return (value / 1e21).toFixed(0) + 'SX';
-                if (value >= 1e18) return (value / 1e18).toFixed(0) + 'QT';
-                if (value >= 1e15) return (value / 1e15).toFixed(0) + 'QD';
-                if (value >= 1e12) return (value / 1e12).toFixed(0) + 'T';
-                if (value >= 1e9)  return (value / 1e9).toFixed(0)  + 'B';
-                if (value >= 1e6)  return (value / 1e6).toFixed(0)  + 'M';
-                if (value >= 1e3)  return (value / 1e3).toFixed(0)  + 'K';
-                return value;
-              } else {
-                if (value >= 1e18) return (value / 1e18).toFixed(0) + 'EB';
-                if (value >= 1e15) return (value / 1e15).toFixed(0) + 'PB';
-                if (value >= 1e12) return (value / 1e12).toFixed(0) + 'TB';
-                if (value >= 1e9)  return (value / 1e9).toFixed(0)  + 'GB';
-                if (value >= 1e6)  return (value / 1e6).toFixed(0)  + 'MB';
-                if (value >= 1e3)  return (value / 1e3).toFixed(0)  + 'KB';
-                return value;
-              }
+              const fmt = formatMetricValue(value);
+              return fmt.val + fmt.unit.replace(/개|Byte|트랜지스터|아날로그|센서|광소자|전력|개별소자|MCU|통합 출하량|생산 용량|출하 지수|\(|\)/g, '').trim();
             },
             color: '#9ca3af',
             fontFamily: 'Outfit'
@@ -312,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       series: [
         {
-          name: 'Total Revenue',
+          name: '총 매출액',
           type: 'line',
           yAxisIndex: 0,
           smooth: true,
@@ -330,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         },
         {
-          name: isLogic ? 'Total Transistors' : 'Total Capacity',
+          name: capName,
           type: 'line',
           yAxisIndex: 1,
           smooth: true,
@@ -346,25 +330,39 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // Clear markLine properly by using full option replacement
   function updateTrendChartCursor() {
     if (typeof trendChart === 'undefined' || !trendChart) return;
     const timelineData = getActiveTimelineData();
     if (!timelineData || activeIndex >= timelineData.length) return;
     const label = timelineData[activeIndex].label;
+    const theme = getTheme();
 
     trendChart.setOption({
       series: [
         {
-          name: 'Total Revenue',
+          name: '총 매출액',
           markLine: {
             silent: true,
             symbol: 'none',
             label: { show: false },
             lineStyle: {
-              color: 'rgba(255, 179, 0, 0.8)',
+              color: theme.accent,
               type: 'dashed',
-              width: 1.5
+              width: 1
+            },
+            data: [{ xAxis: label }]
+          }
+        },
+        {
+          name: getRightAxisName(),
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            label: { show: false },
+            lineStyle: {
+              color: theme.trendRightLine,
+              type: 'dashed',
+              width: 1
             },
             data: [{ xAxis: label }]
           }
@@ -373,24 +371,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Race Bar Chart ──────────────────────────────────────────
+  // ─── 바 차트 레이스 (실시간 랭킹 시각화) ─────────────────────────
   function updateRaceChart() {
     if (typeof raceChart === 'undefined' || !raceChart) return;
-    const timelineData = getActiveTimelineData();
-    const companyColors = getActiveCompanyColors();
 
-    if (!timelineData || activeIndex >= timelineData.length) return;
+    const timelineData = getActiveTimelineData();
+    if (!timelineData || timelineData.length === 0) return;
+
+    const companyColors = getActiveCompanyColors();
     const activeData = timelineData[activeIndex];
 
     const totalRev = activeData.total_revenue;
     const totalCap = activeData.total_bytes;
     const shares = activeData.shares;
 
+    // 데이터 가드
     if (!shares || Object.keys(shares).length === 0 || totalRev <= 0) {
       raceChart.setOption({
         backgroundColor: 'transparent',
         title: {
-          text: '이 기간의 시장 데이터가 없습니다',
+          text: '해당 기간의 시장 데이터가 없습니다',
           left: 'center',
           top: 'center',
           textStyle: {
@@ -419,77 +419,82 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       chartData.push({
-        value: value,
         name: company,
+        value: parseFloat(value.toFixed(4)),
         share: share,
         itemStyle: {
-          color: companyColors[company] || '#778899',
-          borderRadius: [0, 4, 4, 0]
+          color: companyColors[company] || companyColors['Others'],
+          borderRadius: [0, 4, 4, 0],
+          shadowBlur: 8,
+          shadowColor: (companyColors[company] || companyColors['Others']) + '55'
         }
       });
     }
 
     chartData.sort((a, b) => b.value - a.value);
 
-    // Fixed-scale logic for x-axis
-    const maxVal = chartData.length > 0 ? Math.max(...chartData.map(d => d.value)) : 100;
-    const axisFormatter = makeAxisFormatter(maxVal, isRev);
+    // 전체보기인 경우 상위 20대 기업, 개별 영역은 10대 기업 노출
+    const maxBars = currentMarket === 'total' ? 19 : 8;
+    const yAxisMax = Math.max(0, Math.min(chartData.length - 1, maxBars));
 
+    const maxValue = chartData.length > 0 ? chartData[0].value : 1;
+    const axisFormatter = makeAxisFormatter(maxValue, isRev);
     const theme = getTheme();
-    const yAxisMax = Math.min(10, chartData.length - 1);
 
     const option = {
       backgroundColor: 'transparent',
-      title: { show: false },
+      title: {
+        text: '',
+        show: false
+      },
       tooltip: {
-        show: true,
         trigger: 'item',
         backgroundColor: 'rgba(13, 20, 35, 0.95)',
         borderColor: theme.accent + '33',
         textStyle: {
           color: '#f3f4f6',
-          fontFamily: 'Outfit'
+          fontFamily: 'Outfit',
+          fontSize: 13
         },
         formatter: function(params) {
-          const activeData = timelineData[activeIndex];
-          const share = activeData.shares[params.name] || 0;
-          
-          let valStr = '';
+          const d = params.data;
+          if (!d) return '';
+          let valStr;
           if (isRev) {
-            valStr = '$' + params.value.toFixed(2) + 'B (십억 달러)';
+            valStr = '$' + params.value.toFixed(2) + 'B';
           } else {
             const fmt = formatMetricValue(params.value);
             valStr = fmt.val + ' ' + fmt.unit;
           }
-          
-          return `<div style="font-weight:600;margin-bottom:4px;">${params.name}</div>
-                  <div>시장 점유율: <b>${share}%</b></div>
-                  <div>${isRev ? '매출액' : (currentMarket === 'logic' ? '트랜지스터 수량' : '생산 용량')}: <b>${valStr}</b></div>`;
+          const share = d.share != null ? d.share : 0;
+          return '<b>' + d.name + '</b><br/>' +
+            '점유율: ' + share.toFixed(1) + '%<br/>' +
+            (isRev ? '매출액: ' : '출하량: ') + valStr;
         }
       },
       grid: {
-        top: 20,
-        bottom: 30,
-        left: 110,
-        right: 80
+        top: 10,
+        bottom: 20,
+        left: 140,
+        right: 100
       },
       xAxis: {
         type: 'value',
-        axisLabel: {
-          formatter: axisFormatter,
-          color: '#9ca3af',
-          fontFamily: 'Outfit',
-          fontSize: 11
-        },
+        max: 'dataMax',
         splitLine: {
           lineStyle: {
-            color: 'rgba(255, 255, 255, 0.03)'
+            color: 'rgba(255, 255, 255, 0.04)'
           }
+        },
+        axisLabel: {
+          color: '#9ca3af',
+          fontFamily: 'Outfit',
+          formatter: axisFormatter
         }
       },
       yAxis: {
         type: 'category',
-        data: chartData.map(d => d.name),
+        data: chartData.map(item => item.name),
         inverse: true,
         max: yAxisMax,
         axisLine: {
@@ -512,32 +517,28 @@ document.addEventListener('DOMContentLoaded', () => {
           seriesLayoutBy: 'column',
           type: 'bar',
           data: chartData,
+          encode: {
+            x: 'value',
+            y: 'name'
+          },
           label: {
             show: true,
             position: 'right',
             valueAnimation: true,
+            fontFamily: 'Outfit',
             color: '#f3f4f6',
-            fontFamily: 'JetBrains Mono',
-            fontWeight: 600,
-            fontSize: 11,
+            fontWeight: 500,
+            fontSize: 12,
             formatter: function(params) {
               const d = params.data;
               if (!d) return '';
-              const share = d.share != null ? d.share : 0;
-              const val = typeof params.value === 'number' ? params.value : 0;
-              if (isRev) {
-                return '$' + val.toFixed(2) + 'B (' + share.toFixed(1) + '%)';
-              } else {
-                const formatted = formatMetricValue(val);
-                return formatted.val + ' ' + formatted.unit + ' (' + share.toFixed(1) + '%)';
-              }
+              return d.share.toFixed(1) + '%';
             }
-          },
-          barMaxWidth: 28
+          }
         }
       ],
       animationDuration: 0,
-      animationDurationUpdate: isPlaying ? playSpeed : 500,
+      animationDurationUpdate: playSpeed,
       animationEasing: 'linear',
       animationEasingUpdate: 'linear'
     };
@@ -545,13 +546,13 @@ document.addEventListener('DOMContentLoaded', () => {
     raceChart.setOption(option);
   }
 
-  // ─── Animated Counter ────────────────────────────────────────
+  // ─── 카운터 숫자 애니메이션 ──────────────────────────────────
   function animateCounters(targetRevenue, targetCapacity) {
     if (counterAnimFrame) cancelAnimationFrame(counterAnimFrame);
 
     const startRevenue = animatedRevenue;
     const startCapacity = animatedCapacity;
-    const duration = 400; // ms
+    const duration = 400;
     const startTime = performance.now();
 
     function step(now) {
@@ -581,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counterAnimFrame = requestAnimationFrame(step);
   }
 
-  // ─── Update UI (Master) ──────────────────────────────────────
+  // ─── UI 갱신 마스터 함수 ──────────────────────────────────────
   function updateUI() {
     const timelineData = getActiveTimelineData();
     if (!timelineData || timelineData.length === 0) return;
@@ -614,7 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (activeMilestones.length === 0) {
-        milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">아직 기록된 주요 사건이 없습니다.</div>';
+        milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">아직 기록된 주요 반도체 업계 이벤트가 없습니다.</div>';
       } else {
         activeMilestones.forEach(m => {
           const item = document.createElement('div');
@@ -645,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTrendChartCursor();
   }
 
-  // ─── Playback Controls ───────────────────────────────────────
+  // ─── 재생 제어 ──────────────────────────────────────────────
   function playTimeline() {
     const timelineData = getActiveTimelineData();
     if (activeIndex >= timelineData.length - 1) {
@@ -672,7 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playIcon.style.display = 'block';
   }
 
-  // ─── Market Switcher (Tabs) ──────────────────────────────────
+  // ─── 마켓 전환 (탭 브라우징) ──────────────────────────────────
   function switchMarket(market) {
     if (currentMarket === market) return;
     pauseTimeline();
@@ -684,14 +685,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       document.body.className = 'market-' + market;
 
-      [tabDram, tabFlash, tabLogic].forEach(tab => tab.classList.remove('active'));
-      if (market === 'dram') tabDram.classList.add('active');
-      else if (market === 'flash') tabFlash.classList.add('active');
-      else if (market === 'logic') tabLogic.classList.add('active');
+      // 액티브 탭 클래스 변경
+      marketTabs.forEach(t => {
+        const tabEl = document.getElementById('tab-' + t);
+        if (tabEl) {
+          if (t === market) tabEl.classList.add('active');
+          else tabEl.classList.remove('active');
+        }
+      });
 
-      const isLogic = market === 'logic';
-      toggleBytesBtn.textContent = isLogic ? '트랜지스터 수량' : '생산 용량 (Byte)';
-      statCapacityLabel.textContent = isLogic ? '전체 트랜지스터 수량' : '전체 생산 용량';
+      // 마켓 유형별 레이블 갱신
+      const capName = getRightAxisName();
+      toggleBytesBtn.textContent = capName;
+      statCapacityLabel.textContent = '총 ' + capName + ' 출하량';
 
       const timelineData = getActiveTimelineData();
       timelineSlider.max = timelineData.length - 1;
@@ -715,7 +721,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   }
 
-  // ─── Event Listeners ─────────────────────────────────────────
+  // ─── 이벤트 리스너 ───────────────────────────────────────────
   playBtn.addEventListener('click', () => {
     if (isPlaying) {
       pauseTimeline();
@@ -762,9 +768,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRaceChart();
   });
 
-  tabDram.addEventListener('click', () => switchMarket('dram'));
-  tabFlash.addEventListener('click', () => switchMarket('flash'));
-  tabLogic.addEventListener('click', () => switchMarket('logic'));
+  // 탭 클릭 동적 바인딩
+  marketTabs.forEach(t => {
+    const tabEl = document.getElementById('tab-' + t);
+    if (tabEl) {
+      tabEl.addEventListener('click', () => switchMarket(t));
+    }
+  });
 
   let resizeTimeout;
   window.addEventListener('resize', () => {
@@ -775,8 +785,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
   });
 
-  // ─── Initial Execution ───────────────────────────────────────
-  document.body.className = 'market-dram';
+  // ─── 초기 구동 ───────────────────────────────────────────────
+  document.body.className = 'market-total';
 
   const initData = getActiveTimelineData();
   timelineSlider.max = initData.length - 1;
@@ -784,6 +794,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animatedRevenue = initData[activeIndex].total_revenue;
   animatedCapacity = initData[activeIndex].total_bytes;
+
+  const capName = getRightAxisName();
+  toggleBytesBtn.textContent = capName;
+  statCapacityLabel.textContent = '총 ' + capName + ' 출하량';
 
   trendChart.setOption(getTrendChartOptions());
   updateUI();
