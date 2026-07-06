@@ -125,6 +125,35 @@ const mcuCompanyColors = {
   "Others": "#778899"
 };
 
+const foundryCompanyColors = {
+  "TSMC": "#f43f5e",
+  "Samsung": "#0055ff",
+  "GlobalFoundries": "#ff4500",
+  "UMC": "#0088cc",
+  "SMIC": "#cc0000",
+  "Intel Foundry": "#0071c5",
+  "DB HiTek": "#00b0ff",
+  "Tower": "#666666",
+  "VIS": "#ff8800",
+  "Chartered": "#0055aa",
+  "Others": "#778899"
+};
+
+const fablessCompanyColors = {
+  "Nvidia": "#76b900",
+  "Qualcomm": "#3253dc",
+  "Broadcom": "#cc092f",
+  "AMD": "#ed1c24",
+  "MediaTek": "#f47920",
+  "Apple": "#8b5cf6",
+  "Marvell": "#005596",
+  "Novatek": "#00a88f",
+  "Realtek": "#0072bc",
+  "Xilinx": "#d91c24",
+  "Chips and Tech": "#884400",
+  "Others": "#778899"
+};
+
 
 const totalTimelineData = [
   {
@@ -15341,6 +15370,3418 @@ const mcuTimelineData = [
       "Microchip": 16.0,
       "STMicroelectronics": 12.0,
       "Others": 6.0
+    },
+    "milestone": ""
+  }
+];
+const foundryTimelineData = [
+  {
+    "label": "1970",
+    "date": "1970-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1971",
+    "date": "1971-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1972",
+    "date": "1972-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1973",
+    "date": "1973-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1974",
+    "date": "1974-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1975",
+    "date": "1975-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1976",
+    "date": "1976-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1977",
+    "date": "1977-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1978",
+    "date": "1978-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1979",
+    "date": "1979-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1980",
+    "date": "1980-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1981",
+    "date": "1981-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1982",
+    "date": "1982-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1983",
+    "date": "1983-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1984",
+    "date": "1984-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1985",
+    "date": "1985-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1986",
+    "date": "1986-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1987",
+    "date": "1987-12-31",
+    "total_revenue": 0.05,
+    "total_bytes": 100000.0,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": "Morris Chang founds Taiwan Semiconductor Manufacturing Company (TSMC), introducing the pure-play foundry business model."
+  },
+  {
+    "label": "1988",
+    "date": "1988-12-31",
+    "total_revenue": 0.06,
+    "total_bytes": 128000.0,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1989",
+    "date": "1989-12-31",
+    "total_revenue": 0.08,
+    "total_bytes": 163840.0,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1990",
+    "date": "1990-12-31",
+    "total_revenue": 0.1,
+    "total_bytes": 209715.20000000004,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1991",
+    "date": "1991-12-31",
+    "total_revenue": 0.12,
+    "total_bytes": 268435.456,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1992",
+    "date": "1992-12-31",
+    "total_revenue": 0.15,
+    "total_bytes": 343597.38368,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1993",
+    "date": "1993-12-31",
+    "total_revenue": 0.19,
+    "total_bytes": 439804.6511104001,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1994",
+    "date": "1994-12-31",
+    "total_revenue": 0.24,
+    "total_bytes": 562949.953421312,
+    "shares": {
+      "TSMC": 80.0,
+      "Others": 20.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1995",
+    "date": "1995-12-31",
+    "total_revenue": 0.3,
+    "total_bytes": 720575.9403792795,
+    "shares": {
+      "TSMC": 65.0,
+      "UMC": 20.0,
+      "Chartered": 10.0,
+      "Others": 5.0
+    },
+    "milestone": "United Microelectronics Corporation (UMC) transitions from an IDM into a dedicated pure-play semiconductor foundry."
+  },
+  {
+    "label": "1996",
+    "date": "1996-12-31",
+    "total_revenue": 0.37,
+    "total_bytes": 922337.2036854778,
+    "shares": {
+      "TSMC": 65.0,
+      "UMC": 20.0,
+      "Chartered": 10.0,
+      "Others": 5.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1997",
+    "date": "1997-12-31",
+    "total_revenue": 0.47,
+    "total_bytes": 1180591.6207174116,
+    "shares": {
+      "TSMC": 65.0,
+      "UMC": 20.0,
+      "Chartered": 10.0,
+      "Others": 5.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1998",
+    "date": "1998-12-31",
+    "total_revenue": 0.58,
+    "total_bytes": 1511157.2745182868,
+    "shares": {
+      "TSMC": 65.0,
+      "UMC": 20.0,
+      "Chartered": 10.0,
+      "Others": 5.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1999",
+    "date": "1999-12-31",
+    "total_revenue": 0.73,
+    "total_bytes": 1934281.3113834073,
+    "shares": {
+      "TSMC": 65.0,
+      "UMC": 20.0,
+      "Chartered": 10.0,
+      "Others": 5.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2000",
+    "date": "2000-12-31",
+    "total_revenue": 0.91,
+    "total_bytes": 2475880.0785707613,
+    "shares": {
+      "TSMC": 58.0,
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Chartered": 8.0,
+      "Others": 8.0
+    },
+    "milestone": "Semiconductor Manufacturing International Corporation (SMIC) is founded in Shanghai, initiating mainland China's foundry push."
+  },
+  {
+    "label": "2001",
+    "date": "2001-12-31",
+    "total_revenue": 1.14,
+    "total_bytes": 3169126.5005705743,
+    "shares": {
+      "TSMC": 58.0,
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Chartered": 8.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2002",
+    "date": "2002-12-31",
+    "total_revenue": 1.42,
+    "total_bytes": 4056481.920730335,
+    "shares": {
+      "TSMC": 58.0,
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Chartered": 8.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2003",
+    "date": "2003-12-31",
+    "total_revenue": 1.78,
+    "total_bytes": 5192296.85853483,
+    "shares": {
+      "TSMC": 58.0,
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Chartered": 8.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2004",
+    "date": "2004-12-31",
+    "total_revenue": 2.22,
+    "total_bytes": 6646139.978924582,
+    "shares": {
+      "TSMC": 58.0,
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Chartered": 8.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2005",
+    "date": "2005-12-31",
+    "total_revenue": 2.78,
+    "total_bytes": 8507059.173023466,
+    "shares": {
+      "TSMC": 58.0,
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Chartered": 8.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q1",
+    "date": "2006-03-31",
+    "total_revenue": 4.5,
+    "total_bytes": 1300000.0,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q2",
+    "date": "2006-06-30",
+    "total_revenue": 4.7,
+    "total_bytes": 1352000.0,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q3",
+    "date": "2006-09-30",
+    "total_revenue": 4.9,
+    "total_bytes": 1406080.0,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q4",
+    "date": "2006-12-31",
+    "total_revenue": 5.1,
+    "total_bytes": 1462323.2,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q1",
+    "date": "2007-03-31",
+    "total_revenue": 5.2,
+    "total_bytes": 1520816.13,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q2",
+    "date": "2007-06-30",
+    "total_revenue": 5.5,
+    "total_bytes": 1581648.77,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q3",
+    "date": "2007-09-30",
+    "total_revenue": 5.8,
+    "total_bytes": 1644914.72,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q4",
+    "date": "2007-12-31",
+    "total_revenue": 6.0,
+    "total_bytes": 1710711.31,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q1",
+    "date": "2008-03-31",
+    "total_revenue": 6.1,
+    "total_bytes": 1779139.77,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q2",
+    "date": "2008-06-30",
+    "total_revenue": 6.0,
+    "total_bytes": 1850305.36,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q3",
+    "date": "2008-09-30",
+    "total_revenue": 5.5,
+    "total_bytes": 1924317.57,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q4",
+    "date": "2008-12-31",
+    "total_revenue": 4.8,
+    "total_bytes": 2001290.27,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2009 Q1",
+    "date": "2009-03-31",
+    "total_revenue": 3.8,
+    "total_bytes": 2081341.88,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": "AMD completes the spin-off of GlobalFoundries, acquiring Singapore's Chartered Semiconductor shortly after."
+  },
+  {
+    "label": "2009 Q2",
+    "date": "2009-06-30",
+    "total_revenue": 4.5,
+    "total_bytes": 2164595.56,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2009 Q3",
+    "date": "2009-09-30",
+    "total_revenue": 5.8,
+    "total_bytes": 2251179.38,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2009 Q4",
+    "date": "2009-12-31",
+    "total_revenue": 6.5,
+    "total_bytes": 2341226.56,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q1",
+    "date": "2010-03-31",
+    "total_revenue": 7.2,
+    "total_bytes": 2434875.62,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q2",
+    "date": "2010-06-30",
+    "total_revenue": 7.8,
+    "total_bytes": 2532270.64,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q3",
+    "date": "2010-09-30",
+    "total_revenue": 8.2,
+    "total_bytes": 2633561.47,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q4",
+    "date": "2010-12-31",
+    "total_revenue": 8.5,
+    "total_bytes": 2738903.93,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q1",
+    "date": "2011-03-31",
+    "total_revenue": 8.4,
+    "total_bytes": 2848460.09,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q2",
+    "date": "2011-06-30",
+    "total_revenue": 8.8,
+    "total_bytes": 2962398.49,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q3",
+    "date": "2011-09-30",
+    "total_revenue": 9.0,
+    "total_bytes": 3080894.43,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q4",
+    "date": "2011-12-31",
+    "total_revenue": 8.7,
+    "total_bytes": 3204130.21,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q1",
+    "date": "2012-03-31",
+    "total_revenue": 8.8,
+    "total_bytes": 3332295.41,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q2",
+    "date": "2012-06-30",
+    "total_revenue": 9.2,
+    "total_bytes": 3465587.23,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q3",
+    "date": "2012-09-30",
+    "total_revenue": 9.8,
+    "total_bytes": 3604210.72,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q4",
+    "date": "2012-12-31",
+    "total_revenue": 10.2,
+    "total_bytes": 3748379.15,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q1",
+    "date": "2013-03-31",
+    "total_revenue": 10.5,
+    "total_bytes": 3898314.31,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q2",
+    "date": "2013-06-30",
+    "total_revenue": 11.0,
+    "total_bytes": 4054246.89,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q3",
+    "date": "2013-09-30",
+    "total_revenue": 11.8,
+    "total_bytes": 4216416.76,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q4",
+    "date": "2013-12-31",
+    "total_revenue": 12.2,
+    "total_bytes": 4385073.43,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q1",
+    "date": "2014-03-31",
+    "total_revenue": 12.5,
+    "total_bytes": 4560476.37,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q2",
+    "date": "2014-06-30",
+    "total_revenue": 13.2,
+    "total_bytes": 4742895.43,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q3",
+    "date": "2014-09-30",
+    "total_revenue": 14.0,
+    "total_bytes": 4932611.24,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q4",
+    "date": "2014-12-31",
+    "total_revenue": 14.5,
+    "total_bytes": 5129915.69,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q1",
+    "date": "2015-03-31",
+    "total_revenue": 14.8,
+    "total_bytes": 5335112.32,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q2",
+    "date": "2015-06-30",
+    "total_revenue": 15.2,
+    "total_bytes": 5548516.81,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q3",
+    "date": "2015-09-30",
+    "total_revenue": 15.5,
+    "total_bytes": 5770457.49,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q4",
+    "date": "2015-12-31",
+    "total_revenue": 15.8,
+    "total_bytes": 6001275.78,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q1",
+    "date": "2016-03-31",
+    "total_revenue": 15.2,
+    "total_bytes": 6241326.82,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q2",
+    "date": "2016-06-30",
+    "total_revenue": 16.0,
+    "total_bytes": 6490979.89,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q3",
+    "date": "2016-09-30",
+    "total_revenue": 17.2,
+    "total_bytes": 6750619.08,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q4",
+    "date": "2016-12-31",
+    "total_revenue": 18.0,
+    "total_bytes": 7020643.85,
+    "shares": {
+      "TSMC": 55.0,
+      "GlobalFoundries": 10.0,
+      "UMC": 9.0,
+      "Samsung": 7.0,
+      "SMIC": 5.0,
+      "Tower": 2.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2017 Q1",
+    "date": "2017-03-31",
+    "total_revenue": 18.2,
+    "total_bytes": 7301469.6,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": "Samsung Electronics officially separates Samsung Foundry as an independent business unit to aggressively target pure-play foundry clients."
+  },
+  {
+    "label": "2017 Q2",
+    "date": "2017-06-30",
+    "total_revenue": 19.0,
+    "total_bytes": 7593528.39,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": "Samsung Electronics reorganizes system LSI to split off Samsung Foundry into a standalone division."
+  },
+  {
+    "label": "2017 Q3",
+    "date": "2017-09-30",
+    "total_revenue": 20.2,
+    "total_bytes": 7897269.52,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2017 Q4",
+    "date": "2017-12-31",
+    "total_revenue": 21.0,
+    "total_bytes": 8213160.3,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q1",
+    "date": "2018-03-31",
+    "total_revenue": 20.8,
+    "total_bytes": 8541686.71,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q2",
+    "date": "2018-06-30",
+    "total_revenue": 21.5,
+    "total_bytes": 8883354.18,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q3",
+    "date": "2018-09-30",
+    "total_revenue": 22.8,
+    "total_bytes": 9238688.35,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q4",
+    "date": "2018-12-31",
+    "total_revenue": 22.0,
+    "total_bytes": 9608235.88,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q1",
+    "date": "2019-03-31",
+    "total_revenue": 20.2,
+    "total_bytes": 9992565.32,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q2",
+    "date": "2019-06-30",
+    "total_revenue": 21.0,
+    "total_bytes": 10392267.93,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q3",
+    "date": "2019-09-30",
+    "total_revenue": 22.5,
+    "total_bytes": 10807958.65,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q4",
+    "date": "2019-12-31",
+    "total_revenue": 23.8,
+    "total_bytes": 11240277.0,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2020 Q1",
+    "date": "2020-03-31",
+    "total_revenue": 24.2,
+    "total_bytes": 11689888.08,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": "TSMC enters 5nm mass production leadership, producing Apple's A14 Bionic and M1 processors."
+  },
+  {
+    "label": "2020 Q2",
+    "date": "2020-06-30",
+    "total_revenue": 25.5,
+    "total_bytes": 12157483.6,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2020 Q3",
+    "date": "2020-09-30",
+    "total_revenue": 27.2,
+    "total_bytes": 12643782.94,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2020 Q4",
+    "date": "2020-12-31",
+    "total_revenue": 28.5,
+    "total_bytes": 13149534.26,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": "TSMC 5nm revenue contribution climbs rapidly due to high-volume shipments of Apple A14 and M1 SoCs."
+  },
+  {
+    "label": "2021 Q1",
+    "date": "2021-03-31",
+    "total_revenue": 30.2,
+    "total_bytes": 13675515.63,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2021 Q2",
+    "date": "2021-06-30",
+    "total_revenue": 32.5,
+    "total_bytes": 14222536.26,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2021 Q3",
+    "date": "2021-09-30",
+    "total_revenue": 35.0,
+    "total_bytes": 14791437.71,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2021 Q4",
+    "date": "2021-12-31",
+    "total_revenue": 36.8,
+    "total_bytes": 15383095.21,
+    "shares": {
+      "TSMC": 56.0,
+      "Samsung": 17.0,
+      "GlobalFoundries": 7.0,
+      "UMC": 7.0,
+      "SMIC": 5.0,
+      "VIS": 2.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q1",
+    "date": "2022-03-31",
+    "total_revenue": 37.5,
+    "total_bytes": 15998419.02,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q2",
+    "date": "2022-06-30",
+    "total_revenue": 38.2,
+    "total_bytes": 16638355.78,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q3",
+    "date": "2022-09-30",
+    "total_revenue": 36.5,
+    "total_bytes": 17303890.01,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q4",
+    "date": "2022-12-31",
+    "total_revenue": 34.0,
+    "total_bytes": 17996045.62,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2023 Q1",
+    "date": "2023-03-31",
+    "total_revenue": 31.5,
+    "total_bytes": 18715887.44,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2023 Q2",
+    "date": "2023-06-30",
+    "total_revenue": 33.2,
+    "total_bytes": 19464522.94,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2023 Q3",
+    "date": "2023-09-30",
+    "total_revenue": 36.0,
+    "total_bytes": 20243103.86,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2023 Q4",
+    "date": "2023-12-31",
+    "total_revenue": 38.5,
+    "total_bytes": 21052828.01,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q1",
+    "date": "2024-03-31",
+    "total_revenue": 40.2,
+    "total_bytes": 21894941.13,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": "Intel Foundry hosts its first IFS Direct Connect event, announcing Microsoft as a major 18A node customer."
+  },
+  {
+    "label": "2024 Q2",
+    "date": "2024-06-30",
+    "total_revenue": 42.8,
+    "total_bytes": 22770738.78,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q3",
+    "date": "2024-09-30",
+    "total_revenue": 45.5,
+    "total_bytes": 23681568.33,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q4",
+    "date": "2024-12-31",
+    "total_revenue": 48.0,
+    "total_bytes": 24628831.06,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q1",
+    "date": "2025-03-31",
+    "total_revenue": 50.0,
+    "total_bytes": 25613984.3,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q2",
+    "date": "2025-06-30",
+    "total_revenue": 52.5,
+    "total_bytes": 26638543.67,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q3",
+    "date": "2025-09-30",
+    "total_revenue": 55.0,
+    "total_bytes": 27704085.42,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q4",
+    "date": "2025-12-31",
+    "total_revenue": 58.0,
+    "total_bytes": 28812248.84,
+    "shares": {
+      "TSMC": 61.0,
+      "Samsung": 13.0,
+      "SMIC": 6.0,
+      "UMC": 6.0,
+      "GlobalFoundries": 5.0,
+      "Intel Foundry": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2026 Q1",
+    "date": "2026-03-31",
+    "total_revenue": 62.0,
+    "total_bytes": 29964738.79,
+    "shares": {
+      "TSMC": 62.5,
+      "Samsung": 11.5,
+      "SMIC": 6.8,
+      "UMC": 5.5,
+      "GlobalFoundries": 4.5,
+      "Intel Foundry": 4.0,
+      "Others": 5.2
+    },
+    "milestone": "AI ASIC and GPU demand drives TSMC Q1 foundry revenue past $25 Billion, cementing its top market share."
+  },
+  {
+    "label": "2026 Q2",
+    "date": "2026-06-30",
+    "total_revenue": 60.0,
+    "total_bytes": 31163328.34,
+    "shares": {
+      "TSMC": 62.5,
+      "Samsung": 11.5,
+      "SMIC": 6.8,
+      "UMC": 5.5,
+      "GlobalFoundries": 4.5,
+      "Intel Foundry": 4.0,
+      "Others": 5.2
+    },
+    "milestone": ""
+  }
+];
+const fablessTimelineData = [
+  {
+    "label": "1970",
+    "date": "1970-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1971",
+    "date": "1971-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1972",
+    "date": "1972-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1973",
+    "date": "1973-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1974",
+    "date": "1974-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1975",
+    "date": "1975-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1976",
+    "date": "1976-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1977",
+    "date": "1977-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1978",
+    "date": "1978-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1979",
+    "date": "1979-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1980",
+    "date": "1980-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1981",
+    "date": "1981-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1982",
+    "date": "1982-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1983",
+    "date": "1983-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1984",
+    "date": "1984-12-31",
+    "total_revenue": 0.0,
+    "total_bytes": 0.0,
+    "shares": {},
+    "milestone": ""
+  },
+  {
+    "label": "1985",
+    "date": "1985-12-31",
+    "total_revenue": 0.02,
+    "total_bytes": 1000000.0,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": "Qualcomm is founded in San Diego, developing CDMA wireless communication and pioneering modern fabless mobile architecture."
+  },
+  {
+    "label": "1986",
+    "date": "1986-12-31",
+    "total_revenue": 0.02,
+    "total_bytes": 1250000.0,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1987",
+    "date": "1987-12-31",
+    "total_revenue": 0.03,
+    "total_bytes": 1562500.0,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1988",
+    "date": "1988-12-31",
+    "total_revenue": 0.04,
+    "total_bytes": 1953125.0,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1989",
+    "date": "1989-12-31",
+    "total_revenue": 0.05,
+    "total_bytes": 2441406.25,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1990",
+    "date": "1990-12-31",
+    "total_revenue": 0.06,
+    "total_bytes": 3051757.8125,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1991",
+    "date": "1991-12-31",
+    "total_revenue": 0.07,
+    "total_bytes": 3814697.265625,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1992",
+    "date": "1992-12-31",
+    "total_revenue": 0.09,
+    "total_bytes": 4768371.58203125,
+    "shares": {
+      "Qualcomm": 60.0,
+      "Chips and Tech": 25.0,
+      "Others": 15.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1993",
+    "date": "1993-12-31",
+    "total_revenue": 0.11,
+    "total_bytes": 5960464.4775390625,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": "NVIDIA is founded by Jensen Huang, Chris Malachowsky, and Curtis Priem, focusing on 3D graphics hardware."
+  },
+  {
+    "label": "1994",
+    "date": "1994-12-31",
+    "total_revenue": 0.14,
+    "total_bytes": 7450580.596923828,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1995",
+    "date": "1995-12-31",
+    "total_revenue": 0.17,
+    "total_bytes": 9313225.746154785,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1996",
+    "date": "1996-12-31",
+    "total_revenue": 0.21,
+    "total_bytes": 11641532.182693481,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1997",
+    "date": "1997-12-31",
+    "total_revenue": 0.26,
+    "total_bytes": 14551915.228366852,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": "MediaTek is spun off from UMC in Taiwan, establishing a fast-growing fabless multimedia and mobile SoC business."
+  },
+  {
+    "label": "1998",
+    "date": "1998-12-31",
+    "total_revenue": 0.33,
+    "total_bytes": 18189894.035458565,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "1999",
+    "date": "1999-12-31",
+    "total_revenue": 0.41,
+    "total_bytes": 22737367.544323206,
+    "shares": {
+      "Qualcomm": 40.0,
+      "Nvidia": 20.0,
+      "MediaTek": 15.0,
+      "Broadcom": 10.0,
+      "Xilinx": 8.0,
+      "Others": 7.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2000",
+    "date": "2000-12-31",
+    "total_revenue": 0.5,
+    "total_bytes": 28421709.430404007,
+    "shares": {
+      "Qualcomm": 32.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 14.0,
+      "Xilinx": 6.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2001",
+    "date": "2001-12-31",
+    "total_revenue": 0.62,
+    "total_bytes": 35527136.78800501,
+    "shares": {
+      "Qualcomm": 32.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 14.0,
+      "Xilinx": 6.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2002",
+    "date": "2002-12-31",
+    "total_revenue": 0.77,
+    "total_bytes": 44408920.98500626,
+    "shares": {
+      "Qualcomm": 32.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 14.0,
+      "Xilinx": 6.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2003",
+    "date": "2003-12-31",
+    "total_revenue": 0.96,
+    "total_bytes": 55511151.231257826,
+    "shares": {
+      "Qualcomm": 32.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 14.0,
+      "Xilinx": 6.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2004",
+    "date": "2004-12-31",
+    "total_revenue": 1.19,
+    "total_bytes": 69388939.03907229,
+    "shares": {
+      "Qualcomm": 32.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 14.0,
+      "Xilinx": 6.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2005",
+    "date": "2005-12-31",
+    "total_revenue": 1.48,
+    "total_bytes": 86736173.79884036,
+    "shares": {
+      "Qualcomm": 32.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 14.0,
+      "Xilinx": 6.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q1",
+    "date": "2006-03-31",
+    "total_revenue": 6.2,
+    "total_bytes": 262500000.0,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q2",
+    "date": "2006-06-30",
+    "total_revenue": 6.5,
+    "total_bytes": 275625000.0,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q3",
+    "date": "2006-09-30",
+    "total_revenue": 6.8,
+    "total_bytes": 289406250.0,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2006 Q4",
+    "date": "2006-12-31",
+    "total_revenue": 7.2,
+    "total_bytes": 303876562.5,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q1",
+    "date": "2007-03-31",
+    "total_revenue": 7.5,
+    "total_bytes": 319070390.62,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q2",
+    "date": "2007-06-30",
+    "total_revenue": 7.8,
+    "total_bytes": 335023910.16,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q3",
+    "date": "2007-09-30",
+    "total_revenue": 8.2,
+    "total_bytes": 351775105.66,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2007 Q4",
+    "date": "2007-12-31",
+    "total_revenue": 8.5,
+    "total_bytes": 369363860.95,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q1",
+    "date": "2008-03-31",
+    "total_revenue": 8.2,
+    "total_bytes": 387832053.99,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q2",
+    "date": "2008-06-30",
+    "total_revenue": 8.0,
+    "total_bytes": 407223656.69,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q3",
+    "date": "2008-09-30",
+    "total_revenue": 7.5,
+    "total_bytes": 427584839.53,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2008 Q4",
+    "date": "2008-12-31",
+    "total_revenue": 6.5,
+    "total_bytes": 448964081.51,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2009 Q1",
+    "date": "2009-03-31",
+    "total_revenue": 5.8,
+    "total_bytes": 471412285.58,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": "AMD completes its transformation into a pure fabless semiconductor company after divesting its manufacturing fabs."
+  },
+  {
+    "label": "2009 Q2",
+    "date": "2009-06-30",
+    "total_revenue": 6.8,
+    "total_bytes": 494982899.86,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2009 Q3",
+    "date": "2009-09-30",
+    "total_revenue": 8.0,
+    "total_bytes": 519732044.85,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": "AMD completes total transition to fabless business model following GlobalFoundries deal closure."
+  },
+  {
+    "label": "2009 Q4",
+    "date": "2009-12-31",
+    "total_revenue": 8.8,
+    "total_bytes": 545718647.1,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q1",
+    "date": "2010-03-31",
+    "total_revenue": 9.5,
+    "total_bytes": 573004579.45,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q2",
+    "date": "2010-06-30",
+    "total_revenue": 10.2,
+    "total_bytes": 601654808.42,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q3",
+    "date": "2010-09-30",
+    "total_revenue": 11.0,
+    "total_bytes": 631737548.84,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2010 Q4",
+    "date": "2010-12-31",
+    "total_revenue": 11.5,
+    "total_bytes": 663324426.29,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q1",
+    "date": "2011-03-31",
+    "total_revenue": 11.8,
+    "total_bytes": 696490647.6,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q2",
+    "date": "2011-06-30",
+    "total_revenue": 12.5,
+    "total_bytes": 731315179.98,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q3",
+    "date": "2011-09-30",
+    "total_revenue": 13.0,
+    "total_bytes": 767880938.98,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2011 Q4",
+    "date": "2011-12-31",
+    "total_revenue": 12.8,
+    "total_bytes": 806274985.93,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q1",
+    "date": "2012-03-31",
+    "total_revenue": 13.2,
+    "total_bytes": 846588735.22,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q2",
+    "date": "2012-06-30",
+    "total_revenue": 14.0,
+    "total_bytes": 888918171.99,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q3",
+    "date": "2012-09-30",
+    "total_revenue": 15.2,
+    "total_bytes": 933364080.59,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2012 Q4",
+    "date": "2012-12-31",
+    "total_revenue": 16.0,
+    "total_bytes": 980032284.61,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q1",
+    "date": "2013-03-31",
+    "total_revenue": 16.5,
+    "total_bytes": 1029033898.85,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q2",
+    "date": "2013-06-30",
+    "total_revenue": 17.2,
+    "total_bytes": 1080485593.79,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q3",
+    "date": "2013-09-30",
+    "total_revenue": 18.5,
+    "total_bytes": 1134509873.48,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2013 Q4",
+    "date": "2013-12-31",
+    "total_revenue": 19.2,
+    "total_bytes": 1191235367.15,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q1",
+    "date": "2014-03-31",
+    "total_revenue": 19.8,
+    "total_bytes": 1250797135.51,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q2",
+    "date": "2014-06-30",
+    "total_revenue": 20.5,
+    "total_bytes": 1313336992.28,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q3",
+    "date": "2014-09-30",
+    "total_revenue": 22.0,
+    "total_bytes": 1379003841.9,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2014 Q4",
+    "date": "2014-12-31",
+    "total_revenue": 23.0,
+    "total_bytes": 1447954033.99,
+    "shares": {
+      "Qualcomm": 28.0,
+      "Broadcom": 18.0,
+      "Nvidia": 15.0,
+      "AMD": 12.0,
+      "MediaTek": 10.0,
+      "Marvell": 5.0,
+      "Others": 12.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q1",
+    "date": "2015-03-31",
+    "total_revenue": 22.5,
+    "total_bytes": 1520351735.69,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": "Broadcom Corporation is acquired by Avago Technologies for $37 Billion in a historic fabless semiconductor merger."
+  },
+  {
+    "label": "2015 Q2",
+    "date": "2015-06-30",
+    "total_revenue": 23.2,
+    "total_bytes": 1596369322.48,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q3",
+    "date": "2015-09-30",
+    "total_revenue": 24.5,
+    "total_bytes": 1676187788.6,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2015 Q4",
+    "date": "2015-12-31",
+    "total_revenue": 25.0,
+    "total_bytes": 1759997178.03,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q1",
+    "date": "2016-03-31",
+    "total_revenue": 24.8,
+    "total_bytes": 1847997036.93,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q2",
+    "date": "2016-06-30",
+    "total_revenue": 25.8,
+    "total_bytes": 1940396888.78,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q3",
+    "date": "2016-09-30",
+    "total_revenue": 27.2,
+    "total_bytes": 2037416733.22,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2016 Q4",
+    "date": "2016-12-31",
+    "total_revenue": 28.5,
+    "total_bytes": 2139287569.88,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2017 Q1",
+    "date": "2017-03-31",
+    "total_revenue": 29.2,
+    "total_bytes": 2246251948.37,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2017 Q2",
+    "date": "2017-06-30",
+    "total_revenue": 31.0,
+    "total_bytes": 2358564545.79,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2017 Q3",
+    "date": "2017-09-30",
+    "total_revenue": 33.2,
+    "total_bytes": 2476492773.08,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2017 Q4",
+    "date": "2017-12-31",
+    "total_revenue": 35.0,
+    "total_bytes": 2600317411.74,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q1",
+    "date": "2018-03-31",
+    "total_revenue": 35.5,
+    "total_bytes": 2730333282.32,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q2",
+    "date": "2018-06-30",
+    "total_revenue": 37.0,
+    "total_bytes": 2866849946.44,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q3",
+    "date": "2018-09-30",
+    "total_revenue": 38.5,
+    "total_bytes": 3010192443.76,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2018 Q4",
+    "date": "2018-12-31",
+    "total_revenue": 36.8,
+    "total_bytes": 3160702065.95,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q1",
+    "date": "2019-03-31",
+    "total_revenue": 34.5,
+    "total_bytes": 3318737169.25,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q2",
+    "date": "2019-06-30",
+    "total_revenue": 36.0,
+    "total_bytes": 3484674027.71,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q3",
+    "date": "2019-09-30",
+    "total_revenue": 38.2,
+    "total_bytes": 3658907729.09,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2019 Q4",
+    "date": "2019-12-31",
+    "total_revenue": 40.0,
+    "total_bytes": 3841853115.55,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2020 Q1",
+    "date": "2020-03-31",
+    "total_revenue": 41.2,
+    "total_bytes": 4033945771.33,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": "Apple launches Apple Silicon M1 SoC, proving ARM-based fabless custom chips can outperform traditional x86 desktop CPUs."
+  },
+  {
+    "label": "2020 Q2",
+    "date": "2020-06-30",
+    "total_revenue": 43.5,
+    "total_bytes": 4235643059.89,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2020 Q3",
+    "date": "2020-09-30",
+    "total_revenue": 46.8,
+    "total_bytes": 4447425212.89,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2020 Q4",
+    "date": "2020-12-31",
+    "total_revenue": 49.5,
+    "total_bytes": 4669796473.53,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": "Apple Silicon M1 Mac series launches to widespread acclaim, raising standard for ARM fabless CPU design."
+  },
+  {
+    "label": "2021 Q1",
+    "date": "2021-03-31",
+    "total_revenue": 52.8,
+    "total_bytes": 4903286297.21,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2021 Q2",
+    "date": "2021-06-30",
+    "total_revenue": 57.2,
+    "total_bytes": 5148450612.07,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2021 Q3",
+    "date": "2021-09-30",
+    "total_revenue": 62.0,
+    "total_bytes": 5405873142.67,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2021 Q4",
+    "date": "2021-12-31",
+    "total_revenue": 65.5,
+    "total_bytes": 5676166799.8,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q1",
+    "date": "2022-03-31",
+    "total_revenue": 64.2,
+    "total_bytes": 5959975139.79,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q2",
+    "date": "2022-06-30",
+    "total_revenue": 62.0,
+    "total_bytes": 6257973896.78,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q3",
+    "date": "2022-09-30",
+    "total_revenue": 58.5,
+    "total_bytes": 6570872591.62,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2022 Q4",
+    "date": "2022-12-31",
+    "total_revenue": 55.0,
+    "total_bytes": 6899416221.2,
+    "shares": {
+      "Qualcomm": 26.0,
+      "Nvidia": 22.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
+      "AMD": 10.0,
+      "Novatek": 4.0,
+      "Others": 8.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2023 Q1",
+    "date": "2023-03-31",
+    "total_revenue": 52.0,
+    "total_bytes": 7244387032.27,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": "Generative AI boom propels NVIDIA past TSMC and Intel to become the world's highest-revenue fabless semiconductor firm."
+  },
+  {
+    "label": "2023 Q2",
+    "date": "2023-06-30",
+    "total_revenue": 58.5,
+    "total_bytes": 7606606383.88,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": "NVIDIA's Data Center revenue jumps over 170% quarter-over-quarter due to AI H100 GPU demand."
+  },
+  {
+    "label": "2023 Q3",
+    "date": "2023-09-30",
+    "total_revenue": 66.0,
+    "total_bytes": 7986936703.07,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2023 Q4",
+    "date": "2023-12-31",
+    "total_revenue": 74.5,
+    "total_bytes": 8386283538.23,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q1",
+    "date": "2024-03-31",
+    "total_revenue": 78.5,
+    "total_bytes": 8805597715.14,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q2",
+    "date": "2024-06-30",
+    "total_revenue": 85.0,
+    "total_bytes": 9245877600.89,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q3",
+    "date": "2024-09-30",
+    "total_revenue": 92.5,
+    "total_bytes": 9708171480.94,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2024 Q4",
+    "date": "2024-12-31",
+    "total_revenue": 99.0,
+    "total_bytes": 10193580054.99,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q1",
+    "date": "2025-03-31",
+    "total_revenue": 105.0,
+    "total_bytes": 10703259057.74,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q2",
+    "date": "2025-06-30",
+    "total_revenue": 112.0,
+    "total_bytes": 11238422010.62,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q3",
+    "date": "2025-09-30",
+    "total_revenue": 118.0,
+    "total_bytes": 11800343111.15,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2025 Q4",
+    "date": "2025-12-31",
+    "total_revenue": 124.0,
+    "total_bytes": 12390360266.71,
+    "shares": {
+      "Nvidia": 42.0,
+      "Qualcomm": 16.0,
+      "Broadcom": 15.0,
+      "AMD": 10.0,
+      "MediaTek": 8.0,
+      "Marvell": 3.0,
+      "Others": 6.0
+    },
+    "milestone": ""
+  },
+  {
+    "label": "2026 Q1",
+    "date": "2026-03-31",
+    "total_revenue": 135.0,
+    "total_bytes": 13009878280.05,
+    "shares": {
+      "Nvidia": 46.0,
+      "Qualcomm": 14.5,
+      "Broadcom": 14.0,
+      "AMD": 9.5,
+      "MediaTek": 7.5,
+      "Marvell": 3.0,
+      "Others": 5.5
+    },
+    "milestone": "NVIDIA, Qualcomm, and Broadcom lead record quarterly fabless revenues fueled by AI server and smartphone silicon upgrades."
+  },
+  {
+    "label": "2026 Q2",
+    "date": "2026-06-30",
+    "total_revenue": 130.0,
+    "total_bytes": 13660372194.05,
+    "shares": {
+      "Nvidia": 46.0,
+      "Qualcomm": 14.5,
+      "Broadcom": 14.0,
+      "AMD": 9.5,
+      "MediaTek": 7.5,
+      "Marvell": 3.0,
+      "Others": 5.5
     },
     "milestone": ""
   }

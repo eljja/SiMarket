@@ -1,8 +1,8 @@
-// app.js - Semiconductor Market Dashboard Logic (8-Market Edition)
+// app.js - Semiconductor Market Dashboard Logic (10-Market Edition)
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Application State ───────────────────────────────────────
-  let currentMarket = 'total'; // 'total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu'
+  let currentMarket = 'total'; // 'total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu', 'foundry', 'fabless'
   let activeIndex = 0;
   let isPlaying = false;
   let playInterval = null;
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
   // Tab Switcher Buttons Array
-  const marketTabs = ['total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu'];
+  const marketTabs = ['total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu', 'foundry', 'fabless'];
 
   // ─── Initialize ECharts ──────────────────────────────────────
   const raceChartDom = document.getElementById('race-chart');
@@ -52,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentMarket === 'analog') return analogTimelineData;
     if (currentMarket === 'opto') return optoTimelineData;
     if (currentMarket === 'power') return powerTimelineData;
-    return mcuTimelineData;
+    if (currentMarket === 'mcu') return mcuTimelineData;
+    if (currentMarket === 'foundry') return foundryTimelineData;
+    return fablessTimelineData;
   }
 
   function getActiveCompanyColors() {
@@ -63,7 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentMarket === 'analog') return analogCompanyColors;
     if (currentMarket === 'opto') return optoCompanyColors;
     if (currentMarket === 'power') return powerCompanyColors;
-    return mcuCompanyColors;
+    if (currentMarket === 'mcu') return mcuCompanyColors;
+    if (currentMarket === 'foundry') return foundryCompanyColors;
+    return fablessCompanyColors;
   }
 
   // ─── Smart Start Index ───────────────────────────────────────
@@ -85,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentMarket === 'logic') {
         return { val: '0', unit: 'Transistors' };
       }
+      if (currentMarket === 'foundry') {
+        return { val: '0', unit: 'Wafers' };
+      }
       return { val: '0', unit: 'Units' };
     }
     const k = 1000;
@@ -105,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (currentMarket === 'opto') unitLabel = 'Opto & CIS Units';
     else if (currentMarket === 'power') unitLabel = 'Discrete & Power Units';
     else if (currentMarket === 'mcu') unitLabel = 'MCU Units';
+    else if (currentMarket === 'foundry') unitLabel = 'Wafers';
+    else if (currentMarket === 'fabless') unitLabel = 'Chip Units';
 
     const sizes = ['', 'K', 'M', 'B', 'T', 'QD', 'QT'];
     const i = Math.max(0, Math.min(Math.floor(Math.log10(value) / 3), sizes.length - 1));
@@ -148,14 +157,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Market Theme Configurations ─────────────────────────────
   const marketThemes = {
-    total:  { accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.35)', trendRight: 'rgba(255, 255, 255, 0.3)', trendRightLine: '#ffffff' },
-    dram:  { accent: '#00e5ff', glow: 'rgba(0, 229, 255, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' },
-    flash: { accent: '#e6007e', glow: 'rgba(230, 0, 126, 0.35)', trendRight: 'rgba(255, 98, 0, 0.4)',   trendRightLine: '#ff6200' },
-    logic: { accent: '#76b900', glow: 'rgba(118, 185, 0, 0.35)', trendRight: 'rgba(255, 179, 0, 0.4)',   trendRightLine: '#ffb300' },
+    total:   { accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.35)', trendRight: 'rgba(255, 255, 255, 0.3)', trendRightLine: '#ffffff' },
+    dram:   { accent: '#00e5ff', glow: 'rgba(0, 229, 255, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' },
+    flash:  { accent: '#e6007e', glow: 'rgba(230, 0, 126, 0.35)', trendRight: 'rgba(255, 98, 0, 0.4)',   trendRightLine: '#ff6200' },
+    logic:  { accent: '#76b900', glow: 'rgba(118, 185, 0, 0.35)', trendRight: 'rgba(255, 179, 0, 0.4)',   trendRightLine: '#ffb300' },
     analog: { accent: '#ff9100', glow: 'rgba(255, 145, 0, 0.35)', trendRight: 'rgba(56, 189, 248, 0.4)', trendRightLine: '#38bdf8' },
-    opto: { accent: '#ff2a85', glow: 'rgba(255, 42, 133, 0.35)', trendRight: 'rgba(0, 229, 255, 0.4)',  trendRightLine: '#00e5ff' },
-    power: { accent: '#ffd600', glow: 'rgba(255, 214, 0, 0.35)', trendRight: 'rgba(0, 191, 165, 0.4)',  trendRightLine: '#00bfa5' },
-    mcu: { accent: '#00bfa5', glow: 'rgba(0, 191, 165, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' }
+    opto:   { accent: '#ff2a85', glow: 'rgba(255, 42, 133, 0.35)', trendRight: 'rgba(0, 229, 255, 0.4)',  trendRightLine: '#00e5ff' },
+    power:  { accent: '#ffd600', glow: 'rgba(255, 214, 0, 0.35)', trendRight: 'rgba(0, 191, 165, 0.4)',  trendRightLine: '#00bfa5' },
+    mcu:    { accent: '#00bfa5', glow: 'rgba(0, 191, 165, 0.35)', trendRight: 'rgba(168, 85, 247, 0.4)', trendRightLine: '#a855f7' },
+    foundry:{ accent: '#f43f5e', glow: 'rgba(244, 63, 94, 0.35)', trendRight: 'rgba(56, 189, 248, 0.4)', trendRightLine: '#38bdf8' },
+    fabless:{ accent: '#8b5cf6', glow: 'rgba(139, 92, 246, 0.35)', trendRight: 'rgba(0, 229, 255, 0.4)', trendRightLine: '#00e5ff' }
   };
 
   function getTheme() {
@@ -169,6 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentMarket === 'opto') return 'Opto & CIS Units';
     if (currentMarket === 'power') return 'Discrete & Power Units';
     if (currentMarket === 'mcu') return 'MCU Units';
+    if (currentMarket === 'foundry') return 'Wafer Capacity (Wafers)';
+    if (currentMarket === 'fabless') return 'Die/Chip Volume';
     return 'Capacity';
   }
 
@@ -284,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
           axisLabel: {
             formatter: function(value) {
               const fmt = formatMetricValue(value);
-              return fmt.val + fmt.unit.replace(/Transistors|Capacity|Analog Units|Opto & CIS Units|Discrete & Power Units|MCU Units|Volume|Units/, '').trim();
+              return fmt.val + fmt.unit.replace(/Transistors|Capacity|Analog Units|Opto & CIS Units|Discrete & Power Units|MCU Units|Volume|Units|Wafer Capacity \(Wafers\)|Die\/Chip Volume|Wafers|Chip Units/, '').trim();
             },
             color: '#9ca3af',
             fontFamily: 'Outfit'
@@ -431,10 +444,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Sort descending
     chartData.sort((a, b) => b.value - a.value);
 
-    // Show top 20 for 'total' and top 10 for others
     const maxBars = currentMarket === 'total' ? 19 : 8;
     const yAxisMax = Math.max(0, Math.min(chartData.length - 1, maxBars));
 
@@ -796,7 +807,6 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedRevenue = initData[activeIndex].total_revenue;
   animatedCapacity = initData[activeIndex].total_bytes;
 
-  // Set capacity labels to show Total Semiconductor Aggregate Volume
   const capName = getRightAxisName();
   toggleBytesBtn.textContent = capName;
   statCapacityLabel.textContent = 'Total ' + capName + ' Shipped';

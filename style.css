@@ -70,6 +70,16 @@ body.market-mcu {
   --accent-primary-glow: rgba(0, 191, 165, 0.35);
 }
 
+body.market-foundry {
+  --accent-primary: #f43f5e;
+  --accent-primary-glow: rgba(244, 63, 94, 0.35);
+}
+
+body.market-fabless {
+  --accent-primary: #8b5cf6;
+  --accent-primary-glow: rgba(139, 92, 246, 0.35);
+}
+
 /* Reset and Base Styles */
 * {
   box-sizing: border-box;
