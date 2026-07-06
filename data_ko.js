@@ -3810,10 +3810,10 @@ const dramTimelineData = [
     "total_revenue": 28.8,
     "total_bytes": 6.003451963152737e+16,
     "shares": {
-      "Samsung": 35.0,
-      "SK Hynix": 25.0,
-      "Micron": 20.0,
-      "Elpida": 10.0,
+      "Samsung": 39.0,
+      "SK Hynix": 23.0,
+      "Micron": 15.0,
+      "Elpida": 13.0,
       "Nanya": 5.0,
       "Others": 5.0
     },
@@ -3825,10 +3825,10 @@ const dramTimelineData = [
     "total_revenue": 11.5,
     "total_bytes": 1.1456e+17,
     "shares": {
-      "Samsung": 35.0,
-      "SK Hynix": 25.0,
-      "Micron": 20.0,
-      "Elpida": 10.0,
+      "Samsung": 39.0,
+      "SK Hynix": 23.0,
+      "Micron": 15.0,
+      "Elpida": 13.0,
       "Nanya": 5.0,
       "Others": 5.0
     },
@@ -3840,10 +3840,10 @@ const dramTimelineData = [
     "total_revenue": 15.2,
     "total_bytes": 2.050624e+17,
     "shares": {
-      "Samsung": 35.0,
-      "SK Hynix": 25.0,
-      "Micron": 20.0,
-      "Elpida": 10.0,
+      "Samsung": 39.0,
+      "SK Hynix": 23.0,
+      "Micron": 15.0,
+      "Elpida": 13.0,
       "Nanya": 5.0,
       "Others": 5.0
     },
@@ -3855,10 +3855,10 @@ const dramTimelineData = [
     "total_revenue": 17.3,
     "total_bytes": 3.6706169600000006e+17,
     "shares": {
-      "Samsung": 35.0,
-      "SK Hynix": 25.0,
-      "Micron": 20.0,
-      "Elpida": 10.0,
+      "Samsung": 39.0,
+      "SK Hynix": 23.0,
+      "Micron": 15.0,
+      "Elpida": 13.0,
       "Nanya": 5.0,
       "Others": 5.0
     },
@@ -3870,10 +3870,10 @@ const dramTimelineData = [
     "total_revenue": 26.4,
     "total_bytes": 6.570404358400001e+17,
     "shares": {
-      "Samsung": 35.0,
-      "SK Hynix": 25.0,
-      "Micron": 20.0,
-      "Elpida": 10.0,
+      "Samsung": 39.0,
+      "SK Hynix": 23.0,
+      "Micron": 15.0,
+      "Elpida": 13.0,
       "Nanya": 5.0,
       "Others": 5.0
     },
@@ -3885,10 +3885,10 @@ const dramTimelineData = [
     "total_revenue": 24.8,
     "total_bytes": 1.1761023801536e+18,
     "shares": {
-      "Samsung": 35.0,
-      "SK Hynix": 25.0,
-      "Micron": 20.0,
-      "Elpida": 10.0,
+      "Samsung": 39.0,
+      "SK Hynix": 23.0,
+      "Micron": 15.0,
+      "Elpida": 13.0,
       "Nanya": 5.0,
       "Others": 5.0
     },
@@ -4326,7 +4326,7 @@ const dramTimelineData = [
       "Nanya": 4.0,
       "Others": 3.0
     },
-    "milestone": ""
+    "milestone": "\ub9c8\uc774\ud06c\ub860\uc774 \uc5d8\ud53c\ub2e4 \uba54\ubaa8\ub9ac\ub97c \uc778\uc218\ud558\uc5ec DRAM 3\uac15 \uccb4\uc81c \ud615\uc131."
   },
   {
     "label": "2013 Q2",
@@ -4606,7 +4606,7 @@ const dramTimelineData = [
       "Nanya": 4.0,
       "Others": 3.0
     },
-    "milestone": "\uae00\ub85c\ubc8c DRAM \ub9e4\ucd9c\uc774 \uc0ac\uc0c1 \ucd5c\ub300\uc778 996\uc5b5 \ub2ec\ub7ec \uae30\ub85d. '\ube45 3' \uc81c\uc870\uc0ac \uc601\uc5c5\uc774\uc775\ub960\uc774 60%\ub97c \ucd08\uacfc\ud558\ub294 \uae30\ub85d \ub2ec\uc131."
+    "milestone": ""
   },
   {
     "label": "2018 Q2",
@@ -5384,12 +5384,12 @@ const flashTimelineData = [
     "total_revenue": 6.8,
     "total_bytes": 2500000000000.0,
     "shares": {
-      "Samsung": 42.0,
-      "Toshiba": 25.0,
+      "Samsung": 38.0,
+      "Toshiba": 27.0,
       "SanDisk": 15.0,
-      "SK Hynix": 10.0,
-      "Micron": 5.0,
-      "Others": 3.0
+      "SK Hynix": 11.0,
+      "Micron": 6.0,
+      "Intel": 3.0
     },
     "milestone": ""
   },
@@ -5399,12 +5399,12 @@ const flashTimelineData = [
     "total_revenue": 5.2,
     "total_bytes": 6000000000000.0,
     "shares": {
-      "Samsung": 42.0,
-      "Toshiba": 25.0,
+      "Samsung": 38.0,
+      "Toshiba": 27.0,
       "SanDisk": 15.0,
-      "SK Hynix": 10.0,
-      "Micron": 5.0,
-      "Others": 3.0
+      "SK Hynix": 11.0,
+      "Micron": 6.0,
+      "Intel": 3.0
     },
     "milestone": ""
   },
@@ -5414,12 +5414,12 @@ const flashTimelineData = [
     "total_revenue": 7.1,
     "total_bytes": 16000000000000.0,
     "shares": {
-      "Samsung": 42.0,
-      "Toshiba": 25.0,
+      "Samsung": 38.0,
+      "Toshiba": 27.0,
       "SanDisk": 15.0,
-      "SK Hynix": 10.0,
-      "Micron": 5.0,
-      "Others": 3.0
+      "SK Hynix": 11.0,
+      "Micron": 6.0,
+      "Intel": 3.0
     },
     "milestone": ""
   },
@@ -5429,12 +5429,12 @@ const flashTimelineData = [
     "total_revenue": 9.2,
     "total_bytes": 45000000000000.0,
     "shares": {
-      "Samsung": 42.0,
-      "Toshiba": 25.0,
+      "Samsung": 38.0,
+      "Toshiba": 27.0,
       "SanDisk": 15.0,
-      "SK Hynix": 10.0,
-      "Micron": 5.0,
-      "Others": 3.0
+      "SK Hynix": 11.0,
+      "Micron": 6.0,
+      "Intel": 3.0
     },
     "milestone": ""
   },
@@ -5444,12 +5444,12 @@ const flashTimelineData = [
     "total_revenue": 11.8,
     "total_bytes": 130000000000000.0,
     "shares": {
-      "Samsung": 42.0,
-      "Toshiba": 25.0,
+      "Samsung": 38.0,
+      "Toshiba": 27.0,
       "SanDisk": 15.0,
-      "SK Hynix": 10.0,
-      "Micron": 5.0,
-      "Others": 3.0
+      "SK Hynix": 11.0,
+      "Micron": 6.0,
+      "Intel": 3.0
     },
     "milestone": ""
   },
@@ -5459,12 +5459,12 @@ const flashTimelineData = [
     "total_revenue": 10.8,
     "total_bytes": 360000000000000.0,
     "shares": {
-      "Samsung": 42.0,
-      "Toshiba": 25.0,
+      "Samsung": 38.0,
+      "Toshiba": 27.0,
       "SanDisk": 15.0,
-      "SK Hynix": 10.0,
-      "Micron": 5.0,
-      "Others": 3.0
+      "SK Hynix": 11.0,
+      "Micron": 6.0,
+      "Intel": 3.0
     },
     "milestone": "\uc560\ud50c\uc774 \uc544\uc774\ud31f \ub098\ub178\uc5d0 \ub9c8\uc774\ud06c\ub85c \ud558\ub4dc\ub514\uc2a4\ud06c \ub300\uc2e0 NAND \ud50c\ub798\uc2dc\ub97c \ucc44\ud0dd\ud558\uba70 \ud50c\ub798\uc2dc \uc218\uc694\uc758 \ud3ed\ubc1c\uc801\uc778 \uc99d\uac00 \uae30\uc5ec."
   },
@@ -7098,13 +7098,13 @@ const logicTimelineData = [
     "total_revenue": 35.0,
     "total_bytes": 2331170938812000.5,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7114,13 +7114,13 @@ const logicTimelineData = [
     "total_revenue": 38.0,
     "total_bytes": 4219419399249720.5,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7130,13 +7130,13 @@ const logicTimelineData = [
     "total_revenue": 44.0,
     "total_bytes": 7637149112641995.0,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7146,13 +7146,13 @@ const logicTimelineData = [
     "total_revenue": 42.0,
     "total_bytes": 1.3823239893882012e+16,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7162,13 +7162,13 @@ const logicTimelineData = [
     "total_revenue": 50.0,
     "total_bytes": 2.502006420792644e+16,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": "\uc5d4\ube44\ub514\uc544\uac00 GeForce 256\uc744 \ucd9c\uc2dc\ud558\uba70 \uc5c5\uacc4 \ucd5c\ucd08\ub85c GPU(Graphics Processing Unit) \uc6a9\uc5b4 \uc81c\ucc3d."
   },
@@ -7178,13 +7178,13 @@ const logicTimelineData = [
     "total_revenue": 62.0,
     "total_bytes": 4.5286316216346856e+16,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7194,13 +7194,13 @@ const logicTimelineData = [
     "total_revenue": 52.0,
     "total_bytes": 8.01e+16,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7210,13 +7210,13 @@ const logicTimelineData = [
     "total_revenue": 56.0,
     "total_bytes": 1.42578e+17,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7226,13 +7226,13 @@ const logicTimelineData = [
     "total_revenue": 64.0,
     "total_bytes": 2.5378884000000003e+17,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7242,13 +7242,13 @@ const logicTimelineData = [
     "total_revenue": 78.0,
     "total_bytes": 4.517441352e+17,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -7258,13 +7258,13 @@ const logicTimelineData = [
     "total_revenue": 85.0,
     "total_bytes": 8.041045606560001e+17,
     "shares": {
-      "Intel": 55.0,
-      "AMD": 15.0,
-      "Texas Instruments": 8.0,
-      "Qualcomm": 5.0,
-      "Broadcom": 5.0,
-      "Nvidia": 2.0,
-      "Others": 10.0
+      "Intel": 52.0,
+      "AMD": 12.0,
+      "Qualcomm": 12.0,
+      "Broadcom": 9.0,
+      "Texas Instruments": 6.0,
+      "MediaTek": 5.0,
+      "Nvidia": 4.0
     },
     "milestone": ""
   },
@@ -8993,11 +8993,12 @@ const analogTimelineData = [
     "total_revenue": 8.89,
     "total_bytes": 6621177195.678576,
     "shares": {
-      "Texas Instruments": 40.0,
-      "Analog Devices": 18.0,
-      "Infineon": 12.0,
+      "Texas Instruments": 42.0,
+      "Analog Devices": 22.0,
+      "Infineon": 14.0,
       "STMicroelectronics": 10.0,
-      "Others": 20.0
+      "NXP": 8.0,
+      "Others": 4.0
     },
     "milestone": "\uace0\uc18d \ub370\uc774\ud130 \ubcc0\ud658\uae30(ADC/DAC)\uac00 \uad11\ub300\uc5ed \uc778\ud130\ub137\ub9dd \ubc0f \uc774\ub3d9\ud1b5\uc2e0 \uae30\uc9c0\uad6d\uc758 \ud575\uc2ec \ubd80\ud488\uc73c\ub85c \uc790\ub9ac\uc7a1\uc74c."
   },
@@ -9007,11 +9008,12 @@ const analogTimelineData = [
     "total_revenue": 10.4,
     "total_bytes": 7614353775.030362,
     "shares": {
-      "Texas Instruments": 40.0,
-      "Analog Devices": 18.0,
-      "Infineon": 12.0,
+      "Texas Instruments": 42.0,
+      "Analog Devices": 22.0,
+      "Infineon": 14.0,
       "STMicroelectronics": 10.0,
-      "Others": 20.0
+      "NXP": 8.0,
+      "Others": 4.0
     },
     "milestone": ""
   },
@@ -9021,11 +9023,12 @@ const analogTimelineData = [
     "total_revenue": 12.16,
     "total_bytes": 8756506841.284916,
     "shares": {
-      "Texas Instruments": 40.0,
-      "Analog Devices": 18.0,
-      "Infineon": 12.0,
+      "Texas Instruments": 42.0,
+      "Analog Devices": 22.0,
+      "Infineon": 14.0,
       "STMicroelectronics": 10.0,
-      "Others": 20.0
+      "NXP": 8.0,
+      "Others": 4.0
     },
     "milestone": ""
   },
@@ -9035,11 +9038,12 @@ const analogTimelineData = [
     "total_revenue": 14.23,
     "total_bytes": 10069982867.477654,
     "shares": {
-      "Texas Instruments": 40.0,
-      "Analog Devices": 18.0,
-      "Infineon": 12.0,
+      "Texas Instruments": 42.0,
+      "Analog Devices": 22.0,
+      "Infineon": 14.0,
       "STMicroelectronics": 10.0,
-      "Others": 20.0
+      "NXP": 8.0,
+      "Others": 4.0
     },
     "milestone": ""
   },
@@ -9049,11 +9053,12 @@ const analogTimelineData = [
     "total_revenue": 16.65,
     "total_bytes": 11580480297.5993,
     "shares": {
-      "Texas Instruments": 40.0,
-      "Analog Devices": 18.0,
-      "Infineon": 12.0,
+      "Texas Instruments": 42.0,
+      "Analog Devices": 22.0,
+      "Infineon": 14.0,
       "STMicroelectronics": 10.0,
-      "Others": 20.0
+      "NXP": 8.0,
+      "Others": 4.0
     },
     "milestone": ""
   },
@@ -9063,11 +9068,12 @@ const analogTimelineData = [
     "total_revenue": 19.48,
     "total_bytes": 13317552342.239193,
     "shares": {
-      "Texas Instruments": 40.0,
-      "Analog Devices": 18.0,
-      "Infineon": 12.0,
+      "Texas Instruments": 42.0,
+      "Analog Devices": 22.0,
+      "Infineon": 14.0,
       "STMicroelectronics": 10.0,
-      "Others": 20.0
+      "NXP": 8.0,
+      "Others": 4.0
     },
     "milestone": ""
   },
@@ -10709,11 +10715,12 @@ const optoTimelineData = [
     "total_revenue": 2.58,
     "total_bytes": 1433706384.3792744,
     "shares": {
-      "Sony": 38.0,
-      "Samsung": 15.0,
+      "Sony": 45.0,
+      "Samsung": 18.0,
       "OmniVision": 12.0,
-      "Sharp": 10.0,
-      "Others": 25.0
+      "Sharp": 8.0,
+      "onsemi": 7.0,
+      "Others": 10.0
     },
     "milestone": "\uc0e4\ud504\uac00 CMOS \uc774\ubbf8\uc9c0 \uc13c\uc11c\ub97c \ud0d1\uc7ac\ud55c \uc138\uacc4 \ucd5c\ucd08\uc758 \uce74\uba54\ub77c \ub0b4\uc7a5\ud615 \ud734\ub300\ud3f0 \ucd9c\uc2dc."
   },
@@ -10723,11 +10730,12 @@ const optoTimelineData = [
     "total_revenue": 2.99,
     "total_bytes": 1691773533.5675433,
     "shares": {
-      "Sony": 38.0,
-      "Samsung": 15.0,
+      "Sony": 45.0,
+      "Samsung": 18.0,
       "OmniVision": 12.0,
-      "Sharp": 10.0,
-      "Others": 25.0
+      "Sharp": 8.0,
+      "onsemi": 7.0,
+      "Others": 10.0
     },
     "milestone": ""
   },
@@ -10737,11 +10745,12 @@ const optoTimelineData = [
     "total_revenue": 3.47,
     "total_bytes": 1996292769.6097012,
     "shares": {
-      "Sony": 38.0,
-      "Samsung": 15.0,
+      "Sony": 45.0,
+      "Samsung": 18.0,
       "OmniVision": 12.0,
-      "Sharp": 10.0,
-      "Others": 25.0
+      "Sharp": 8.0,
+      "onsemi": 7.0,
+      "Others": 10.0
     },
     "milestone": ""
   },
@@ -10751,11 +10760,12 @@ const optoTimelineData = [
     "total_revenue": 4.02,
     "total_bytes": 2355625468.139447,
     "shares": {
-      "Sony": 38.0,
-      "Samsung": 15.0,
+      "Sony": 45.0,
+      "Samsung": 18.0,
       "OmniVision": 12.0,
-      "Sharp": 10.0,
-      "Others": 25.0
+      "Sharp": 8.0,
+      "onsemi": 7.0,
+      "Others": 10.0
     },
     "milestone": ""
   },
@@ -10765,11 +10775,12 @@ const optoTimelineData = [
     "total_revenue": 4.66,
     "total_bytes": 2779638052.4045477,
     "shares": {
-      "Sony": 38.0,
-      "Samsung": 15.0,
+      "Sony": 45.0,
+      "Samsung": 18.0,
       "OmniVision": 12.0,
-      "Sharp": 10.0,
-      "Others": 25.0
+      "Sharp": 8.0,
+      "onsemi": 7.0,
+      "Others": 10.0
     },
     "milestone": ""
   },
@@ -10779,11 +10790,12 @@ const optoTimelineData = [
     "total_revenue": 5.41,
     "total_bytes": 3279972901.837366,
     "shares": {
-      "Sony": 38.0,
-      "Samsung": 15.0,
+      "Sony": 45.0,
+      "Samsung": 18.0,
       "OmniVision": 12.0,
-      "Sharp": 10.0,
-      "Others": 25.0
+      "Sharp": 8.0,
+      "onsemi": 7.0,
+      "Others": 10.0
     },
     "milestone": ""
   },
@@ -12425,11 +12437,12 @@ const powerTimelineData = [
     "total_revenue": 3.31,
     "total_bytes": 5095015858.331333,
     "shares": {
-      "Infineon": 22.0,
-      "STMicroelectronics": 16.0,
-      "Toshiba": 12.0,
-      "ON Semiconductor": 10.0,
-      "Others": 40.0
+      "Infineon": 25.0,
+      "onsemi": 14.0,
+      "STMicroelectronics": 14.0,
+      "Toshiba": 10.0,
+      "Mitsubishi": 8.0,
+      "Others": 29.0
     },
     "milestone": "\uc2e4\ub9ac\ucf58 \uc804\ub825 \ubaa8\ub4c8\uc774 \ud48d\ub825 \ubc1c\uc804\uc6a9 \ucee8\ubc84\ud130 \ubc0f \uc0b0\uc5c5\uc6a9 \uace0\ucd9c\ub825 \ubaa8\ud130 \ub4dc\ub77c\uc774\ube0c\uc758 \ud544\uc218 \ud575\uc2ec \ubd80\ud488\uc73c\ub85c \uc548\ucc29."
   },
@@ -12439,11 +12452,12 @@ const powerTimelineData = [
     "total_revenue": 3.81,
     "total_bytes": 5808318078.49772,
     "shares": {
-      "Infineon": 22.0,
-      "STMicroelectronics": 16.0,
-      "Toshiba": 12.0,
-      "ON Semiconductor": 10.0,
-      "Others": 40.0
+      "Infineon": 25.0,
+      "onsemi": 14.0,
+      "STMicroelectronics": 14.0,
+      "Toshiba": 10.0,
+      "Mitsubishi": 8.0,
+      "Others": 29.0
     },
     "milestone": ""
   },
@@ -12453,11 +12467,12 @@ const powerTimelineData = [
     "total_revenue": 4.38,
     "total_bytes": 6621482609.4874,
     "shares": {
-      "Infineon": 22.0,
-      "STMicroelectronics": 16.0,
-      "Toshiba": 12.0,
-      "ON Semiconductor": 10.0,
-      "Others": 40.0
+      "Infineon": 25.0,
+      "onsemi": 14.0,
+      "STMicroelectronics": 14.0,
+      "Toshiba": 10.0,
+      "Mitsubishi": 8.0,
+      "Others": 29.0
     },
     "milestone": ""
   },
@@ -12467,11 +12482,12 @@ const powerTimelineData = [
     "total_revenue": 5.03,
     "total_bytes": 7548490174.815635,
     "shares": {
-      "Infineon": 22.0,
-      "STMicroelectronics": 16.0,
-      "Toshiba": 12.0,
-      "ON Semiconductor": 10.0,
-      "Others": 40.0
+      "Infineon": 25.0,
+      "onsemi": 14.0,
+      "STMicroelectronics": 14.0,
+      "Toshiba": 10.0,
+      "Mitsubishi": 8.0,
+      "Others": 29.0
     },
     "milestone": ""
   },
@@ -12481,11 +12497,12 @@ const powerTimelineData = [
     "total_revenue": 5.79,
     "total_bytes": 8605278799.289824,
     "shares": {
-      "Infineon": 22.0,
-      "STMicroelectronics": 16.0,
-      "Toshiba": 12.0,
-      "ON Semiconductor": 10.0,
-      "Others": 40.0
+      "Infineon": 25.0,
+      "onsemi": 14.0,
+      "STMicroelectronics": 14.0,
+      "Toshiba": 10.0,
+      "Mitsubishi": 8.0,
+      "Others": 29.0
     },
     "milestone": ""
   },
@@ -12495,11 +12512,12 @@ const powerTimelineData = [
     "total_revenue": 6.66,
     "total_bytes": 9810017831.190397,
     "shares": {
-      "Infineon": 22.0,
-      "STMicroelectronics": 16.0,
-      "Toshiba": 12.0,
-      "ON Semiconductor": 10.0,
-      "Others": 40.0
+      "Infineon": 25.0,
+      "onsemi": 14.0,
+      "STMicroelectronics": 14.0,
+      "Toshiba": 10.0,
+      "Mitsubishi": 8.0,
+      "Others": 29.0
     },
     "milestone": ""
   },
@@ -14141,12 +14159,12 @@ const mcuTimelineData = [
     "total_revenue": 3.43,
     "total_bytes": 237376313.79976955,
     "shares": {
-      "Renesas": 30.0,
-      "Freescale": 18.0,
-      "Microchip": 15.0,
-      "STMicroelectronics": 10.0,
-      "Infineon": 8.0,
-      "Others": 19.0
+      "Renesas": 28.0,
+      "NXP": 20.0,
+      "Infineon": 18.0,
+      "Microchip": 16.0,
+      "STMicroelectronics": 12.0,
+      "Others": 6.0
     },
     "milestone": ""
   },
@@ -14156,12 +14174,12 @@ const mcuTimelineData = [
     "total_revenue": 3.98,
     "total_bytes": 284851576.5597235,
     "shares": {
-      "Renesas": 30.0,
-      "Freescale": 18.0,
-      "Microchip": 15.0,
-      "STMicroelectronics": 10.0,
-      "Infineon": 8.0,
-      "Others": 19.0
+      "Renesas": 28.0,
+      "NXP": 20.0,
+      "Infineon": 18.0,
+      "Microchip": 16.0,
+      "STMicroelectronics": 12.0,
+      "Others": 6.0
     },
     "milestone": ""
   },
@@ -14171,12 +14189,12 @@ const mcuTimelineData = [
     "total_revenue": 4.62,
     "total_bytes": 341821891.8716681,
     "shares": {
-      "Renesas": 30.0,
-      "Freescale": 18.0,
-      "Microchip": 15.0,
-      "STMicroelectronics": 10.0,
-      "Infineon": 8.0,
-      "Others": 19.0
+      "Renesas": 28.0,
+      "NXP": 20.0,
+      "Infineon": 18.0,
+      "Microchip": 16.0,
+      "STMicroelectronics": 12.0,
+      "Others": 6.0
     },
     "milestone": ""
   },
@@ -14186,12 +14204,12 @@ const mcuTimelineData = [
     "total_revenue": 5.36,
     "total_bytes": 410186270.2460017,
     "shares": {
-      "Renesas": 30.0,
-      "Freescale": 18.0,
-      "Microchip": 15.0,
-      "STMicroelectronics": 10.0,
-      "Infineon": 8.0,
-      "Others": 19.0
+      "Renesas": 28.0,
+      "NXP": 20.0,
+      "Infineon": 18.0,
+      "Microchip": 16.0,
+      "STMicroelectronics": 12.0,
+      "Others": 6.0
     },
     "milestone": ""
   },
@@ -14201,12 +14219,12 @@ const mcuTimelineData = [
     "total_revenue": 6.22,
     "total_bytes": 492223524.295202,
     "shares": {
-      "Renesas": 30.0,
-      "Freescale": 18.0,
-      "Microchip": 15.0,
-      "STMicroelectronics": 10.0,
-      "Infineon": 8.0,
-      "Others": 19.0
+      "Renesas": 28.0,
+      "NXP": 20.0,
+      "Infineon": 18.0,
+      "Microchip": 16.0,
+      "STMicroelectronics": 12.0,
+      "Others": 6.0
     },
     "milestone": ""
   },
@@ -14216,12 +14234,12 @@ const mcuTimelineData = [
     "total_revenue": 7.21,
     "total_bytes": 590668229.1542424,
     "shares": {
-      "Renesas": 30.0,
-      "Freescale": 18.0,
-      "Microchip": 15.0,
-      "STMicroelectronics": 10.0,
-      "Infineon": 8.0,
-      "Others": 19.0
+      "Renesas": 28.0,
+      "NXP": 20.0,
+      "Infineon": 18.0,
+      "Microchip": 16.0,
+      "STMicroelectronics": 12.0,
+      "Others": 6.0
     },
     "milestone": "ARM Cortex-M \ucf54\uc5b4 IP\uac00 \ubc1c\ud45c\ub418\uba74\uc11c \ud30c\ud3b8\ud654\ub418\uc5b4 \uc788\ub358 32\ube44\ud2b8 MCU \uc2dc\uc7a5\uc774 ARM \ud45c\uc900 \uc124\uacc4 \uae30\ubc18\uc73c\ub85c \uc815\ube44 \uc2dc\uc791."
   },
@@ -15599,8 +15617,8 @@ const foundryTimelineData = [
     "total_revenue": 0.05,
     "total_bytes": 100000.0,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": "\ubaa8\ub9ac\uc2a4 \ucc3d\uc774 \ub300\ub9cc TSMC\ub97c \uc124\ub9bd\ud558\uba70 \ud30c\uc6b4\ub4dc\ub9ac(\uc704\ud0c1 \uc0dd\uc0b0) \uc804\ubb38 \ube44\uc988\ub2c8\uc2a4 \ubaa8\ub378\uc744 \uc5ed\uc0ac\uc0c1 \ucd5c\ucd08\ub85c \ub3c4\uc785."
   },
@@ -15610,8 +15628,8 @@ const foundryTimelineData = [
     "total_revenue": 0.06,
     "total_bytes": 128000.0,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15621,8 +15639,8 @@ const foundryTimelineData = [
     "total_revenue": 0.08,
     "total_bytes": 163840.0,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15632,8 +15650,8 @@ const foundryTimelineData = [
     "total_revenue": 0.1,
     "total_bytes": 209715.20000000004,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15643,8 +15661,8 @@ const foundryTimelineData = [
     "total_revenue": 0.12,
     "total_bytes": 268435.456,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15654,8 +15672,8 @@ const foundryTimelineData = [
     "total_revenue": 0.15,
     "total_bytes": 343597.38368,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15665,8 +15683,8 @@ const foundryTimelineData = [
     "total_revenue": 0.19,
     "total_bytes": 439804.6511104001,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15676,8 +15694,8 @@ const foundryTimelineData = [
     "total_revenue": 0.24,
     "total_bytes": 562949.953421312,
     "shares": {
-      "TSMC": 80.0,
-      "Others": 20.0
+      "TSMC": 75.0,
+      "Others": 25.0
     },
     "milestone": ""
   },
@@ -15752,11 +15770,11 @@ const foundryTimelineData = [
     "total_revenue": 0.91,
     "total_bytes": 2475880.0785707613,
     "shares": {
-      "TSMC": 58.0,
+      "TSMC": 55.0,
       "UMC": 18.0,
       "SMIC": 8.0,
-      "Chartered": 8.0,
-      "Others": 8.0
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": "SMIC\uac00 \uc911\uad6d \uc0c1\ud558\uc774\uc5d0 \uc124\ub9bd\ub418\uba70 \uc911\uad6d \ub300\ub959\uc758 \ubcf8\uaca9\uc801\uc778 \ud30c\uc6b4\ub4dc\ub9ac \uc721\uc131 \uc815\ucc45 \uc2a4\ud0c0\ud2b8."
   },
@@ -15766,11 +15784,11 @@ const foundryTimelineData = [
     "total_revenue": 1.14,
     "total_bytes": 3169126.5005705743,
     "shares": {
-      "TSMC": 58.0,
+      "TSMC": 55.0,
       "UMC": 18.0,
       "SMIC": 8.0,
-      "Chartered": 8.0,
-      "Others": 8.0
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15780,11 +15798,11 @@ const foundryTimelineData = [
     "total_revenue": 1.42,
     "total_bytes": 4056481.920730335,
     "shares": {
-      "TSMC": 58.0,
+      "TSMC": 55.0,
       "UMC": 18.0,
       "SMIC": 8.0,
-      "Chartered": 8.0,
-      "Others": 8.0
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15794,11 +15812,11 @@ const foundryTimelineData = [
     "total_revenue": 1.78,
     "total_bytes": 5192296.85853483,
     "shares": {
-      "TSMC": 58.0,
+      "TSMC": 55.0,
       "UMC": 18.0,
       "SMIC": 8.0,
-      "Chartered": 8.0,
-      "Others": 8.0
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15808,11 +15826,11 @@ const foundryTimelineData = [
     "total_revenue": 2.22,
     "total_bytes": 6646139.978924582,
     "shares": {
-      "TSMC": 58.0,
+      "TSMC": 55.0,
       "UMC": 18.0,
       "SMIC": 8.0,
-      "Chartered": 8.0,
-      "Others": 8.0
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15822,11 +15840,11 @@ const foundryTimelineData = [
     "total_revenue": 2.78,
     "total_bytes": 8507059.173023466,
     "shares": {
-      "TSMC": 58.0,
+      "TSMC": 55.0,
       "UMC": 18.0,
       "SMIC": 8.0,
-      "Chartered": 8.0,
-      "Others": 8.0
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15837,12 +15855,10 @@ const foundryTimelineData = [
     "total_bytes": 1300000.0,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15853,12 +15869,10 @@ const foundryTimelineData = [
     "total_bytes": 1352000.0,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15869,12 +15883,10 @@ const foundryTimelineData = [
     "total_bytes": 1406080.0,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15885,12 +15897,10 @@ const foundryTimelineData = [
     "total_bytes": 1462323.2,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15901,12 +15911,10 @@ const foundryTimelineData = [
     "total_bytes": 1520816.13,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15917,12 +15925,10 @@ const foundryTimelineData = [
     "total_bytes": 1581648.77,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15933,12 +15939,10 @@ const foundryTimelineData = [
     "total_bytes": 1644914.72,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15949,12 +15953,10 @@ const foundryTimelineData = [
     "total_bytes": 1710711.31,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15965,12 +15967,10 @@ const foundryTimelineData = [
     "total_bytes": 1779139.77,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15981,12 +15981,10 @@ const foundryTimelineData = [
     "total_bytes": 1850305.36,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -15997,12 +15995,10 @@ const foundryTimelineData = [
     "total_bytes": 1924317.57,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -16013,12 +16009,10 @@ const foundryTimelineData = [
     "total_bytes": 2001290.27,
     "shares": {
       "TSMC": 55.0,
-      "GlobalFoundries": 10.0,
-      "UMC": 9.0,
-      "Samsung": 7.0,
-      "SMIC": 5.0,
-      "Tower": 2.0,
-      "Others": 12.0
+      "UMC": 18.0,
+      "SMIC": 8.0,
+      "Tower": 4.0,
+      "Others": 15.0
     },
     "milestone": ""
   },
@@ -16541,12 +16535,12 @@ const foundryTimelineData = [
     "total_bytes": 7301469.6,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
-      "GlobalFoundries": 7.0,
-      "UMC": 7.0,
+      "Samsung": 9.0,
+      "GlobalFoundries": 9.0,
+      "UMC": 8.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 11.0
     },
     "milestone": "\uc0bc\uc131\uc804\uc790\uac00 \ud30c\uc6b4\ub4dc\ub9ac \uc0ac\uc5c5\ubd80\ub97c \ub3c5\ub9bd \uc0ac\uc5c5\ubd80\ub85c \uc804\uaca9 \uc2b9\uaca9\uc2dc\ud0a4\uba70 \uae00\ub85c\ubc8c \uc704\ud0c1 \uc0dd\uc0b0 \uc2dc\uc7a5 \uacf5\ub7b5 \ubcf8\uaca9\ud654."
   },
@@ -16557,12 +16551,12 @@ const foundryTimelineData = [
     "total_bytes": 7593528.39,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
-      "GlobalFoundries": 7.0,
-      "UMC": 7.0,
+      "Samsung": 11.0,
+      "GlobalFoundries": 8.0,
+      "UMC": 8.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 10.0
     },
     "milestone": "\uc0bc\uc131\uc804\uc790\uac00 \uc2dc\uc2a4\ud15cLSI \uc0ac\uc5c5\ubd80\uc5d0\uc11c \ud30c\uc6b4\ub4dc\ub9ac \uc0ac\uc5c5\ubd80\ub97c \ubcc4\ub3c4 \ubd84\ub9ac\ud558\uc5ec \ub3c5\ub9bd \uc0ac\uc5c5\ubd80\ub85c \ud3b8\uc81c."
   },
@@ -16573,12 +16567,12 @@ const foundryTimelineData = [
     "total_bytes": 7897269.52,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 13.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 10.0
     },
     "milestone": ""
   },
@@ -16589,12 +16583,12 @@ const foundryTimelineData = [
     "total_bytes": 8213160.3,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 14.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 9.0
     },
     "milestone": ""
   },
@@ -16605,12 +16599,12 @@ const foundryTimelineData = [
     "total_bytes": 8541686.71,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16621,12 +16615,12 @@ const foundryTimelineData = [
     "total_bytes": 8883354.18,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16637,12 +16631,12 @@ const foundryTimelineData = [
     "total_bytes": 9238688.35,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16653,12 +16647,12 @@ const foundryTimelineData = [
     "total_bytes": 9608235.88,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16669,12 +16663,12 @@ const foundryTimelineData = [
     "total_bytes": 9992565.32,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16685,12 +16679,12 @@ const foundryTimelineData = [
     "total_bytes": 10392267.93,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16701,12 +16695,12 @@ const foundryTimelineData = [
     "total_bytes": 10807958.65,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16717,12 +16711,12 @@ const foundryTimelineData = [
     "total_bytes": 11240277.0,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16733,12 +16727,12 @@ const foundryTimelineData = [
     "total_bytes": 11689888.08,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": "TSMC\uac00 5nm \ucd5c\ucca8\ub2e8 \ubbf8\uc138 \uacf5\uc815 \uc591\uc0b0 \uc120\uc810\uc5d0 \uc131\uacf5, \uc560\ud50c A14 \ubc0f M1 \uce69 \uc804\ub7c9 \uc704\ud0c1 \uc0dd\uc0b0."
   },
@@ -16749,12 +16743,12 @@ const foundryTimelineData = [
     "total_bytes": 12157483.6,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16765,12 +16759,12 @@ const foundryTimelineData = [
     "total_bytes": 12643782.94,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16781,12 +16775,12 @@ const foundryTimelineData = [
     "total_bytes": 13149534.26,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": "\uc560\ud50c M1 \ubc0f A14 \uce69 \ucd9c\ud558\uc5d0 \ud798\uc785\uc5b4 TSMC\uc758 5\ub098\ub178 \uacf5\uc815 \ub9e4\ucd9c \ube44\uc911\uc774 \uac00\ud30c\ub974\uac8c \uc0c1\uc2b9."
   },
@@ -16797,12 +16791,12 @@ const foundryTimelineData = [
     "total_bytes": 13675515.63,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16813,12 +16807,12 @@ const foundryTimelineData = [
     "total_bytes": 14222536.26,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16829,12 +16823,12 @@ const foundryTimelineData = [
     "total_bytes": 14791437.71,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -16845,12 +16839,12 @@ const foundryTimelineData = [
     "total_bytes": 15383095.21,
     "shares": {
       "TSMC": 56.0,
-      "Samsung": 17.0,
+      "Samsung": 15.0,
       "GlobalFoundries": 7.0,
       "UMC": 7.0,
       "SMIC": 5.0,
       "VIS": 2.0,
-      "Others": 6.0
+      "Others": 8.0
     },
     "milestone": ""
   },
@@ -17366,10 +17360,10 @@ const fablessTimelineData = [
     "total_revenue": 0.11,
     "total_bytes": 5960464.4775390625,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17381,10 +17375,10 @@ const fablessTimelineData = [
     "total_revenue": 0.14,
     "total_bytes": 7450580.596923828,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17396,10 +17390,10 @@ const fablessTimelineData = [
     "total_revenue": 0.17,
     "total_bytes": 9313225.746154785,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17411,10 +17405,10 @@ const fablessTimelineData = [
     "total_revenue": 0.21,
     "total_bytes": 11641532.182693481,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17426,10 +17420,10 @@ const fablessTimelineData = [
     "total_revenue": 0.26,
     "total_bytes": 14551915.228366852,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17441,10 +17435,10 @@ const fablessTimelineData = [
     "total_revenue": 0.33,
     "total_bytes": 18189894.035458565,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17456,10 +17450,10 @@ const fablessTimelineData = [
     "total_revenue": 0.41,
     "total_bytes": 22737367.544323206,
     "shares": {
-      "Qualcomm": 40.0,
+      "Qualcomm": 35.0,
       "Nvidia": 20.0,
-      "MediaTek": 15.0,
-      "Broadcom": 10.0,
+      "Broadcom": 18.0,
+      "MediaTek": 12.0,
       "Xilinx": 8.0,
       "Others": 7.0
     },
@@ -17471,12 +17465,13 @@ const fablessTimelineData = [
     "total_revenue": 0.5,
     "total_bytes": 28421709.430404007,
     "shares": {
-      "Qualcomm": 32.0,
-      "Nvidia": 22.0,
+      "Qualcomm": 28.0,
       "Broadcom": 18.0,
-      "MediaTek": 14.0,
+      "Nvidia": 15.0,
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
       "Xilinx": 6.0,
-      "Others": 8.0
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17486,12 +17481,13 @@ const fablessTimelineData = [
     "total_revenue": 0.62,
     "total_bytes": 35527136.78800501,
     "shares": {
-      "Qualcomm": 32.0,
-      "Nvidia": 22.0,
+      "Qualcomm": 28.0,
       "Broadcom": 18.0,
-      "MediaTek": 14.0,
+      "Nvidia": 15.0,
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
       "Xilinx": 6.0,
-      "Others": 8.0
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17501,12 +17497,13 @@ const fablessTimelineData = [
     "total_revenue": 0.77,
     "total_bytes": 44408920.98500626,
     "shares": {
-      "Qualcomm": 32.0,
-      "Nvidia": 22.0,
+      "Qualcomm": 28.0,
       "Broadcom": 18.0,
-      "MediaTek": 14.0,
+      "Nvidia": 15.0,
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
       "Xilinx": 6.0,
-      "Others": 8.0
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17516,12 +17513,13 @@ const fablessTimelineData = [
     "total_revenue": 0.96,
     "total_bytes": 55511151.231257826,
     "shares": {
-      "Qualcomm": 32.0,
-      "Nvidia": 22.0,
+      "Qualcomm": 28.0,
       "Broadcom": 18.0,
-      "MediaTek": 14.0,
+      "Nvidia": 15.0,
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
       "Xilinx": 6.0,
-      "Others": 8.0
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17531,12 +17529,13 @@ const fablessTimelineData = [
     "total_revenue": 1.19,
     "total_bytes": 69388939.03907229,
     "shares": {
-      "Qualcomm": 32.0,
-      "Nvidia": 22.0,
+      "Qualcomm": 28.0,
       "Broadcom": 18.0,
-      "MediaTek": 14.0,
+      "Nvidia": 15.0,
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
       "Xilinx": 6.0,
-      "Others": 8.0
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17546,12 +17545,13 @@ const fablessTimelineData = [
     "total_revenue": 1.48,
     "total_bytes": 86736173.79884036,
     "shares": {
-      "Qualcomm": 32.0,
-      "Nvidia": 22.0,
+      "Qualcomm": 28.0,
       "Broadcom": 18.0,
-      "MediaTek": 14.0,
+      "Nvidia": 15.0,
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
       "Xilinx": 6.0,
-      "Others": 8.0
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17564,10 +17564,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17580,10 +17580,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17596,10 +17596,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17612,10 +17612,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17628,10 +17628,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17644,10 +17644,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17660,10 +17660,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17676,10 +17676,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17692,10 +17692,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17708,10 +17708,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17724,10 +17724,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -17740,10 +17740,10 @@ const fablessTimelineData = [
       "Qualcomm": 28.0,
       "Broadcom": 18.0,
       "Nvidia": 15.0,
-      "AMD": 12.0,
-      "MediaTek": 10.0,
-      "Marvell": 5.0,
-      "Others": 12.0
+      "MediaTek": 12.0,
+      "Marvell": 8.0,
+      "Xilinx": 6.0,
+      "Others": 13.0
     },
     "milestone": ""
   },
@@ -18649,13 +18649,13 @@ const fablessTimelineData = [
     "total_revenue": 52.0,
     "total_bytes": 7244387032.27,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
-      "Broadcom": 15.0,
+      "Qualcomm": 24.0,
+      "Nvidia": 25.0,
+      "Broadcom": 18.0,
+      "MediaTek": 11.0,
       "AMD": 10.0,
-      "MediaTek": 8.0,
-      "Marvell": 3.0,
-      "Others": 6.0
+      "Marvell": 4.0,
+      "Others": 8.0
     },
     "milestone": "\uc0dd\uc131\ud615 AI \uad11\ud48d\uc73c\ub85c \uc5d4\ube44\ub514\uc544\uac00 \uc778\ud154\uacfc \uc0bc\uc131 \ubc18\ub3c4\uccb4 \ubd80\ubb38 \ub9e4\ucd9c\uc744 \ub118\uc5b4\uc11c\uba70 \uc138\uacc4 1\uc704 \ud339\ub9ac\uc2a4 \uc124\uacc4\uc0ac\ub85c \ub4f1\uadf9."
   },
@@ -18665,13 +18665,13 @@ const fablessTimelineData = [
     "total_revenue": 58.5,
     "total_bytes": 7606606383.88,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
-      "Broadcom": 15.0,
+      "Nvidia": 30.0,
+      "Qualcomm": 22.0,
+      "Broadcom": 17.0,
       "AMD": 10.0,
-      "MediaTek": 8.0,
-      "Marvell": 3.0,
-      "Others": 6.0
+      "MediaTek": 9.0,
+      "Marvell": 4.0,
+      "Others": 8.0
     },
     "milestone": "AI \uac00\uc18d\uae30 H100 \uc804\uc138\uacc4 \uc8fc\ubb38 \ud3ed\uc8fc\ub85c \uc5d4\ube44\ub514\uc544 \ub370\uc774\ud130\uc13c\ud130 \ud339\ub9ac\uc2a4 \ub9e4\ucd9c\uc774 \uc9c1\uc804 \ubd84\uae30 \ub300\ube44 170% \uc774\uc0c1 \ud3ed\uc99d."
   },
@@ -18681,13 +18681,13 @@ const fablessTimelineData = [
     "total_revenue": 66.0,
     "total_bytes": 7986936703.07,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
-      "Broadcom": 15.0,
+      "Nvidia": 35.0,
+      "Qualcomm": 20.0,
+      "Broadcom": 16.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
-      "Marvell": 3.0,
-      "Others": 6.0
+      "Marvell": 4.0,
+      "Others": 7.0
     },
     "milestone": ""
   },
@@ -18697,13 +18697,13 @@ const fablessTimelineData = [
     "total_revenue": 74.5,
     "total_bytes": 8386283538.23,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 40.0,
+      "Qualcomm": 17.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 7.0
     },
     "milestone": ""
   },
@@ -18713,13 +18713,13 @@ const fablessTimelineData = [
     "total_revenue": 78.5,
     "total_bytes": 8805597715.14,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18729,13 +18729,13 @@ const fablessTimelineData = [
     "total_revenue": 85.0,
     "total_bytes": 9245877600.89,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18745,13 +18745,13 @@ const fablessTimelineData = [
     "total_revenue": 92.5,
     "total_bytes": 9708171480.94,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18761,13 +18761,13 @@ const fablessTimelineData = [
     "total_revenue": 99.0,
     "total_bytes": 10193580054.99,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18777,13 +18777,13 @@ const fablessTimelineData = [
     "total_revenue": 105.0,
     "total_bytes": 10703259057.74,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18793,13 +18793,13 @@ const fablessTimelineData = [
     "total_revenue": 112.0,
     "total_bytes": 11238422010.62,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18809,13 +18809,13 @@ const fablessTimelineData = [
     "total_revenue": 118.0,
     "total_bytes": 11800343111.15,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
@@ -18825,13 +18825,13 @@ const fablessTimelineData = [
     "total_revenue": 124.0,
     "total_bytes": 12390360266.71,
     "shares": {
-      "Nvidia": 42.0,
-      "Qualcomm": 16.0,
+      "Nvidia": 44.0,
+      "Qualcomm": 15.0,
       "Broadcom": 15.0,
       "AMD": 10.0,
       "MediaTek": 8.0,
       "Marvell": 3.0,
-      "Others": 6.0
+      "Others": 5.0
     },
     "milestone": ""
   },
