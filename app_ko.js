@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingYearDisplay = document.getElementById('floating-year-display');
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
+  // Set Last Updated Badge
+  const lastUpdatedBadge = document.getElementById('last-updated-badge');
+  if (lastUpdatedBadge && typeof lastUpdatedDate !== 'undefined') {
+    lastUpdatedBadge.textContent = `최근 업데이트: ${lastUpdatedDate}`;
+  }
+
   // 탭 스위처 버튼 명칭 리스트
   const marketTabs = ['total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu', 'foundry', 'fabless'];
 

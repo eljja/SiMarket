@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingYearDisplay = document.getElementById('floating-year-display');
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
+  // Set Last Updated Badge
+  const lastUpdatedBadge = document.getElementById('last-updated-badge');
+  if (lastUpdatedBadge && typeof lastUpdatedDate !== 'undefined') {
+    lastUpdatedBadge.textContent = `Last Updated: ${lastUpdatedDate}`;
+  }
+
   // Tab Switcher Buttons Array
   const marketTabs = ['total', 'dram', 'flash', 'logic', 'analog', 'opto', 'power', 'mcu', 'foundry', 'fabless'];
 

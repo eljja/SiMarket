@@ -180,6 +180,23 @@ header::before {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.update-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  text-transform: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* ─── Market Selector Tabs ─── */
