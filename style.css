@@ -402,6 +402,24 @@ header::before {
   fill: currentColor;
 }
 
+.btn-step {
+  width: 38px;
+  height: 38px;
+  opacity: 0.85;
+}
+
+.btn-step:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.btn-step:active {
+  transform: scale(0.92);
+}
+
 .speed-control {
   font-size: 0.8rem;
   font-weight: 600;

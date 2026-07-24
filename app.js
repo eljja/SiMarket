@@ -662,6 +662,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateRaceChart();
     updateTrendChartCursor();
+    updateURLHash();
   }
 
   // ─── Playback Controls ───────────────────────────────────────
@@ -739,7 +740,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   }
 
+  // ─── URL Deep Linking ─────────────────────────────────────────
+  function updateURLHash() {
+    const data = getActiveTimelineData();
+    if (!data || !data[activeIndex]) return;
+    const label = data[activeIndex].label.replace(/\s+/g, '_');
+    const hash = `#${currentMarket}/${label}`;
+    if (window.location.hash !== hash) {
+      history.replaceState(null, '', hash);
+    }
+  }
+
+  function parseURLHash() {
+    const rawHash = window.location.hash.substring(1);
+    if (!rawHash) return false;
+    const parts = rawHash.split('/');
+    const market = parts[0];
+    const periodLabel = parts[1] ? parts[1].replace(/_/g, ' ') : '';
+    if (marketTabs.includes(market)) {
+      currentMarket = market;
+      const data = getActiveTimelineData();
+      timelineSlider.max = data.length - 1;
+      let foundIdx = -1;
+      if (periodLabel) {
+        foundIdx = data.findIndex(d => d.label.toLowerCase() === periodLabel.toLowerCase());
+      }
+      if (foundIdx >= 0) {
+        activeIndex = foundIdx;
+      } else {
+        activeIndex = getSmartStartIndex(data);
+      }
+      return true;
+    }
+    return false;
+  }
+
   // ─── Event Listeners ─────────────────────────────────────────
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      pauseTimeline();
+      const timelineData = getActiveTimelineData();
+      if (activeIndex > 0) {
+        activeIndex--;
+      } else {
+        activeIndex = timelineData.length - 1;
+      }
+      updateUI();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      pauseTimeline();
+      const timelineData = getActiveTimelineData();
+      if (activeIndex < timelineData.length - 1) {
+        activeIndex++;
+      } else {
+        activeIndex = 0;
+      }
+      updateUI();
+    });
+  }
+
   playBtn.addEventListener('click', () => {
     if (isPlaying) {
       pauseTimeline();
@@ -794,6 +859,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Handle browser navigation / hash change
+  window.addEventListener('hashchange', () => {
+    if (parseURLHash()) {
+      document.body.className = 'market-' + currentMarket;
+      marketTabs.forEach(t => {
+        const tabEl = document.getElementById('tab-' + t);
+        if (tabEl) {
+          if (t === currentMarket) tabEl.classList.add('active');
+          else tabEl.classList.remove('active');
+        }
+      });
+      trendChart.setOption(getTrendChartOptions(), true);
+      updateUI();
+    }
+  });
+
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
@@ -804,11 +885,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── Initial Execution ───────────────────────────────────────
-  document.body.className = 'market-total';
+  const hasHash = parseURLHash();
+  document.body.className = 'market-' + currentMarket;
+
+  marketTabs.forEach(t => {
+    const tabEl = document.getElementById('tab-' + t);
+    if (tabEl) {
+      if (t === currentMarket) tabEl.classList.add('active');
+      else tabEl.classList.remove('active');
+    }
+  });
 
   const initData = getActiveTimelineData();
   timelineSlider.max = initData.length - 1;
-  activeIndex = getSmartStartIndex(initData);
+  if (!hasHash) {
+    activeIndex = getSmartStartIndex(initData);
+  }
 
   animatedRevenue = initData[activeIndex].total_revenue;
   animatedCapacity = initData[activeIndex].total_bytes;

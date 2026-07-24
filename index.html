@@ -11,6 +11,18 @@
   <meta name="author" content="SiMarket Group">
   <meta name="google-site-verification" content="tQU4ms4HtuSSnlNO14YJO8OMyy59mqlFixqXl3Lhlbw" />
   
+  <!-- OpenGraph & Twitter Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SiMarket">
+  <meta property="og:url" content="https://eljja.github.io/SiMarket/">
+  <meta property="og:title" content="SiMarket - Global Semiconductor Market Analytics Dashboard (1970–2026)">
+  <meta property="og:description" content="Explore 50+ years of semiconductor history across 10 sectors (Total, DRAM, Flash, Logic, Foundry, Fabless, MCU, Power). Interactive animated charts and market share analytics.">
+  <meta property="og:image" content="https://eljja.github.io/SiMarket/simarket_preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SiMarket - Global Semiconductor Market Analytics Dashboard (1970–2026)">
+  <meta name="twitter:description" content="Interactive semiconductor market share analytics tracking top vendors from 1970 through the 2026 AI supercycle peak.">
+  <meta name="twitter:image" content="https://eljja.github.io/SiMarket/simarket_preview.png">
+  
   <!-- Canonical & Multilingual Annotations -->
   <link rel="canonical" href="https://eljja.github.io/SiMarket/" />
   <link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/" />
@@ -82,7 +94,13 @@
         <!-- Timeline Control Bar -->
         <div class="timeline-bar">
           <div class="play-controls">
-            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline">
+            <button id="prev-btn" class="btn-icon btn-step" aria-label="Previous Period" title="Previous Quarter/Year">
+              <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </button>
+            
+            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline" title="Play / Pause">
               <!-- Play Icon SVG -->
               <svg viewBox="0 0 24 24" id="play-icon">
                 <path d="M8 5v14l11-7z"/>
@@ -90,6 +108,12 @@
               <!-- Pause Icon SVG -->
               <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+
+            <button id="next-btn" class="btn-icon btn-step" aria-label="Next Period" title="Next Quarter/Year">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
               </svg>
             </button>
             

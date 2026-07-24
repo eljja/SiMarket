@@ -11,6 +11,18 @@
   <meta name="author" content="SiMarket Group">
   <meta name="google-site-verification" content="tQU4ms4HtuSSnlNO14YJO8OMyy59mqlFixqXl3Lhlbw" />
   
+  <!-- OpenGraph & Twitter 소셜 공유 메타 태그 -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SiMarket">
+  <meta property="og:url" content="https://eljja.github.io/SiMarket/index_ko.html">
+  <meta property="og:title" content="SiMarket - 글로벌 반도체 시장 분석 대시보드 (1970–2026)">
+  <meta property="og:description" content="10대 반도체 섹터(전체, DRAM, 플래시, 로직, 파운드리, 팹리스 등)의 50년 시장 점유율 및 출하량 추이 인터랙티브 데이터 시각화 대시보드.">
+  <meta property="og:image" content="https://eljja.github.io/SiMarket/simarket_preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SiMarket - 글로벌 반도체 시장 분석 대시보드 (1970–2026)">
+  <meta name="twitter:description" content="1970년부터 2026년 AI 슈퍼사이클 정점까지 주요 반도체 기업들의 분기별 시장 점유율 데이터 대시보드.">
+  <meta name="twitter:image" content="https://eljja.github.io/SiMarket/simarket_preview.png">
+  
   <!-- Canonical & Multilingual Annotations -->
   <link rel="canonical" href="https://eljja.github.io/SiMarket/index_ko.html" />
   <link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/" />
@@ -82,7 +94,13 @@
         <!-- 타임라인 제어 바 -->
         <div class="timeline-bar">
           <div class="play-controls">
-            <button id="play-btn" class="btn-icon" aria-label="타임라인 재생/일시정지">
+            <button id="prev-btn" class="btn-icon btn-step" aria-label="이전 분기" title="이전 분기/연도">
+              <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+              </svg>
+            </button>
+            
+            <button id="play-btn" class="btn-icon" aria-label="타임라인 재생/일시정지" title="재생 / 일시정지">
               <!-- 재생 아이콘 SVG -->
               <svg viewBox="0 0 24 24" id="play-icon">
                 <path d="M8 5v14l11-7z"/>
@@ -90,6 +108,12 @@
               <!-- 일시정지 아이콘 SVG -->
               <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+
+            <button id="next-btn" class="btn-icon btn-step" aria-label="다음 분기" title="다음 분기/연도">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
               </svg>
             </button>
             
