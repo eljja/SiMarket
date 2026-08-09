@@ -194,6 +194,22 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function getTheme() {
+    const isLight = document.body.classList.contains('theme-light');
+    if (isLight) {
+      const lightThemes = {
+        total:   { accent: '#0284c7', glow: 'rgba(2, 132, 199, 0.25)', trendRight: 'rgba(99, 102, 241, 0.5)', trendRightLine: '#6366f1' },
+        dram:    { accent: '#0097a7', glow: 'rgba(0, 151, 167, 0.25)', trendRight: 'rgba(156, 39, 176, 0.5)', trendRightLine: '#9c27b0' },
+        flash:   { accent: '#d81b60', glow: 'rgba(216, 27, 96, 0.25)', trendRight: 'rgba(2, 136, 209, 0.5)',   trendRightLine: '#0288d1' },
+        logic:   { accent: '#4d7c0f', glow: 'rgba(77, 124, 15, 0.25)', trendRight: 'rgba(217, 119, 6, 0.5)',   trendRightLine: '#d97706' },
+        analog:  { accent: '#ea580c', glow: 'rgba(234, 88, 12, 0.25)', trendRight: 'rgba(13, 148, 136, 0.5)', trendRightLine: '#0d9488' },
+        opto:    { accent: '#db2777', glow: 'rgba(219, 39, 119, 0.25)', trendRight: 'rgba(202, 138, 4, 0.5)',  trendRightLine: '#ca8a04' },
+        power:   { accent: '#ca8a04', glow: 'rgba(202, 138, 4, 0.25)', trendRight: 'rgba(37, 99, 235, 0.5)',  trendRightLine: '#2563eb' },
+        mcu:     { accent: '#0f766e', glow: 'rgba(15, 118, 110, 0.25)', trendRight: 'rgba(192, 38, 211, 0.5)', trendRightLine: '#c026d3' },
+        foundry: { accent: '#e11d48', glow: 'rgba(225, 29, 72, 0.25)', trendRight: 'rgba(2, 132, 199, 0.5)', trendRightLine: '#0284c7' },
+        fabless: { accent: '#7c3aed', glow: 'rgba(124, 58, 237, 0.25)', trendRight: 'rgba(5, 150, 105, 0.5)', trendRightLine: '#059669' }
+      };
+      return lightThemes[currentMarket] || lightThemes.total;
+    }
     return marketThemes[currentMarket] || marketThemes.total;
   }
 
@@ -218,6 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const capName = getRightAxisName();
     const theme = getTheme();
+    const isLight = document.body.classList.contains('theme-light');
+    const textColor = isLight ? '#475569' : '#9ca3af';
+    const textPrimary = isLight ? '#0f172a' : '#f3f4f6';
+    const splitLineColor = isLight ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.03)';
+    const axisLineColor = isLight ? 'rgba(15, 23, 42, 0.15)' : 'rgba(255, 255, 255, 0.1)';
+    const tooltipBg = isLight ? 'rgba(255, 255, 255, 0.96)' : 'rgba(13, 20, 35, 0.95)';
+    const tooltipBorder = isLight ? 'rgba(15, 23, 42, 0.12)' : theme.accent + '33';
 
     return {
       backgroundColor: 'transparent',
@@ -226,13 +249,14 @@ document.addEventListener('DOMContentLoaded', () => {
         axisPointer: {
           type: 'cross',
           label: {
-            backgroundColor: '#0a0f1d'
+            backgroundColor: isLight ? '#e2e8f0' : '#0a0f1d',
+            color: textPrimary
           }
         },
-        backgroundColor: 'rgba(13, 20, 35, 0.95)',
-        borderColor: theme.accent + '33',
+        backgroundColor: tooltipBg,
+        borderColor: tooltipBorder,
         textStyle: {
-          color: '#f3f4f6',
+          color: textPrimary,
           fontFamily: 'Outfit'
         },
         formatter: function(params) {
@@ -264,11 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
         data: dates,
         axisLine: {
           lineStyle: {
-            color: 'rgba(255, 255, 255, 0.1)'
+            color: axisLineColor
           }
         },
         axisLabel: {
-          color: '#9ca3af',
+          color: textColor,
           fontFamily: 'Outfit',
           interval: function(index) {
             const label = dates[index];
@@ -283,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           type: 'value',
           name: 'Revenue ($B)',
-          nameTextStyle: { color: '#9ca3af', fontFamily: 'Outfit', fontSize: 11 },
+          nameTextStyle: { color: textColor, fontFamily: 'Outfit', fontSize: 11 },
           position: 'left',
           axisLine: {
             show: true,
@@ -297,19 +321,19 @@ document.addEventListener('DOMContentLoaded', () => {
               if (value >= 1) return '$' + value.toFixed(0) + 'B';
               return '$' + (value * 1000).toFixed(0) + 'M';
             },
-            color: '#9ca3af',
+            color: textColor,
             fontFamily: 'Outfit'
           },
           splitLine: {
             lineStyle: {
-              color: 'rgba(255, 255, 255, 0.03)'
+              color: splitLineColor
             }
           }
         },
         {
           type: 'log',
           name: capName,
-          nameTextStyle: { color: '#9ca3af', fontFamily: 'Outfit', fontSize: 11 },
+          nameTextStyle: { color: textColor, fontFamily: 'Outfit', fontSize: 11 },
           position: 'right',
           logBase: 10,
           axisLine: {
@@ -323,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
               const fmt = formatMetricValue(value);
               return fmt.val + fmt.unit.replace(/Transistors|Capacity|Analog Units|Opto & CIS Units|Discrete & Power Units|MCU Units|Volume|Units|Wafer Capacity \(Wafers\)|Die\/Chip Volume|Wafers|Chip Units/, '').trim();
             },
-            color: '#9ca3af',
+            color: textColor,
             fontFamily: 'Outfit'
           },
           splitLine: {
@@ -422,6 +446,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCap = activeData.total_bytes;
     const shares = activeData.shares;
 
+    const isLight = document.body.classList.contains('theme-light');
+    const textColor = isLight ? '#475569' : '#9ca3af';
+    const textPrimary = isLight ? '#0f172a' : '#ffffff';
+    const splitLineColor = isLight ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.04)';
+    const axisLineColor = isLight ? 'rgba(15, 23, 42, 0.15)' : 'rgba(255, 255, 255, 0.1)';
+    const tooltipBg = isLight ? 'rgba(255, 255, 255, 0.96)' : 'rgba(13, 20, 35, 0.95)';
+    const tooltipBorder = isLight ? 'rgba(15, 23, 42, 0.12)' : getTheme().accent + '33';
+
     // Guard against empty shares
     if (!shares || Object.keys(shares).length === 0 || totalRev <= 0) {
       raceChart.setOption({
@@ -431,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
           left: 'center',
           top: 'center',
           textStyle: {
-            color: 'rgba(255,255,255,0.2)',
+            color: isLight ? 'rgba(15, 23, 42, 0.3)' : 'rgba(255, 255, 255, 0.2)',
             fontFamily: 'Outfit',
             fontSize: 18,
             fontWeight: 400
@@ -475,7 +507,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const maxValue = chartData.length > 0 ? chartData[0].value : 1;
     const axisFormatter = makeAxisFormatter(maxValue, isRev);
-    const theme = getTheme();
 
     const option = {
       backgroundColor: 'transparent',
@@ -485,10 +516,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       tooltip: {
         trigger: 'item',
-        backgroundColor: 'rgba(13, 20, 35, 0.95)',
-        borderColor: theme.accent + '33',
+        backgroundColor: tooltipBg,
+        borderColor: tooltipBorder,
         textStyle: {
-          color: '#f3f4f6',
+          color: isLight ? '#0f172a' : '#f3f4f6',
           fontFamily: 'Outfit',
           fontSize: 13
         },
@@ -519,11 +550,11 @@ document.addEventListener('DOMContentLoaded', () => {
         max: 'dataMax',
         splitLine: {
           lineStyle: {
-            color: 'rgba(255, 255, 255, 0.04)'
+            color: splitLineColor
           }
         },
         axisLabel: {
-          color: '#9ca3af',
+          color: textColor,
           fontFamily: 'Outfit',
           formatter: axisFormatter
         }
@@ -535,11 +566,11 @@ document.addEventListener('DOMContentLoaded', () => {
         max: yAxisMax,
         axisLine: {
           lineStyle: {
-            color: 'rgba(255, 255, 255, 0.1)'
+            color: axisLineColor
           }
         },
         axisLabel: {
-          color: '#fff',
+          color: textPrimary,
           fontFamily: 'Outfit',
           fontSize: 13,
           fontWeight: 500
@@ -562,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
             position: 'right',
             valueAnimation: true,
             fontFamily: 'Outfit',
-            color: '#f3f4f6',
+            color: isLight ? '#0f172a' : '#f3f4f6',
             fontWeight: 500,
             fontSize: 12,
             formatter: function(params) {
@@ -720,7 +751,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       currentMarket = market;
 
-      document.body.className = 'market-' + market;
+      const isLight = document.body.classList.contains('theme-light');
+      document.body.className = (isLight ? 'theme-light ' : '') + 'market-' + market;
 
       // Update active tab buttons
       marketTabs.forEach(t => {
@@ -880,7 +912,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle browser navigation / hash change
   window.addEventListener('hashchange', () => {
     if (parseURLHash()) {
-      document.body.className = 'market-' + currentMarket;
+      const isLight = document.body.classList.contains('theme-light');
+      document.body.className = (isLight ? 'theme-light ' : '') + 'market-' + currentMarket;
       marketTabs.forEach(t => {
         const tabEl = document.getElementById('tab-' + t);
         if (tabEl) {
@@ -902,9 +935,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
   });
 
+  // ─── Theme Toggle Logic ────────────────────────────────────────
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const sunIcon = document.getElementById('theme-sun-icon');
+  const moonIcon = document.getElementById('theme-moon-icon');
+
+  function applyTheme(themeName) {
+    if (themeName === 'light') {
+      document.body.classList.add('theme-light');
+      if (sunIcon) sunIcon.style.display = 'none';
+      if (moonIcon) moonIcon.style.display = 'inline-block';
+    } else {
+      document.body.classList.remove('theme-light');
+      if (sunIcon) sunIcon.style.display = 'inline-block';
+      if (moonIcon) moonIcon.style.display = 'none';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('simarket_theme') || 'dark';
+  applyTheme(savedTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyLight = document.body.classList.contains('theme-light');
+      const newTheme = isCurrentlyLight ? 'dark' : 'light';
+      applyTheme(newTheme);
+      localStorage.setItem('simarket_theme', newTheme);
+
+      updateRaceChart();
+      if (typeof trendChart !== 'undefined' && trendChart) {
+        trendChart.setOption(getTrendChartOptions(), true);
+      }
+    });
+  }
+
   // ─── Initial Execution ───────────────────────────────────────
   const hasHash = parseURLHash();
-  document.body.className = 'market-' + currentMarket;
+  const themeClass = document.body.classList.contains('theme-light') ? 'theme-light market-' + currentMarket : 'market-' + currentMarket;
+  document.body.className = themeClass;
 
   marketTabs.forEach(t => {
     const tabEl = document.getElementById('tab-' + t);
