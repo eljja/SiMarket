@@ -33,10 +33,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingYearDisplay = document.getElementById('floating-year-display');
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
-  // Set Last Updated Badge
+  // Set Last Updated & Quarterly Status Badge
   const lastUpdatedBadge = document.getElementById('last-updated-badge');
+  const updateStatusBadge = document.getElementById('update-status-badge');
+
   if (lastUpdatedBadge && typeof lastUpdatedDate !== 'undefined') {
     lastUpdatedBadge.textContent = `Last Updated: ${lastUpdatedDate}`;
+
+    if (updateStatusBadge) {
+      const buildDate = new Date(lastUpdatedDate);
+      const now = new Date();
+      const diffDays = Math.floor((now - buildDate) / (1000 * 60 * 60 * 24));
+
+      if (isNaN(diffDays) || diffDays < 90) {
+        updateStatusBadge.className = 'status-badge up-to-date';
+        updateStatusBadge.innerHTML = '🟢 Up to Date';
+        updateStatusBadge.title = `Data built on ${lastUpdatedDate} (${diffDays >= 0 ? diffDays : 0} days ago)`;
+      } else {
+        updateStatusBadge.className = 'status-badge update-due';
+        updateStatusBadge.innerHTML = `🟡 Update Due (${diffDays}d ago)`;
+        updateStatusBadge.title = `Quarterly update recommended! Data was built ${diffDays} days ago on ${lastUpdatedDate}.`;
+      }
+    }
   }
 
   // Tab Switcher Buttons Array

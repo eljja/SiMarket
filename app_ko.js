@@ -33,10 +33,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingYearDisplay = document.getElementById('floating-year-display');
   const dashboardGrid = document.querySelector('.dashboard-grid');
 
-  // Set Last Updated Badge
+  // 최근 업데이트 날짜 및 분기 갱신 필요 여부 배지 설정
   const lastUpdatedBadge = document.getElementById('last-updated-badge');
+  const updateStatusBadge = document.getElementById('update-status-badge');
+
   if (lastUpdatedBadge && typeof lastUpdatedDate !== 'undefined') {
     lastUpdatedBadge.textContent = `최근 업데이트: ${lastUpdatedDate}`;
+
+    if (updateStatusBadge) {
+      const buildDate = new Date(lastUpdatedDate);
+      const now = new Date();
+      const diffDays = Math.floor((now - buildDate) / (1000 * 60 * 60 * 24));
+
+      if (isNaN(diffDays) || diffDays < 90) {
+        updateStatusBadge.className = 'status-badge up-to-date';
+        updateStatusBadge.innerHTML = '🟢 최신 상태';
+        updateStatusBadge.title = `데이터 생성일: ${lastUpdatedDate} (${diffDays >= 0 ? diffDays : 0}일 전 빌드됨)`;
+      } else {
+        updateStatusBadge.className = 'status-badge update-due';
+        updateStatusBadge.innerHTML = `🟡 분기 업데이트 필요 (${diffDays}일 경과)`;
+        updateStatusBadge.title = `분기 실적 데이터 갱신 권장! (${lastUpdatedDate} 생성 기준 ${diffDays}일 경과)`;
+      }
+    }
   }
 
   // 탭 스위처 버튼 명칭 리스트
