@@ -97,3 +97,10 @@ The script will perform a:
 * **Sum-to-100% check**: Validates that all market shares sum to exactly 100% (+/- 0.1% floating-point tolerance).
 * **Cross-segment revenue check**: Confirms that DRAM + Flash + Logic + Analog + Opto + Power + MCU revenues match the aggregate total semiconductor revenue.
 * **Remote checksum check**: Pulls down the remote file from `github.io` and compares its SHA-256 hash to confirm successful page deployment.
+
+---
+
+## 📄 License
+
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+
