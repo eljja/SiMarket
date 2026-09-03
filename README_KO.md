@@ -83,6 +83,7 @@ SiMarket/
 ├── data_ko.js          # 컴파일된 경량화 국문 데이터베이스 (1970-2026)
 ├── robots.txt          # 검색 크롤러 수집 가이드
 ├── sitemap.xml         # SEO용 사이트맵 구조도 (hreflang 다국어 태그 포함)
+├── manifest.json       # PWA 웹앱 매니페스트
 ├── favicon.png         # 3D 칩셋 파비콘 이미지
 ├── simarket_preview.png # 리포지토리 대표 썸네일 이미지
 └── scratch/

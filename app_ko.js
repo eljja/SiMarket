@@ -508,6 +508,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxValue = chartData.length > 0 ? chartData[0].value : 1;
     const axisFormatter = makeAxisFormatter(maxValue, isRev);
 
+    const isMobile = window.innerWidth <= 600;
+    const gridLeft = isMobile ? 100 : 140;
+    const gridRight = isMobile ? 65 : 100;
+    const labelFontSize = isMobile ? 11 : 13;
+    const barLabelFontSize = isMobile ? 10.5 : 12;
+
     const option = {
       backgroundColor: 'transparent',
       title: {
@@ -542,8 +548,8 @@ document.addEventListener('DOMContentLoaded', () => {
       grid: {
         top: 10,
         bottom: 20,
-        left: 140,
-        right: 100
+        left: gridLeft,
+        right: gridRight
       },
       xAxis: {
         type: 'value',
@@ -556,6 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
         axisLabel: {
           color: textColor,
           fontFamily: 'Outfit',
+          fontSize: isMobile ? 10 : 11,
           formatter: axisFormatter
         }
       },
@@ -566,13 +573,13 @@ document.addEventListener('DOMContentLoaded', () => {
         max: yAxisMax,
         axisLine: {
           lineStyle: {
-            color: 'rgba(255, 255, 255, 0.1)'
+            color: axisLineColor
           }
         },
         axisLabel: {
-          color: '#fff',
+          color: textPrimary,
           fontFamily: 'Outfit',
-          fontSize: 13,
+          fontSize: labelFontSize,
           fontWeight: 500
         },
         animationDuration: 300,
@@ -593,9 +600,9 @@ document.addEventListener('DOMContentLoaded', () => {
             position: 'right',
             valueAnimation: true,
             fontFamily: 'Outfit',
-            color: '#f3f4f6',
+            color: isLight ? '#0f172a' : '#f3f4f6',
             fontWeight: 500,
-            fontSize: 12,
+            fontSize: barLabelFontSize,
             formatter: function(params) {
               const d = params.data;
               if (!d) return '';
@@ -666,9 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounters(activeData.total_revenue, activeData.total_bytes);
 
     if (milestoneList) {
-      milestoneList.innerHTML = '';
       let latestMilestoneIndex = -1;
-
       const activeMilestones = [];
       for (let i = 0; i <= activeIndex; i++) {
         if (timelineData[i] && timelineData[i].milestone && timelineData[i].milestone.trim() !== '') {
@@ -681,31 +686,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      if (activeMilestones.length === 0) {
-        milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">아직 기록된 주요 반도체 업계 이벤트가 없습니다.</div>';
-      } else {
-        activeMilestones.forEach(m => {
-          const item = document.createElement('div');
-          item.className = 'milestone-item';
-          
-          if (m.index === latestMilestoneIndex) {
-            item.classList.add('active');
-          } else {
-            item.classList.add('past');
-          }
+      const milestoneKey = `${activeMilestones.length}_${latestMilestoneIndex}`;
+      if (milestoneList.dataset.lastKey !== milestoneKey) {
+        milestoneList.dataset.lastKey = milestoneKey;
+        milestoneList.innerHTML = '';
 
-          item.innerHTML = `
-            <span class="milestone-year">${m.label}</span>
-            <p class="milestone-text">${m.text}</p>
-          `;
-          milestoneList.appendChild(item);
-        });
+        if (activeMilestones.length === 0) {
+          milestoneList.innerHTML = '<div class="milestone-item empty" style="font-style: italic; color: var(--text-muted);">아직 기록된 주요 반도체 업계 이벤트가 없습니다.</div>';
+        } else {
+          activeMilestones.forEach(m => {
+            const item = document.createElement('div');
+            item.className = 'milestone-item' + (m.index === latestMilestoneIndex ? ' active' : ' past');
+            item.title = `${m.label} 시점으로 이동`;
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
 
-        setTimeout(() => {
-          if (milestoneList) {
-            milestoneList.scrollTop = milestoneList.scrollHeight;
-          }
-        }, 50);
+            item.innerHTML = `
+              <span class="milestone-year">${m.label}</span>
+              <p class="milestone-text">${m.text}</p>
+            `;
+
+            item.addEventListener('click', () => {
+              pauseTimeline();
+              activeIndex = m.index;
+              updateUI();
+            });
+
+            item.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                pauseTimeline();
+                activeIndex = m.index;
+                updateUI();
+              }
+            });
+
+            milestoneList.appendChild(item);
+          });
+
+          setTimeout(() => {
+            if (milestoneList) {
+              milestoneList.scrollTop = milestoneList.scrollHeight;
+            }
+          }, 40);
+        }
       }
     }
 
@@ -780,6 +804,7 @@ document.addEventListener('DOMContentLoaded', () => {
       trendChart.setOption(getTrendChartOptions(), true);
       raceChart.clear();
 
+      if (milestoneList) milestoneList.dataset.lastKey = '';
       updateUI();
 
       setTimeout(() => {
@@ -965,6 +990,149 @@ document.addEventListener('DOMContentLoaded', () => {
       updateRaceChart();
       if (typeof trendChart !== 'undefined' && trendChart) {
         trendChart.setOption(getTrendChartOptions(), true);
+      }
+    });
+  }
+
+  // ─── 트렌드 차트 클릭 시 해당 분기 이동 (Click-to-Seek) ─────────
+  trendChart.on('click', (params) => {
+    let targetLabel = null;
+    if (params.name) {
+      targetLabel = params.name;
+    } else if (params.data && params.data[0]) {
+      targetLabel = params.data[0];
+    }
+    if (targetLabel) {
+      const data = getActiveTimelineData();
+      const idx = data.findIndex(d => d.label === targetLabel);
+      if (idx >= 0) {
+        pauseTimeline();
+        activeIndex = idx;
+        updateUI();
+      }
+    }
+  });
+
+  trendChart.getZr().on('click', (params) => {
+    const pointInPixel = [params.offsetX, params.offsetY];
+    if (trendChart.containPixel('grid', pointInPixel)) {
+      const xIndex = trendChart.convertFromPixel({ seriesIndex: 0 }, pointInPixel)[0];
+      const data = getActiveTimelineData();
+      const rounded = Math.round(xIndex);
+      if (rounded >= 0 && rounded < data.length) {
+        pauseTimeline();
+        activeIndex = rounded;
+        updateUI();
+      }
+    }
+  });
+
+  // ─── 키보드 단축키 지원 (Presentation Shortcuts) ─────────────────
+  window.addEventListener('keydown', (e) => {
+    const activeEl = document.activeElement;
+    const tag = activeEl ? activeEl.tagName.toLowerCase() : '';
+    if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+
+    if (e.code === 'Space') {
+      e.preventDefault();
+      playBtn.click();
+    } else if (e.code === 'ArrowLeft') {
+      e.preventDefault();
+      if (prevBtn) prevBtn.click();
+    } else if (e.code === 'ArrowRight') {
+      e.preventDefault();
+      if (nextBtn) nextBtn.click();
+    } else if (e.code === 'ArrowUp') {
+      e.preventDefault();
+      if (speedControl.selectedIndex > 0) {
+        speedControl.selectedIndex--;
+        speedControl.dispatchEvent(new Event('change'));
+        showToast(`재생 속도: ${speedControl.options[speedControl.selectedIndex].text}`);
+      }
+    } else if (e.code === 'ArrowDown') {
+      e.preventDefault();
+      if (speedControl.selectedIndex < speedControl.options.length - 1) {
+        speedControl.selectedIndex++;
+        speedControl.dispatchEvent(new Event('change'));
+        showToast(`재생 속도: ${speedControl.options[speedControl.selectedIndex].text}`);
+      }
+    } else if (e.key === 'm' || e.key === 'M') {
+      e.preventDefault();
+      if (currentMetric === 'revenue') {
+        toggleBytesBtn.click();
+      } else {
+        toggleRevenueBtn.click();
+      }
+    } else if (e.key === 't' || e.key === 'T') {
+      e.preventDefault();
+      if (themeToggleBtn) themeToggleBtn.click();
+    }
+  });
+
+  // ─── 토스트 알림 헬퍼 ──────────────────────────────────────────
+  const toastContainer = document.getElementById('toast-container');
+  function showToast(message, icon = '✓') {
+    if (!toastContainer) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast-msg';
+    toast.innerHTML = `<span style="font-weight:700;">${icon}</span> <span>${message}</span>`;
+    toastContainer.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('show'));
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 2400);
+  }
+
+  // ─── 차트 고화질 PNG 이미지 내보내기 ───────────────────────────
+  const exportPngBtn = document.getElementById('export-png-btn');
+  if (exportPngBtn) {
+    exportPngBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.contains('theme-light');
+      const data = getActiveTimelineData();
+      const periodLabel = (data && data[activeIndex]) ? data[activeIndex].label.replace(/\s+/g, '_') : 'period';
+      const filename = `SiMarket_${currentMarket}_${periodLabel}.png`;
+
+      const dataUrl = raceChart.getDataURL({
+        type: 'png',
+        pixelRatio: 2,
+        backgroundColor: isLight ? '#f8fafc' : '#0a0f1d'
+      });
+
+      const downloadLink = document.createElement('a');
+      downloadLink.href = dataUrl;
+      downloadLink.download = filename;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+
+      showToast(`이미지 저장 완료: ${filename}`);
+    });
+  }
+
+  // ─── 현재 시점 공유 링크 복사 ─────────────────────────────────
+  const shareLinkBtn = document.getElementById('share-link-btn');
+  if (shareLinkBtn) {
+    shareLinkBtn.addEventListener('click', () => {
+      updateURLHash();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showToast('공유 링크가 클립보드에 복사되었습니다!');
+        }).catch(() => {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const dummy = document.createElement('input');
+        dummy.value = window.location.href;
+        document.body.appendChild(dummy);
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast('공유 링크가 클립보드에 복사되었습니다!');
       }
     });
   }

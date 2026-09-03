@@ -82,6 +82,7 @@ SiMarket/
 ├── data_ko.js          # Compiled minified Korean database (1970-2026)
 ├── robots.txt          # Search crawler instructions
 ├── sitemap.xml         # XML sitemap with multilingual hreflang annotations
+├── manifest.json       # PWA Web App Manifest
 ├── favicon.png         # 3D Microchip Favicon
 ├── simarket_preview.png # Dashboard visual preview for social cards & README
 └── scratch/

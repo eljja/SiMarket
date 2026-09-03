@@ -425,11 +425,54 @@ header::before {
 
 .viz-actions {
   display: flex;
-  gap: 0.5rem;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 4px;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.metric-toggle-group {
+  display: flex;
+  gap: 0.25rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 3px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-border);
+}
+
+.utility-actions-group {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.btn-action-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-action-tool:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-action-tool:active {
+  transform: translateY(0);
+}
+
+.btn-action-tool svg {
+  flex-shrink: 0;
 }
 
 .btn-toggle {
@@ -744,15 +787,24 @@ header::before {
   font-size: 0.85rem;
   line-height: 1.4;
   border-left: 2px solid var(--panel-border);
-  padding-left: 10px;
+  padding: 5px 8px 5px 10px;
+  border-radius: 0 6px 6px 0;
   transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.milestone-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(3px);
+  border-left-color: var(--accent-primary);
 }
 
 .milestone-item.active {
   border-left-color: var(--accent-gold);
   color: var(--text-primary);
   font-weight: 500;
-  transform: translateX(2px);
+  background: rgba(255, 215, 0, 0.05);
+  transform: translateX(3px);
 }
 
 .milestone-item.active .milestone-year {
@@ -761,7 +813,7 @@ header::before {
 }
 
 .milestone-item.past {
-  border-left-color: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.08);
   color: var(--text-muted);
 }
 
@@ -1021,9 +1073,24 @@ body.theme-light .btn-toggle,
 body.theme-light .speed-control,
 body.theme-light .market-selector,
 body.theme-light .lang-switch-container,
-body.theme-light .theme-toggle-btn {
+body.theme-light .theme-toggle-btn,
+body.theme-light .btn-action-tool,
+body.theme-light .metric-toggle-group {
   background: rgba(0, 0, 0, 0.04);
   border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .btn-action-tool:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+
+body.theme-light .milestone-item:hover {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+body.theme-light .milestone-item.active {
+  background: rgba(202, 138, 4, 0.08);
 }
 
 body.theme-light .lang-switch-btn.active {
@@ -1043,5 +1110,50 @@ body.theme-light ::-webkit-scrollbar-track {
 body.theme-light ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.15);
 }
+
+/* ─── Toast Notifications ─── */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast-msg {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #f3f4f6;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transform: translateY(12px);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-msg.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+body.theme-light .toast-msg {
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.15);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
 
 
