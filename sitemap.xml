@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://eljja.github.io/SiMarket/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://eljja.github.io/SiMarket/index_ko.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eljja.github.io/SiMarket/"/>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://eljja.github.io/SiMarket/simarket_preview.png</image:loc>
+      <image:title>SiMarket - Global Semiconductor Market Share Analytics Dashboard (1970–2026)</image:title>
+      <image:caption>Interactive semiconductor market intelligence tracking vendor rankings and market shares across DRAM, Flash, Logic, Foundry, and Fabless sectors.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://eljja.github.io/SiMarket/index_ko.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://eljja.github.io/SiMarket/index_ko.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eljja.github.io/SiMarket/"/>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eljja.github.io/SiMarket/simarket_preview.png</image:loc>
+      <image:title>SiMarket - 글로벌 반도체 시장 점유율 분석 대시보드 (1970–2026)</image:title>
+      <image:caption>1970년부터 2026년까지 글로벌 반도체 제조사별 점유율 및 출하량 추이 시각화 대시보드</image:caption>
+    </image:image>
   </url>
 </urlset>
