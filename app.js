@@ -1137,6 +1137,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const copyCitationBtn = document.getElementById('copy-citation-btn');
+  if (copyCitationBtn) {
+    copyCitationBtn.addEventListener('click', () => {
+      const citationText = document.getElementById('citation-text')?.textContent || 'Source: SiMarket (https://eljja.github.io/SiMarket/)';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(citationText).then(() => {
+          showToast('Citation copied to clipboard!');
+        }).catch(() => {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const dummy = document.createElement('input');
+        dummy.value = citationText;
+        document.body.appendChild(dummy);
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast('Citation copied to clipboard!');
+      }
+    });
+  }
+
   // ─── Initial Execution ───────────────────────────────────────
   const hasHash = parseURLHash();
   const themeClass = document.body.classList.contains('theme-light') ? 'theme-light market-' + currentMarket : 'market-' + currentMarket;

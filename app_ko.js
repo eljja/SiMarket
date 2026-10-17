@@ -1137,6 +1137,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const copyCitationBtn = document.getElementById('copy-citation-btn');
+  if (copyCitationBtn) {
+    copyCitationBtn.addEventListener('click', () => {
+      const citationText = document.getElementById('citation-text')?.textContent || '출처: SiMarket (https://eljja.github.io/SiMarket/)';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(citationText).then(() => {
+          showToast('출처 표기 문구가 복사되었습니다!');
+        }).catch(() => {
+          fallbackCopy();
+        });
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const dummy = document.createElement('input');
+        dummy.value = citationText;
+        document.body.appendChild(dummy);
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        showToast('출처 표기 문구가 복사되었습니다!');
+      }
+    });
+  }
+
   // ─── 초기 구동 ───────────────────────────────────────────────
   const hasHash = parseURLHash();
   const themeClass = document.body.classList.contains('theme-light') ? 'theme-light market-' + currentMarket : 'market-' + currentMarket;
