@@ -1,0 +1,378 @@
+/* ai_capital.css - AI Capital Flow & Ouroboros Loop Stylesheet */
+
+/* Inherits base font, colors, and design variables from style.css */
+
+.ai-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+/* ─── Macro KPI Summary Ribbon ─── */
+.macro-kpi-ribbon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.kpi-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent-primary);
+}
+
+.kpi-block.danger::before {
+  background: #f43f5e;
+}
+
+.kpi-block.warning::before {
+  background: #ffb300;
+}
+
+.kpi-block.success::before {
+  background: #10b981;
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpi-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.kpi-unit-prefix {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.kpi-val {
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.kpi-unit-suffix {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.kpi-subtext {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ─── Graph Panel & Interactive Canvas ─── */
+.graph-viz-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1rem;
+  min-height: 640px;
+  position: relative;
+}
+
+.graph-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.graph-legend-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.legend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.legend-pill:hover, .legend-pill.active {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chart-container-network {
+  flex: 1;
+  position: relative;
+  min-height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(13, 20, 35, 0.4) 0%, rgba(6, 9, 19, 0.9) 100%);
+  border: 1px solid var(--panel-border);
+}
+
+.year-display-network {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  font-family: var(--font-mono);
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ─── Right Column Sidebar ─── */
+.ai-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.bar-viz-card {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 380px;
+}
+
+.bar-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-toggle-group {
+  display: flex;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--panel-border);
+  padding: 3px;
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.btn-bar-toggle {
+  background: transparent;
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-bar-toggle.active {
+  background: var(--accent-primary);
+  color: #030508;
+}
+
+.chart-container-barchart {
+  flex: 1;
+  width: 100%;
+}
+
+/* ─── Dynamic Entity & Flow Dossier Drawer ─── */
+.dossier-card {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 240px;
+}
+
+.dossier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 0.6rem;
+}
+
+.dossier-title-sec {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dossier-entity-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+.dossier-meta-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-border);
+}
+
+.dossier-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dossier-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.dossier-stat-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dossier-stat-lbl {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.dossier-stat-val {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dossier-flows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.flow-item-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--accent-primary);
+}
+
+/* ─── Structural Intelligence Cards (3 Loops & Risks) ─── */
+.loops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.loop-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: var(--transition-smooth);
+}
+
+.loop-card:hover {
+  border-color: var(--panel-border-active);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.loop-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(255, 179, 0, 0.1);
+  border: 1px solid rgba(255, 179, 0, 0.25);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  align-self: flex-start;
+}
+
+/* Light mode overrides */
+body.theme-light .chart-container-network {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.95) 100%);
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.theme-light .year-display-network {
+  color: rgba(15, 23, 42, 0.05);
+}
+
+body.theme-light .kpi-block {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.theme-light .loop-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 1100px) {
+  .ai-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .graph-viz-panel {
+    min-height: 520px;
+  }
+}
