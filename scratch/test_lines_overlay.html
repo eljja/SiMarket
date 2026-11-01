@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test ECharts Graph + Lines Particle Overlay</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <style>
+    body { background: #0b1329; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    #chart { width: 900px; height: 650px; background: #0f172a; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+  <script>
+    const chart = echarts.init(document.getElementById('chart'));
+    const W = 900;
+    const H = 650;
+
+    const nodes = [
+      { name: 'NVIDIA', value: [450, 325], symbolSize: 85, itemStyle: { color: '#10b981', shadowBlur: 25, shadowColor: '#10b981' } },
+      { name: 'Microsoft', value: [220, 240], symbolSize: 75, itemStyle: { color: '#38bdf8' } },
+      { name: 'OpenAI', value: [680, 240], symbolSize: 55, itemStyle: { color: '#f43f5e' } },
+      { name: 'TSMC', value: [450, 520], symbolSize: 70, itemStyle: { color: '#10b981' } }
+    ];
+
+    const links = [
+      { source: 'Microsoft', target: 'NVIDIA', lineStyle: { width: 6, color: '#10b981', curveness: 0.16 } },
+      { source: 'Microsoft', target: 'OpenAI', lineStyle: { width: 4, color: '#00e5ff', curveness: 0.2 } },
+      { source: 'OpenAI', target: 'Microsoft', lineStyle: { width: 3, color: '#a855f7', curveness: 0.2 } },
+      { source: 'NVIDIA', target: 'TSMC', lineStyle: { width: 7, color: '#10b981', curveness: 0.16 } }
+    ];
+
+    const linesData = [
+      {
+        coords: [[220, 240], [450, 325]],
+        lineStyle: { curveness: 0.16, opacity: 0 },
+        effect: { show: true, period: 3, trailLength: 0.35, symbol: 'arrow', symbolSize: 6, color: '#ffffff' }
+      },
+      {
+        coords: [[220, 240], [680, 240]],
+        lineStyle: { curveness: 0.2, opacity: 0 },
+        effect: { show: true, period: 3.5, trailLength: 0.35, symbol: 'arrow', symbolSize: 5, color: '#00e5ff' }
+      },
+      {
+        coords: [[680, 240], [220, 240]],
+        lineStyle: { curveness: 0.2, opacity: 0 },
+        effect: { show: true, period: 4, trailLength: 0.35, symbol: 'arrow', symbolSize: 5, color: '#c084fc' }
+      },
+      {
+        coords: [[450, 325], [450, 520]],
+        lineStyle: { curveness: 0.16, opacity: 0 },
+        effect: { show: true, period: 2.5, trailLength: 0.35, symbol: 'arrow', symbolSize: 7, color: '#34d399' }
+      }
+    ];
+
+    const option = {
+      xAxis: { type: 'value', min: 0, max: W, show: false },
+      yAxis: { type: 'value', min: 0, max: H, inverse: true, show: false },
+      grid: { left: 0, top: 0, right: 0, bottom: 0 },
+      series: [
+        {
+          type: 'graph',
+          coordinateSystem: 'cartesian2d',
+          zlevel: 1,
+          data: nodes,
+          links: links,
+          edgeSymbol: ['none', 'arrow'],
+          edgeSymbolSize: [4, 9],
+          label: { show: true, position: 'inside', color: '#fff', fontWeight: 'bold' }
+        },
+        {
+          type: 'lines',
+          coordinateSystem: 'cartesian2d',
+          zlevel: 2,
+          polyline: false,
+          data: linesData
+        }
+      ]
+    };
+
+    chart.setOption(option);
+  </script>
+</body>
+</html>

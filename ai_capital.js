@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Application State ───────────────────────────────────────
-  let activeIndex = 6; // Default to 2024 Q3 (The $600B Question & Peak Circularity)
+  let activeIndex = 12; // Default to 2024 Q3 (The $600B Question & Peak Circularity)
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000;
@@ -67,9 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const barChart = echarts.init(barChartDom);
 
   // ─── Node Sizing & Visual Helpers ────────────────────────────
-  function calcNodeSize(marketCap) {
-    // Bold, prominent node sizes [34, 95] to clearly fill the space and command visual attention
-    return Math.round(Math.max(34, Math.min(95, 22 + Math.sqrt(marketCap) * 1.18)));
+  function calcNodeSize(marketCap, isFormed = true) {
+    if (!isFormed || !marketCap || marketCap <= 0) return 0;
+    // Dynamic sub-linear scale: seed non-profit $0.3B -> 18px, mid-cap $100B -> 38px, mega-cap $1T -> 72px, titan $3.8T -> 114px
+    return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(marketCap, 0.44) * 2.65)));
   }
 
   function calcEdgeWidth(amount) {
@@ -143,34 +144,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const allowedNodeIds = new Set(filteredNodes.map(n => n.id));
     const coords = getNodePixelCoordinates();
+    const width = networkChartDom.clientWidth || 840;
+    const height = networkChartDom.clientHeight || 580;
 
     const nodesData = filteredNodes.map(n => {
       const catDef = window.categoryDefinitions[n.category] || { color: '#00e5ff', name: n.category };
       const isSelected = n.id === selectedEntityId;
+      const isFormed = n.isFormed !== false;
+      const isHighGrowth = n.isHighGrowth === true;
+      const nodeSize = calcNodeSize(n.marketCap, isFormed);
       const pos = coords[n.id] || { x: 400, y: 290 };
+
       return {
         id: n.id,
         name: n.name,
         category: catDef.name,
-        symbolSize: calcNodeSize(n.marketCap),
+        symbolSize: nodeSize,
         value: n.marketCap,
         x: pos.x,
         y: pos.y,
         fixed: true,
         itemStyle: {
           color: catDef.color,
-          borderColor: isSelected ? '#ffffff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)'),
-          borderWidth: isSelected ? 4 : 1.5,
-          shadowBlur: isSelected ? 24 : 10,
-          shadowColor: catDef.color
+          borderColor: isSelected ? '#ffffff' : (isHighGrowth ? '#00e5ff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.4)')),
+          borderWidth: isSelected ? 4 : (isHighGrowth ? 3 : 1.5),
+          shadowBlur: isHighGrowth ? 28 : (isSelected ? 24 : 10),
+          shadowColor: isHighGrowth ? '#00e5ff' : (isSelected ? '#ffffff' : catDef.color),
+          opacity: isFormed ? 1.0 : 0.0
         },
         label: {
-          show: true,
+          show: isFormed && nodeSize > 20,
           position: 'bottom',
           distance: 6,
           formatter: '{b}',
-          fontSize: 11,
-          fontWeight: 600,
+          fontSize: Math.max(9, Math.min(13, 8 + Math.sqrt(nodeSize) * 0.45)),
+          fontWeight: 700,
           color: isLight ? '#0f172a' : '#f3f4f6'
         },
         raw: n
@@ -182,7 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(e => {
         const flowDef = (window.flowTypeDefinitions || {})[e.flowType] || { color: '#38bdf8', name: e.flowType };
         const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
-        const isActive = e.amount > 0;
+        const srcNode = filteredNodes.find(n => n.id === e.source);
+        const tgtNode = filteredNodes.find(n => n.id === e.target);
+        const isBothFormed = srcNode && tgtNode && srcNode.isFormed !== false && tgtNode.isFormed !== false;
+        const isActive = isBothFormed && e.amount > 0;
+
         return {
           id: e.id || `${e.source}_${e.target}_${e.flowType}`,
           source: e.source,
@@ -207,6 +219,43 @@ document.addEventListener('DOMContentLoaded', () => {
         };
       });
 
+    // ─── Dynamic Flowing Photon Particles Layer ──────────────────
+    const linesData = [];
+    period.edges.forEach(e => {
+      if (!e.amount || e.amount <= 0) return;
+      const srcNode = filteredNodes.find(n => n.id === e.source);
+      const tgtNode = filteredNodes.find(n => n.id === e.target);
+      if (!srcNode || !tgtNode || srcNode.isFormed === false || tgtNode.isFormed === false) return;
+
+      const p1 = coords[e.source];
+      const p2 = coords[e.target];
+      if (!p1 || !p2) return;
+
+      const flowDef = (window.flowTypeDefinitions || {})[e.flowType] || { color: '#00e5ff' };
+      const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
+
+      linesData.push({
+        coords: [
+          [p1.x, p1.y],
+          [p2.x, p2.y]
+        ],
+        lineStyle: {
+          curveness: 0.16,
+          width: 0,
+          opacity: 0
+        },
+        effect: {
+          show: true,
+          period: Math.max(2.0, Math.min(5.0, 5.8 - Math.sqrt(e.amount) * 0.75)),
+          trailLength: 0.35,
+          symbol: 'arrow',
+          symbolSize: Math.max(4.5, Math.min(8.5, 3.6 + Math.sqrt(e.amount) * 0.8)),
+          color: selectedEntityId ? (isConnected ? '#ffffff' : 'rgba(255,255,255,0.3)') : (flowDef.color || '#ffffff'),
+          loop: true
+        }
+      });
+    });
+
     return {
       tooltip: {
         trigger: 'item',
@@ -216,12 +265,13 @@ document.addEventListener('DOMContentLoaded', () => {
         formatter: (params) => {
           if (params.dataType === 'node') {
             const n = params.data.raw;
+            if (n.isFormed === false) return '';
             return `
               <div style="font-weight: 700; font-size: 1rem; color: var(--accent-primary); margin-bottom: 4px;">${n.name}</div>
               <div style="font-size: 0.8rem; color: ${isLight ? '#475569' : '#9ca3af'}; margin-bottom: 6px;">${params.data.category}</div>
               <div style="font-size: 0.85rem;"><strong>Enterprise Value:</strong> $${n.marketCap.toLocaleString()} B</div>
-              <div style="font-size: 0.85rem;"><strong>Quarterly AI Capex:</strong> $${n.aiCapex.toLocaleString()} B/Q</div>
-              <div style="font-size: 0.85rem;"><strong>Quarterly AI Revenue:</strong> $${n.aiRevenue.toLocaleString()} B/Q</div>
+              <div style="font-size: 0.85rem;"><strong>AI Capex:</strong> $${n.aiCapex.toLocaleString()} B</div>
+              <div style="font-size: 0.85rem;"><strong>AI Revenue:</strong> $${n.aiRevenue.toLocaleString()} B</div>
               <div style="font-size: 0.75rem; color: #ffb300; margin-top: 6px;">👉 Click node to view financial ties</div>
             `;
           } else if (params.dataType === 'edge') {
@@ -230,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const flowDef = (window.flowTypeDefinitions || {})[e.flowType] || { name: e.flowType };
             return `
               <div style="font-weight: 700; color: #ffb300; margin-bottom: 4px;">${flowDef.name}</div>
-              <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px;">$${e.amount.toLocaleString()} Billion / Quarter</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px;">$${e.amount.toLocaleString()} Billion</div>
               <div style="font-size: 0.82rem; max-width: 260px; line-height: 1.4;">${e.desc}</div>
             `;
           }
@@ -241,10 +291,14 @@ document.addEventListener('DOMContentLoaded', () => {
       animationDuration: 750,
       animationDurationUpdate: 750,
       animationEasingUpdate: 'cubicInOut',
+      xAxis: { type: 'value', min: 0, max: width, show: false },
+      yAxis: { type: 'value', min: 0, max: height, inverse: true, show: false },
+      grid: { left: 0, top: 0, right: 0, bottom: 0 },
       series: [
         {
           type: 'graph',
           layout: 'none',
+          zlevel: 1,
           data: nodesData,
           links: edgesData,
           categories: categories,
@@ -259,6 +313,14 @@ document.addEventListener('DOMContentLoaded', () => {
             focus: 'adjacency',
             lineStyle: { width: 6 }
           }
+        },
+        {
+          type: 'lines',
+          coordinateSystem: 'cartesian2d',
+          zlevel: 2,
+          polyline: false,
+          silent: true,
+          data: linesData
         }
       ]
     };
@@ -398,25 +460,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── Entity & Transaction Dossier Renderer ───────────────────
   function updateEntityDossier() {
     const period = timeline[activeIndex];
-    const node = period.nodes.find(n => n.id === selectedEntityId) || period.nodes[0];
+    let node = period.nodes.find(n => n.id === selectedEntityId);
+    if (!node) {
+      node = period.nodes.find(n => n.isFormed !== false) || period.nodes[0];
+    }
     const catDef = window.categoryDefinitions[node.category] || { name: node.category, color: '#38bdf8' };
 
     dossierName.textContent = node.name;
     dossierName.style.color = catDef.color;
     dossierCategory.textContent = catDef.name;
     dossierCategory.style.borderColor = catDef.color;
+    dossierYear.textContent = period.label;
+
+    if (node.isFormed === false) {
+      dossierVal.textContent = 'Pre-Foundation';
+      dossierCapex.textContent = '$0 B';
+      dossierRev.textContent = '$0 B';
+      dossierDesc.textContent = `${node.name} has not yet been founded in ${period.label}. It enters the global AI ecosystem in later periods.`;
+      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">Pre-foundation era. Entity active in subsequent periods.</div>';
+      return;
+    }
+
     dossierVal.textContent = `$${node.marketCap.toLocaleString()} B`;
     dossierCapex.textContent = `$${node.aiCapex.toLocaleString()} B/Q`;
     dossierRev.textContent = `$${node.aiRevenue.toLocaleString()} B/Q`;
     dossierDesc.textContent = node.desc;
-    dossierYear.textContent = period.label;
 
     // Direct flows connected to this entity (active transactions only)
     const connectedEdges = period.edges.filter(e => (e.source === node.id || e.target === node.id) && e.amount > 0);
     dossierFlows.innerHTML = '';
 
     if (connectedEdges.length === 0) {
-      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">No major external transaction tracked in this quarter.</div>';
+      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">No major external transaction tracked in this period.</div>';
       return;
     }
 
@@ -635,6 +710,23 @@ document.addEventListener('DOMContentLoaded', () => {
       updateUI();
     });
   }
+
+  // ─── Keyboard Arrow Controls ─────────────────────────────────
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') {
+      pause();
+      activeIndex = Math.max(0, activeIndex - 1);
+      updateUI();
+    } else if (e.key === 'ArrowRight') {
+      pause();
+      activeIndex = Math.min(timeline.length - 1, activeIndex + 1);
+      updateUI();
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      togglePlay();
+    }
+  });
 
   // ─── Resize Handler ──────────────────────────────────────────
   window.addEventListener('resize', () => {

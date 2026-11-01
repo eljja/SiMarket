@@ -1,4 +1,4 @@
-// ai_capital_data_ko.js - 글로벌 AI 자금 순환 및 반도체 공급망 실증 데이터베이스 (분기별 2023 Q1 ~ 2026 Q4)
+// ai_capital_data_ko.js - 글로벌 AI 자금 순환 및 반도체 공급망 실증 데이터베이스 (10개년: 2017 ~ 2026 Q4)
 
 (function () {
   const categoryDefinitionsKo = {
@@ -63,6 +63,2796 @@
 };
   const aiCapitalTimelineDataKo = [
   {
+    "periodId": "2017",
+    "year": 2017,
+    "quarter": null,
+    "label": "2017",
+    "dateRange": "2017년 전체",
+    "title": "2017년: AI의 태동 — 트랜스포머 아키텍처와 엔비디아 볼타 V100의 탄생",
+    "summary": "구글 브레인 연구팀이 트랜스포머 아키텍처를 제시한 논문 \"Attention Is All You Need\"를 발표하며 현대 생성형 AI의 막을 엽니다. 엔비디아는 사상 최초의 텐서 코어를 탑재한 V100 GPU를 출시합니다. OpenAI는 30여 명의 비영리 연구소에 불과하며, 업계 전체 AI 설비투자는 35억 달러 수준입니다.",
+    "macroMetrics": {
+      "totalAiCapex": 3.2,
+      "realEndUserRevenue": 0.1,
+      "capexRevenueDeficit": 3.1,
+      "circularRatio": 12,
+      "annualizedCapexRunRate": 3.2
+    },
+    "nodes": [
+      {
+        "id": "msft",
+        "name": "마이크로소프트",
+        "category": "hyperscaler",
+        "marketCap": 660,
+        "aiCapex": 0.9,
+        "aiRevenue": 0.05,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
+        "initialX": -140,
+        "initialY": -130
+      },
+      {
+        "id": "goog",
+        "name": "알파벳 / 구글",
+        "category": "hyperscaler",
+        "marketCap": 710,
+        "aiCapex": 1.1,
+        "aiRevenue": 0.05,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
+        "initialX": -185,
+        "initialY": 5
+      },
+      {
+        "id": "amzn",
+        "name": "아마존 / AWS",
+        "category": "hyperscaler",
+        "marketCap": 560,
+        "aiCapex": 0.8,
+        "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
+        "initialX": 140,
+        "initialY": -130
+      },
+      {
+        "id": "meta",
+        "name": "메타 플랫폼스",
+        "category": "hyperscaler",
+        "marketCap": 510,
+        "aiCapex": 0.5,
+        "aiRevenue": 0.01,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
+        "initialX": 185,
+        "initialY": 5
+      },
+      {
+        "id": "nvda",
+        "name": "엔비디아",
+        "category": "chipmaker",
+        "marketCap": 118,
+        "aiCapex": 0.1,
+        "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
+        "initialX": 0,
+        "initialY": -10
+      },
+      {
+        "id": "tsmc",
+        "name": "TSMC",
+        "category": "chipmaker",
+        "marketCap": 200,
+        "aiCapex": 2.8,
+        "aiRevenue": 8.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
+        "initialX": -130,
+        "initialY": 190
+      },
+      {
+        "id": "avgo",
+        "name": "브로드컴",
+        "category": "chipmaker",
+        "marketCap": 105,
+        "aiCapex": 0.05,
+        "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
+        "initialX": -215,
+        "initialY": 115
+      },
+      {
+        "id": "skhynix",
+        "name": "SK하이닉스",
+        "category": "semiconductor_supply",
+        "marketCap": 50,
+        "aiCapex": 0.8,
+        "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
+        "initialX": -20,
+        "initialY": -210
+      },
+      {
+        "id": "samsung",
+        "name": "삼성전자",
+        "category": "semiconductor_supply",
+        "marketCap": 320,
+        "aiCapex": 3.2,
+        "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
+        "initialX": 110,
+        "initialY": -195
+      },
+      {
+        "id": "asml",
+        "name": "ASML",
+        "category": "semiconductor_supply",
+        "marketCap": 70,
+        "aiCapex": 0.15,
+        "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
+        "initialX": 20,
+        "initialY": 235
+      },
+      {
+        "id": "openai",
+        "name": "오픈AI",
+        "category": "ai_lab",
+        "marketCap": 0.3,
+        "aiCapex": 0.02,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
+        "initialX": -60,
+        "initialY": -55
+      },
+      {
+        "id": "anthropic",
+        "name": "앤트로픽",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
+        "initialX": 55,
+        "initialY": -55
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
+        "initialX": 75,
+        "initialY": 45
+      },
+      {
+        "id": "deepseek",
+        "name": "딥시크 (DeepSeek)",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
+        "initialX": -75,
+        "initialY": 45
+      },
+      {
+        "id": "coreweave",
+        "name": "코어위브",
+        "category": "neocloud",
+        "marketCap": 0.05,
+        "aiCapex": 0.01,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
+        "initialX": 0,
+        "initialY": 85
+      },
+      {
+        "id": "vc_sovereign",
+        "name": "벤처캐피탈 & 국부펀드",
+        "category": "venture_capital",
+        "marketCap": 250,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
+        "initialX": 220,
+        "initialY": 155
+      },
+      {
+        "id": "end_market",
+        "name": "실제 기업 & 최종 사용자 시장",
+        "category": "end_market",
+        "marketCap": 400,
+        "aiCapex": 0,
+        "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
+        "initialX": -230,
+        "initialY": -170
+      }
+    ],
+    "edges": [
+      {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.3,
+        "desc": "2017: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $0.3B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.4,
+        "desc": "2017: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $0.4B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.2,
+        "desc": "2017: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $0.2B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.1,
+        "desc": "2017: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $0.1B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.5,
+        "desc": "2017: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $0.5B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 0.15,
+        "desc": "2017: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.15B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.1,
+        "desc": "2017: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.1B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.6,
+        "desc": "2017: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $0.6B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.5,
+        "desc": "2017: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $0.5B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.3,
+        "desc": "2017: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.3B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.3,
+        "desc": "2017: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.3B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2017: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2017: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2017: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.02,
+        "desc": "2017: 코어위브가 엔비디아 최신 GPU에 $0.02B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2017: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2017: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.01,
+        "desc": "2017: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.01B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 0.05,
+        "desc": "2017: M365 Copilot 및 Azure AI 기업 실매출 $0.05B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2017: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      }
+    ]
+  },
+  {
+    "periodId": "2018",
+    "year": 2018,
+    "quarter": null,
+    "label": "2018",
+    "dateRange": "2018년 전체",
+    "title": "2018년: 사전학습 혁명 — 구글 BERT와 OpenAI GPT-1의 등장",
+    "summary": "구글이 자연어 처리의 판도를 바꾼 BERT를 발표하고, OpenAI는 비지도 사전학습 기반의 GPT-1을 공개합니다. 엔비디아는 튜링(T4) 아키텍처를 출시하며, 딥러닝 산업이 언어 기반 파운데이션 모델로 전환되기 시작합니다.",
+    "macroMetrics": {
+      "totalAiCapex": 5.4,
+      "realEndUserRevenue": 0.2,
+      "capexRevenueDeficit": 5.2,
+      "circularRatio": 18,
+      "annualizedCapexRunRate": 5.4
+    },
+    "nodes": [
+      {
+        "id": "msft",
+        "name": "마이크로소프트",
+        "category": "hyperscaler",
+        "marketCap": 780,
+        "aiCapex": 1.2,
+        "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
+        "initialX": -140,
+        "initialY": -130
+      },
+      {
+        "id": "goog",
+        "name": "알파벳 / 구글",
+        "category": "hyperscaler",
+        "marketCap": 725,
+        "aiCapex": 1.6,
+        "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
+        "initialX": -185,
+        "initialY": 5
+      },
+      {
+        "id": "amzn",
+        "name": "아마존 / AWS",
+        "category": "hyperscaler",
+        "marketCap": 730,
+        "aiCapex": 1.1,
+        "aiRevenue": 0.04,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
+        "initialX": 140,
+        "initialY": -130
+      },
+      {
+        "id": "meta",
+        "name": "메타 플랫폼스",
+        "category": "hyperscaler",
+        "marketCap": 375,
+        "aiCapex": 0.8,
+        "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
+        "initialX": 185,
+        "initialY": 5
+      },
+      {
+        "id": "nvda",
+        "name": "엔비디아",
+        "category": "chipmaker",
+        "marketCap": 81,
+        "aiCapex": 0.15,
+        "aiRevenue": 1.3,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
+        "initialX": 0,
+        "initialY": -10
+      },
+      {
+        "id": "tsmc",
+        "name": "TSMC",
+        "category": "chipmaker",
+        "marketCap": 190,
+        "aiCapex": 3.1,
+        "aiRevenue": 8.8,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
+        "initialX": -130,
+        "initialY": 190
+      },
+      {
+        "id": "avgo",
+        "name": "브로드컴",
+        "category": "chipmaker",
+        "marketCap": 100,
+        "aiCapex": 0.08,
+        "aiRevenue": 0.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
+        "initialX": -215,
+        "initialY": 115
+      },
+      {
+        "id": "skhynix",
+        "name": "SK하이닉스",
+        "category": "semiconductor_supply",
+        "marketCap": 45,
+        "aiCapex": 0.9,
+        "aiRevenue": 0.3,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
+        "initialX": -20,
+        "initialY": -210
+      },
+      {
+        "id": "samsung",
+        "name": "삼성전자",
+        "category": "semiconductor_supply",
+        "marketCap": 280,
+        "aiCapex": 3.5,
+        "aiRevenue": 0.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
+        "initialX": 110,
+        "initialY": -195
+      },
+      {
+        "id": "asml",
+        "name": "ASML",
+        "category": "semiconductor_supply",
+        "marketCap": 65,
+        "aiCapex": 0.2,
+        "aiRevenue": 2.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
+        "initialX": 20,
+        "initialY": 235
+      },
+      {
+        "id": "openai",
+        "name": "오픈AI",
+        "category": "ai_lab",
+        "marketCap": 0.5,
+        "aiCapex": 0.04,
+        "aiRevenue": 0.01,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
+        "initialX": -60,
+        "initialY": -55
+      },
+      {
+        "id": "anthropic",
+        "name": "앤트로픽",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
+        "initialX": 55,
+        "initialY": -55
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
+        "initialX": 75,
+        "initialY": 45
+      },
+      {
+        "id": "deepseek",
+        "name": "딥시크 (DeepSeek)",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
+        "initialX": -75,
+        "initialY": 45
+      },
+      {
+        "id": "coreweave",
+        "name": "코어위브",
+        "category": "neocloud",
+        "marketCap": 0.05,
+        "aiCapex": 0.02,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
+        "initialX": 0,
+        "initialY": 85
+      },
+      {
+        "id": "vc_sovereign",
+        "name": "벤처캐피탈 & 국부펀드",
+        "category": "venture_capital",
+        "marketCap": 280,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
+        "initialX": 220,
+        "initialY": 155
+      },
+      {
+        "id": "end_market",
+        "name": "실제 기업 & 최종 사용자 시장",
+        "category": "end_market",
+        "marketCap": 480,
+        "aiCapex": 0,
+        "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
+        "initialX": -230,
+        "initialY": -170
+      }
+    ],
+    "edges": [
+      {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.5,
+        "desc": "2018: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $0.5B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.6,
+        "desc": "2018: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $0.6B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.4,
+        "desc": "2018: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $0.4B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.3,
+        "desc": "2018: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $0.3B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.7,
+        "desc": "2018: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $0.7B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 0.2,
+        "desc": "2018: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.2B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.15,
+        "desc": "2018: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.15B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.8,
+        "desc": "2018: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $0.8B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.6,
+        "desc": "2018: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $0.6B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.4,
+        "desc": "2018: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.4B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.4,
+        "desc": "2018: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.4B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2018: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2018: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2018: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.05,
+        "desc": "2018: 코어위브가 엔비디아 최신 GPU에 $0.05B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2018: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2018: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.02,
+        "desc": "2018: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.02B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 0.08,
+        "desc": "2018: M365 Copilot 및 Azure AI 기업 실매출 $0.08B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2018: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      }
+    ]
+  },
+  {
+    "periodId": "2019",
+    "year": 2019,
+    "quarter": null,
+    "label": "2019",
+    "dateRange": "2019년 전체",
+    "title": "2019년: 10억 달러의 결단 — 마이크로소프트와 OpenAI의 독점 동맹",
+    "summary": "마이크로소프트가 OpenAI에 10억 달러를 투자하며 독점 Azure 클라우드 컴퓨팅 파트너십을 체결하고 1만 장의 GPU 전용 슈퍼컴퓨터를 구축합니다. OpenAI는 영리법인을 설립하고 GPT-2를 발표하며 생성형 AI의 상업적 잠재력을 증명합니다.",
+    "macroMetrics": {
+      "totalAiCapex": 8.8,
+      "realEndUserRevenue": 0.35,
+      "capexRevenueDeficit": 8.5,
+      "circularRatio": 28,
+      "annualizedCapexRunRate": 8.8
+    },
+    "nodes": [
+      {
+        "id": "msft",
+        "name": "마이크로소프트",
+        "category": "hyperscaler",
+        "marketCap": 1200,
+        "aiCapex": 2.1,
+        "aiRevenue": 0.12,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
+        "initialX": -140,
+        "initialY": -130
+      },
+      {
+        "id": "goog",
+        "name": "알파벳 / 구글",
+        "category": "hyperscaler",
+        "marketCap": 920,
+        "aiCapex": 2.2,
+        "aiRevenue": 0.12,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
+        "initialX": -185,
+        "initialY": 5
+      },
+      {
+        "id": "amzn",
+        "name": "아마존 / AWS",
+        "category": "hyperscaler",
+        "marketCap": 920,
+        "aiCapex": 1.8,
+        "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
+        "initialX": 140,
+        "initialY": -130
+      },
+      {
+        "id": "meta",
+        "name": "메타 플랫폼스",
+        "category": "hyperscaler",
+        "marketCap": 585,
+        "aiCapex": 1.2,
+        "aiRevenue": 0.04,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
+        "initialX": 185,
+        "initialY": 5
+      },
+      {
+        "id": "nvda",
+        "name": "엔비디아",
+        "category": "chipmaker",
+        "marketCap": 144,
+        "aiCapex": 0.25,
+        "aiRevenue": 2.1,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
+        "initialX": 0,
+        "initialY": -10
+      },
+      {
+        "id": "tsmc",
+        "name": "TSMC",
+        "category": "chipmaker",
+        "marketCap": 290,
+        "aiCapex": 4.2,
+        "aiRevenue": 9.8,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
+        "initialX": -130,
+        "initialY": 190
+      },
+      {
+        "id": "avgo",
+        "name": "브로드컴",
+        "category": "chipmaker",
+        "marketCap": 125,
+        "aiCapex": 0.1,
+        "aiRevenue": 0.65,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
+        "initialX": -215,
+        "initialY": 115
+      },
+      {
+        "id": "skhynix",
+        "name": "SK하이닉스",
+        "category": "semiconductor_supply",
+        "marketCap": 55,
+        "aiCapex": 1.1,
+        "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
+        "initialX": -20,
+        "initialY": -210
+      },
+      {
+        "id": "samsung",
+        "name": "삼성전자",
+        "category": "semiconductor_supply",
+        "marketCap": 330,
+        "aiCapex": 4.2,
+        "aiRevenue": 0.65,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
+        "initialX": 110,
+        "initialY": -195
+      },
+      {
+        "id": "asml",
+        "name": "ASML",
+        "category": "semiconductor_supply",
+        "marketCap": 125,
+        "aiCapex": 0.3,
+        "aiRevenue": 3.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
+        "initialX": 20,
+        "initialY": 235
+      },
+      {
+        "id": "openai",
+        "name": "오픈AI",
+        "category": "ai_lab",
+        "marketCap": 1,
+        "aiCapex": 0.12,
+        "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
+        "initialX": -60,
+        "initialY": -55
+      },
+      {
+        "id": "anthropic",
+        "name": "앤트로픽",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
+        "initialX": 55,
+        "initialY": -55
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
+        "initialX": 75,
+        "initialY": 45
+      },
+      {
+        "id": "deepseek",
+        "name": "딥시크 (DeepSeek)",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
+        "initialX": -75,
+        "initialY": 45
+      },
+      {
+        "id": "coreweave",
+        "name": "코어위브",
+        "category": "neocloud",
+        "marketCap": 0.08,
+        "aiCapex": 0.05,
+        "aiRevenue": 0.01,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
+        "initialX": 0,
+        "initialY": 85
+      },
+      {
+        "id": "vc_sovereign",
+        "name": "벤처캐피탈 & 국부펀드",
+        "category": "venture_capital",
+        "marketCap": 320,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
+        "initialX": 220,
+        "initialY": 155
+      },
+      {
+        "id": "end_market",
+        "name": "실제 기업 & 최종 사용자 시장",
+        "category": "end_market",
+        "marketCap": 580,
+        "aiCapex": 0,
+        "aiRevenue": 0.35,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
+        "initialX": -230,
+        "initialY": -170
+      }
+    ],
+    "edges": [
+      {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2019: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $0.8B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2019: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $0.8B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.6,
+        "desc": "2019: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $0.6B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.5,
+        "desc": "2019: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $0.5B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.9,
+        "desc": "2019: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $0.9B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 0.3,
+        "desc": "2019: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.3B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.2,
+        "desc": "2019: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.2B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1,
+        "desc": "2019: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.7,
+        "desc": "2019: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $0.7B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.4,
+        "desc": "2019: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.4B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.5,
+        "desc": "2019: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.5B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 1,
+        "desc": "2019: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $1B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.15,
+        "desc": "2019: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.15B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2019: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2019: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2019: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.1,
+        "desc": "2019: 코어위브가 엔비디아 최신 GPU에 $0.1B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2019: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2019: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.03,
+        "desc": "2019: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.03B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 0.12,
+        "desc": "2019: M365 Copilot 및 Azure AI 기업 실매출 $0.12B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2019: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      }
+    ]
+  },
+  {
+    "periodId": "2020",
+    "year": 2020,
+    "quarter": null,
+    "label": "2020",
+    "dateRange": "2020년 전체",
+    "title": "2020년: GPT-3와 스케일링 법칙의 충격 — 엔비디아 암페어 A100 출시",
+    "summary": "OpenAI가 1,750억 개 매개변수의 GPT-3를 발표하여 전 세계에 충격을 안깁니다. 딥러닝 성능이 컴퓨팅 파워에 비례해 정량적으로 향상된다는 \"스케일링 법칙\"이 확립됩니다. 엔비디아는 TSMC 7nm 및 HBM2e 기반의 암페어 A100을 출시하며 AI 인프라 독점의 기틀을 다집니다.",
+    "macroMetrics": {
+      "totalAiCapex": 13.5,
+      "realEndUserRevenue": 0.45,
+      "capexRevenueDeficit": 13.1,
+      "circularRatio": 35,
+      "annualizedCapexRunRate": 13.5
+    },
+    "nodes": [
+      {
+        "id": "msft",
+        "name": "마이크로소프트",
+        "category": "hyperscaler",
+        "marketCap": 1680,
+        "aiCapex": 3.5,
+        "aiRevenue": 0.18,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
+        "initialX": -140,
+        "initialY": -130
+      },
+      {
+        "id": "goog",
+        "name": "알파벳 / 구글",
+        "category": "hyperscaler",
+        "marketCap": 1180,
+        "aiCapex": 3.2,
+        "aiRevenue": 0.18,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
+        "initialX": -185,
+        "initialY": 5
+      },
+      {
+        "id": "amzn",
+        "name": "아마존 / AWS",
+        "category": "hyperscaler",
+        "marketCap": 1630,
+        "aiCapex": 2.8,
+        "aiRevenue": 0.12,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
+        "initialX": 140,
+        "initialY": -130
+      },
+      {
+        "id": "meta",
+        "name": "메타 플랫폼스",
+        "category": "hyperscaler",
+        "marketCap": 775,
+        "aiCapex": 2,
+        "aiRevenue": 0.06,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
+        "initialX": 185,
+        "initialY": 5
+      },
+      {
+        "id": "nvda",
+        "name": "엔비디아",
+        "category": "chipmaker",
+        "marketCap": 323,
+        "aiCapex": 0.35,
+        "aiRevenue": 3.4,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
+        "initialX": 0,
+        "initialY": -10
+      },
+      {
+        "id": "tsmc",
+        "name": "TSMC",
+        "category": "chipmaker",
+        "marketCap": 450,
+        "aiCapex": 5.8,
+        "aiRevenue": 12.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
+        "initialX": -130,
+        "initialY": 190
+      },
+      {
+        "id": "avgo",
+        "name": "브로드컴",
+        "category": "chipmaker",
+        "marketCap": 175,
+        "aiCapex": 0.12,
+        "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
+        "initialX": -215,
+        "initialY": 115
+      },
+      {
+        "id": "skhynix",
+        "name": "SK하이닉스",
+        "category": "semiconductor_supply",
+        "marketCap": 65,
+        "aiCapex": 1.3,
+        "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
+        "initialX": -20,
+        "initialY": -210
+      },
+      {
+        "id": "samsung",
+        "name": "삼성전자",
+        "category": "semiconductor_supply",
+        "marketCap": 430,
+        "aiCapex": 5.5,
+        "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
+        "initialX": 110,
+        "initialY": -195
+      },
+      {
+        "id": "asml",
+        "name": "ASML",
+        "category": "semiconductor_supply",
+        "marketCap": 195,
+        "aiCapex": 0.4,
+        "aiRevenue": 4.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
+        "initialX": 20,
+        "initialY": 235
+      },
+      {
+        "id": "openai",
+        "name": "오픈AI",
+        "category": "ai_lab",
+        "marketCap": 5,
+        "aiCapex": 0.25,
+        "aiRevenue": 0.05,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
+        "initialX": -60,
+        "initialY": -55
+      },
+      {
+        "id": "anthropic",
+        "name": "앤트로픽",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
+        "initialX": 55,
+        "initialY": -55
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
+        "initialX": 75,
+        "initialY": 45
+      },
+      {
+        "id": "deepseek",
+        "name": "딥시크 (DeepSeek)",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
+        "initialX": -75,
+        "initialY": 45
+      },
+      {
+        "id": "coreweave",
+        "name": "코어위브",
+        "category": "neocloud",
+        "marketCap": 0.15,
+        "aiCapex": 0.08,
+        "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
+        "initialX": 0,
+        "initialY": 85
+      },
+      {
+        "id": "vc_sovereign",
+        "name": "벤처캐피탈 & 국부펀드",
+        "category": "venture_capital",
+        "marketCap": 380,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
+        "initialX": 220,
+        "initialY": 155
+      },
+      {
+        "id": "end_market",
+        "name": "실제 기업 & 최종 사용자 시장",
+        "category": "end_market",
+        "marketCap": 720,
+        "aiCapex": 0,
+        "aiRevenue": 0.45,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
+        "initialX": -230,
+        "initialY": -170
+      }
+    ],
+    "edges": [
+      {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.2,
+        "desc": "2020: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $1.2B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1,
+        "desc": "2020: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $1B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2020: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $0.8B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.7,
+        "desc": "2020: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $0.7B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.2,
+        "desc": "2020: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $1.2B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 0.4,
+        "desc": "2020: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.4B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.2,
+        "desc": "2020: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.2B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.2,
+        "desc": "2020: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.2B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.8,
+        "desc": "2020: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $0.8B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.5,
+        "desc": "2020: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.5B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.6,
+        "desc": "2020: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.6B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 0.8,
+        "desc": "2020: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $0.8B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.2,
+        "desc": "2020: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.2B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2020: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2020: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2020: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.15,
+        "desc": "2020: 코어위브가 엔비디아 최신 GPU에 $0.15B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2020: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2020: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.05,
+        "desc": "2020: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.05B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 0.15,
+        "desc": "2020: M365 Copilot 및 Azure AI 기업 실매출 $0.15B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2020: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      }
+    ]
+  },
+  {
+    "periodId": "2021",
+    "year": 2021,
+    "quarter": null,
+    "label": "2021",
+    "dateRange": "2021년 전체",
+    "title": "2021년: 앤트로픽의 탄생과 상용화 — DALL-E와 코덱스의 등장",
+    "summary": "Dario Amodei를 비롯한 핵심 연구진이 안전성과 상업화 방향성에 대한 이견으로 OpenAI를 떠나 앤트로픽(Anthropic)을 설립합니다. OpenAI는 DALL-E 1과 Codex(깃허브 코파일럿 기반)를 공개하며 기업용 API 상용화의 물꼬를 틉니다.",
+    "macroMetrics": {
+      "totalAiCapex": 18.2,
+      "realEndUserRevenue": 0.6,
+      "capexRevenueDeficit": 17.6,
+      "circularRatio": 40,
+      "annualizedCapexRunRate": 18.2
+    },
+    "nodes": [
+      {
+        "id": "msft",
+        "name": "마이크로소프트",
+        "category": "hyperscaler",
+        "marketCap": 2500,
+        "aiCapex": 4.8,
+        "aiRevenue": 0.25,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
+        "initialX": -140,
+        "initialY": -130
+      },
+      {
+        "id": "goog",
+        "name": "알파벳 / 구글",
+        "category": "hyperscaler",
+        "marketCap": 1900,
+        "aiCapex": 4.4,
+        "aiRevenue": 0.22,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
+        "initialX": -185,
+        "initialY": 5
+      },
+      {
+        "id": "amzn",
+        "name": "아마존 / AWS",
+        "category": "hyperscaler",
+        "marketCap": 1700,
+        "aiCapex": 3.8,
+        "aiRevenue": 0.16,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
+        "initialX": 140,
+        "initialY": -130
+      },
+      {
+        "id": "meta",
+        "name": "메타 플랫폼스",
+        "category": "hyperscaler",
+        "marketCap": 935,
+        "aiCapex": 3.2,
+        "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
+        "initialX": 185,
+        "initialY": 5
+      },
+      {
+        "id": "nvda",
+        "name": "엔비디아",
+        "category": "chipmaker",
+        "marketCap": 735,
+        "aiCapex": 0.45,
+        "aiRevenue": 5.2,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
+        "initialX": 0,
+        "initialY": -10
+      },
+      {
+        "id": "tsmc",
+        "name": "TSMC",
+        "category": "chipmaker",
+        "marketCap": 620,
+        "aiCapex": 7.2,
+        "aiRevenue": 14.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
+        "initialX": -130,
+        "initialY": 190
+      },
+      {
+        "id": "avgo",
+        "name": "브로드컴",
+        "category": "chipmaker",
+        "marketCap": 270,
+        "aiCapex": 0.15,
+        "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
+        "initialX": -215,
+        "initialY": 115
+      },
+      {
+        "id": "skhynix",
+        "name": "SK하이닉스",
+        "category": "semiconductor_supply",
+        "marketCap": 78,
+        "aiCapex": 1.5,
+        "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
+        "initialX": -20,
+        "initialY": -210
+      },
+      {
+        "id": "samsung",
+        "name": "삼성전자",
+        "category": "semiconductor_supply",
+        "marketCap": 450,
+        "aiCapex": 6.8,
+        "aiRevenue": 1,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
+        "initialX": 110,
+        "initialY": -195
+      },
+      {
+        "id": "asml",
+        "name": "ASML",
+        "category": "semiconductor_supply",
+        "marketCap": 310,
+        "aiCapex": 0.45,
+        "aiRevenue": 5.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
+        "initialX": 20,
+        "initialY": 235
+      },
+      {
+        "id": "openai",
+        "name": "오픈AI",
+        "category": "ai_lab",
+        "marketCap": 14,
+        "aiCapex": 0.35,
+        "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
+        "initialX": -60,
+        "initialY": -55
+      },
+      {
+        "id": "anthropic",
+        "name": "앤트로픽",
+        "category": "ai_lab",
+        "marketCap": 1,
+        "aiCapex": 0.05,
+        "aiRevenue": 0.01,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
+        "initialX": 55,
+        "initialY": -55
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
+        "initialX": 75,
+        "initialY": 45
+      },
+      {
+        "id": "deepseek",
+        "name": "딥시크 (DeepSeek)",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
+        "initialX": -75,
+        "initialY": 45
+      },
+      {
+        "id": "coreweave",
+        "name": "코어위브",
+        "category": "neocloud",
+        "marketCap": 0.4,
+        "aiCapex": 0.15,
+        "aiRevenue": 0.04,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
+        "initialX": 0,
+        "initialY": 85
+      },
+      {
+        "id": "vc_sovereign",
+        "name": "벤처캐피탈 & 국부펀드",
+        "category": "venture_capital",
+        "marketCap": 450,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
+        "initialX": 220,
+        "initialY": 155
+      },
+      {
+        "id": "end_market",
+        "name": "실제 기업 & 최종 사용자 시장",
+        "category": "end_market",
+        "marketCap": 950,
+        "aiCapex": 0,
+        "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
+        "initialX": -230,
+        "initialY": -170
+      }
+    ],
+    "edges": [
+      {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.6,
+        "desc": "2021: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $1.6B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.3,
+        "desc": "2021: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $1.3B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.1,
+        "desc": "2021: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $1.1B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1,
+        "desc": "2021: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $1B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.5,
+        "desc": "2021: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $1.5B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 0.5,
+        "desc": "2021: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.5B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.25,
+        "desc": "2021: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.25B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.3,
+        "desc": "2021: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.3B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.9,
+        "desc": "2021: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $0.9B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.5,
+        "desc": "2021: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.5B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.65,
+        "desc": "2021: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.65B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2021: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 1.2,
+        "desc": "2021: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $1.2B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.25,
+        "desc": "2021: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.25B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0.12,
+        "desc": "2021: 아마존이 앤트로픽에 전략적 투자 트랜치 $0.12B를 직접 납입."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.05,
+        "desc": "2021: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $0.05B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2021: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2021: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.25,
+        "desc": "2021: 코어위브가 엔비디아 최신 GPU에 $0.25B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2021: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2021: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0.25,
+        "desc": "2021: 글로벌 벤처/국부펀드 신디케이트가 오픈AI에 $0.25B 규모 메가 지분 투자 유치."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2021: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2021: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.1,
+        "desc": "2021: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.1B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 0.2,
+        "desc": "2021: M365 Copilot 및 Azure AI 기업 실매출 $0.2B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.01,
+        "desc": "2021: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.01B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2021: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      }
+    ]
+  },
+  {
+    "periodId": "2022",
+    "year": 2022,
+    "quarter": null,
+    "label": "2022",
+    "dateRange": "2022년 전체",
+    "title": "2022년: 역사의 변곡점 — ChatGPT의 전격 출시 (2022년 11월 30일)",
+    "summary": "스테이블 디퓨전과 미드저니가 이미지 생성 돌풍을 일으키고, 엔비디아는 트랜스포머 엔진을 탑재한 H100 GPU를 공개합니다. 2022년 11월 30일, OpenAI가 ChatGPT를 공개하자 불과 5일 만에 100만 사용자를 모으며 인류 역사상 가장 거대한 생성형 AI 골드러시가 촉발됩니다.",
+    "macroMetrics": {
+      "totalAiCapex": 22.8,
+      "realEndUserRevenue": 0.7,
+      "capexRevenueDeficit": 22.1,
+      "circularRatio": 44,
+      "annualizedCapexRunRate": 22.8
+    },
+    "nodes": [
+      {
+        "id": "msft",
+        "name": "마이크로소프트",
+        "category": "hyperscaler",
+        "marketCap": 1780,
+        "aiCapex": 5.8,
+        "aiRevenue": 0.35,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
+        "initialX": -140,
+        "initialY": -130
+      },
+      {
+        "id": "goog",
+        "name": "알파벳 / 구글",
+        "category": "hyperscaler",
+        "marketCap": 1150,
+        "aiCapex": 5.2,
+        "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
+        "initialX": -185,
+        "initialY": 5
+      },
+      {
+        "id": "amzn",
+        "name": "아마존 / AWS",
+        "category": "hyperscaler",
+        "marketCap": 860,
+        "aiCapex": 5.4,
+        "aiRevenue": 0.18,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
+        "initialX": 140,
+        "initialY": -130
+      },
+      {
+        "id": "meta",
+        "name": "메타 플랫폼스",
+        "category": "hyperscaler",
+        "marketCap": 320,
+        "aiCapex": 4.8,
+        "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
+        "initialX": 185,
+        "initialY": 5
+      },
+      {
+        "id": "nvda",
+        "name": "엔비디아",
+        "category": "chipmaker",
+        "marketCap": 360,
+        "aiCapex": 0.55,
+        "aiRevenue": 6.8,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
+        "initialX": 0,
+        "initialY": -10
+      },
+      {
+        "id": "tsmc",
+        "name": "TSMC",
+        "category": "chipmaker",
+        "marketCap": 380,
+        "aiCapex": 8.5,
+        "aiRevenue": 15.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
+        "initialX": -130,
+        "initialY": 190
+      },
+      {
+        "id": "avgo",
+        "name": "브로드컴",
+        "category": "chipmaker",
+        "marketCap": 230,
+        "aiCapex": 0.18,
+        "aiRevenue": 1.5,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
+        "initialX": -215,
+        "initialY": 115
+      },
+      {
+        "id": "skhynix",
+        "name": "SK하이닉스",
+        "category": "semiconductor_supply",
+        "marketCap": 48,
+        "aiCapex": 1.6,
+        "aiRevenue": 0.75,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
+        "initialX": -20,
+        "initialY": -210
+      },
+      {
+        "id": "samsung",
+        "name": "삼성전자",
+        "category": "semiconductor_supply",
+        "marketCap": 290,
+        "aiCapex": 7.5,
+        "aiRevenue": 1.1,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
+        "initialX": 110,
+        "initialY": -195
+      },
+      {
+        "id": "asml",
+        "name": "ASML",
+        "category": "semiconductor_supply",
+        "marketCap": 220,
+        "aiCapex": 0.5,
+        "aiRevenue": 6.2,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
+        "initialX": 20,
+        "initialY": 235
+      },
+      {
+        "id": "openai",
+        "name": "오픈AI",
+        "category": "ai_lab",
+        "marketCap": 20,
+        "aiCapex": 0.45,
+        "aiRevenue": 0.15,
+        "isFormed": true,
+        "isHighGrowth": true,
+        "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
+        "initialX": -60,
+        "initialY": -55
+      },
+      {
+        "id": "anthropic",
+        "name": "앤트로픽",
+        "category": "ai_lab",
+        "marketCap": 4,
+        "aiCapex": 0.1,
+        "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
+        "initialX": 55,
+        "initialY": -55
+      },
+      {
+        "id": "xai",
+        "name": "xAI",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
+        "initialX": 75,
+        "initialY": 45
+      },
+      {
+        "id": "deepseek",
+        "name": "딥시크 (DeepSeek)",
+        "category": "ai_lab",
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
+        "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
+        "initialX": -75,
+        "initialY": 45
+      },
+      {
+        "id": "coreweave",
+        "name": "코어위브",
+        "category": "neocloud",
+        "marketCap": 1,
+        "aiCapex": 0.25,
+        "aiRevenue": 0.06,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
+        "initialX": 0,
+        "initialY": 85
+      },
+      {
+        "id": "vc_sovereign",
+        "name": "벤처캐피탈 & 국부펀드",
+        "category": "venture_capital",
+        "marketCap": 480,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
+        "initialX": 220,
+        "initialY": 155
+      },
+      {
+        "id": "end_market",
+        "name": "실제 기업 & 최종 사용자 시장",
+        "category": "end_market",
+        "marketCap": 1100,
+        "aiCapex": 0,
+        "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
+        "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
+        "initialX": -230,
+        "initialY": -170
+      }
+    ],
+    "edges": [
+      {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.2,
+        "desc": "2022: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $2.2B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2022: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $1.8B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.6,
+        "desc": "2022: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $1.6B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.5,
+        "desc": "2022: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $1.5B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2022: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $1.8B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 0.65,
+        "desc": "2022: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.65B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.3,
+        "desc": "2022: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.3B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.4,
+        "desc": "2022: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.4B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1,
+        "desc": "2022: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.55,
+        "desc": "2022: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.55B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.68,
+        "desc": "2022: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.68B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2022: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 1.8,
+        "desc": "2022: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $1.8B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.3,
+        "desc": "2022: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.3B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2022: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.15,
+        "desc": "2022: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $0.15B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2022: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2022: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.35,
+        "desc": "2022: 코어위브가 엔비디아 최신 GPU에 $0.35B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2022: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2022: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2022: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2022: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2022: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.15,
+        "desc": "2022: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.15B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 0.4,
+        "desc": "2022: M365 Copilot 및 Azure AI 기업 실매출 $0.4B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.02,
+        "desc": "2022: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.02B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2022: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
+      }
+    ]
+  },
+  {
     "periodId": "2023-Q1",
     "year": 2023,
     "quarter": 1,
@@ -85,6 +2875,8 @@
         "marketCap": 2150,
         "aiCapex": 6.8,
         "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -96,6 +2888,8 @@
         "marketCap": 1320,
         "aiCapex": 6.3,
         "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -107,6 +2901,8 @@
         "marketCap": 1050,
         "aiCapex": 6.5,
         "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -118,6 +2914,8 @@
         "marketCap": 540,
         "aiCapex": 6,
         "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -129,6 +2927,8 @@
         "marketCap": 680,
         "aiCapex": 0.6,
         "aiRevenue": 4.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -140,6 +2940,8 @@
         "marketCap": 460,
         "aiCapex": 9.9,
         "aiRevenue": 16.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -151,6 +2953,8 @@
         "marketCap": 260,
         "aiCapex": 0.2,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -162,6 +2966,8 @@
         "marketCap": 55,
         "aiCapex": 1.8,
         "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -173,6 +2979,8 @@
         "marketCap": 340,
         "aiCapex": 8.5,
         "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -184,6 +2992,8 @@
         "marketCap": 260,
         "aiCapex": 0.5,
         "aiRevenue": 7.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -195,6 +3005,8 @@
         "marketCap": 29,
         "aiCapex": 0.4,
         "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -206,6 +3018,8 @@
         "marketCap": 4,
         "aiCapex": 0.1,
         "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -214,9 +3028,11 @@
         "id": "xai",
         "name": "xAI",
         "category": "ai_lab",
-        "marketCap": 8,
-        "aiCapex": 0.1,
+        "marketCap": 0,
+        "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -225,9 +3041,11 @@
         "id": "deepseek",
         "name": "딥시크 (DeepSeek)",
         "category": "ai_lab",
-        "marketCap": 1.5,
-        "aiCapex": 0.05,
-        "aiRevenue": 0.01,
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -239,6 +3057,8 @@
         "marketCap": 2,
         "aiCapex": 0.2,
         "aiRevenue": 0.05,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -250,6 +3070,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -261,6 +3083,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -313,7 +3137,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 0.8,
-        "desc": "2023 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $0.8B 지출."
+        "desc": "2023 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $0.8B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -321,7 +3145,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.3,
-        "desc": "2023 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.3B 조달."
+        "desc": "2023 Q1: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.3B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -329,7 +3153,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.5,
-        "desc": "2023 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.5B 지출."
+        "desc": "2023 Q1: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.5B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -337,7 +3161,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.1,
-        "desc": "2023 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.1B 발주."
+        "desc": "2023 Q1: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.1B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -345,7 +3169,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 0.6,
-        "desc": "2023 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.6B 도입."
+        "desc": "2023 Q1: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.6B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -353,7 +3177,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.7,
-        "desc": "2023 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.7B 지출."
+        "desc": "2023 Q1: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.7B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -361,7 +3185,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "msft_openai_credit",
@@ -385,7 +3209,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q1: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2023 Q1: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -393,7 +3217,7 @@
         "target": "amzn",
         "flowType": "cloud_credit",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "goog_anthropic_equity",
@@ -401,7 +3225,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2023 Q1: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -409,7 +3233,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2023 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -417,7 +3241,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -425,7 +3249,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2023 Q1: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -433,7 +3257,7 @@
         "target": "vc_sovereign",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "vc_openai_equity",
@@ -441,7 +3265,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2023 Q1: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -449,7 +3273,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "skhynix_tsmc_foundry",
@@ -457,7 +3281,7 @@
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_openai_rev",
@@ -465,7 +3289,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.2,
-        "desc": "2023 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.2B 달성."
+        "desc": "2023 Q1: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.2B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -473,7 +3297,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 0.6,
-        "desc": "2023 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $0.6B 기록."
+        "desc": "2023 Q1: M365 Copilot 및 Azure AI 기업 실매출 $0.6B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -481,15 +3305,15 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0,
-        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_deepseek_rev",
         "source": "end_market",
         "target": "deepseek",
         "flowType": "enterprise_revenue",
-        "amount": 0.01,
-        "desc": "2023 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.01B 달성."
+        "amount": 0,
+        "desc": "2023 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       }
     ]
   },
@@ -516,6 +3340,8 @@
         "marketCap": 2480,
         "aiCapex": 8.2,
         "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -527,6 +3353,8 @@
         "marketCap": 1510,
         "aiCapex": 6.9,
         "aiRevenue": 0.35,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -538,6 +3366,8 @@
         "marketCap": 1320,
         "aiCapex": 7.4,
         "aiRevenue": 0.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -549,6 +3379,8 @@
         "marketCap": 740,
         "aiCapex": 6.4,
         "aiRevenue": 0.15,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -560,6 +3392,8 @@
         "marketCap": 1050,
         "aiCapex": 0.8,
         "aiRevenue": 10.3,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -571,6 +3405,8 @@
         "marketCap": 520,
         "aiCapex": 8.2,
         "aiRevenue": 15.7,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -582,6 +3418,8 @@
         "marketCap": 350,
         "aiCapex": 0.25,
         "aiRevenue": 2.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -593,6 +3431,8 @@
         "marketCap": 65,
         "aiCapex": 1.6,
         "aiRevenue": 1.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -604,6 +3444,8 @@
         "marketCap": 360,
         "aiCapex": 8.9,
         "aiRevenue": 1.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -615,6 +3457,8 @@
         "marketCap": 290,
         "aiCapex": 0.5,
         "aiRevenue": 7.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -626,6 +3470,8 @@
         "marketCap": 45,
         "aiCapex": 0.6,
         "aiRevenue": 0.35,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -637,6 +3483,8 @@
         "marketCap": 8,
         "aiCapex": 0.2,
         "aiRevenue": 0.05,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -645,9 +3493,11 @@
         "id": "xai",
         "name": "xAI",
         "category": "ai_lab",
-        "marketCap": 12,
-        "aiCapex": 0.2,
-        "aiRevenue": 0.01,
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -656,9 +3506,11 @@
         "id": "deepseek",
         "name": "딥시크 (DeepSeek)",
         "category": "ai_lab",
-        "marketCap": 2.2,
-        "aiCapex": 0.08,
-        "aiRevenue": 0.02,
+        "marketCap": 0,
+        "aiCapex": 0,
+        "aiRevenue": 0,
+        "isFormed": false,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -670,6 +3522,8 @@
         "marketCap": 3.5,
         "aiCapex": 0.5,
         "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -681,6 +3535,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -692,6 +3548,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -744,7 +3602,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 1.2,
-        "desc": "2023 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $1.2B 지출."
+        "desc": "2023 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $1.2B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -752,7 +3610,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.4,
-        "desc": "2023 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.4B 조달."
+        "desc": "2023 Q2: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.4B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -760,7 +3618,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.6,
-        "desc": "2023 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.6B 지출."
+        "desc": "2023 Q2: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.6B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -768,7 +3626,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.2,
-        "desc": "2023 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.2B 발주."
+        "desc": "2023 Q2: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.2B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -776,7 +3634,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 0.7,
-        "desc": "2023 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.7B 도입."
+        "desc": "2023 Q2: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.7B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -784,7 +3642,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.8,
-        "desc": "2023 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
+        "desc": "2023 Q2: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -816,7 +3674,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2023 Q2: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -824,7 +3682,7 @@
         "target": "amzn",
         "flowType": "cloud_credit",
         "amount": 0,
-        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "goog_anthropic_equity",
@@ -832,7 +3690,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q2: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2023 Q2: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -840,7 +3698,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2023 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -848,7 +3706,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 0.4,
-        "desc": "2023 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $0.4B 대규모 구매 집행."
+        "desc": "2023 Q2: 코어위브가 엔비디아 최신 GPU에 $0.4B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -864,7 +3722,7 @@
         "target": "vc_sovereign",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "vc_openai_equity",
@@ -872,7 +3730,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2023 Q2: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -880,7 +3738,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "skhynix_tsmc_foundry",
@@ -888,7 +3746,7 @@
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_openai_rev",
@@ -896,7 +3754,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.35,
-        "desc": "2023 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.35B 달성."
+        "desc": "2023 Q2: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.35B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -904,7 +3762,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 0.75,
-        "desc": "2023 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $0.75B 기록."
+        "desc": "2023 Q2: M365 Copilot 및 Azure AI 기업 실매출 $0.75B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -912,15 +3770,15 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0,
-        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_deepseek_rev",
         "source": "end_market",
         "target": "deepseek",
         "flowType": "enterprise_revenue",
-        "amount": 0.02,
-        "desc": "2023 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.02B 달성."
+        "amount": 0,
+        "desc": "2023 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       }
     ]
   },
@@ -947,6 +3805,8 @@
         "marketCap": 2350,
         "aiCapex": 8.9,
         "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -958,6 +3818,8 @@
         "marketCap": 1650,
         "aiCapex": 8.1,
         "aiRevenue": 0.45,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -969,6 +3831,8 @@
         "marketCap": 1340,
         "aiCapex": 8,
         "aiRevenue": 0.35,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -980,6 +3844,8 @@
         "marketCap": 780,
         "aiCapex": 6.8,
         "aiRevenue": 0.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -991,6 +3857,8 @@
         "marketCap": 1100,
         "aiCapex": 0.9,
         "aiRevenue": 14.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -1002,6 +3870,8 @@
         "marketCap": 480,
         "aiCapex": 7.1,
         "aiRevenue": 17.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -1013,6 +3883,8 @@
         "marketCap": 340,
         "aiCapex": 0.3,
         "aiRevenue": 2.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -1024,6 +3896,8 @@
         "marketCap": 60,
         "aiCapex": 1.7,
         "aiRevenue": 1.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -1035,6 +3909,8 @@
         "marketCap": 345,
         "aiCapex": 8.8,
         "aiRevenue": 1.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -1046,6 +3922,8 @@
         "marketCap": 240,
         "aiCapex": 0.6,
         "aiRevenue": 7.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -1057,6 +3935,8 @@
         "marketCap": 65,
         "aiCapex": 0.7,
         "aiRevenue": 0.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -1068,6 +3948,8 @@
         "marketCap": 14,
         "aiCapex": 0.3,
         "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -1079,6 +3961,8 @@
         "marketCap": 14,
         "aiCapex": 0.2,
         "aiRevenue": 0.01,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -1090,6 +3974,8 @@
         "marketCap": 3,
         "aiCapex": 0.1,
         "aiRevenue": 0.03,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -1101,6 +3987,8 @@
         "marketCap": 5.5,
         "aiCapex": 1.2,
         "aiRevenue": 0.15,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -1112,6 +4000,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -1123,6 +4013,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 1.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -1175,7 +4067,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 1.6,
-        "desc": "2023 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $1.6B 지출."
+        "desc": "2023 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $1.6B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -1183,7 +4075,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.5,
-        "desc": "2023 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.5B 조달."
+        "desc": "2023 Q3: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.5B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -1191,7 +4083,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.7,
-        "desc": "2023 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.7B 지출."
+        "desc": "2023 Q3: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.7B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -1199,7 +4091,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.2,
-        "desc": "2023 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.2B 발주."
+        "desc": "2023 Q3: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.2B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -1207,7 +4099,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 0.7,
-        "desc": "2023 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.7B 도입."
+        "desc": "2023 Q3: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.7B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -1215,7 +4107,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.8,
-        "desc": "2023 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
+        "desc": "2023 Q3: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -1263,7 +4155,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2023 Q3: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -1279,7 +4171,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.1,
-        "desc": "2023 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $2.1B 대규모 구매 집행."
+        "desc": "2023 Q3: 코어위브가 엔비디아 최신 GPU에 $2.1B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -1287,7 +4179,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2023 Q3: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -1295,7 +4187,7 @@
         "target": "vc_sovereign",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q3: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q3: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "vc_openai_equity",
@@ -1303,7 +4195,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q3: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2023 Q3: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -1311,7 +4203,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q3: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q3: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "skhynix_tsmc_foundry",
@@ -1319,7 +4211,7 @@
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q3: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q3: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_openai_rev",
@@ -1327,7 +4219,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.5,
-        "desc": "2023 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.5B 달성."
+        "desc": "2023 Q3: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.5B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -1335,7 +4227,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 1,
-        "desc": "2023 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $1B 기록."
+        "desc": "2023 Q3: M365 Copilot 및 Azure AI 기업 실매출 $1B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -1343,7 +4235,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0.08,
-        "desc": "2023 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.08B 달성."
+        "desc": "2023 Q3: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.08B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -1351,7 +4243,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.03,
-        "desc": "2023 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.03B 달성."
+        "desc": "2023 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.03B 달성."
       }
     ]
   },
@@ -1378,6 +4270,8 @@
         "marketCap": 2790,
         "aiCapex": 9.7,
         "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -1389,6 +4283,8 @@
         "marketCap": 1760,
         "aiCapex": 11,
         "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -1400,6 +4296,8 @@
         "marketCap": 1570,
         "aiCapex": 8.8,
         "aiRevenue": 0.45,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -1411,6 +4309,8 @@
         "marketCap": 910,
         "aiCapex": 7.9,
         "aiRevenue": 0.25,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -1422,6 +4322,8 @@
         "marketCap": 1220,
         "aiCapex": 1,
         "aiRevenue": 18.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -1433,6 +4335,8 @@
         "marketCap": 540,
         "aiCapex": 7.3,
         "aiRevenue": 19.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -1444,6 +4348,8 @@
         "marketCap": 520,
         "aiCapex": 0.35,
         "aiRevenue": 2.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -1455,6 +4361,8 @@
         "marketCap": 75,
         "aiCapex": 1.9,
         "aiRevenue": 2.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -1466,6 +4374,8 @@
         "marketCap": 380,
         "aiCapex": 9.2,
         "aiRevenue": 2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -1477,6 +4387,8 @@
         "marketCap": 290,
         "aiCapex": 0.6,
         "aiRevenue": 7.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -1488,6 +4400,8 @@
         "marketCap": 86,
         "aiCapex": 0.9,
         "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -1499,6 +4413,8 @@
         "marketCap": 18,
         "aiCapex": 0.4,
         "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -1510,6 +4426,8 @@
         "marketCap": 15,
         "aiCapex": 0.3,
         "aiRevenue": 0.02,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -1521,6 +4439,8 @@
         "marketCap": 4.5,
         "aiCapex": 0.15,
         "aiRevenue": 0.04,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -1532,6 +4452,8 @@
         "marketCap": 7,
         "aiCapex": 1.5,
         "aiRevenue": 0.25,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -1543,6 +4465,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -1554,6 +4478,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -1606,7 +4532,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 2,
-        "desc": "2023 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $2B 지출."
+        "desc": "2023 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $2B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -1614,7 +4540,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.7,
-        "desc": "2023 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.7B 조달."
+        "desc": "2023 Q4: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $0.7B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -1622,7 +4548,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.8,
-        "desc": "2023 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.8B 지출."
+        "desc": "2023 Q4: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $1.8B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -1630,7 +4556,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.3,
-        "desc": "2023 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.3B 발주."
+        "desc": "2023 Q4: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.3B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -1638,7 +4564,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 0.8,
-        "desc": "2023 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.8B 도입."
+        "desc": "2023 Q4: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.8B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -1646,7 +4572,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 1,
-        "desc": "2023 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $1B 지출."
+        "desc": "2023 Q4: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $1B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -1678,7 +4604,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2023 Q4: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -1702,7 +4628,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2023 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -1710,7 +4636,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.5,
-        "desc": "2023 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $2.5B 대규모 구매 집행."
+        "desc": "2023 Q4: 코어위브가 엔비디아 최신 GPU에 $2.5B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -1718,7 +4644,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2023 Q4: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -1726,7 +4652,7 @@
         "target": "vc_sovereign",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2023 Q4: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q4: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "vc_openai_equity",
@@ -1734,7 +4660,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2023 Q4: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2023 Q4: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -1750,7 +4676,7 @@
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2023 Q4: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2023 Q4: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_openai_rev",
@@ -1758,7 +4684,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.7,
-        "desc": "2023 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.7B 달성."
+        "desc": "2023 Q4: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $0.7B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -1766,7 +4692,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 1.3,
-        "desc": "2023 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $1.3B 기록."
+        "desc": "2023 Q4: M365 Copilot 및 Azure AI 기업 실매출 $1.3B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -1774,7 +4700,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0.15,
-        "desc": "2023 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.15B 달성."
+        "desc": "2023 Q4: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.15B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -1782,7 +4708,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.04,
-        "desc": "2023 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.04B 달성."
+        "desc": "2023 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.04B 달성."
       }
     ]
   },
@@ -1809,6 +4735,8 @@
         "marketCap": 3120,
         "aiCapex": 11.5,
         "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -1820,6 +4748,8 @@
         "marketCap": 1910,
         "aiCapex": 12,
         "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -1831,6 +4761,8 @@
         "marketCap": 1870,
         "aiCapex": 13,
         "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -1842,6 +4774,8 @@
         "marketCap": 1250,
         "aiCapex": 9,
         "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -1853,6 +4787,8 @@
         "marketCap": 2250,
         "aiCapex": 1.1,
         "aiRevenue": 22.6,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -1864,6 +4800,8 @@
         "marketCap": 690,
         "aiCapex": 7.9,
         "aiRevenue": 18.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -1875,6 +4813,8 @@
         "marketCap": 610,
         "aiCapex": 0.4,
         "aiRevenue": 3.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -1886,6 +4826,8 @@
         "marketCap": 95,
         "aiCapex": 2.2,
         "aiRevenue": 2.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -1897,6 +4839,8 @@
         "marketCap": 410,
         "aiCapex": 9.5,
         "aiRevenue": 2.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -1908,6 +4852,8 @@
         "marketCap": 380,
         "aiCapex": 0.6,
         "aiRevenue": 5.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -1919,6 +4865,8 @@
         "marketCap": 110,
         "aiCapex": 1.2,
         "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -1930,6 +4878,8 @@
         "marketCap": 24,
         "aiCapex": 0.6,
         "aiRevenue": 0.15,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -1941,6 +4891,8 @@
         "marketCap": 24,
         "aiCapex": 0.5,
         "aiRevenue": 0.05,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -1952,6 +4904,8 @@
         "marketCap": 6,
         "aiCapex": 0.2,
         "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -1963,6 +4917,8 @@
         "marketCap": 10,
         "aiCapex": 2,
         "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -1974,6 +4930,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -1985,6 +4943,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 3.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -2037,7 +4997,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 2.6,
-        "desc": "2024 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $2.6B 지출."
+        "desc": "2024 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $2.6B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -2045,7 +5005,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 1,
-        "desc": "2024 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $1B 조달."
+        "desc": "2024 Q1: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $1B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -2053,7 +5013,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2,
-        "desc": "2024 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2B 지출."
+        "desc": "2024 Q1: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $2B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -2061,7 +5021,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.5,
-        "desc": "2024 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.5B 발주."
+        "desc": "2024 Q1: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.5B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -2069,7 +5029,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1,
-        "desc": "2024 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1B 도입."
+        "desc": "2024 Q1: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -2077,7 +5037,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 1.3,
-        "desc": "2024 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $1.3B 지출."
+        "desc": "2024 Q1: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $1.3B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -2125,7 +5085,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q1: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -2133,7 +5093,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2024 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2024 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -2141,7 +5101,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.2,
-        "desc": "2024 Q1: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $3.2B 대규모 구매 집행."
+        "desc": "2024 Q1: 코어위브가 엔비디아 최신 GPU에 $3.2B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -2149,7 +5109,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2024 Q1: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -2157,7 +5117,7 @@
         "target": "vc_sovereign",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2024 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2024 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "vc_openai_equity",
@@ -2165,7 +5125,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2024 Q1: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -2181,7 +5141,7 @@
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 0,
-        "desc": "2024 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2024 Q1: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "market_openai_rev",
@@ -2189,7 +5149,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 1,
-        "desc": "2024 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $1B 달성."
+        "desc": "2024 Q1: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $1B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -2197,7 +5157,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 1.7,
-        "desc": "2024 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $1.7B 기록."
+        "desc": "2024 Q1: M365 Copilot 및 Azure AI 기업 실매출 $1.7B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -2205,7 +5165,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0.3,
-        "desc": "2024 Q1: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.3B 달성."
+        "desc": "2024 Q1: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.3B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -2213,7 +5173,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.05,
-        "desc": "2024 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.05B 달성."
+        "desc": "2024 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.05B 달성."
       }
     ]
   },
@@ -2240,6 +5200,8 @@
         "marketCap": 3320,
         "aiCapex": 13.9,
         "aiRevenue": 1.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -2251,6 +5213,8 @@
         "marketCap": 2210,
         "aiCapex": 13.2,
         "aiRevenue": 1.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -2262,6 +5226,8 @@
         "marketCap": 2020,
         "aiCapex": 15.5,
         "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -2273,6 +5239,8 @@
         "marketCap": 1320,
         "aiCapex": 10.5,
         "aiRevenue": 0.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -2284,6 +5252,8 @@
         "marketCap": 3100,
         "aiCapex": 1.2,
         "aiRevenue": 26.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -2295,6 +5265,8 @@
         "marketCap": 820,
         "aiCapex": 8.5,
         "aiRevenue": 20.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -2306,6 +5278,8 @@
         "marketCap": 740,
         "aiCapex": 0.45,
         "aiRevenue": 3.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -2317,6 +5291,8 @@
         "marketCap": 120,
         "aiCapex": 2.5,
         "aiRevenue": 3.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -2328,6 +5304,8 @@
         "marketCap": 430,
         "aiCapex": 9.8,
         "aiRevenue": 2.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -2339,6 +5317,8 @@
         "marketCap": 410,
         "aiCapex": 0.6,
         "aiRevenue": 6.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -2350,6 +5330,8 @@
         "marketCap": 135,
         "aiCapex": 1.8,
         "aiRevenue": 1.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -2361,6 +5343,8 @@
         "marketCap": 30,
         "aiCapex": 0.9,
         "aiRevenue": 0.22,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -2372,6 +5356,8 @@
         "marketCap": 30,
         "aiCapex": 0.9,
         "aiRevenue": 0.08,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -2383,6 +5369,8 @@
         "marketCap": 8,
         "aiCapex": 0.3,
         "aiRevenue": 0.12,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -2394,6 +5382,8 @@
         "marketCap": 16,
         "aiCapex": 3.2,
         "aiRevenue": 0.55,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -2405,6 +5395,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -2416,6 +5408,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 4.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -2468,7 +5462,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 3.3,
-        "desc": "2024 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $3.3B 지출."
+        "desc": "2024 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $3.3B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -2476,7 +5470,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 1.5,
-        "desc": "2024 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $1.5B 조달."
+        "desc": "2024 Q2: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $1.5B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -2484,7 +5478,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.3,
-        "desc": "2024 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2.3B 지출."
+        "desc": "2024 Q2: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $2.3B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -2492,7 +5486,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.7,
-        "desc": "2024 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.7B 발주."
+        "desc": "2024 Q2: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.7B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -2500,7 +5494,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.2,
-        "desc": "2024 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.2B 도입."
+        "desc": "2024 Q2: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.2B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -2508,7 +5502,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 1.6,
-        "desc": "2024 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $1.6B 지출."
+        "desc": "2024 Q2: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $1.6B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -2540,7 +5534,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q2: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -2556,7 +5550,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q2: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q2: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -2572,7 +5566,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 5.5,
-        "desc": "2024 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $5.5B 대규모 구매 집행."
+        "desc": "2024 Q2: 코어위브가 엔비디아 최신 GPU에 $5.5B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -2588,7 +5582,7 @@
         "target": "vc_sovereign",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2024 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+        "desc": "2024 Q2: 해당 기간 활성 거래 없음 (개시 전 또는 종료)."
       },
       {
         "id": "vc_openai_equity",
@@ -2596,7 +5590,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2024 Q2: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -2620,7 +5614,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 1.4,
-        "desc": "2024 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $1.4B 달성."
+        "desc": "2024 Q2: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $1.4B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -2628,7 +5622,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 2.2,
-        "desc": "2024 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $2.2B 기록."
+        "desc": "2024 Q2: M365 Copilot 및 Azure AI 기업 실매출 $2.2B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -2636,7 +5630,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0.5,
-        "desc": "2024 Q2: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.5B 달성."
+        "desc": "2024 Q2: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.5B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -2644,7 +5638,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.08,
-        "desc": "2024 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.08B 달성."
+        "desc": "2024 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.08B 달성."
       }
     ]
   },
@@ -2671,6 +5665,8 @@
         "marketCap": 3200,
         "aiCapex": 14.9,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -2682,6 +5678,8 @@
         "marketCap": 2050,
         "aiCapex": 13.1,
         "aiRevenue": 1.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -2693,6 +5691,8 @@
         "marketCap": 1950,
         "aiCapex": 16.2,
         "aiRevenue": 1.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -2704,6 +5704,8 @@
         "marketCap": 1450,
         "aiCapex": 11.2,
         "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -2715,6 +5717,8 @@
         "marketCap": 3000,
         "aiCapex": 1.3,
         "aiRevenue": 30.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -2726,6 +5730,8 @@
         "marketCap": 880,
         "aiCapex": 8.8,
         "aiRevenue": 23.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -2737,6 +5743,8 @@
         "marketCap": 720,
         "aiCapex": 0.5,
         "aiRevenue": 3.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -2748,6 +5756,8 @@
         "marketCap": 110,
         "aiCapex": 2.8,
         "aiRevenue": 4.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -2759,6 +5769,8 @@
         "marketCap": 390,
         "aiCapex": 10.1,
         "aiRevenue": 3.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -2770,6 +5782,8 @@
         "marketCap": 370,
         "aiCapex": 0.7,
         "aiRevenue": 8.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -2781,6 +5795,8 @@
         "marketCap": 157,
         "aiCapex": 2.2,
         "aiRevenue": 1.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -2792,6 +5808,8 @@
         "marketCap": 35,
         "aiCapex": 1.1,
         "aiRevenue": 0.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -2803,6 +5821,8 @@
         "marketCap": 45,
         "aiCapex": 2.5,
         "aiRevenue": 0.1,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -2814,6 +5834,8 @@
         "marketCap": 11,
         "aiCapex": 0.4,
         "aiRevenue": 0.18,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -2825,6 +5847,8 @@
         "marketCap": 18,
         "aiCapex": 3.8,
         "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -2836,6 +5860,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -2847,6 +5873,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 5.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -2899,7 +5927,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 4.1,
-        "desc": "2024 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $4.1B 지출."
+        "desc": "2024 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $4.1B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -2907,7 +5935,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 2.2,
-        "desc": "2024 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $2.2B 조달."
+        "desc": "2024 Q3: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $2.2B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -2915,7 +5943,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.6,
-        "desc": "2024 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2.6B 지출."
+        "desc": "2024 Q3: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $2.6B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -2923,7 +5951,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.9,
-        "desc": "2024 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.9B 발주."
+        "desc": "2024 Q3: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $1.9B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -2931,7 +5959,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.4,
-        "desc": "2024 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.4B 도입."
+        "desc": "2024 Q3: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.4B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -2939,7 +5967,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 2,
-        "desc": "2024 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $2B 지출."
+        "desc": "2024 Q3: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $2B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -2971,7 +5999,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q3: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q3: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -2987,7 +6015,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q3: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -2995,7 +6023,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2024 Q3: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2024 Q3: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -3003,7 +6031,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 4.2,
-        "desc": "2024 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $4.2B 대규모 구매 집행."
+        "desc": "2024 Q3: 코어위브가 엔비디아 최신 GPU에 $4.2B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -3011,7 +6039,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2024 Q3: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -3027,7 +6055,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q3: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2024 Q3: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -3051,7 +6079,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 2,
-        "desc": "2024 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $2B 달성."
+        "desc": "2024 Q3: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $2B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -3059,7 +6087,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 2.8,
-        "desc": "2024 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $2.8B 기록."
+        "desc": "2024 Q3: M365 Copilot 및 Azure AI 기업 실매출 $2.8B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -3067,7 +6095,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 0.8,
-        "desc": "2024 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.8B 달성."
+        "desc": "2024 Q3: Claude 엔터프라이즈 API 토큰 소비 실매출 $0.8B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -3075,7 +6103,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.12,
-        "desc": "2024 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.12B 달성."
+        "desc": "2024 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.12B 달성."
       }
     ]
   },
@@ -3102,6 +6130,8 @@
         "marketCap": 3250,
         "aiCapex": 15.5,
         "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -3113,6 +6143,8 @@
         "marketCap": 2180,
         "aiCapex": 13.5,
         "aiRevenue": 1.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -3124,6 +6156,8 @@
         "marketCap": 2080,
         "aiCapex": 16.8,
         "aiRevenue": 1.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -3135,6 +6169,8 @@
         "marketCap": 1520,
         "aiCapex": 12.1,
         "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -3146,6 +6182,8 @@
         "marketCap": 3350,
         "aiCapex": 1.4,
         "aiRevenue": 35,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -3157,6 +6195,8 @@
         "marketCap": 920,
         "aiCapex": 9.2,
         "aiRevenue": 25.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -3168,6 +6208,8 @@
         "marketCap": 790,
         "aiCapex": 0.55,
         "aiRevenue": 4.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -3179,6 +6221,8 @@
         "marketCap": 125,
         "aiCapex": 3.1,
         "aiRevenue": 4.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -3190,6 +6234,8 @@
         "marketCap": 380,
         "aiCapex": 10.5,
         "aiRevenue": 3.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -3201,6 +6247,8 @@
         "marketCap": 390,
         "aiCapex": 0.7,
         "aiRevenue": 8.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -3212,6 +6260,8 @@
         "marketCap": 170,
         "aiCapex": 2.6,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -3223,6 +6273,8 @@
         "marketCap": 42,
         "aiCapex": 1.4,
         "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -3234,6 +6286,8 @@
         "marketCap": 50,
         "aiCapex": 1.8,
         "aiRevenue": 0.15,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -3245,6 +6299,8 @@
         "marketCap": 14,
         "aiCapex": 0.5,
         "aiRevenue": 0.25,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -3256,6 +6312,8 @@
         "marketCap": 19,
         "aiCapex": 4.2,
         "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -3267,6 +6325,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -3278,6 +6338,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 7.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -3330,7 +6392,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 4.9,
-        "desc": "2024 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $4.9B 지출."
+        "desc": "2024 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $4.9B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -3338,7 +6400,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 3,
-        "desc": "2024 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $3B 조달."
+        "desc": "2024 Q4: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $3B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -3346,7 +6408,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.9,
-        "desc": "2024 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2.9B 지출."
+        "desc": "2024 Q4: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $2.9B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -3354,7 +6416,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.1,
-        "desc": "2024 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.1B 발주."
+        "desc": "2024 Q4: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $2.1B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -3362,7 +6424,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.6,
-        "desc": "2024 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.6B 도입."
+        "desc": "2024 Q4: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.6B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -3370,7 +6432,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 2.5,
-        "desc": "2024 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $2.5B 지출."
+        "desc": "2024 Q4: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $2.5B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -3402,7 +6464,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q4: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -3418,7 +6480,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q4: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2024 Q4: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -3426,7 +6488,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2024 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2024 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -3434,7 +6496,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 4.8,
-        "desc": "2024 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $4.8B 대규모 구매 집행."
+        "desc": "2024 Q4: 코어위브가 엔비디아 최신 GPU에 $4.8B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -3442,7 +6504,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2024 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2024 Q4: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -3482,7 +6544,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 2.7,
-        "desc": "2024 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $2.7B 달성."
+        "desc": "2024 Q4: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $2.7B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -3490,7 +6552,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 3.6,
-        "desc": "2024 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $3.6B 기록."
+        "desc": "2024 Q4: M365 Copilot 및 Azure AI 기업 실매출 $3.6B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -3498,7 +6560,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 1.2,
-        "desc": "2024 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $1.2B 달성."
+        "desc": "2024 Q4: Claude 엔터프라이즈 API 토큰 소비 실매출 $1.2B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -3506,7 +6568,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.2,
-        "desc": "2024 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.2B 달성."
+        "desc": "2024 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.2B 달성."
       }
     ]
   },
@@ -3533,6 +6595,8 @@
         "marketCap": 3380,
         "aiCapex": 17.5,
         "aiRevenue": 2.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -3544,6 +6608,8 @@
         "marketCap": 2280,
         "aiCapex": 15.5,
         "aiRevenue": 1.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -3555,6 +6621,8 @@
         "marketCap": 2200,
         "aiCapex": 17.8,
         "aiRevenue": 1.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -3566,6 +6634,8 @@
         "marketCap": 1580,
         "aiCapex": 12.8,
         "aiRevenue": 1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -3577,6 +6647,8 @@
         "marketCap": 3450,
         "aiCapex": 1.5,
         "aiRevenue": 36.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -3588,6 +6660,8 @@
         "marketCap": 950,
         "aiCapex": 9.5,
         "aiRevenue": 26.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -3599,6 +6673,8 @@
         "marketCap": 820,
         "aiCapex": 0.6,
         "aiRevenue": 4.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -3610,6 +6686,8 @@
         "marketCap": 130,
         "aiCapex": 3.5,
         "aiRevenue": 5.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -3621,6 +6699,8 @@
         "marketCap": 400,
         "aiCapex": 11,
         "aiRevenue": 4.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -3632,6 +6712,8 @@
         "marketCap": 410,
         "aiCapex": 0.8,
         "aiRevenue": 8.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -3643,6 +6725,8 @@
         "marketCap": 190,
         "aiCapex": 3.2,
         "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -3654,6 +6738,8 @@
         "marketCap": 52,
         "aiCapex": 1.8,
         "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -3665,6 +6751,8 @@
         "marketCap": 55,
         "aiCapex": 2,
         "aiRevenue": 0.25,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -3676,6 +6764,8 @@
         "marketCap": 22,
         "aiCapex": 0.4,
         "aiRevenue": 0.45,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -3687,6 +6777,8 @@
         "marketCap": 22,
         "aiCapex": 4.8,
         "aiRevenue": 1.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -3698,6 +6790,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -3709,6 +6803,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 8.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -3761,7 +6857,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 5.5,
-        "desc": "2025 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $5.5B 지출."
+        "desc": "2025 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $5.5B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -3769,7 +6865,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 3.8,
-        "desc": "2025 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $3.8B 조달."
+        "desc": "2025 Q1: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $3.8B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -3777,7 +6873,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.2,
-        "desc": "2025 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.2B 지출."
+        "desc": "2025 Q1: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $3.2B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -3785,7 +6881,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.3,
-        "desc": "2025 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.3B 발주."
+        "desc": "2025 Q1: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $2.3B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -3793,7 +6889,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.8,
-        "desc": "2025 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.8B 도입."
+        "desc": "2025 Q1: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.8B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -3801,7 +6897,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 3,
-        "desc": "2025 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $3B 지출."
+        "desc": "2025 Q1: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $3B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -3849,7 +6945,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2025 Q1: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -3857,7 +6953,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2025 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2025 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -3865,7 +6961,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 5.2,
-        "desc": "2025 Q1: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $5.2B 대규모 구매 집행."
+        "desc": "2025 Q1: 코어위브가 엔비디아 최신 GPU에 $5.2B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -3873,7 +6969,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2025 Q1: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -3889,7 +6985,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2025 Q1: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -3913,7 +7009,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 3.5,
-        "desc": "2025 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $3.5B 달성."
+        "desc": "2025 Q1: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $3.5B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -3921,7 +7017,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 4.8,
-        "desc": "2025 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $4.8B 기록."
+        "desc": "2025 Q1: M365 Copilot 및 Azure AI 기업 실매출 $4.8B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -3929,7 +7025,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 1.8,
-        "desc": "2025 Q1: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $1.8B 달성."
+        "desc": "2025 Q1: Claude 엔터프라이즈 API 토큰 소비 실매출 $1.8B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -3937,7 +7033,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.45,
-        "desc": "2025 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.45B 달성."
+        "desc": "2025 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.45B 달성."
       }
     ]
   },
@@ -3964,6 +7060,8 @@
         "marketCap": 3520,
         "aiCapex": 19.2,
         "aiRevenue": 3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -3975,6 +7073,8 @@
         "marketCap": 2350,
         "aiCapex": 16.8,
         "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -3986,6 +7086,8 @@
         "marketCap": 2310,
         "aiCapex": 19.5,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -3997,6 +7099,8 @@
         "marketCap": 1640,
         "aiCapex": 13.5,
         "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -4008,6 +7112,8 @@
         "marketCap": 3650,
         "aiCapex": 1.6,
         "aiRevenue": 39.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -4019,6 +7125,8 @@
         "marketCap": 980,
         "aiCapex": 9.8,
         "aiRevenue": 28.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -4030,6 +7138,8 @@
         "marketCap": 860,
         "aiCapex": 0.65,
         "aiRevenue": 4.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -4041,6 +7151,8 @@
         "marketCap": 135,
         "aiCapex": 3.8,
         "aiRevenue": 5.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -4052,6 +7164,8 @@
         "marketCap": 420,
         "aiCapex": 11.5,
         "aiRevenue": 4.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -4063,6 +7177,8 @@
         "marketCap": 430,
         "aiCapex": 0.8,
         "aiRevenue": 9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -4074,6 +7190,8 @@
         "marketCap": 210,
         "aiCapex": 3.8,
         "aiRevenue": 2.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -4085,6 +7203,8 @@
         "marketCap": 60,
         "aiCapex": 2,
         "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -4096,6 +7216,8 @@
         "marketCap": 62,
         "aiCapex": 2.2,
         "aiRevenue": 0.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -4107,6 +7229,8 @@
         "marketCap": 26,
         "aiCapex": 0.5,
         "aiRevenue": 0.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -4118,6 +7242,8 @@
         "marketCap": 25,
         "aiCapex": 5.2,
         "aiRevenue": 1.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -4129,6 +7255,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -4140,6 +7268,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 10.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -4192,7 +7322,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 6,
-        "desc": "2025 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $6B 지출."
+        "desc": "2025 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $6B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -4200,7 +7330,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 4.4,
-        "desc": "2025 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $4.4B 조달."
+        "desc": "2025 Q2: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $4.4B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -4208,7 +7338,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.4,
-        "desc": "2025 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.4B 지출."
+        "desc": "2025 Q2: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $3.4B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -4216,7 +7346,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.5,
-        "desc": "2025 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.5B 발주."
+        "desc": "2025 Q2: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $2.5B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -4224,7 +7354,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2,
-        "desc": "2025 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2B 도입."
+        "desc": "2025 Q2: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -4232,7 +7362,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 3.4,
-        "desc": "2025 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $3.4B 지출."
+        "desc": "2025 Q2: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $3.4B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -4264,7 +7394,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2025 Q2: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -4288,7 +7418,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2025 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2025 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -4296,7 +7426,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 5.8,
-        "desc": "2025 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $5.8B 대규모 구매 집행."
+        "desc": "2025 Q2: 코어위브가 엔비디아 최신 GPU에 $5.8B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -4320,7 +7450,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2025 Q2: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -4344,7 +7474,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 4.4,
-        "desc": "2025 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $4.4B 달성."
+        "desc": "2025 Q2: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $4.4B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -4352,7 +7482,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 6.2,
-        "desc": "2025 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $6.2B 기록."
+        "desc": "2025 Q2: M365 Copilot 및 Azure AI 기업 실매출 $6.2B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -4360,7 +7490,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 2.5,
-        "desc": "2025 Q2: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $2.5B 달성."
+        "desc": "2025 Q2: Claude 엔터프라이즈 API 토큰 소비 실매출 $2.5B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -4368,7 +7498,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.7,
-        "desc": "2025 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.7B 달성."
+        "desc": "2025 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $0.7B 달성."
       }
     ]
   },
@@ -4395,6 +7525,8 @@
         "marketCap": 3450,
         "aiCapex": 20.5,
         "aiRevenue": 3.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -4406,6 +7538,8 @@
         "marketCap": 2340,
         "aiCapex": 17.2,
         "aiRevenue": 2.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -4417,6 +7551,8 @@
         "marketCap": 2280,
         "aiCapex": 20,
         "aiRevenue": 2.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -4428,6 +7564,8 @@
         "marketCap": 1610,
         "aiCapex": 14.2,
         "aiRevenue": 1.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -4439,6 +7577,8 @@
         "marketCap": 3580,
         "aiCapex": 1.7,
         "aiRevenue": 41,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -4450,6 +7590,8 @@
         "marketCap": 960,
         "aiCapex": 10,
         "aiRevenue": 29.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -4461,6 +7603,8 @@
         "marketCap": 840,
         "aiCapex": 0.7,
         "aiRevenue": 5.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -4472,6 +7616,8 @@
         "marketCap": 130,
         "aiCapex": 4,
         "aiRevenue": 5.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -4483,6 +7629,8 @@
         "marketCap": 410,
         "aiCapex": 11.8,
         "aiRevenue": 5.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -4494,6 +7642,8 @@
         "marketCap": 415,
         "aiCapex": 0.8,
         "aiRevenue": 9.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -4505,6 +7655,8 @@
         "marketCap": 220,
         "aiCapex": 4.2,
         "aiRevenue": 2.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -4516,6 +7668,8 @@
         "marketCap": 65,
         "aiCapex": 2.2,
         "aiRevenue": 1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -4527,6 +7681,8 @@
         "marketCap": 60,
         "aiCapex": 2.5,
         "aiRevenue": 0.35,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -4538,6 +7694,8 @@
         "marketCap": 28,
         "aiCapex": 0.6,
         "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -4549,6 +7707,8 @@
         "marketCap": 28,
         "aiCapex": 5.5,
         "aiRevenue": 1.5,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -4560,6 +7720,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -4571,6 +7733,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 12.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -4623,7 +7787,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 6.4,
-        "desc": "2025 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $6.4B 지출."
+        "desc": "2025 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $6.4B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -4631,7 +7795,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 4.9,
-        "desc": "2025 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $4.9B 조달."
+        "desc": "2025 Q3: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $4.9B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -4639,7 +7803,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.6,
-        "desc": "2025 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.6B 지출."
+        "desc": "2025 Q3: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $3.6B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -4647,7 +7811,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.7,
-        "desc": "2025 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.7B 발주."
+        "desc": "2025 Q3: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $2.7B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -4655,7 +7819,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.1,
-        "desc": "2025 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.1B 도입."
+        "desc": "2025 Q3: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.1B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -4663,7 +7827,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 3.8,
-        "desc": "2025 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $3.8B 지출."
+        "desc": "2025 Q3: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $3.8B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -4695,7 +7859,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q3: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2025 Q3: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -4711,7 +7875,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2025 Q3: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -4727,7 +7891,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 6.5,
-        "desc": "2025 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $6.5B 대규모 구매 집행."
+        "desc": "2025 Q3: 코어위브가 엔비디아 최신 GPU에 $6.5B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -4735,7 +7899,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2025 Q3: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -4751,7 +7915,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q3: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2025 Q3: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -4775,7 +7939,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 5.5,
-        "desc": "2025 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $5.5B 달성."
+        "desc": "2025 Q3: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $5.5B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -4783,7 +7947,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 7.8,
-        "desc": "2025 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $7.8B 기록."
+        "desc": "2025 Q3: M365 Copilot 및 Azure AI 기업 실매출 $7.8B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -4791,7 +7955,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 3.4,
-        "desc": "2025 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $3.4B 달성."
+        "desc": "2025 Q3: Claude 엔터프라이즈 API 토큰 소비 실매출 $3.4B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -4799,7 +7963,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 1.1,
-        "desc": "2025 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $1.1B 달성."
+        "desc": "2025 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $1.1B 달성."
       }
     ]
   },
@@ -4826,6 +7990,8 @@
         "marketCap": 3580,
         "aiCapex": 21.5,
         "aiRevenue": 3.6,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -4837,6 +8003,8 @@
         "marketCap": 2420,
         "aiCapex": 18.5,
         "aiRevenue": 2.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -4848,6 +8016,8 @@
         "marketCap": 2360,
         "aiCapex": 20.8,
         "aiRevenue": 2.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -4859,6 +8029,8 @@
         "marketCap": 1680,
         "aiCapex": 15,
         "aiRevenue": 1.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -4870,6 +8042,8 @@
         "marketCap": 3720,
         "aiCapex": 1.8,
         "aiRevenue": 43.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -4881,6 +8055,8 @@
         "marketCap": 1010,
         "aiCapex": 10.2,
         "aiRevenue": 30.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -4892,6 +8068,8 @@
         "marketCap": 880,
         "aiCapex": 0.75,
         "aiRevenue": 5.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -4903,6 +8081,8 @@
         "marketCap": 138,
         "aiCapex": 4.2,
         "aiRevenue": 6.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -4914,6 +8094,8 @@
         "marketCap": 430,
         "aiCapex": 12,
         "aiRevenue": 5.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -4925,6 +8107,8 @@
         "marketCap": 435,
         "aiCapex": 0.8,
         "aiRevenue": 9.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -4936,6 +8120,8 @@
         "marketCap": 240,
         "aiCapex": 4.6,
         "aiRevenue": 3.2,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -4947,6 +8133,8 @@
         "marketCap": 72,
         "aiCapex": 2.5,
         "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -4958,6 +8146,8 @@
         "marketCap": 65,
         "aiCapex": 2.8,
         "aiRevenue": 0.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -4969,6 +8159,8 @@
         "marketCap": 30,
         "aiCapex": 0.7,
         "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -4980,6 +8172,8 @@
         "marketCap": 30,
         "aiCapex": 5.8,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -4991,6 +8185,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -5002,6 +8198,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 14.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -5054,7 +8252,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 6.8,
-        "desc": "2025 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $6.8B 지출."
+        "desc": "2025 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $6.8B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -5062,7 +8260,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 5.3,
-        "desc": "2025 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $5.3B 조달."
+        "desc": "2025 Q4: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $5.3B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -5070,7 +8268,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.8,
-        "desc": "2025 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.8B 지출."
+        "desc": "2025 Q4: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $3.8B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -5078,7 +8276,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.8,
-        "desc": "2025 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.8B 발주."
+        "desc": "2025 Q4: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $2.8B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -5086,7 +8284,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.2,
-        "desc": "2025 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.2B 도입."
+        "desc": "2025 Q4: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.2B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -5094,7 +8292,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 4.1,
-        "desc": "2025 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.1B 지출."
+        "desc": "2025 Q4: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.1B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -5126,7 +8324,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2025 Q4: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -5142,7 +8340,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q4: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2025 Q4: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -5150,7 +8348,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2025 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2025 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -5158,7 +8356,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 7,
-        "desc": "2025 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7B 대규모 구매 집행."
+        "desc": "2025 Q4: 코어위브가 엔비디아 최신 GPU에 $7B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -5166,7 +8364,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2025 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2025 Q4: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -5206,7 +8404,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 6.8,
-        "desc": "2025 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $6.8B 달성."
+        "desc": "2025 Q4: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $6.8B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -5214,7 +8412,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 9.8,
-        "desc": "2025 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $9.8B 기록."
+        "desc": "2025 Q4: M365 Copilot 및 Azure AI 기업 실매출 $9.8B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -5222,7 +8420,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 4.5,
-        "desc": "2025 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $4.5B 달성."
+        "desc": "2025 Q4: Claude 엔터프라이즈 API 토큰 소비 실매출 $4.5B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -5230,7 +8428,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 1.6,
-        "desc": "2025 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $1.6B 달성."
+        "desc": "2025 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $1.6B 달성."
       }
     ]
   },
@@ -5257,6 +8455,8 @@
         "marketCap": 3620,
         "aiCapex": 21.8,
         "aiRevenue": 4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -5268,6 +8468,8 @@
         "marketCap": 2480,
         "aiCapex": 18.8,
         "aiRevenue": 3.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -5279,6 +8481,8 @@
         "marketCap": 2420,
         "aiCapex": 21,
         "aiRevenue": 2.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -5290,6 +8494,8 @@
         "marketCap": 1720,
         "aiCapex": 15.5,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -5301,6 +8507,8 @@
         "marketCap": 3750,
         "aiCapex": 1.9,
         "aiRevenue": 44,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -5312,6 +8520,8 @@
         "marketCap": 1040,
         "aiCapex": 10.5,
         "aiRevenue": 31.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -5323,6 +8533,8 @@
         "marketCap": 910,
         "aiCapex": 0.8,
         "aiRevenue": 5.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -5334,6 +8546,8 @@
         "marketCap": 142,
         "aiCapex": 4.4,
         "aiRevenue": 6.5,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -5345,6 +8559,8 @@
         "marketCap": 440,
         "aiCapex": 12.2,
         "aiRevenue": 6.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -5356,6 +8572,8 @@
         "marketCap": 440,
         "aiCapex": 0.8,
         "aiRevenue": 9.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -5367,6 +8585,8 @@
         "marketCap": 255,
         "aiCapex": 4.8,
         "aiRevenue": 3.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -5378,6 +8598,8 @@
         "marketCap": 78,
         "aiCapex": 2.6,
         "aiRevenue": 1.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -5389,6 +8611,8 @@
         "marketCap": 68,
         "aiCapex": 3,
         "aiRevenue": 0.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -5400,6 +8624,8 @@
         "marketCap": 32,
         "aiCapex": 0.8,
         "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -5411,6 +8637,8 @@
         "marketCap": 32,
         "aiCapex": 6,
         "aiRevenue": 2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -5422,6 +8650,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -5433,6 +8663,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 16,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -5485,7 +8717,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 7,
-        "desc": "2026 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7B 지출."
+        "desc": "2026 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $7B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -5493,7 +8725,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 5.6,
-        "desc": "2026 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $5.6B 조달."
+        "desc": "2026 Q1: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $5.6B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -5501,7 +8733,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.9,
-        "desc": "2026 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.9B 지출."
+        "desc": "2026 Q1: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $3.9B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -5509,7 +8741,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.9,
-        "desc": "2026 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.9B 발주."
+        "desc": "2026 Q1: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $2.9B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -5517,7 +8749,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.3,
-        "desc": "2026 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.3B 도입."
+        "desc": "2026 Q1: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.3B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -5525,7 +8757,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 4.3,
-        "desc": "2026 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.3B 지출."
+        "desc": "2026 Q1: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.3B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -5573,7 +8805,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2026 Q1: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -5581,7 +8813,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2026 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2026 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -5589,7 +8821,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 7.2,
-        "desc": "2026 Q1: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.2B 대규모 구매 집행."
+        "desc": "2026 Q1: 코어위브가 엔비디아 최신 GPU에 $7.2B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -5597,7 +8829,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2026 Q1: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -5613,7 +8845,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2026 Q1: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -5637,7 +8869,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 8.2,
-        "desc": "2026 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $8.2B 달성."
+        "desc": "2026 Q1: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $8.2B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -5645,7 +8877,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 12,
-        "desc": "2026 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $12B 기록."
+        "desc": "2026 Q1: M365 Copilot 및 Azure AI 기업 실매출 $12B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -5653,7 +8885,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 5.8,
-        "desc": "2026 Q1: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $5.8B 달성."
+        "desc": "2026 Q1: Claude 엔터프라이즈 API 토큰 소비 실매출 $5.8B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -5661,7 +8893,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 2.2,
-        "desc": "2026 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $2.2B 달성."
+        "desc": "2026 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $2.2B 달성."
       }
     ]
   },
@@ -5688,6 +8920,8 @@
         "marketCap": 3710,
         "aiCapex": 22.5,
         "aiRevenue": 4.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -5699,6 +8933,8 @@
         "marketCap": 2520,
         "aiCapex": 19.5,
         "aiRevenue": 3.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -5710,6 +8946,8 @@
         "marketCap": 2460,
         "aiCapex": 22,
         "aiRevenue": 3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -5721,6 +8959,8 @@
         "marketCap": 1760,
         "aiCapex": 16,
         "aiRevenue": 2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -5732,6 +8972,8 @@
         "marketCap": 3850,
         "aiCapex": 2,
         "aiRevenue": 46.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -5743,6 +8985,8 @@
         "marketCap": 1060,
         "aiCapex": 10.8,
         "aiRevenue": 33,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -5754,6 +8998,8 @@
         "marketCap": 930,
         "aiCapex": 0.85,
         "aiRevenue": 6.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -5765,6 +9011,8 @@
         "marketCap": 145,
         "aiCapex": 4.6,
         "aiRevenue": 6.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -5776,6 +9024,8 @@
         "marketCap": 450,
         "aiCapex": 12.5,
         "aiRevenue": 6.5,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -5787,6 +9037,8 @@
         "marketCap": 450,
         "aiCapex": 0.9,
         "aiRevenue": 9.8,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -5798,6 +9050,8 @@
         "marketCap": 270,
         "aiCapex": 5,
         "aiRevenue": 3.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -5809,6 +9063,8 @@
         "marketCap": 82,
         "aiCapex": 2.8,
         "aiRevenue": 1.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -5820,6 +9076,8 @@
         "marketCap": 72,
         "aiCapex": 3.2,
         "aiRevenue": 0.6,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -5831,6 +9089,8 @@
         "marketCap": 34,
         "aiCapex": 0.9,
         "aiRevenue": 0.9,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -5842,6 +9102,8 @@
         "marketCap": 34,
         "aiCapex": 6.2,
         "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -5853,6 +9115,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -5864,6 +9128,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 18.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -5916,7 +9182,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 7.2,
-        "desc": "2026 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7.2B 지출."
+        "desc": "2026 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $7.2B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -5924,7 +9190,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 5.9,
-        "desc": "2026 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $5.9B 조달."
+        "desc": "2026 Q2: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $5.9B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -5932,7 +9198,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 4,
-        "desc": "2026 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $4B 지출."
+        "desc": "2026 Q2: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $4B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -5940,7 +9206,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3,
-        "desc": "2026 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $3B 발주."
+        "desc": "2026 Q2: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $3B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -5948,7 +9214,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.4,
-        "desc": "2026 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.4B 도입."
+        "desc": "2026 Q2: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.4B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -5956,7 +9222,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 4.5,
-        "desc": "2026 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.5B 지출."
+        "desc": "2026 Q2: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.5B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -5988,7 +9254,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2026 Q2: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -6012,7 +9278,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2026 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2026 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -6020,7 +9286,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 7.4,
-        "desc": "2026 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.4B 대규모 구매 집행."
+        "desc": "2026 Q2: 코어위브가 엔비디아 최신 GPU에 $7.4B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -6028,7 +9294,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q2: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2026 Q2: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -6044,7 +9310,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2026 Q2: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -6068,7 +9334,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 9.8,
-        "desc": "2026 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $9.8B 달성."
+        "desc": "2026 Q2: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $9.8B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -6076,7 +9342,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 14.5,
-        "desc": "2026 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $14.5B 기록."
+        "desc": "2026 Q2: M365 Copilot 및 Azure AI 기업 실매출 $14.5B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -6084,7 +9350,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 7.2,
-        "desc": "2026 Q2: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $7.2B 달성."
+        "desc": "2026 Q2: Claude 엔터프라이즈 API 토큰 소비 실매출 $7.2B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -6092,7 +9358,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 2.9,
-        "desc": "2026 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $2.9B 달성."
+        "desc": "2026 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $2.9B 달성."
       }
     ]
   },
@@ -6119,6 +9385,8 @@
         "marketCap": 3650,
         "aiCapex": 22.2,
         "aiRevenue": 4.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -6130,6 +9398,8 @@
         "marketCap": 2550,
         "aiCapex": 19,
         "aiRevenue": 3.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -6141,6 +9411,8 @@
         "marketCap": 2480,
         "aiCapex": 21.5,
         "aiRevenue": 3.3,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -6152,6 +9424,8 @@
         "marketCap": 1780,
         "aiCapex": 15.8,
         "aiRevenue": 2.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -6163,6 +9437,8 @@
         "marketCap": 3780,
         "aiCapex": 2,
         "aiRevenue": 47,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -6174,6 +9450,8 @@
         "marketCap": 1080,
         "aiCapex": 11,
         "aiRevenue": 34,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -6185,6 +9463,8 @@
         "marketCap": 920,
         "aiCapex": 0.9,
         "aiRevenue": 6.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -6196,6 +9476,8 @@
         "marketCap": 140,
         "aiCapex": 4.8,
         "aiRevenue": 7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -6207,6 +9489,8 @@
         "marketCap": 445,
         "aiCapex": 12.8,
         "aiRevenue": 6.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -6218,6 +9502,8 @@
         "marketCap": 440,
         "aiCapex": 0.9,
         "aiRevenue": 10,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -6229,6 +9515,8 @@
         "marketCap": 280,
         "aiCapex": 5.2,
         "aiRevenue": 4.2,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -6240,6 +9528,8 @@
         "marketCap": 85,
         "aiCapex": 3,
         "aiRevenue": 1.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -6251,6 +9541,8 @@
         "marketCap": 75,
         "aiCapex": 3.5,
         "aiRevenue": 0.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -6262,6 +9554,8 @@
         "marketCap": 35,
         "aiCapex": 1,
         "aiRevenue": 1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -6273,6 +9567,8 @@
         "marketCap": 35,
         "aiCapex": 6.5,
         "aiRevenue": 2.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -6284,6 +9580,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -6295,6 +9593,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 20.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -6347,7 +9647,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 7.5,
-        "desc": "2026 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7.5B 지출."
+        "desc": "2026 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $7.5B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -6355,7 +9655,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 6.2,
-        "desc": "2026 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $6.2B 조달."
+        "desc": "2026 Q3: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $6.2B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -6363,7 +9663,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 4.1,
-        "desc": "2026 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $4.1B 지출."
+        "desc": "2026 Q3: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $4.1B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -6371,7 +9671,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.1,
-        "desc": "2026 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $3.1B 발주."
+        "desc": "2026 Q3: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $3.1B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -6379,7 +9679,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.4,
-        "desc": "2026 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.4B 도입."
+        "desc": "2026 Q3: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.4B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -6387,7 +9687,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 4.7,
-        "desc": "2026 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.7B 지출."
+        "desc": "2026 Q3: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.7B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -6419,7 +9719,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q3: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2026 Q3: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -6435,7 +9735,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2026 Q3: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -6443,7 +9743,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2026 Q3: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2026 Q3: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -6451,7 +9751,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 7.6,
-        "desc": "2026 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.6B 대규모 구매 집행."
+        "desc": "2026 Q3: 코어위브가 엔비디아 최신 GPU에 $7.6B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -6459,7 +9759,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2026 Q3: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -6499,7 +9799,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 11.5,
-        "desc": "2026 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $11.5B 달성."
+        "desc": "2026 Q3: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $11.5B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -6507,7 +9807,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 17.5,
-        "desc": "2026 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $17.5B 기록."
+        "desc": "2026 Q3: M365 Copilot 및 Azure AI 기업 실매출 $17.5B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -6515,7 +9815,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 8.8,
-        "desc": "2026 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $8.8B 달성."
+        "desc": "2026 Q3: Claude 엔터프라이즈 API 토큰 소비 실매출 $8.8B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -6523,7 +9823,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 3.7,
-        "desc": "2026 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $3.7B 달성."
+        "desc": "2026 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $3.7B 달성."
       }
     ]
   },
@@ -6550,6 +9850,8 @@
         "marketCap": 3780,
         "aiCapex": 22,
         "aiRevenue": 4.7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최고 클라우드 기업, Azure 기반 OpenAI 독점 파트너십 및 자체 Maia AI 가속기 개발.",
         "initialX": -140,
         "initialY": -130
@@ -6561,6 +9863,8 @@
         "marketCap": 2600,
         "aiCapex": 19.2,
         "aiRevenue": 4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "트랜스포머 아키텍처 창시자, 자체 TPU v4/v5/v6 가속기 및 제미나이(Gemini) 생태계 구축.",
         "initialX": -185,
         "initialY": 5
@@ -6572,6 +9876,8 @@
         "marketCap": 2520,
         "aiCapex": 21.2,
         "aiRevenue": 3.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 1위 클라우드 AWS, 앤트로픽 핵심 투자사(40억 달러)이자 자체 Trainium2/Inferentia 가속기 개발.",
         "initialX": 140,
         "initialY": -130
@@ -6583,6 +9889,8 @@
         "marketCap": 1820,
         "aiCapex": 15.5,
         "aiRevenue": 2.4,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "오픈소스 AI 생태계 주도(LLaMA 시리즈), 60만 개 이상의 GPU 클러스터 운용 및 MTIA 자체 반도체 개발.",
         "initialX": 185,
         "initialY": 5
@@ -6594,6 +9902,8 @@
         "marketCap": 3820,
         "aiCapex": 2.1,
         "aiRevenue": 46.5,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "글로벌 AI GPU 독점(H100/B200/루빈) 및 CUDA 소프트웨어 생태계를 기반으로 75% 이상의 마진 향유.",
         "initialX": 0,
         "initialY": -10
@@ -6605,6 +9915,8 @@
         "marketCap": 1100,
         "aiCapex": 11.2,
         "aiRevenue": 34.5,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아, 애플, 브로드컴 등 전 세계 모든 선단 AI 가속기를 제조하는 독점적 파운드리 및 CoWoS 패키징 선도자.",
         "initialX": -130,
         "initialY": 190
@@ -6616,6 +9928,8 @@
         "marketCap": 950,
         "aiCapex": 0.95,
         "aiRevenue": 6.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "빅테크 맞춤형 AI ASIC(구글 TPU, 메타 MTIA) 및 초고속 AI 데이터센터 스위치/네트워킹 독점 기업.",
         "initialX": -215,
         "initialY": 115
@@ -6627,6 +9941,8 @@
         "marketCap": 148,
         "aiCapex": 4.8,
         "aiRevenue": 7.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "엔비디아에 HBM3/HBM3E를 사실상 독점 공급하며 AI 메모리 초격차를 달성한 글로벌 HBM 1위 기업.",
         "initialX": -20,
         "initialY": -210
@@ -6638,6 +9954,8 @@
         "marketCap": 460,
         "aiCapex": 13,
         "aiRevenue": 7,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세계 최대 메모리 반도체 제조사이자 12단 HBM3E 및 메모리-파운드리 턴키 솔루션을 보유한 종합 반도체 기업.",
         "initialX": 110,
         "initialY": -195
@@ -6649,6 +9967,8 @@
         "marketCap": 460,
         "aiCapex": 0.9,
         "aiRevenue": 10.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "3nm 및 2nm 선단 반도체 제조에 필수적인 EUV 및 High-NA 극자외선 노광 장비를 독점 공급하는 네덜란드 장비사.",
         "initialX": 20,
         "initialY": 235
@@ -6660,6 +9980,8 @@
         "marketCap": 290,
         "aiCapex": 5.4,
         "aiRevenue": 4.5,
+        "isFormed": true,
+        "isHighGrowth": true,
         "desc": "ChatGPT, GPT-4, o1 추론 모델을 개발한 프론티어 AI 선도 기업이자 1,000억 달러 스타게이트 프로젝트 파트너.",
         "initialX": -60,
         "initialY": -55
@@ -6671,6 +9993,8 @@
         "marketCap": 88,
         "aiCapex": 3.2,
         "aiRevenue": 2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "Claude 3.5 및 컴퓨터 제어 AI를 개발한 프론티어 연구소로, 아마존과 구글로부터 대규모 자본 유치.",
         "initialX": 55,
         "initialY": -55
@@ -6682,6 +10006,8 @@
         "marketCap": 78,
         "aiCapex": 3.6,
         "aiRevenue": 0.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "일론 머스크가 설립한 프론티어 랩으로, 멤피스에 10만 개 규모의 세계 최대 수랭식 슈퍼클러스터 ‘콜로서스’ 운용.",
         "initialX": 75,
         "initialY": 45
@@ -6693,6 +10019,8 @@
         "marketCap": 38,
         "aiCapex": 1.1,
         "aiRevenue": 1.2,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "극단적 알고리즘 효율화와 저비용 오픈 추론 모델(DeepSeek-R1)로 무차별적 고비용 Capex 경쟁 구도를 뒤흔든 연구소.",
         "initialX": -75,
         "initialY": 45
@@ -6704,6 +10032,8 @@
         "marketCap": 36,
         "aiCapex": 6.8,
         "aiRevenue": 2.8,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "GPU 자체를 담보로 사모펀드로부터 수십억 달러의 부채를 조달해 GPU를 재구매하는 네오클라우드 벤더 파이낸싱의 상징.",
         "initialX": 0,
         "initialY": 85
@@ -6715,6 +10045,8 @@
         "marketCap": 500,
         "aiCapex": 0,
         "aiRevenue": 0,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "세쿼이아, 소프트뱅크, a16z 및 중동 국부펀드(MGX, PIF) 등 AI 메가 라운드 및 사모 부채를 공급하는 자본 풀.",
         "initialX": 220,
         "initialY": 155
@@ -6726,6 +10058,8 @@
         "marketCap": 1200,
         "aiCapex": 0,
         "aiRevenue": 23.1,
+        "isFormed": true,
+        "isHighGrowth": false,
         "desc": "실제 기업 IT 예산, 개발자 API 사용료, 유료 소비자 구독 등 AI 생태계의 유일한 외부 실질 현금 유입원.",
         "initialX": -230,
         "initialY": -170
@@ -6778,7 +10112,7 @@
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 7.8,
-        "desc": "2026 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7.8B 지출."
+        "desc": "2026 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM) 공급에 $7.8B 지출."
       },
       {
         "id": "nvda_samsung_hbm",
@@ -6786,7 +10120,7 @@
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 6.5,
-        "desc": "2026 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $6.5B 조달."
+        "desc": "2026 Q4: 엔비디아가 삼성전자로부터 HBM 및 초고속 DRAM/SSD에 $6.5B 조달."
       },
       {
         "id": "tsmc_asml_equip",
@@ -6794,7 +10128,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 4.2,
-        "desc": "2026 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $4.2B 지출."
+        "desc": "2026 Q4: TSMC가 선단 공정 라인 증설을 위해 ASML EUV/High-NA 장비에 $4.2B 지출."
       },
       {
         "id": "samsung_asml_equip",
@@ -6802,7 +10136,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 3.2,
-        "desc": "2026 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $3.2B 발주."
+        "desc": "2026 Q4: 삼성전자가 선단 DRAM 및 파운드리 확충을 위해 ASML 장비에 $3.2B 발주."
       },
       {
         "id": "skhynix_asml_equip",
@@ -6810,7 +10144,7 @@
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 2.5,
-        "desc": "2026 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.5B 도입."
+        "desc": "2026 Q4: SK하이닉스가 선단 HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.5B 도입."
       },
       {
         "id": "goog_avgo_gpu",
@@ -6818,7 +10152,7 @@
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 5,
-        "desc": "2026 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $5B 지출."
+        "desc": "2026 Q4: 구글이 맞춤형 TPU ASIC 설계 및 네트워킹을 위해 브로드컴에 $5B 지출."
       },
       {
         "id": "meta_avgo_gpu",
@@ -6850,7 +10184,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+        "desc": "2026 Q4: 기존 체결 투자 트랜치 이행 중; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "anthropic_amzn_spend",
@@ -6866,7 +10200,7 @@
         "target": "anthropic",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q4: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+        "desc": "2026 Q4: 파트너십 약정 유지; 해당 기간 신규 지분 납입 없음."
       },
       {
         "id": "vc_coreweave_debt",
@@ -6874,7 +10208,7 @@
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 0,
-        "desc": "2026 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+        "desc": "2026 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 기간 신규 부채 조달 없음."
       },
       {
         "id": "coreweave_nvda_gpu",
@@ -6882,7 +10216,7 @@
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 7.8,
-        "desc": "2026 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.8B 대규모 구매 집행."
+        "desc": "2026 Q4: 코어위브가 엔비디아 최신 GPU에 $7.8B 대규모 구매 집행."
       },
       {
         "id": "nvda_coreweave_equity",
@@ -6890,7 +10224,7 @@
         "target": "coreweave",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+        "desc": "2026 Q4: 지분 관계 유지; 해당 기간 신규 지분 취득 없음."
       },
       {
         "id": "coreweave_vc_refinance",
@@ -6906,7 +10240,7 @@
         "target": "openai",
         "flowType": "equity_investment",
         "amount": 0,
-        "desc": "2026 Q4: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+        "desc": "2026 Q4: 기존 지분 조달 자금 집행 중; 해당 기간 대규모 신규 벤처 지분 유치 없음."
       },
       {
         "id": "xai_nvda_gpu",
@@ -6930,7 +10264,7 @@
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 13.5,
-        "desc": "2026 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $13.5B 달성."
+        "desc": "2026 Q4: 기업 및 유료 사용자의 OpenAI 소프트웨어 및 API 실매출 $13.5B 달성."
       },
       {
         "id": "market_msft_rev",
@@ -6938,7 +10272,7 @@
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 21,
-        "desc": "2026 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $21B 기록."
+        "desc": "2026 Q4: M365 Copilot 및 Azure AI 기업 실매출 $21B 기록."
       },
       {
         "id": "market_anthropic_rev",
@@ -6946,7 +10280,7 @@
         "target": "anthropic",
         "flowType": "enterprise_revenue",
         "amount": 10.5,
-        "desc": "2026 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $10.5B 달성."
+        "desc": "2026 Q4: Claude 엔터프라이즈 API 토큰 소비 실매출 $10.5B 달성."
       },
       {
         "id": "market_deepseek_rev",
@@ -6954,7 +10288,7 @@
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 4.5,
-        "desc": "2026 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $4.5B 달성."
+        "desc": "2026 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek API 토큰 실매출 $4.5B 달성."
       }
     ]
   }

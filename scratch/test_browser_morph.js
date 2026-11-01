@@ -1,5 +1,5 @@
 // scratch/test_browser_morph.js
-// Tests graph morphing, link persistence, mutual arrows, thickening, and fading
+// Tests graph morphing, link persistence, mutual arrows, thickening, and dynamic node scaling across the 10-year arc (2017-2026)
 
 const fs = require('fs');
 const path = require('path');
@@ -87,20 +87,46 @@ function runMorphSimulation(isKO) {
   // Test data array
   const timeline = isKO ? context.window.aiCapitalTimelineDataKo : context.window.aiCapitalTimelineData;
 
-  console.log(`\n=== Testing Graph Options across all 16 quarters (${isKO ? 'KO' : 'EN'}) ===`);
+  console.log(`\n=== Testing Graph Options across all 22 periods (${isKO ? 'KO' : 'EN'}) ===`);
   
-  // Verify that all 16 quarters have exactly 28 edges and 17 nodes
+  // Verify that all 22 periods have exactly 28 edges and 17 nodes
   timeline.forEach((q, idx) => {
-    if (q.edges.length !== 28) throw new Error(`Quarter ${q.label} edges length !== 28`);
-    if (q.nodes.length !== 17) throw new Error(`Quarter ${q.label} nodes length !== 17`);
+    if (q.edges.length !== 28) throw new Error(`Period ${q.label} edges length !== 28`);
+    if (q.nodes.length !== 17) throw new Error(`Period ${q.label} nodes length !== 17`);
+  });
+  console.log('[PASS] All 22 periods contain 17 nodes and 28 edge channels.');
 
-    // Verify mutual links
+  // Verify mutual loop MSFT ⇄ OpenAI during quarterly hyper-scaling era (2023-2026)
+  const quarterlyPeriods = timeline.slice(6);
+  quarterlyPeriods.forEach(q => {
     const msftToOpenai = q.edges.find(e => e.id === 'msft_openai_credit');
     const openaiToMsft = q.edges.find(e => e.id === 'openai_msft_spend');
     if (!msftToOpenai || msftToOpenai.amount <= 0) throw new Error(`Quarter ${q.label} missing msft_openai_credit`);
     if (!openaiToMsft || openaiToMsft.amount <= 0) throw new Error(`Quarter ${q.label} missing openai_msft_spend`);
   });
   console.log('[PASS] Mutual loop MSFT ⇄ OpenAI active and verified across all 16 quarters.');
+
+  // Test Node Sizing Expansion: NVDA $118B (2017) -> $3820B (2026 Q4)
+  const p2017 = timeline[0];
+  const p2026 = timeline[21];
+  const nvda2017 = p2017.nodes.find(n => n.id === 'nvda');
+  const nvda2026 = p2026.nodes.find(n => n.id === 'nvda');
+  if (nvda2017.marketCap !== 118 || nvda2026.marketCap !== 3820) {
+    throw new Error(`NVDA valuation mismatch: 2017=${nvda2017.marketCap}, 2026=${nvda2026.marketCap}`);
+  }
+  console.log(`[PASS] NVDA valuation growth verified: $${nvda2017.marketCap}B in 2017 -> $${nvda2026.marketCap}B in 2026 Q4 (32x expansion).`);
+
+  // Test Startup Popping: Anthropic unformed in 2017 (isFormed: false), formed in 2021 (isFormed: true)
+  const anthropic2017 = p2017.nodes.find(n => n.id === 'anthropic');
+  const p2021 = timeline[4];
+  const anthropic2021 = p2021.nodes.find(n => n.id === 'anthropic');
+  if (anthropic2017.isFormed !== false || anthropic2017.marketCap !== 0) {
+    throw new Error(`Anthropic in 2017 should be unformed with marketCap 0`);
+  }
+  if (anthropic2021.isFormed !== true || anthropic2021.marketCap <= 0) {
+    throw new Error(`Anthropic in 2021 should be formed with positive marketCap`);
+  }
+  console.log('[PASS] Anthropic startup popping verified: unformed in 2017 -> emerges in 2021 ($0.8B seed).');
 
   // Test CoreWeave Debt: active in 2024 Q2 ($7.5B), inactive in 2024 Q3 ($0B)
   const q2024_2 = timeline.find(q => q.label === '2024 Q2');
@@ -120,13 +146,13 @@ function runMorphSimulation(isKO) {
   if (eqQ1.amount !== 0) throw new Error(`Expected OpenAI mega round 0 in 2025 Q1, got ${eqQ1.amount}`);
   console.log(`[PASS] OpenAI mega round transition verified: $6.6B in 2024 Q4 -> $0 in 2025 Q1 (clean disappearance).`);
 
-  // Test Arrow Thickening: MSFT -> NVDA GPU purchases grow from 2.8 in 2023 Q1 to 16.0 in 2026 Q4
+  // Test Arrow Thickening: MSFT -> NVDA GPU purchases grow from 2017 ($0.4B) to 2026 Q4 ($16.0B)
   const qFirst = timeline[0];
   const qLast = timeline[timeline.length - 1];
   const gpuStart = qFirst.edges.find(e => e.id === 'msft_nvda_gpu').amount;
   const gpuEnd = qLast.edges.find(e => e.id === 'msft_nvda_gpu').amount;
   if (gpuEnd <= gpuStart) throw new Error(`GPU purchase did not grow: start=${gpuStart}, end=${gpuEnd}`);
-  console.log(`[PASS] Arrow line growth verified: MSFT -> NVDA begins at $${gpuStart}B and expands to $${gpuEnd}B.`);
+  console.log(`[PASS] Arrow line growth verified: MSFT -> NVDA begins at $${gpuStart}B in 2017 and expands to $${gpuEnd}B in 2026 Q4.`);
 }
 
 runMorphSimulation(false);

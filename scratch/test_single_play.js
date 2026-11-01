@@ -83,8 +83,8 @@ function testPlayLogic(isKO) {
   if (!playClickCb) throw new Error('play-btn click listener not attached');
 
   return new Promise((resolve, reject) => {
-    // 1. Initial play from default index 6
-    console.log(`[${jsFile}] Starting play from index 6...`);
+    // 1. Initial play from default activeIndex
+    console.log(`[${jsFile}] Starting play...`);
     playClickCb();
 
     // Check during playback
@@ -95,7 +95,7 @@ function testPlayLogic(isKO) {
     setTimeout(() => {
       const endVal = parseInt(mockElements['timeline-slider'].value, 10);
       console.log(`[${jsFile}] Reached timeline end. Slider value: ${endVal}`);
-      if (endVal !== 15) return reject(new Error(`Expected to reach index 15, got ${endVal}`));
+      if (endVal !== 21) return reject(new Error(`Expected to reach index 21, got ${endVal}`));
       if (mockElements['play-icon'].style.display !== 'block' || mockElements['pause-icon'].style.display !== 'none') {
         return reject(new Error('Play icon not restored on playback completion'));
       }
@@ -103,20 +103,20 @@ function testPlayLogic(isKO) {
       // Wait a bit more to ensure no infinite loop
       setTimeout(() => {
         const afterWaitVal = parseInt(mockElements['timeline-slider'].value, 10);
-        if (afterWaitVal !== 15) return reject(new Error(`Infinite loop detected! Slider moved to ${afterWaitVal}`));
-        console.log(`[${jsFile}] [PASS] Playback halted at index 15 without infinite loop.`);
+        if (afterWaitVal !== 21) return reject(new Error(`Infinite loop detected! Slider moved to ${afterWaitVal}`));
+        console.log(`[${jsFile}] [PASS] Playback halted at index 21 without infinite loop.`);
 
-        // 2. Click play again when at index 15: should restart from 0 and stop at 15
-        console.log(`[${jsFile}] Re-triggering play from index 15 (should restart from 0)...`);
+        // 2. Click play again when at index 21: should restart from 0 and stop at 21
+        console.log(`[${jsFile}] Re-triggering play from index 21 (should restart from 0)...`);
         playClickCb();
 
         setTimeout(() => {
           const replayVal = parseInt(mockElements['timeline-slider'].value, 10);
-          if (replayVal !== 15) return reject(new Error(`Expected replay to reach index 15, got ${replayVal}`));
+          if (replayVal !== 21) return reject(new Error(`Expected replay to reach index 21, got ${replayVal}`));
           if (mockElements['play-icon'].style.display !== 'block') {
             return reject(new Error('Play icon not restored on replay completion'));
           }
-          console.log(`[${jsFile}] [PASS] Replay from start ran to 15 and cleanly halted.`);
+          console.log(`[${jsFile}] [PASS] Replay from start ran to 21 and cleanly halted.`);
           resolve();
         }, 400);
       }, 50);

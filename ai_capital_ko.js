@@ -1,9 +1,9 @@
 // ai_capital_ko.js - 글로벌 AI 자금 순환 및 오우로보로스 분석 엔진 (한국어)
-// 분기별 에디션 (2023 Q1 ~ 2026 Q4)
+// 10개년 대서사 에디션 (2017 ~ 2026 Q4)
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── 애플리케이션 상태 ─────────────────────────────────────────
-  let activeIndex = 6; // 기본값: 2024년 3분기 (세쿼이아의 $600B 질문 및 순환 정점기)
+  let activeIndex = 12; // 기본값: 2024년 3분기 (세쿼이아의 $600B 질문 및 순환 정점기)
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000;
@@ -67,9 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const barChart = echarts.init(barChartDom);
 
   // ─── 노드 크기 및 시각 헬퍼 ────────────────────────────────────
-  function calcNodeSize(marketCap) {
-    // 34px ~ 95px 사이의 굵직한 스케일링으로 캔버스 영역을 가득 채우고 시총 위계를 명확히 표현
-    return Math.round(Math.max(34, Math.min(95, 22 + Math.sqrt(marketCap) * 1.18)));
+  function calcNodeSize(marketCap, isFormed = true) {
+    if (!isFormed || !marketCap || marketCap <= 0) return 0;
+    // 동적 서브리니어 스케일: $0.3B 비영리 연구소(18px)부터 $3.8T 거대 기업(114px)까지 6배 직경 스케일
+    return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(marketCap, 0.44) * 2.65)));
   }
 
   function calcEdgeWidth(amount) {
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return pixelCoords;
   }
 
-  // ─── 네트워크 그래프 옵션 (자연스러운 모핑 애니메이션) ────────
+  // ─── 네트워크 그래프 옵션 (자연스러운 모핑 및 포톤 파티클 애니메이션) ────────
   function getNetworkOptions(period) {
     const isLight = isLightMode();
     const categories = Object.keys(window.categoryDefinitionsKo).map(k => ({
@@ -143,34 +144,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const allowedNodeIds = new Set(filteredNodes.map(n => n.id));
     const coords = getNodePixelCoordinates();
+    const width = networkChartDom.clientWidth || 840;
+    const height = networkChartDom.clientHeight || 580;
 
     const nodesData = filteredNodes.map(n => {
       const catDef = window.categoryDefinitionsKo[n.category] || { color: '#00e5ff', name: n.category };
       const isSelected = n.id === selectedEntityId;
+      const isFormed = n.isFormed !== false;
+      const isHighGrowth = n.isHighGrowth === true;
+      const nodeSize = calcNodeSize(n.marketCap, isFormed);
       const pos = coords[n.id] || { x: 400, y: 290 };
+
       return {
         id: n.id,
         name: n.name,
         category: catDef.name,
-        symbolSize: calcNodeSize(n.marketCap),
+        symbolSize: nodeSize,
         value: n.marketCap,
         x: pos.x,
         y: pos.y,
         fixed: true,
         itemStyle: {
           color: catDef.color,
-          borderColor: isSelected ? '#ffffff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)'),
-          borderWidth: isSelected ? 4 : 1.5,
-          shadowBlur: isSelected ? 24 : 10,
-          shadowColor: catDef.color
+          borderColor: isSelected ? '#ffffff' : (isHighGrowth ? '#00e5ff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.4)')),
+          borderWidth: isSelected ? 4 : (isHighGrowth ? 3 : 1.5),
+          shadowBlur: isHighGrowth ? 28 : (isSelected ? 24 : 10),
+          shadowColor: isHighGrowth ? '#00e5ff' : (isSelected ? '#ffffff' : catDef.color),
+          opacity: isFormed ? 1.0 : 0.0
         },
         label: {
-          show: true,
+          show: isFormed && nodeSize > 20,
           position: 'bottom',
           distance: 6,
           formatter: '{b}',
-          fontSize: 11,
-          fontWeight: 600,
+          fontSize: Math.max(9, Math.min(13, 8 + Math.sqrt(nodeSize) * 0.45)),
+          fontWeight: 700,
           color: isLight ? '#0f172a' : '#f3f4f6'
         },
         raw: n
@@ -182,7 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(e => {
         const flowDef = (window.flowTypeDefinitionsKo || {})[e.flowType] || { color: '#38bdf8', name: e.flowType };
         const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
-        const isActive = e.amount > 0;
+        const srcNode = filteredNodes.find(n => n.id === e.source);
+        const tgtNode = filteredNodes.find(n => n.id === e.target);
+        const isBothFormed = srcNode && tgtNode && srcNode.isFormed !== false && tgtNode.isFormed !== false;
+        const isActive = isBothFormed && e.amount > 0;
+
         return {
           id: e.id || `${e.source}_${e.target}_${e.flowType}`,
           source: e.source,
@@ -207,6 +219,43 @@ document.addEventListener('DOMContentLoaded', () => {
         };
       });
 
+    // ─── 역동적인 흐름을 시각화하는 광자(Photon) 파티클 스트림 ───
+    const linesData = [];
+    period.edges.forEach(e => {
+      if (!e.amount || e.amount <= 0) return;
+      const srcNode = filteredNodes.find(n => n.id === e.source);
+      const tgtNode = filteredNodes.find(n => n.id === e.target);
+      if (!srcNode || !tgtNode || srcNode.isFormed === false || tgtNode.isFormed === false) return;
+
+      const p1 = coords[e.source];
+      const p2 = coords[e.target];
+      if (!p1 || !p2) return;
+
+      const flowDef = (window.flowTypeDefinitionsKo || {})[e.flowType] || { color: '#00e5ff' };
+      const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
+
+      linesData.push({
+        coords: [
+          [p1.x, p1.y],
+          [p2.x, p2.y]
+        ],
+        lineStyle: {
+          curveness: 0.16,
+          width: 0,
+          opacity: 0
+        },
+        effect: {
+          show: true,
+          period: Math.max(2.0, Math.min(5.0, 5.8 - Math.sqrt(e.amount) * 0.75)),
+          trailLength: 0.35,
+          symbol: 'arrow',
+          symbolSize: Math.max(4.5, Math.min(8.5, 3.6 + Math.sqrt(e.amount) * 0.8)),
+          color: selectedEntityId ? (isConnected ? '#ffffff' : 'rgba(255,255,255,0.3)') : (flowDef.color || '#ffffff'),
+          loop: true
+        }
+      });
+    });
+
     return {
       tooltip: {
         trigger: 'item',
@@ -216,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formatter: (params) => {
           if (params.dataType === 'node') {
             const n = params.data.raw;
+            if (n.isFormed === false) return '';
             return `
               <div style="font-weight: 700; font-size: 1rem; color: var(--accent-primary); margin-bottom: 4px;">${n.name}</div>
               <div style="font-size: 0.8rem; color: ${isLight ? '#475569' : '#9ca3af'}; margin-bottom: 6px;">${params.data.category}</div>
@@ -241,10 +291,14 @@ document.addEventListener('DOMContentLoaded', () => {
       animationDuration: 750,
       animationDurationUpdate: 750,
       animationEasingUpdate: 'cubicInOut',
+      xAxis: { type: 'value', min: 0, max: width, show: false },
+      yAxis: { type: 'value', min: 0, max: height, inverse: true, show: false },
+      grid: { left: 0, top: 0, right: 0, bottom: 0 },
       series: [
         {
           type: 'graph',
           layout: 'none',
+          zlevel: 1,
           data: nodesData,
           links: edgesData,
           categories: categories,
@@ -259,6 +313,14 @@ document.addEventListener('DOMContentLoaded', () => {
             focus: 'adjacency',
             lineStyle: { width: 6 }
           }
+        },
+        {
+          type: 'lines',
+          coordinateSystem: 'cartesian2d',
+          zlevel: 2,
+          polyline: false,
+          silent: true,
+          data: linesData
         }
       ]
     };
@@ -324,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       };
     } else {
-      // 세쿼이아 6000억 달러 적자 갭 뷰: 16개 전체 분기 Capex vs 실제 매출 비교
+      // 세쿼이아 6000억 달러 적자 갭 뷰: 22개 전체 시기 Capex vs 실제 매출 비교
       const labels = timeline.map(p => p.label);
       const capexData = timeline.map((p, idx) => ({
         value: p.macroMetrics.totalAiCapex,
@@ -398,25 +460,38 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── 기업 및 거래 Dossier 카드 렌더러 ──────────────────────────
   function updateEntityDossier() {
     const period = timeline[activeIndex];
-    const node = period.nodes.find(n => n.id === selectedEntityId) || period.nodes[0];
+    let node = period.nodes.find(n => n.id === selectedEntityId);
+    if (!node) {
+      node = period.nodes.find(n => n.isFormed !== false) || period.nodes[0];
+    }
     const catDef = window.categoryDefinitionsKo[node.category] || { name: node.category, color: '#38bdf8' };
 
     dossierName.textContent = node.name;
     dossierName.style.color = catDef.color;
     dossierCategory.textContent = catDef.name;
     dossierCategory.style.borderColor = catDef.color;
-    dossierVal.textContent = `$${node.marketCap.toLocaleString()} B`;
+    dossierYear.textContent = period.label;
+
+    if (node.isFormed === false) {
+      dossierVal.textContent = '설립 이전';
+      dossierCapex.textContent = '$0 B';
+      dossierRev.textContent = '$0 B';
+      dossierDesc.textContent = `${node.name}은(는) ${period.label} 시점에 아직 설립되지 않았습니다. 이후 분기에 본격적으로 글로벌 AI 생태계에 합류합니다.`;
+      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">설립 이전 시기입니다. 이후 분기에서 활성화됩니다.</div>';
+      return;
+    }
+
+    dossierVal.textContent = `$${node.marketCap.toLocaleString()} B (약 ${(node.marketCap * 1.35).toFixed(0)}조 원)`;
     dossierCapex.textContent = `$${node.aiCapex.toLocaleString()} B/분기`;
     dossierRev.textContent = `$${node.aiRevenue.toLocaleString()} B/분기`;
     dossierDesc.textContent = node.desc;
-    dossierYear.textContent = period.label;
 
     // 해당 기업에 연결된 분기별 실질 거래 목록 (활성 거래만)
     const connectedEdges = period.edges.filter(e => (e.source === node.id || e.target === node.id) && e.amount > 0);
     dossierFlows.innerHTML = '';
 
     if (connectedEdges.length === 0) {
-      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">이 분기에는 추적된 대규모 외부 거래가 없습니다.</div>';
+      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">이 시기에는 추적된 대규모 외부 거래가 없습니다.</div>';
       return;
     }
 
@@ -635,6 +710,23 @@ document.addEventListener('DOMContentLoaded', () => {
       updateUI();
     });
   }
+
+  // ─── 키보드 화살표 단축키 지원 ─────────────────────────────────
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') {
+      pause();
+      activeIndex = Math.max(0, activeIndex - 1);
+      updateUI();
+    } else if (e.key === 'ArrowRight') {
+      pause();
+      activeIndex = Math.min(timeline.length - 1, activeIndex + 1);
+      updateUI();
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      togglePlay();
+    }
+  });
 
   // ─── 리사이즈 반응형 ──────────────────────────────────────────
   window.addEventListener('resize', () => {
