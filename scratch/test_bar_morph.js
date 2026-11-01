@@ -13,6 +13,7 @@ function testBarEngine(isKO) {
   const engineCode = fs.readFileSync(path.resolve(jsFile), 'utf8');
 
   let barOptions = [];
+  const listeners = {};
   const mockBarChart = {
     setOption: (opt, notMerge) => {
       barOptions.push({ opt, notMerge });
@@ -38,8 +39,10 @@ function testBarEngine(isKO) {
     'kpi-revenue-val': { textContent: '' },
     'kpi-deficit-val': { textContent: '' },
     'kpi-circular-val': { textContent: '' },
-    'toggle-bar-capex': { addEventListener: () => {}, classList: { add: () => {}, remove: () => {} } },
-    'toggle-bar-gap': { addEventListener: () => {}, classList: { add: () => {}, remove: () => {} } },
+    'toggle-bar-val': { addEventListener: (evt, cb) => { listeners['toggle-bar-val'] = cb; }, classList: { add: () => {}, remove: () => {} } },
+    'toggle-bar-capex': { addEventListener: (evt, cb) => { listeners['toggle-bar-capex'] = cb; }, classList: { add: () => {}, remove: () => {} } },
+    'toggle-bar-gap': { addEventListener: (evt, cb) => { listeners['toggle-bar-gap'] = cb; }, classList: { add: () => {}, remove: () => {} } },
+    'node-metric-label': { textContent: '', style: {} },
     'dossier-name': { textContent: '', style: {} },
     'dossier-category': { textContent: '', style: {} },
     'dossier-val': { textContent: '' },
@@ -77,7 +80,26 @@ function testBarEngine(isKO) {
 
   domReady();
 
-  console.log(`[${jsFile}] Initialized successfully.`);
+  // Test mode toggles
+  if (listeners['toggle-bar-val']) listeners['toggle-bar-val']();
+  let lastOpt = barOptions[barOptions.length - 1].opt;
+  if (!lastOpt.title.text.includes('Valuation') && !lastOpt.title.text.includes('시가총액')) {
+    throw new Error('Failed to toggle to valuation mode');
+  }
+
+  if (listeners['toggle-bar-capex']) listeners['toggle-bar-capex']();
+  lastOpt = barOptions[barOptions.length - 1].opt;
+  if (!lastOpt.title.text.includes('Capex')) {
+    throw new Error('Failed to toggle to capex mode');
+  }
+
+  if (listeners['toggle-bar-gap']) listeners['toggle-bar-gap']();
+  lastOpt = barOptions[barOptions.length - 1].opt;
+  if (!lastOpt.title.text.includes('Question') && !lastOpt.title.text.includes('질문')) {
+    throw new Error('Failed to toggle to gap mode');
+  }
+
+  console.log(`[${jsFile}] Initialized successfully and all 3 bar modes verified.`);
 }
 
 testBarEngine(false);

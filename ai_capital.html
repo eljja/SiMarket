@@ -179,7 +179,9 @@
         <div class="graph-top-bar">
           <div>
             <h2 id="graph-title-id" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">Interactive AI Financial & Supply Chain Network</h2>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Node Size = Enterprise Value (Market Cap) | Link Width = Quarterly Flow ($B/Q)</p>
+            <p id="graph-subtitle-metric" style="font-size: 0.8rem; color: var(--text-secondary);">
+              Node Size = <strong id="node-metric-label" style="color: var(--accent-primary);">Enterprise Value (Market Cap)</strong> | Link Width = Quarterly Flow ($B/Q)
+            </p>
           </div>
           <div class="graph-legend-pills">
             <span class="legend-pill active" data-filter="all"><span class="pill-dot" style="background: #fff;"></span> All Entities</span>
@@ -235,8 +237,9 @@
           <div class="bar-card-header">
             <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">Comparative Metrics</span>
             <div class="bar-toggle-group">
-              <button id="toggle-bar-capex" class="btn-bar-toggle active">AI Capex Ranking</button>
-              <button id="toggle-bar-gap" class="btn-bar-toggle">Sequoia Gap</button>
+              <button id="toggle-bar-val" class="btn-bar-toggle active" title="Entity Market Capitalization (Matches network node sizes)">Market Cap</button>
+              <button id="toggle-bar-capex" class="btn-bar-toggle" title="Quarterly AI Infrastructure Capex Outlay">AI Capex</button>
+              <button id="toggle-bar-gap" class="btn-bar-toggle" title="Quarterly Capex vs. Real End-User Revenue Trajectory">Sequoia Gap</button>
             </div>
           </div>
           <div class="chart-container-barchart">

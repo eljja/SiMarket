@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let playInterval = null;
   let playSpeed = 1000;
   let activeCategoryFilter = 'all';
-  let activeBarMode = 'capex'; // 'capex' or 'gap'
+  let activeBarMode = 'valuation'; // 'valuation' (matches network nodes 1:1), 'capex', or 'gap'
+  let activeNodeMetric = 'marketCap'; // 'marketCap' or 'aiCapex'
   let selectedEntityId = 'nvda'; // Default selected entity
 
   const timeline = window.aiCapitalTimelineData;
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const networkChartDom = document.getElementById('ai-network-chart');
   const barChartDom = document.getElementById('ai-bar-chart');
   const networkYearDisplay = document.getElementById('network-year-display');
+  const nodeMetricLabel = document.getElementById('node-metric-label');
 
   const playBtn = document.getElementById('play-btn');
   const playIcon = document.getElementById('play-icon');
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const kpiDeficitVal = document.getElementById('kpi-deficit-val');
   const kpiCircularVal = document.getElementById('kpi-circular-val');
 
+  const toggleBarVal = document.getElementById('toggle-bar-val');
   const toggleBarCapex = document.getElementById('toggle-bar-capex');
   const toggleBarGap = document.getElementById('toggle-bar-gap');
 
@@ -67,10 +70,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const barChart = echarts.init(barChartDom);
 
   // ─── Node Sizing & Visual Helpers ────────────────────────────
-  function calcNodeSize(marketCap, isFormed = true) {
-    if (!isFormed || !marketCap || marketCap <= 0) return 0;
-    // Dynamic sub-linear scale: seed non-profit $0.3B -> 18px, mid-cap $100B -> 38px, mega-cap $1T -> 72px, titan $3.8T -> 114px
-    return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(marketCap, 0.44) * 2.65)));
+  function calcNodeSize(nodeOrMarketCap, metric = activeNodeMetric) {
+    if (typeof nodeOrMarketCap === 'number') {
+      const mc = nodeOrMarketCap;
+      if (mc <= 0) return 0;
+      return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(mc, 0.44) * 2.65)));
+    }
+    const node = nodeOrMarketCap;
+    if (!node || node.isFormed === false) return 0;
+
+    if (metric === 'aiCapex') {
+      const capex = node.aiCapex || 0;
+      if (capex <= 0) return 14;
+      // Capex sub-linear scale: $0.02B -> 16px, $1B -> 34px, $10B -> 72px, $22B -> 108px
+      return Math.round(Math.max(16, Math.min(115, 14 + Math.pow(capex, 0.52) * 19.5)));
+    } else {
+      // Market Cap sub-linear scale: $0.3B -> 18px, $100B -> 38px, $1T -> 72px, $3.8T -> 114px
+      const mc = node.marketCap || 0;
+      if (mc <= 0) return 0;
+      return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(mc, 0.44) * 2.65)));
+    }
   }
 
   function calcEdgeWidth(amount) {
@@ -158,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isSelected = n.id === selectedEntityId;
       const isFormed = n.isFormed !== false;
       const isHighGrowth = n.isHighGrowth === true;
-      const nodeSize = calcNodeSize(n.marketCap, isFormed);
+      const nodeSize = calcNodeSize(n, activeNodeMetric);
       const pos = coords[n.id] || { x: 400, y: 290 };
 
       return {
@@ -272,12 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
           if (params.dataType === 'node') {
             const n = params.data.raw;
             if (n.isFormed === false) return '';
+            const isValMetric = activeNodeMetric === 'marketCap';
             return `
               <div style="font-weight: 700; font-size: 1rem; color: var(--accent-primary); margin-bottom: 4px;">${n.name}</div>
               <div style="font-size: 0.8rem; color: ${isLight ? '#475569' : '#9ca3af'}; margin-bottom: 6px;">${params.data.category}</div>
-              <div style="font-size: 0.85rem;"><strong>Enterprise Value:</strong> $${n.marketCap.toLocaleString()} B</div>
-              <div style="font-size: 0.85rem;"><strong>AI Capex:</strong> $${n.aiCapex.toLocaleString()} B</div>
-              <div style="font-size: 0.85rem;"><strong>AI Revenue:</strong> $${n.aiRevenue.toLocaleString()} B</div>
+              <div style="font-size: 0.85rem; ${isValMetric ? 'color: var(--accent-primary); font-weight: 700;' : ''}"><strong>Enterprise Value:</strong> $${n.marketCap.toLocaleString()} B ${isValMetric ? '👈 (Node Size)' : ''}</div>
+              <div style="font-size: 0.85rem; ${!isValMetric ? 'color: #10b981; font-weight: 700;' : ''}"><strong>AI Capex:</strong> $${n.aiCapex.toLocaleString()} B/Q ${!isValMetric ? '👈 (Node Size)' : ''}</div>
+              <div style="font-size: 0.85rem;"><strong>AI Revenue:</strong> $${n.aiRevenue.toLocaleString()} B/Q</div>
               <div style="font-size: 0.75rem; color: #ffb300; margin-top: 6px;">👉 Click node to view financial ties</div>
             `;
           } else if (params.dataType === 'edge') {
@@ -338,7 +358,73 @@ document.addEventListener('DOMContentLoaded', () => {
     const textColor = isLight ? '#0f172a' : '#f3f4f6';
     const subColor = isLight ? '#475569' : '#9ca3af';
 
-    if (activeBarMode === 'capex') {
+    if (activeBarMode === 'valuation') {
+      // Entity Market Cap Ranking for Active Period (100% synchronized with network circle sizes)
+      const sortedNodes = [...period.nodes]
+        .filter(n => n.isFormed !== false && n.marketCap > 0)
+        .sort((a, b) => a.marketCap - b.marketCap);
+
+      const maxVal = sortedNodes.length ? Math.max(...sortedNodes.map(n => n.marketCap)) : 100;
+      const xMax = Math.max(500, Math.ceil((maxVal * 1.1) / 500) * 500);
+      const xInterval = xMax <= 1000 ? 200 : (xMax <= 2000 ? 500 : 1000);
+
+      const yData = sortedNodes.map(n => n.name);
+      const xData = sortedNodes.map(n => ({
+        value: n.marketCap,
+        itemStyle: {
+          color: (window.categoryDefinitions[n.category] || {}).color || '#38bdf8',
+          borderRadius: [0, 6, 6, 0]
+        }
+      }));
+
+      return {
+        title: {
+          text: `Enterprise Valuation Ranking (${period.label})`,
+          subtext: 'Matches network circle sizes 1:1',
+          textStyle: { color: textColor, fontSize: 13, fontWeight: 700 },
+          subtextStyle: { color: subColor, fontSize: 10 },
+          top: 0,
+          left: 0
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { type: 'shadow' },
+          formatter: (p) => `${p[0].name}: <strong>$${p[0].value.toLocaleString()} B</strong> (Enterprise Value)`
+        },
+        grid: { top: 40, bottom: 25, left: 125, right: 40 },
+        animation: true,
+        animationDuration: 600,
+        animationDurationUpdate: 600,
+        animationEasingUpdate: 'cubicInOut',
+        xAxis: {
+          type: 'value',
+          min: 0,
+          max: xMax,
+          interval: xInterval,
+          axisLabel: { color: subColor, formatter: '${value}B', fontSize: 10 },
+          splitLine: { lineStyle: { color: isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)' } }
+        },
+        yAxis: {
+          type: 'category',
+          data: yData,
+          axisLabel: { color: textColor, fontSize: 11, fontWeight: 600 }
+        },
+        series: [
+          {
+            type: 'bar',
+            data: xData,
+            label: {
+              show: true,
+              position: 'right',
+              formatter: (params) => `$${params.value >= 1000 ? (params.value / 1000).toFixed(1) + 'T' : params.value + 'B'}`,
+              color: textColor,
+              fontSize: 10,
+              fontWeight: 700
+            }
+          }
+        ]
+      };
+    } else if (activeBarMode === 'capex') {
       // Entity AI Capex Ranking for Active Period
       const sortedNodes = [...period.nodes]
         .filter(n => n.aiCapex > 0)
@@ -548,6 +634,16 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPeriodLabel.textContent = `${period.label} (${period.dateRange})`;
     networkYearDisplay.textContent = period.label;
 
+    if (nodeMetricLabel) {
+      if (activeNodeMetric === 'aiCapex') {
+        nodeMetricLabel.textContent = 'AI Infrastructure Capex ($B/Q)';
+        nodeMetricLabel.style.color = '#10b981';
+      } else {
+        nodeMetricLabel.textContent = 'Enterprise Value (Market Cap)';
+        nodeMetricLabel.style.color = 'var(--accent-primary)';
+      }
+    }
+
     kpiCapexVal.textContent = period.macroMetrics.totalAiCapex.toFixed(1);
     kpiRevenueVal.textContent = period.macroMetrics.realEndUserRevenue.toFixed(1);
     kpiDeficitVal.textContent = period.macroMetrics.capexRevenueDeficit.toFixed(1);
@@ -653,20 +749,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── Bar Mode Toggle ─────────────────────────────────────────
-  toggleBarCapex.addEventListener('click', () => {
-    toggleBarCapex.classList.add('active');
-    toggleBarGap.classList.remove('active');
-    activeBarMode = 'capex';
-    barChart.setOption(getBarChartOptions(timeline[activeIndex]), true);
-  });
+  // ─── Bar Mode & Metric Synchronization Toggle ────────────────
+  function setBarMode(mode) {
+    activeBarMode = mode;
+    [toggleBarVal, toggleBarCapex, toggleBarGap].forEach(btn => {
+      if (btn) btn.classList.remove('active');
+    });
 
-  toggleBarGap.addEventListener('click', () => {
-    toggleBarGap.classList.add('active');
-    toggleBarCapex.classList.remove('active');
-    activeBarMode = 'gap';
+    if (mode === 'valuation') {
+      if (toggleBarVal) toggleBarVal.classList.add('active');
+      activeNodeMetric = 'marketCap';
+    } else if (mode === 'capex') {
+      if (toggleBarCapex) toggleBarCapex.classList.add('active');
+      activeNodeMetric = 'aiCapex';
+    } else if (mode === 'gap') {
+      if (toggleBarGap) toggleBarGap.classList.add('active');
+    }
+
+    // Pass true when swapping axis layout mode so ECharts resets scales properly
     barChart.setOption(getBarChartOptions(timeline[activeIndex]), true);
-  });
+    networkChart.setOption(getNetworkOptions(timeline[activeIndex]));
+    updateUI();
+  }
+
+  if (toggleBarVal) toggleBarVal.addEventListener('click', () => setBarMode('valuation'));
+  if (toggleBarCapex) toggleBarCapex.addEventListener('click', () => setBarMode('capex'));
+  if (toggleBarGap) toggleBarGap.addEventListener('click', () => setBarMode('gap'));
 
   // ─── Node Click Inspection ───────────────────────────────────
   networkChart.on('click', (params) => {

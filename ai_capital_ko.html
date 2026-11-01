@@ -179,7 +179,9 @@
         <div class="graph-top-bar">
           <div>
             <h2 id="graph-title-id" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">인터랙티브 AI 금융 & 반도체 공급망 네트워크</h2>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">노드 크기 = 기업 가치(시가총액) | 링크 굵기 = 분기 거래액(십억 달러/분기)</p>
+            <p id="graph-subtitle-metric" style="font-size: 0.8rem; color: var(--text-secondary);">
+              노드 원 크기 = <strong id="node-metric-label" style="color: var(--accent-primary);">기업 시가총액 (Market Cap)</strong> | 링크 굵기 = 분기 거래액 ($B/분기)
+            </p>
           </div>
           <div class="graph-legend-pills">
             <span class="legend-pill active" data-filter="all"><span class="pill-dot" style="background: #fff;"></span> 전체 기업</span>
@@ -235,8 +237,9 @@
           <div class="bar-card-header">
             <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary);">지표 비교 분석</span>
             <div class="bar-toggle-group">
-              <button id="toggle-bar-capex" class="btn-bar-toggle active">기업별 Capex 랭킹</button>
-              <button id="toggle-bar-gap" class="btn-bar-toggle">세쿼이아 결손 격차</button>
+              <button id="toggle-bar-val" class="btn-bar-toggle active" title="기업 시가총액 순위 (네트워크 원 크기와 1:1 일치)">기업 시총</button>
+              <button id="toggle-bar-capex" class="btn-bar-toggle" title="분기별 AI 설비투자 지출 순위">AI Capex</button>
+              <button id="toggle-bar-gap" class="btn-bar-toggle" title="전체 기간 Capex vs 실제 매출 격차 추이">적자 갭</button>
             </div>
           </div>
           <div class="chart-container-barchart">

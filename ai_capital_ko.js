@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let playInterval = null;
   let playSpeed = 1000;
   let activeCategoryFilter = 'all';
-  let activeBarMode = 'capex'; // 'capex' 또는 'gap'
+  let activeBarMode = 'valuation'; // 'valuation' (네트워크 원 크기와 1:1 일치), 'capex', 또는 'gap'
+  let activeNodeMetric = 'marketCap'; // 'marketCap' 또는 'aiCapex'
   let selectedEntityId = 'nvda'; // 기본 선택 기업
 
   const timeline = window.aiCapitalTimelineDataKo;
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const networkChartDom = document.getElementById('ai-network-chart');
   const barChartDom = document.getElementById('ai-bar-chart');
   const networkYearDisplay = document.getElementById('network-year-display');
+  const nodeMetricLabel = document.getElementById('node-metric-label');
 
   const playBtn = document.getElementById('play-btn');
   const playIcon = document.getElementById('play-icon');
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const kpiDeficitVal = document.getElementById('kpi-deficit-val');
   const kpiCircularVal = document.getElementById('kpi-circular-val');
 
+  const toggleBarVal = document.getElementById('toggle-bar-val');
   const toggleBarCapex = document.getElementById('toggle-bar-capex');
   const toggleBarGap = document.getElementById('toggle-bar-gap');
 
@@ -67,10 +70,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const barChart = echarts.init(barChartDom);
 
   // ─── 노드 크기 및 시각 헬퍼 ────────────────────────────────────
-  function calcNodeSize(marketCap, isFormed = true) {
-    if (!isFormed || !marketCap || marketCap <= 0) return 0;
-    // 동적 서브리니어 스케일: $0.3B 비영리 연구소(18px)부터 $3.8T 거대 기업(114px)까지 6배 직경 스케일
-    return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(marketCap, 0.44) * 2.65)));
+  function calcNodeSize(nodeOrMarketCap, metric = activeNodeMetric) {
+    if (typeof nodeOrMarketCap === 'number') {
+      const mc = nodeOrMarketCap;
+      if (mc <= 0) return 0;
+      return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(mc, 0.44) * 2.65)));
+    }
+    const node = nodeOrMarketCap;
+    if (!node || node.isFormed === false) return 0;
+
+    if (metric === 'aiCapex') {
+      const capex = node.aiCapex || 0;
+      if (capex <= 0) return 14;
+      // Capex 서브리니어 스케일: $0.02B -> 16px, $1B -> 34px, $10B -> 72px, $22B -> 108px
+      return Math.round(Math.max(16, Math.min(115, 14 + Math.pow(capex, 0.52) * 19.5)));
+    } else {
+      // Market Cap 서브리니어 스케일: $0.3B -> 18px, $100B -> 38px, $1T -> 72px, $3.8T -> 114px
+      const mc = node.marketCap || 0;
+      if (mc <= 0) return 0;
+      return Math.round(Math.max(18, Math.min(115, 14 + Math.pow(mc, 0.44) * 2.65)));
+    }
   }
 
   function calcEdgeWidth(amount) {
@@ -158,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isSelected = n.id === selectedEntityId;
       const isFormed = n.isFormed !== false;
       const isHighGrowth = n.isHighGrowth === true;
-      const nodeSize = calcNodeSize(n.marketCap, isFormed);
+      const nodeSize = calcNodeSize(n, activeNodeMetric);
       const pos = coords[n.id] || { x: 400, y: 290 };
 
       return {
@@ -272,11 +291,12 @@ document.addEventListener('DOMContentLoaded', () => {
           if (params.dataType === 'node') {
             const n = params.data.raw;
             if (n.isFormed === false) return '';
+            const isValMetric = activeNodeMetric === 'marketCap';
             return `
               <div style="font-weight: 700; font-size: 1rem; color: var(--accent-primary); margin-bottom: 4px;">${n.name}</div>
               <div style="font-size: 0.8rem; color: ${isLight ? '#475569' : '#9ca3af'}; margin-bottom: 6px;">${params.data.category}</div>
-              <div style="font-size: 0.85rem;"><strong>기업 가치 / 시가총액:</strong> $${n.marketCap.toLocaleString()} B (약 ${(n.marketCap * 1.35).toFixed(0)}조 원)</div>
-              <div style="font-size: 0.85rem;"><strong>분기 AI 설비투자(Capex):</strong> $${n.aiCapex.toLocaleString()} B/분기</div>
+              <div style="font-size: 0.85rem; ${isValMetric ? 'color: var(--accent-primary); font-weight: 700;' : ''}"><strong>기업 가치 / 시가총액:</strong> $${n.marketCap.toLocaleString()} B (약 ${(n.marketCap * 1.35).toFixed(0)}조 원) ${isValMetric ? '👈 (원 크기 기준)' : ''}</div>
+              <div style="font-size: 0.85rem; ${!isValMetric ? 'color: #10b981; font-weight: 700;' : ''}"><strong>분기 AI 설비투자(Capex):</strong> $${n.aiCapex.toLocaleString()} B/분기 ${!isValMetric ? '👈 (원 크기 기준)' : ''}</div>
               <div style="font-size: 0.85rem;"><strong>분기 AI 매출:</strong> $${n.aiRevenue.toLocaleString()} B/분기</div>
               <div style="font-size: 0.75rem; color: #ffb300; margin-top: 6px;">👉 노드를 클릭하면 관련 자금 거래가 집중 표시됩니다</div>
             `;
@@ -338,7 +358,73 @@ document.addEventListener('DOMContentLoaded', () => {
     const textColor = isLight ? '#0f172a' : '#f3f4f6';
     const subColor = isLight ? '#475569' : '#9ca3af';
 
-    if (activeBarMode === 'capex') {
+    if (activeBarMode === 'valuation') {
+      // 해당 시기 기업별 시가총액 순위 (네트워크 원 크기와 100% 일치)
+      const sortedNodes = [...period.nodes]
+        .filter(n => n.isFormed !== false && n.marketCap > 0)
+        .sort((a, b) => a.marketCap - b.marketCap);
+
+      const maxVal = sortedNodes.length ? Math.max(...sortedNodes.map(n => n.marketCap)) : 100;
+      const xMax = Math.max(500, Math.ceil((maxVal * 1.1) / 500) * 500);
+      const xInterval = xMax <= 1000 ? 200 : (xMax <= 2000 ? 500 : 1000);
+
+      const yData = sortedNodes.map(n => n.name);
+      const xData = sortedNodes.map(n => ({
+        value: n.marketCap,
+        itemStyle: {
+          color: (window.categoryDefinitionsKo[n.category] || {}).color || '#38bdf8',
+          borderRadius: [0, 6, 6, 0]
+        }
+      }));
+
+      return {
+        title: {
+          text: `기업별 시가총액 순위 (${period.label})`,
+          subtext: '네트워크 노드 원 크기와 1:1 일치',
+          textStyle: { color: textColor, fontSize: 13, fontWeight: 700 },
+          subtextStyle: { color: subColor, fontSize: 10 },
+          top: 0,
+          left: 0
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { type: 'shadow' },
+          formatter: (p) => `${p[0].name}: <strong>$${p[0].value.toLocaleString()} B</strong> (약 ${(p[0].value * 1.35).toFixed(0)}조 원, 시가총액)`
+        },
+        grid: { top: 40, bottom: 25, left: 135, right: 40 },
+        animation: true,
+        animationDuration: 600,
+        animationDurationUpdate: 600,
+        animationEasingUpdate: 'cubicInOut',
+        xAxis: {
+          type: 'value',
+          min: 0,
+          max: xMax,
+          interval: xInterval,
+          axisLabel: { color: subColor, formatter: '${value}B', fontSize: 10 },
+          splitLine: { lineStyle: { color: isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)' } }
+        },
+        yAxis: {
+          type: 'category',
+          data: yData,
+          axisLabel: { color: textColor, fontSize: 11, fontWeight: 600 }
+        },
+        series: [
+          {
+            type: 'bar',
+            data: xData,
+            label: {
+              show: true,
+              position: 'right',
+              formatter: (params) => `$${params.value >= 1000 ? (params.value / 1000).toFixed(1) + 'T' : params.value + 'B'}`,
+              color: textColor,
+              fontSize: 10,
+              fontWeight: 700
+            }
+          }
+        ]
+      };
+    } else if (activeBarMode === 'capex') {
       // 해당 시기 AI Capex 지출 기업 순위
       const sortedNodes = [...period.nodes]
         .filter(n => n.aiCapex > 0)
@@ -548,6 +634,16 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPeriodLabel.textContent = `${period.label} (${period.dateRange})`;
     networkYearDisplay.textContent = period.label;
 
+    if (nodeMetricLabel) {
+      if (activeNodeMetric === 'aiCapex') {
+        nodeMetricLabel.textContent = '분기 AI 인프라 Capex ($B/분기)';
+        nodeMetricLabel.style.color = '#10b981';
+      } else {
+        nodeMetricLabel.textContent = '기업 시가총액 (Market Cap)';
+        nodeMetricLabel.style.color = 'var(--accent-primary)';
+      }
+    }
+
     kpiCapexVal.textContent = period.macroMetrics.totalAiCapex.toFixed(1);
     kpiRevenueVal.textContent = period.macroMetrics.realEndUserRevenue.toFixed(1);
     kpiDeficitVal.textContent = period.macroMetrics.capexRevenueDeficit.toFixed(1);
@@ -653,20 +749,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ─── 비교 막대 모드 토글 ───────────────────────────────────────
-  toggleBarCapex.addEventListener('click', () => {
-    toggleBarCapex.classList.add('active');
-    toggleBarGap.classList.remove('active');
-    activeBarMode = 'capex';
-    barChart.setOption(getBarChartOptions(timeline[activeIndex]), true);
-  });
+  // ─── 비교 막대 모드 및 지표 동기화 토글 ─────────────────────────────
+  function setBarMode(mode) {
+    activeBarMode = mode;
+    [toggleBarVal, toggleBarCapex, toggleBarGap].forEach(btn => {
+      if (btn) btn.classList.remove('active');
+    });
 
-  toggleBarGap.addEventListener('click', () => {
-    toggleBarGap.classList.add('active');
-    toggleBarCapex.classList.remove('active');
-    activeBarMode = 'gap';
+    if (mode === 'valuation') {
+      if (toggleBarVal) toggleBarVal.classList.add('active');
+      activeNodeMetric = 'marketCap';
+    } else if (mode === 'capex') {
+      if (toggleBarCapex) toggleBarCapex.classList.add('active');
+      activeNodeMetric = 'aiCapex';
+    } else if (mode === 'gap') {
+      if (toggleBarGap) toggleBarGap.classList.add('active');
+    }
+
+    // Pass true when swapping axis layout mode so ECharts resets scales properly
     barChart.setOption(getBarChartOptions(timeline[activeIndex]), true);
-  });
+    networkChart.setOption(getNetworkOptions(timeline[activeIndex]));
+    updateUI();
+  }
+
+  if (toggleBarVal) toggleBarVal.addEventListener('click', () => setBarMode('valuation'));
+  if (toggleBarCapex) toggleBarCapex.addEventListener('click', () => setBarMode('capex'));
+  if (toggleBarGap) toggleBarGap.addEventListener('click', () => setBarMode('gap'));
 
   // ─── 노드 클릭 인터랙션 ───────────────────────────────────────
   networkChart.on('click', (params) => {
