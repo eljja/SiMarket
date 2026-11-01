@@ -78,6 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return Math.max(2.0, Math.min(18, Math.sqrt(amount) * 2.8));
   }
 
+  function calcArrowSize(amount) {
+    if (!amount || amount <= 0) return 0;
+    // 화살표 끝부분(삼각형 헤드)을 기존 9px에서 2배 확대(18px ~ 26px)하여 거래 방향성을 명확히 강조
+    return Math.round(Math.max(18, Math.min(26, 16 + Math.sqrt(amount) * 1.8)));
+  }
+
   function isLightMode() {
     return document.body.classList.contains('theme-light');
   }
@@ -201,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
           target: e.target,
           value: e.amount,
           symbol: isActive ? ['none', 'arrow'] : ['none', 'none'],
-          symbolSize: isActive ? [4, 9] : [0, 0],
+          symbolSize: isActive ? [0, calcArrowSize(e.amount)] : [0, 0],
           lineStyle: {
             width: isActive ? calcEdgeWidth(e.amount) : 0,
             color: flowDef.color,
@@ -249,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
           period: Math.max(2.0, Math.min(5.0, 5.8 - Math.sqrt(e.amount) * 0.75)),
           trailLength: 0.35,
           symbol: 'arrow',
-          symbolSize: Math.max(4.5, Math.min(8.5, 3.6 + Math.sqrt(e.amount) * 0.8)),
+          symbolSize: Math.max(8.0, Math.min(15.0, 7.0 + Math.sqrt(e.amount) * 1.5)),
           color: selectedEntityId ? (isConnected ? '#ffffff' : 'rgba(255,255,255,0.3)') : (flowDef.color || '#ffffff'),
           loop: true
         }
@@ -308,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
           draggable: true,
           scaleLimit: { min: 0.5, max: 2.5 },
           edgeSymbol: ['none', 'arrow'],
-          edgeSymbolSize: [4, 9],
+          edgeSymbolSize: [0, 18],
           emphasis: {
             focus: 'adjacency',
             lineStyle: { width: 6 }
