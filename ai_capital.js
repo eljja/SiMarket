@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
           axisPointer: { type: 'shadow' },
           formatter: (p) => `${p[0].name}: <strong>$${p[0].value.toLocaleString()} B</strong> (Enterprise Value)`
         },
-        grid: { top: 40, bottom: 25, left: 125, right: 40 },
+        grid: { top: 38, bottom: 20, left: 15, right: 35, containLabel: true },
         animation: true,
         animationDuration: 600,
         animationDurationUpdate: 600,
@@ -407,7 +407,13 @@ document.addEventListener('DOMContentLoaded', () => {
         yAxis: {
           type: 'category',
           data: yData,
-          axisLabel: { color: textColor, fontSize: 11, fontWeight: 600 }
+          axisTick: { show: true, alignWithLabel: true, interval: 0 },
+          axisLabel: {
+            interval: 0,
+            color: textColor,
+            fontSize: yData.length > 14 ? 9.5 : 10.5,
+            fontWeight: 600
+          }
         },
         series: [
           {
@@ -456,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
           axisPointer: { type: 'shadow' },
           formatter: (p) => `${p[0].name}: <strong>$${p[0].value} B/Q</strong> (Annualized: ~$${(p[0].value * 4).toFixed(1)}B/yr)`
         },
-        grid: { top: 35, bottom: 25, left: 125, right: 35 },
+        grid: { top: 35, bottom: 20, left: 15, right: 35, containLabel: true },
         animation: true,
         animationDuration: 600,
         animationDurationUpdate: 600,
@@ -472,7 +478,13 @@ document.addEventListener('DOMContentLoaded', () => {
         yAxis: {
           type: 'category',
           data: yData,
-          axisLabel: { color: textColor, fontSize: 11, fontWeight: 600 }
+          axisTick: { show: true, alignWithLabel: true, interval: 0 },
+          axisLabel: {
+            interval: 0,
+            color: textColor,
+            fontSize: yData.length > 14 ? 9.5 : 10.5,
+            fontWeight: 600
+          }
         },
         series: [
           {
@@ -529,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
           top: 0,
           right: 0
         },
-        grid: { top: 40, bottom: 35, left: 45, right: 20 },
+        grid: { top: 40, bottom: 35, left: 15, right: 20, containLabel: true },
         animation: true,
         animationDuration: 600,
         animationDurationUpdate: 600,
@@ -537,6 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
         xAxis: {
           type: 'category',
           data: labels,
+          axisTick: { show: true, alignWithLabel: true },
           axisLabel: {
             color: subColor,
             fontSize: 9,
@@ -546,6 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         yAxis: {
           type: 'value',
+          axisTick: { show: true },
           axisLabel: { color: subColor, formatter: '${value}B' },
           splitLine: { lineStyle: { color: isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)' } }
         },
