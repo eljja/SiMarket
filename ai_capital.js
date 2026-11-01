@@ -115,9 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Memory & Foundry (Top & Bottom Center)
     skhynix: { x: 0.38, y: 0.12 },
     samsung: { x: 0.58, y: 0.12 },
-    tsmc: { x: 0.48, y: 0.80 },
-    asml: { x: 0.62, y: 0.94 },
-    avgo: { x: 0.32, y: 0.82 },
+    tsmc: { x: 0.48, y: 0.84 },
+    asml: { x: 0.64, y: 0.88 },
+    avgo: { x: 0.32, y: 0.86 },
 
     // Hyperscalers (Left Wing)
     meta: { x: 0.10, y: 0.26 },
@@ -141,15 +141,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = networkChartDom.clientWidth || 840;
     const height = networkChartDom.clientHeight || 580;
     const padX = 65;
-    const padY = 55;
+    const padYTop = 35;
+    const padYBottom = 20;
     const usableW = width - padX * 2;
-    const usableH = height - padY * 2;
+    const usableH = height - padYTop - padYBottom;
 
     const pixelCoords = {};
     for (const id in normalizedCoords) {
       pixelCoords[id] = {
         x: Math.round(padX + normalizedCoords[id].x * usableW),
-        y: Math.round(padY + normalizedCoords[id].y * usableH)
+        y: Math.round(padYTop + normalizedCoords[id].y * usableH)
       };
     }
     return pixelCoords;
