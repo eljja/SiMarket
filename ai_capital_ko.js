@@ -339,10 +339,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const subColor = isLight ? '#475569' : '#9ca3af';
 
     if (activeBarMode === 'capex') {
-      // 해당 분기 AI Capex 지출 기업 순위
+      // 해당 시기 AI Capex 지출 기업 순위
       const sortedNodes = [...period.nodes]
         .filter(n => n.aiCapex > 0)
         .sort((a, b) => a.aiCapex - b.aiCapex);
+
+      const maxVal = sortedNodes.length ? Math.max(...sortedNodes.map(n => n.aiCapex)) : 1;
+      // 10개년 대서사 흐름에 따라 자연스럽게 확장되는 X축 스케일 ($5B -> $10B -> $15B -> $20B -> $25B -> $30B)
+      const xMax = Math.max(5, Math.ceil((maxVal * 1.15) / 5) * 5);
+      const xInterval = xMax <= 5 ? 1 : (xMax === 10 ? 2 : (xMax === 15 ? 3 : 5));
 
       const yData = sortedNodes.map(n => n.name);
       const xData = sortedNodes.map(n => ({
@@ -355,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return {
         title: {
-          text: `분기별 기업 AI 설비투자 순위 (${period.label})`,
+          text: `기업별 AI 설비투자(Capex) 순위 (${period.label})`,
           textStyle: { color: textColor, fontSize: 13, fontWeight: 700 },
           top: 0,
           left: 0
@@ -366,9 +371,16 @@ document.addEventListener('DOMContentLoaded', () => {
           formatter: (p) => `${p[0].name}: <strong>$${p[0].value} B/분기</strong> (연간 환산: ~$${(p[0].value * 4).toFixed(1)}B/년)`
         },
         grid: { top: 35, bottom: 25, left: 135, right: 35 },
+        animation: true,
+        animationDuration: 600,
+        animationDurationUpdate: 600,
+        animationEasingUpdate: 'cubicInOut',
         xAxis: {
           type: 'value',
-          axisLabel: { color: subColor, formatter: '${value}B' },
+          min: 0,
+          max: xMax,
+          interval: xInterval,
+          axisLabel: { color: subColor, formatter: '${value}B', fontSize: 10 },
           splitLine: { lineStyle: { color: isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)' } }
         },
         yAxis: {
@@ -397,14 +409,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const capexData = timeline.map((p, idx) => ({
         value: p.macroMetrics.totalAiCapex,
         itemStyle: {
-          color: idx === activeIndex ? '#f43f5e' : 'rgba(244, 63, 94, 0.65)',
+          color: idx === activeIndex ? '#f43f5e' : (idx < activeIndex ? 'rgba(244, 63, 94, 0.7)' : 'rgba(244, 63, 94, 0.2)'),
           borderRadius: [4, 4, 0, 0]
         }
       }));
       const revenueData = timeline.map((p, idx) => ({
         value: p.macroMetrics.realEndUserRevenue,
         itemStyle: {
-          color: idx === activeIndex ? '#00e5ff' : 'rgba(0, 229, 255, 0.65)',
+          color: idx === activeIndex ? '#00e5ff' : (idx < activeIndex ? 'rgba(0, 229, 255, 0.7)' : 'rgba(0, 229, 255, 0.2)'),
           borderRadius: [4, 4, 0, 0]
         }
       }));
@@ -432,6 +444,10 @@ document.addEventListener('DOMContentLoaded', () => {
           right: 0
         },
         grid: { top: 40, bottom: 35, left: 45, right: 20 },
+        animation: true,
+        animationDuration: 600,
+        animationDurationUpdate: 600,
+        animationEasingUpdate: 'cubicInOut',
         xAxis: {
           type: 'category',
           data: labels,
@@ -537,9 +553,9 @@ document.addEventListener('DOMContentLoaded', () => {
     kpiDeficitVal.textContent = period.macroMetrics.capexRevenueDeficit.toFixed(1);
     kpiCircularVal.textContent = period.macroMetrics.circularRatio.toString();
 
-    // 차트 업데이트
+    // 차트 업데이트 (자연스러운 모핑 및 X축 스케일 애니메이션)
     networkChart.setOption(getNetworkOptions(period));
-    barChart.setOption(getBarChartOptions(period), true);
+    barChart.setOption(getBarChartOptions(period), false);
 
     // Dossier 업데이트
     updateEntityDossier();

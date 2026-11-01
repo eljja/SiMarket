@@ -339,10 +339,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const subColor = isLight ? '#475569' : '#9ca3af';
 
     if (activeBarMode === 'capex') {
-      // Entity AI Capex Ranking for Active Quarter
+      // Entity AI Capex Ranking for Active Period
       const sortedNodes = [...period.nodes]
         .filter(n => n.aiCapex > 0)
         .sort((a, b) => a.aiCapex - b.aiCapex);
+
+      const maxVal = sortedNodes.length ? Math.max(...sortedNodes.map(n => n.aiCapex)) : 1;
+      // Natural expanding X-scale ceiling ($5B -> $10B -> $15B -> $20B -> $25B -> $30B)
+      const xMax = Math.max(5, Math.ceil((maxVal * 1.15) / 5) * 5);
+      const xInterval = xMax <= 5 ? 1 : (xMax === 10 ? 2 : (xMax === 15 ? 3 : 5));
 
       const yData = sortedNodes.map(n => n.name);
       const xData = sortedNodes.map(n => ({
@@ -366,9 +371,16 @@ document.addEventListener('DOMContentLoaded', () => {
           formatter: (p) => `${p[0].name}: <strong>$${p[0].value} B/Q</strong> (Annualized: ~$${(p[0].value * 4).toFixed(1)}B/yr)`
         },
         grid: { top: 35, bottom: 25, left: 125, right: 35 },
+        animation: true,
+        animationDuration: 600,
+        animationDurationUpdate: 600,
+        animationEasingUpdate: 'cubicInOut',
         xAxis: {
           type: 'value',
-          axisLabel: { color: subColor, formatter: '${value}B' },
+          min: 0,
+          max: xMax,
+          interval: xInterval,
+          axisLabel: { color: subColor, formatter: '${value}B', fontSize: 10 },
           splitLine: { lineStyle: { color: isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)' } }
         },
         yAxis: {
@@ -392,19 +404,19 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       };
     } else {
-      // Sequoia Deficit Gap View: Capex vs. Real End-User Revenue across all 16 quarters
+      // Sequoia Deficit Gap View: Capex vs. Real End-User Revenue across all 22 periods
       const labels = timeline.map(p => p.label);
       const capexData = timeline.map((p, idx) => ({
         value: p.macroMetrics.totalAiCapex,
         itemStyle: {
-          color: idx === activeIndex ? '#f43f5e' : 'rgba(244, 63, 94, 0.65)',
+          color: idx === activeIndex ? '#f43f5e' : (idx < activeIndex ? 'rgba(244, 63, 94, 0.7)' : 'rgba(244, 63, 94, 0.2)'),
           borderRadius: [4, 4, 0, 0]
         }
       }));
       const revenueData = timeline.map((p, idx) => ({
         value: p.macroMetrics.realEndUserRevenue,
         itemStyle: {
-          color: idx === activeIndex ? '#00e5ff' : 'rgba(0, 229, 255, 0.65)',
+          color: idx === activeIndex ? '#00e5ff' : (idx < activeIndex ? 'rgba(0, 229, 255, 0.7)' : 'rgba(0, 229, 255, 0.2)'),
           borderRadius: [4, 4, 0, 0]
         }
       }));
@@ -432,6 +444,10 @@ document.addEventListener('DOMContentLoaded', () => {
           right: 0
         },
         grid: { top: 40, bottom: 35, left: 45, right: 20 },
+        animation: true,
+        animationDuration: 600,
+        animationDurationUpdate: 600,
+        animationEasingUpdate: 'cubicInOut',
         xAxis: {
           type: 'category',
           data: labels,
@@ -537,9 +553,9 @@ document.addEventListener('DOMContentLoaded', () => {
     kpiDeficitVal.textContent = period.macroMetrics.capexRevenueDeficit.toFixed(1);
     kpiCircularVal.textContent = period.macroMetrics.circularRatio.toString();
 
-    // Update Charts
+    // Update Charts (smooth animation and axis morphing)
     networkChart.setOption(getNetworkOptions(period));
-    barChart.setOption(getBarChartOptions(period), true);
+    barChart.setOption(getBarChartOptions(period), false);
 
     // Update Dossier
     updateEntityDossier();
