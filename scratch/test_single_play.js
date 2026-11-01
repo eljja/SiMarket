@@ -118,9 +118,9 @@ function testPlayLogic(isKO) {
           }
           console.log(`[${jsFile}] [PASS] Replay from start ran to 21 and cleanly halted.`);
           resolve();
-        }, 400);
+        }, 450);
       }, 50);
-    }, 150);
+    }, 450);
   });
 }
 

@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Application State ───────────────────────────────────────
-  let activeIndex = 12; // Default to 2024 Q3 (The $600B Question & Peak Circularity)
+  let activeIndex = 0; // Default to 2017 (Genesis & Transformer Dawn Era)
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000;

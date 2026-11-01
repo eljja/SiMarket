@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── 애플리케이션 상태 ─────────────────────────────────────────
-  let activeIndex = 12; // 기본값: 2024년 3분기 (세쿼이아의 $600B 질문 및 순환 정점기)
+  let activeIndex = 0; // 기본값: 2017년 (AI 태동기 및 트랜스포머/V100 시대)
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000;
