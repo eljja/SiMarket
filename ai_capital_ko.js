@@ -479,16 +479,30 @@ document.addEventListener('DOMContentLoaded', () => {
     btnFitGraph.addEventListener('click', resetGraphView);
   }
 
-  // ─── 타임라인 재생/일시정지 제어 ────────────────────────────────
+  // ─── 타임라인 재생/일시정지 제어 (1회 재생 후 자동 정지) ────────────
   function play() {
     if (isPlaying) return;
+
+    // 타임라인 끝에 도달한 상태에서 재생을 누르면 처음부터 다시 재생
+    if (activeIndex >= timeline.length - 1) {
+      activeIndex = 0;
+      updateUI();
+    }
+
     isPlaying = true;
     playIcon.style.display = 'none';
     pauseIcon.style.display = 'block';
 
     playInterval = setInterval(() => {
-      activeIndex = (activeIndex + 1) % timeline.length;
-      updateUI();
+      if (activeIndex < timeline.length - 1) {
+        activeIndex++;
+        updateUI();
+        if (activeIndex === timeline.length - 1) {
+          pause();
+        }
+      } else {
+        pause();
+      }
     }, playSpeed);
   }
 
@@ -508,13 +522,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   prevBtn.addEventListener('click', () => {
     pause();
-    activeIndex = (activeIndex - 1 + timeline.length) % timeline.length;
+    activeIndex = Math.max(0, activeIndex - 1);
     updateUI();
   });
 
   nextBtn.addEventListener('click', () => {
     pause();
-    activeIndex = (activeIndex + 1) % timeline.length;
+    activeIndex = Math.min(timeline.length - 1, activeIndex + 1);
     updateUI();
   });
 

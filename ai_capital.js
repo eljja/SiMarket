@@ -479,16 +479,30 @@ document.addEventListener('DOMContentLoaded', () => {
     btnFitGraph.addEventListener('click', resetGraphView);
   }
 
-  // ─── Playback Control Logic ──────────────────────────────────
+  // ─── Playback Control Logic (Single Pass Playthrough) ─────────
   function play() {
     if (isPlaying) return;
+
+    // If already at the end of the timeline, restart from the beginning
+    if (activeIndex >= timeline.length - 1) {
+      activeIndex = 0;
+      updateUI();
+    }
+
     isPlaying = true;
     playIcon.style.display = 'none';
     pauseIcon.style.display = 'block';
 
     playInterval = setInterval(() => {
-      activeIndex = (activeIndex + 1) % timeline.length;
-      updateUI();
+      if (activeIndex < timeline.length - 1) {
+        activeIndex++;
+        updateUI();
+        if (activeIndex === timeline.length - 1) {
+          pause();
+        }
+      } else {
+        pause();
+      }
     }, playSpeed);
   }
 
@@ -508,13 +522,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   prevBtn.addEventListener('click', () => {
     pause();
-    activeIndex = (activeIndex - 1 + timeline.length) % timeline.length;
+    activeIndex = Math.max(0, activeIndex - 1);
     updateUI();
   });
 
   nextBtn.addEventListener('click', () => {
     pause();
-    activeIndex = (activeIndex + 1) % timeline.length;
+    activeIndex = Math.min(timeline.length - 1, activeIndex + 1);
     updateUI();
   });
 
