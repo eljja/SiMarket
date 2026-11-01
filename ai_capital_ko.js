@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const height = networkChartDom.clientHeight || 580;
     const padX = 65;
     const padY = 55;
+    const offsetY = -30; // 하단 노드(ASML, TSMC 등) 잘림 방지를 위해 전체 네트워크를 위로 30px 이동
     const usableW = width - padX * 2;
     const usableH = height - padY * 2;
 
@@ -149,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const id in normalizedCoords) {
       pixelCoords[id] = {
         x: Math.round(padX + normalizedCoords[id].x * usableW),
-        y: Math.round(padY + normalizedCoords[id].y * usableH)
+        y: Math.round(padY + normalizedCoords[id].y * usableH + offsetY)
       };
     }
     return pixelCoords;
@@ -198,13 +199,15 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: isFormed ? 1.0 : 0.0
         },
         label: {
-          show: isFormed && nodeSize > 20,
+          show: isFormed,
           position: 'bottom',
           distance: 6,
           formatter: '{b}',
-          fontSize: Math.max(9, Math.min(13, 8 + Math.sqrt(nodeSize) * 0.45)),
+          fontSize: Math.max(9.5, Math.min(13, 8 + Math.sqrt(nodeSize) * 0.45)),
           fontWeight: 700,
-          color: isLight ? '#0f172a' : '#f3f4f6'
+          color: isLight ? '#0f172a' : '#f3f4f6',
+          textBorderColor: isLight ? 'rgba(255, 255, 255, 0.85)' : 'rgba(6, 9, 19, 0.85)',
+          textBorderWidth: 2
         },
         raw: n
       };
