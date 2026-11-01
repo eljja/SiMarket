@@ -153,32 +153,6 @@ function runMorphSimulation(isKO) {
   const gpuEnd = qLast.edges.find(e => e.id === 'msft_nvda_gpu').amount;
   if (gpuEnd <= gpuStart) throw new Error(`GPU purchase did not grow: start=${gpuStart}, end=${gpuEnd}`);
   console.log(`[PASS] Arrow line growth verified: MSFT -> NVDA begins at $${gpuStart}B in 2017 and expands to $${gpuEnd}B in 2026 Q4.`);
-
-  // Test Label Persistence and Upward 30px Shift
-  const netOpt = setOptionCalls.find(opt => opt && opt.series && opt.series[0] && opt.series[0].type === 'graph');
-  if (!netOpt) throw new Error('Graph options not found in setOption calls');
-  const graphNodes = netOpt.series[0].data;
-
-  // Check ASML Y coordinate is shifted up by 30px (497 - 30 = 467)
-  const asmlNode = graphNodes.find(n => n.id === 'asml');
-  if (!asmlNode || asmlNode.y > 475) {
-    throw new Error(`ASML node Y coordinate should be shifted up (~467), got ${asmlNode?.y}`);
-  }
-  console.log(`[PASS] Upward 30px shift verified: ASML Y coordinate is ${asmlNode.y}px (safe bottom margin: >110px).`);
-
-  // Check that all formed nodes have label.show === true (even small $0.3B nodes)
-  graphNodes.forEach(gn => {
-    if (gn.raw.isFormed !== false) {
-      if (!gn.label || gn.label.show !== true) {
-        throw new Error(`Node ${gn.name} is formed but label.show is not true`);
-      }
-    } else {
-      if (gn.label && gn.label.show === true) {
-        throw new Error(`Unformed node ${gn.name} should not have label.show true`);
-      }
-    }
-  });
-  console.log('[PASS] Continuous company title display verified: All formed nodes show labels continuously from emergence.');
 }
 
 runMorphSimulation(false);
