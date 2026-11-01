@@ -95,7 +95,7 @@
   flex-direction: column;
   padding: 1.5rem;
   gap: 1rem;
-  min-height: 640px;
+  min-height: 720px;
   position: relative;
 }
 
@@ -166,7 +166,7 @@
 .chart-container-network {
   flex: 1;
   position: relative;
-  min-height: 480px;
+  min-height: 580px;
   border-radius: 12px;
   overflow: hidden;
   background: radial-gradient(circle at center, rgba(13, 20, 35, 0.4) 0%, rgba(6, 9, 19, 0.9) 100%);

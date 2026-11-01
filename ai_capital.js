@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Node Sizing & Visual Helpers ────────────────────────────
   function calcNodeSize(marketCap) {
-    // Balanced square-root scaling with clamping [24, 76] to ensure clean hierarchy without crowding
-    return Math.round(Math.max(24, Math.min(76, 16 + Math.sqrt(marketCap) * 0.95)));
+    // Bold, prominent node sizes [34, 95] to clearly fill the space and command visual attention
+    return Math.round(Math.max(34, Math.min(95, 22 + Math.sqrt(marketCap) * 1.18)));
   }
 
   function calcEdgeWidth(amount) {
@@ -103,14 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
         category: catDef.name,
         symbolSize: calcNodeSize(n.marketCap),
         value: n.marketCap,
-        // Pre-assigned bounded coordinate anchor (keeps layout securely inside viewport)
-        x: n.initialX,
-        y: n.initialY,
         itemStyle: {
           color: catDef.color,
           borderColor: isSelected ? '#ffffff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)'),
           borderWidth: isSelected ? 4 : 1.5,
-          shadowBlur: isSelected ? 22 : 8,
+          shadowBlur: isSelected ? 24 : 10,
           shadowColor: catDef.color
         },
         label: {
@@ -183,22 +180,22 @@ document.addEventListener('DOMContentLoaded', () => {
           links: edgesData,
           categories: categories,
           center: ['50%', '50%'],
-          zoom: 0.82,
+          zoom: 1.0,
           roam: true,
           draggable: true,
-          scaleLimit: { min: 0.45, max: 2.2 },
+          scaleLimit: { min: 0.5, max: 2.5 },
           edgeSymbol: ['none', 'arrow'],
-          edgeSymbolSize: 7,
-          // Tuned physics to prevent nodes from drifting out of bounds
+          edgeSymbolSize: [4, 9],
           force: {
-            repulsion: 220,
-            edgeLength: [50, 130],
-            gravity: 0.28,
-            friction: 0.75
+            initLayout: 'circular',
+            repulsion: 480,
+            edgeLength: [90, 240],
+            gravity: 0.1,
+            friction: 0.65
           },
           emphasis: {
             focus: 'adjacency',
-            lineStyle: { width: 5 }
+            lineStyle: { width: 6 }
           }
         }
       ]
@@ -405,15 +402,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateEntityDossier();
   }
 
-  // ─── Fit View to Screen (Center & Contain) ────────────────────
+  // ─── Fit View to Screen (Center & Fill Canvas) ────────────────
   function resetGraphView() {
     networkChart.setOption({
       series: [{
-        zoom: 0.82,
+        zoom: 1.0,
         center: ['50%', '50%']
       }]
     });
-    showToast('Graph view centered and fitted within canvas.');
+    showToast('Graph centered and expanded to fill canvas.');
   }
 
   if (btnFitGraph) {

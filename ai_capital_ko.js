@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── 노드 크기 및 시각 헬퍼 ────────────────────────────────────
   function calcNodeSize(marketCap) {
-    // 24px ~ 76px 사이의 부드러운 제곱근 감쇠 스케일링으로 시총 위계 보존 및 화면 밖 이탈 원천 방지
-    return Math.round(Math.max(24, Math.min(76, 16 + Math.sqrt(marketCap) * 0.95)));
+    // 34px ~ 95px 사이의 굵직한 스케일링으로 캔버스 영역을 가득 채우고 시총 위계를 명확히 표현
+    return Math.round(Math.max(34, Math.min(95, 22 + Math.sqrt(marketCap) * 1.18)));
   }
 
   function calcEdgeWidth(amount) {
@@ -103,14 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
         category: catDef.name,
         symbolSize: calcNodeSize(n.marketCap),
         value: n.marketCap,
-        // 사전에 안전하게 바운딩된 좌표 앵커 (초기 팽창으로 인한 화면 이탈 방지)
-        x: n.initialX,
-        y: n.initialY,
         itemStyle: {
           color: catDef.color,
           borderColor: isSelected ? '#ffffff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)'),
           borderWidth: isSelected ? 4 : 1.5,
-          shadowBlur: isSelected ? 22 : 8,
+          shadowBlur: isSelected ? 24 : 10,
           shadowColor: catDef.color
         },
         label: {
@@ -183,22 +180,22 @@ document.addEventListener('DOMContentLoaded', () => {
           links: edgesData,
           categories: categories,
           center: ['50%', '50%'],
-          zoom: 0.82,
+          zoom: 1.0,
           roam: true,
           draggable: true,
-          scaleLimit: { min: 0.45, max: 2.2 },
+          scaleLimit: { min: 0.5, max: 2.5 },
           edgeSymbol: ['none', 'arrow'],
-          edgeSymbolSize: 7,
-          // 노드가 화면 밖으로 이탈하지 않도록 중력과 반발력을 정밀 튜닝
+          edgeSymbolSize: [4, 9],
           force: {
-            repulsion: 220,
-            edgeLength: [50, 130],
-            gravity: 0.28,
-            friction: 0.75
+            initLayout: 'circular',
+            repulsion: 480,
+            edgeLength: [90, 240],
+            gravity: 0.1,
+            friction: 0.65
           },
           emphasis: {
             focus: 'adjacency',
-            lineStyle: { width: 5 }
+            lineStyle: { width: 6 }
           }
         }
       ]
@@ -409,11 +406,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function resetGraphView() {
     networkChart.setOption({
       series: [{
-        zoom: 0.82,
+        zoom: 1.0,
         center: ['50%', '50%']
       }]
     });
-    showToast('그래프 화면을 캔버스 중앙에 최적 비율로 맞췄습니다.');
+    showToast('그래프를 중앙에 맞춰 가득 채웠습니다.');
   }
 
   if (btnFitGraph) {
