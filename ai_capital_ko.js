@@ -73,14 +73,62 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function calcEdgeWidth(amount) {
-    return Math.max(2, Math.min(18, Math.sqrt(amount) * 2.5));
+    return Math.max(2.5, Math.min(18, Math.sqrt(amount) * 2.8));
   }
 
   function isLightMode() {
     return document.body.classList.contains('theme-light');
   }
 
-  // ─── 네트워크 그래프 옵션 ──────────────────────────────────────
+  // ─── 정적 시맨틱 픽셀 좌표 앵커 ────────────────────────────────
+  const normalizedCoords = {
+    // 하드웨어 코어 (중앙)
+    nvda: { x: 0.48, y: 0.48 },
+
+    // 메모리 & 파운드리 (상단 및 하단 중앙)
+    skhynix: { x: 0.38, y: 0.12 },
+    samsung: { x: 0.58, y: 0.12 },
+    tsmc: { x: 0.48, y: 0.80 },
+    asml: { x: 0.62, y: 0.94 },
+    avgo: { x: 0.32, y: 0.82 },
+
+    // 빅테크 하이퍼스케일러 (좌측 날개)
+    meta: { x: 0.10, y: 0.26 },
+    msft: { x: 0.25, y: 0.35 },
+    goog: { x: 0.16, y: 0.54 },
+    amzn: { x: 0.25, y: 0.70 },
+
+    // 프론티어 AI 랩스 & 네오클라우드 (우측 날개)
+    deepseek: { x: 0.74, y: 0.16 },
+    openai: { x: 0.70, y: 0.36 },
+    xai: { x: 0.88, y: 0.30 },
+    anthropic: { x: 0.80, y: 0.54 },
+    coreweave: { x: 0.72, y: 0.72 },
+
+    // 자본 & 실제 시장 (외곽 플랭크)
+    end_market: { x: 0.08, y: 0.74 },
+    vc_sovereign: { x: 0.90, y: 0.72 }
+  };
+
+  function getNodePixelCoordinates() {
+    const width = networkChartDom.clientWidth || 840;
+    const height = networkChartDom.clientHeight || 580;
+    const padX = 65;
+    const padY = 55;
+    const usableW = width - padX * 2;
+    const usableH = height - padY * 2;
+
+    const pixelCoords = {};
+    for (const id in normalizedCoords) {
+      pixelCoords[id] = {
+        x: Math.round(padX + normalizedCoords[id].x * usableW),
+        y: Math.round(padY + normalizedCoords[id].y * usableH)
+      };
+    }
+    return pixelCoords;
+  }
+
+  // ─── 네트워크 그래프 옵션 (자연스러운 모핑 애니메이션) ────────
   function getNetworkOptions(period) {
     const isLight = isLightMode();
     const categories = Object.keys(window.categoryDefinitionsKo).map(k => ({
@@ -93,16 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
       return n.category === activeCategoryFilter;
     });
     const allowedNodeIds = new Set(filteredNodes.map(n => n.id));
+    const coords = getNodePixelCoordinates();
 
     const nodesData = filteredNodes.map(n => {
       const catDef = window.categoryDefinitionsKo[n.category] || { color: '#00e5ff', name: n.category };
       const isSelected = n.id === selectedEntityId;
+      const pos = coords[n.id] || { x: 400, y: 290 };
       return {
         id: n.id,
         name: n.name,
         category: catDef.name,
         symbolSize: calcNodeSize(n.marketCap),
         value: n.marketCap,
+        x: pos.x,
+        y: pos.y,
+        fixed: true,
         itemStyle: {
           color: catDef.color,
           borderColor: isSelected ? '#ffffff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)'),
@@ -113,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         label: {
           show: true,
           position: 'bottom',
+          distance: 6,
           formatter: '{b}',
           fontSize: 11,
           fontWeight: 600,
@@ -128,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const flowDef = window.flowTypeDefinitionsKo[e.flowType] || { color: '#38bdf8', name: e.flowType };
         const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
         return {
+          id: `${e.source}_${e.target}_${e.flowType}`,
           source: e.source,
           target: e.target,
           value: e.amount,
@@ -170,12 +225,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       },
       legend: { show: false },
-      animationDuration: 700,
-      animationEasingUpdate: 'cubicOut',
+      animation: true,
+      animationDuration: 750,
+      animationDurationUpdate: 750,
+      animationEasingUpdate: 'cubicInOut',
       series: [
         {
           type: 'graph',
-          layout: 'force',
+          layout: 'none',
           data: nodesData,
           links: edgesData,
           categories: categories,
@@ -186,13 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
           scaleLimit: { min: 0.5, max: 2.5 },
           edgeSymbol: ['none', 'arrow'],
           edgeSymbolSize: [4, 9],
-          force: {
-            initLayout: 'circular',
-            repulsion: 480,
-            edgeLength: [90, 240],
-            gravity: 0.1,
-            friction: 0.65
-          },
           emphasis: {
             focus: 'adjacency',
             lineStyle: { width: 6 }
@@ -564,6 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     networkChart.resize();
     barChart.resize();
+    updateUI();
   });
 
   // ─── 최초 초기화 실행 ──────────────────────────────────────────
