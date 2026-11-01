@@ -731,8 +731,10 @@ const flowTypeDefinitionsKO = {
   enterprise_revenue: { name: '실제 최종 기업 소프트웨어 및 API 매출', color: '#38bdf8' }
 };
 
+const { masterChannels, quarterAmounts, getEdgeDescription } = require('./build_master_edges.js');
+
 function buildDataset(isKO) {
-  return quartersConfig.map(q => {
+  return quartersConfig.map((q, qIdx) => {
     const nodes = Object.keys(entityBase).map(id => {
       const base = entityBase[id];
       const m = q.nodeMetrics[id] || { capex: 0, rev: 0 };
@@ -750,13 +752,17 @@ function buildDataset(isKO) {
       };
     });
 
-    const edges = q.edges.map(e => ({
-      source: e.s,
-      target: e.t,
-      flowType: e.f,
-      amount: e.a,
-      desc: isKO ? e.dKO : e.dEN
-    }));
+    const edges = masterChannels.map(ch => {
+      const amount = quarterAmounts[ch.id][qIdx];
+      return {
+        id: ch.id,
+        source: ch.s,
+        target: ch.t,
+        flowType: ch.f,
+        amount: amount,
+        desc: getEdgeDescription(ch, qIdx, amount, isKO)
+      };
+    });
 
     const capexDeficit = parseFloat((q.macro.totalAiCapex - q.macro.realEndUserRevenue).toFixed(1));
     const annualizedRunRate = parseFloat((q.macro.totalAiCapex * 4).toFixed(1));

@@ -268,116 +268,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 2.5,
-        "desc": "Initial quarterly compute credits deployed on Azure cluster."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 0.35,
-        "desc": "Consuming Azure data centers for GPT-3.5 and GPT-4 inference."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.8,
-        "desc": "Procuring A100/H100 accelerator servers for Azure OpenAI service."
+        "desc": "2023 Q1: Microsoft allocates $2.8B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.2,
-        "desc": "Purchasing NVIDIA GPUs alongside internal TPU clusters."
+        "desc": "2023 Q1: Google deploys $2.2B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.1,
-        "desc": "AWS EC2 P4d/P5 instance hardware procurement."
+        "desc": "2023 Q1: Amazon AWS purchases $2.1B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2,
-        "desc": "AI Research SuperCluster (RSC) build-out with NVIDIA Hopper."
+        "desc": "2023 Q1: Meta allocates $2B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 2.2,
-        "desc": "Wafer allocation on TSMC 4N process and CoWoS packaging."
+        "desc": "2023 Q1: NVIDIA awards TSMC $2.2B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 0.8,
-        "desc": "Exclusive procurement of HBM3 memory stacks for H100 SXM."
+        "desc": "2023 Q1: NVIDIA procures $0.8B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.3,
-        "desc": "Standard GDDR6 and early HBM2E/HBM3 qualification lots."
+        "desc": "2023 Q1: NVIDIA secures $0.3B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.5,
-        "desc": "Procuring EUV lithography systems for 3nm/5nm lines."
+        "desc": "2023 Q1: TSMC invests $1.5B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
       },
       {
+        "id": "samsung_asml_equip",
         "source": "samsung",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.1,
-        "desc": "EUV tool deliveries for advanced DRAM and foundry."
+        "desc": "2023 Q1: Samsung Electronics commits $1.1B for ASML EUV scanners for DRAM and foundry fabs."
       },
       {
+        "id": "skhynix_asml_equip",
         "source": "skhynix",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 0.6,
-        "desc": "EUV equipment for 1a/1b nm HBM DRAM production."
+        "desc": "2023 Q1: SK Hynix procures $0.6B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
       },
       {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.7,
-        "desc": "Co-developing TPU v4/v5e ASICs and optical interconnects."
+        "desc": "2023 Q1: Google pays Broadcom $0.7B for custom TPU ASIC co-design and optical interconnects."
       },
       {
-        "source": "vc_sovereign",
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.5,
+        "desc": "2023 Q1: Microsoft supplies OpenAI with $2.5B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.35,
+        "desc": "2023 Q1: OpenAI spends $0.35B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
         "target": "anthropic",
         "flowType": "equity_investment",
-        "amount": 0.4,
-        "desc": "Series B safety and alignment venture financing."
+        "amount": 0,
+        "desc": "2023 Q1: Operating under active cloud agreement; no new primary equity capital call."
       },
       {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q1: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q1: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q1: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q1: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.2,
-        "desc": "ChatGPT Plus $20/mo subscriptions and early developer API keys."
+        "desc": "2023 Q1: Global enterprises and subscribers generate $0.2B in verified ChatGPT and API software revenue."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 0.6,
-        "desc": "Enterprise Azure OpenAI Service token consumption."
+        "desc": "2023 Q1: Enterprise clients deliver $0.6B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2023 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.01,
+        "desc": "2023 Q1: DeepSeek generates $0.01B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -587,95 +699,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.6,
-        "desc": "Aggressive procurement of H100 SXM modules."
+        "desc": "2023 Q2: Microsoft allocates $3.6B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.6,
-        "desc": "Expanding A100/H100 GPU clusters in GCP."
+        "desc": "2023 Q2: Google deploys $2.6B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.8,
-        "desc": "AWS UltraClusters rollout with EFA networking."
+        "desc": "2023 Q2: Amazon AWS purchases $2.8B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.5,
-        "desc": "Securing Hopper chips for LLaMA 2 training runs."
+        "desc": "2023 Q2: Meta allocates $2.5B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 2.8,
-        "desc": "Contracting emergency CoWoS expansion with TSMC."
+        "desc": "2023 Q2: NVIDIA awards TSMC $2.8B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 1.2,
-        "desc": "Mass purchasing HBM3 stacks; SK Hynix captures >85% market share."
+        "desc": "2023 Q2: NVIDIA procures $1.2B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.4,
-        "desc": "DRAM and enterprise SSD procurement for DGX systems."
+        "desc": "2023 Q2: NVIDIA secures $0.4B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.6,
-        "desc": "EUV system installments at Fab 18."
+        "desc": "2023 Q2: TSMC invests $1.6B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
       },
       {
-        "source": "skhynix",
-        "target": "asml",
-        "flowType": "equipment_purchase",
-        "amount": 0.7,
-        "desc": "Procuring lithography tools to scale 1b-nm HBM DRAM."
-      },
-      {
+        "id": "samsung_asml_equip",
         "source": "samsung",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.2,
-        "desc": "Pyeongtaek Campus EUV lines expansion."
+        "desc": "2023 Q2: Samsung Electronics commits $1.2B for ASML EUV scanners for DRAM and foundry fabs."
       },
       {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.7,
+        "desc": "2023 Q2: SK Hynix procures $0.7B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2023 Q2: Google pays Broadcom $0.8B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
         "source": "meta",
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.5,
-        "desc": "MTIA v1 accelerator ASIC design collaboration."
+        "desc": "2023 Q2: Meta allocates $0.5B to Broadcom for MTIA proprietary accelerator silicon design."
       },
       {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.2,
+        "desc": "2023 Q2: Microsoft supplies OpenAI with $2.2B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.5,
+        "desc": "2023 Q2: OpenAI spends $0.5B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q2: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2023 Q2: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q2: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q2: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.4,
+        "desc": "2023 Q2: CoreWeave purchases $0.4B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0.1,
+        "desc": "2023 Q2: NVIDIA invests $0.1B strategic equity into Neocloud partner CoreWeave."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q2: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q2: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q2: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q2: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.35,
-        "desc": "ChatGPT Plus run-rate acceleration."
+        "desc": "2023 Q2: Global enterprises and subscribers generate $0.35B in verified ChatGPT and API software revenue."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 0.75,
-        "desc": "Azure AI services deployed in Fortune 500 pilots."
+        "desc": "2023 Q2: Enterprise clients deliver $0.75B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2023 Q2: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.02,
+        "desc": "2023 Q2: DeepSeek generates $0.02B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -885,67 +1130,228 @@
     ],
     "edges": [
       {
-        "source": "vc_sovereign",
-        "target": "coreweave",
-        "flowType": "debt_collateral",
-        "amount": 2.3,
-        "desc": "Blackstone & Magnetar provide $2.3B debt backed by H100 collateral."
-      },
-      {
-        "source": "coreweave",
-        "target": "nvda",
-        "flowType": "gpu_purchase",
-        "amount": 2.1,
-        "desc": "Deploying debt proceeds to purchase tens of thousands of H100s."
-      },
-      {
-        "source": "amzn",
-        "target": "anthropic",
-        "flowType": "equity_investment",
-        "amount": 1.25,
-        "desc": "First tranche of $4B investment; Anthropic chooses AWS Bedrock."
-      },
-      {
-        "source": "anthropic",
-        "target": "amzn",
-        "flowType": "cloud_credit",
-        "amount": 0.4,
-        "desc": "Cloud compute spend on AWS Trainium and GPU clusters."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.8,
-        "desc": "Ongoing mega-orders for Azure OpenAI data centers."
+        "desc": "2023 Q3: Microsoft allocates $3.8B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 1.6,
-        "desc": "SK Hynix operating at 100% HBM3 capacity for NVIDIA."
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.8,
+        "desc": "2023 Q3: Google deploys $2.8B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3,
+        "desc": "2023 Q3: Amazon AWS purchases $3B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.7,
+        "desc": "2023 Q3: Meta allocates $2.7B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 3.2,
-        "desc": "TSMC confirms 2x CoWoS capacity expansion roadmap."
+        "desc": "2023 Q3: NVIDIA awards TSMC $3.2B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 1.6,
+        "desc": "2023 Q3: NVIDIA procures $1.6B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.5,
+        "desc": "2023 Q3: NVIDIA secures $0.5B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.7,
+        "desc": "2023 Q3: TSMC invests $1.7B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.2,
+        "desc": "2023 Q3: Samsung Electronics commits $1.2B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.7,
+        "desc": "2023 Q3: SK Hynix procures $0.7B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.8,
-        "desc": "Scaling TPU v5p supercomputers with Broadcom switches."
+        "desc": "2023 Q3: Google pays Broadcom $0.8B for custom TPU ASIC co-design and optical interconnects."
       },
       {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.6,
+        "desc": "2023 Q3: Meta allocates $0.6B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2,
+        "desc": "2023 Q3: Microsoft supplies OpenAI with $2B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.7,
+        "desc": "2023 Q3: OpenAI spends $0.7B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 1.25,
+        "desc": "2023 Q3: Amazon executes a strategic growth capital tranche of $1.25B into Anthropic."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.4,
+        "desc": "2023 Q3: Anthropic pays $0.4B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q3: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 2.3,
+        "desc": "2023 Q3: Private debt syndicate (Blackstone, Magnetar) provides $2.3B loan collateralized by GPUs."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.1,
+        "desc": "2023 Q3: CoreWeave purchases $2.1B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q3: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q3: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q3: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q3: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q3: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.5,
-        "desc": "Enterprise ChatGPT subscriptions launched for corporate clients."
+        "desc": "2023 Q3: Global enterprises and subscribers generate $0.5B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 1,
+        "desc": "2023 Q3: Enterprise clients deliver $1B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.08,
+        "desc": "2023 Q3: Enterprise software clients generate $0.08B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.03,
+        "desc": "2023 Q3: DeepSeek generates $0.03B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -1155,67 +1561,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 3.5,
-        "desc": "Azure compute infrastructure commitment expanded post-Altman return."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 0.8,
-        "desc": "OpenAI spends heavily on Azure compute for GPT-4 Turbo rollout."
-      },
-      {
-        "source": "goog",
-        "target": "anthropic",
-        "flowType": "equity_investment",
-        "amount": 1,
-        "desc": "Google commits $2B in tranches, starting with $500M initial cash."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 4.2,
-        "desc": "Largest global customer for NVIDIA H100 clusters."
+        "amount": 4.4,
+        "desc": "2023 Q4: Microsoft allocates $4.4B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2023 Q4: Google deploys $3.2B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.6,
+        "desc": "2023 Q4: Amazon AWS purchases $3.6B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 3,
-        "desc": "Preparing fleet for LLaMA 3 multi-modal training."
+        "amount": 3.4,
+        "desc": "2023 Q4: Meta allocates $3.4B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 3.8,
+        "desc": "2023 Q4: NVIDIA awards TSMC $3.8B for leading-edge wafer allocation and CoWoS packaging."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 1.9,
-        "desc": "HBM3 ASP surges as NVIDIA secures full 2024 supply line."
+        "amount": 2,
+        "desc": "2023 Q4: NVIDIA procures $2B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 0.6,
-        "desc": "Sampling early HBM3E 24GB modules."
+        "amount": 0.7,
+        "desc": "2023 Q4: NVIDIA secures $0.7B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.8,
-        "desc": "High-NA EUV trial agreements and N3E tooling."
+        "desc": "2023 Q4: TSMC invests $1.8B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
       },
       {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.3,
+        "desc": "2023 Q4: Samsung Electronics commits $1.3B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.8,
+        "desc": "2023 Q4: SK Hynix procures $0.8B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1,
+        "desc": "2023 Q4: Google pays Broadcom $1B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2023 Q4: Meta allocates $0.8B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.5,
+        "desc": "2023 Q4: Microsoft supplies OpenAI with $2.5B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.95,
+        "desc": "2023 Q4: OpenAI spends $0.95B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q4: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.6,
+        "desc": "2023 Q4: Anthropic pays $0.6B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 2,
+        "desc": "2023 Q4: Google injects $2B strategic growth equity into Anthropic alongside GCP partnership."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q4: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.5,
+        "desc": "2023 Q4: CoreWeave purchases $2.5B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q4: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q4: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q4: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.2,
+        "desc": "2023 Q4: xAI purchases $0.2B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q4: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.7,
+        "desc": "2023 Q4: Global enterprises and subscribers generate $0.7B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 1,
-        "desc": "General availability of Microsoft 365 Copilot ($30/user/mo)."
+        "amount": 1.3,
+        "desc": "2023 Q4: Enterprise clients deliver $1.3B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.15,
+        "desc": "2023 Q4: Enterprise software clients generate $0.15B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.04,
+        "desc": "2023 Q4: DeepSeek generates $0.04B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -1425,60 +1992,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 4.8,
-        "desc": "Pre-ordering GB200 NVL72 liquid-cooled super-pods."
+        "amount": 5.2,
+        "desc": "2024 Q1: Microsoft allocates $5.2B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
-        "source": "meta",
+        "id": "goog_nvda_gpu",
+        "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.8,
-        "desc": "Meta accelerates toward 600k H100 compute equivalents."
+        "desc": "2024 Q1: Google deploys $3.8B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 3.5,
-        "desc": "AWS Ceiba project deployment with NVIDIA Grace Hopper."
+        "amount": 4.4,
+        "desc": "2024 Q1: Amazon AWS purchases $4.4B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 2.5,
-        "desc": "SK Hynix starts world-first volume mass production of HBM3E 8-Hi."
-      },
-      {
-        "source": "samsung",
+        "id": "meta_nvda_gpu",
+        "source": "meta",
         "target": "nvda",
-        "flowType": "hbm_purchase",
-        "amount": 0.8,
-        "desc": "Samsung samples 12-layer HBM3E for qualification testing."
-      },
-      {
-        "source": "goog",
-        "target": "avgo",
         "flowType": "gpu_purchase",
-        "amount": 1.2,
-        "desc": "Google TPU v5e and v5p custom ASIC manufacturing fees."
+        "amount": 4.2,
+        "desc": "2024 Q1: Meta allocates $4.2B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 4.5,
-        "desc": "TSMC CoWoS-S and CoWoS-L packaging lines booked to 100%."
+        "amount": 4.6,
+        "desc": "2024 Q1: NVIDIA awards TSMC $4.6B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 2.6,
+        "desc": "2024 Q1: NVIDIA procures $2.6B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 1,
+        "desc": "2024 Q1: NVIDIA secures $1B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2,
+        "desc": "2024 Q1: TSMC invests $2B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.5,
+        "desc": "2024 Q1: Samsung Electronics commits $1.5B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1,
+        "desc": "2024 Q1: SK Hynix procures $1B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.3,
+        "desc": "2024 Q1: Google pays Broadcom $1.3B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.1,
+        "desc": "2024 Q1: Meta allocates $1.1B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.8,
+        "desc": "2024 Q1: Microsoft supplies OpenAI with $2.8B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 1.2,
+        "desc": "2024 Q1: OpenAI spends $1.2B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 2.75,
+        "desc": "2024 Q1: Amazon executes a strategic growth capital tranche of $2.75B into Anthropic."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.8,
+        "desc": "2024 Q1: Anthropic pays $0.8B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q1: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q1: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2024 Q1: CoreWeave purchases $3.2B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q1: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q1: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.5,
+        "desc": "2024 Q1: xAI purchases $0.5B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2024 Q1: Inactive or concluded channel for this period."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 0.9,
-        "desc": "Enterprise ChatGPT customer base surpasses 600,000."
+        "amount": 1,
+        "desc": "2024 Q1: Global enterprises and subscribers generate $1B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 1.7,
+        "desc": "2024 Q1: Enterprise clients deliver $1.7B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.3,
+        "desc": "2024 Q1: Enterprise software clients generate $0.3B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.05,
+        "desc": "2024 Q1: DeepSeek generates $0.05B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -1688,60 +2423,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.4,
+        "desc": "2024 Q2: Microsoft allocates $6.4B to procure NVIDIA accelerator server clusters for Azure AI."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.6,
+        "desc": "2024 Q2: Google deploys $4.6B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.4,
+        "desc": "2024 Q2: Amazon AWS purchases $5.4B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.2,
+        "desc": "2024 Q2: Meta allocates $5.2B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 5.8,
+        "desc": "2024 Q2: NVIDIA awards TSMC $5.8B for leading-edge wafer allocation and CoWoS packaging."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 3.3,
+        "desc": "2024 Q2: NVIDIA procures $3.3B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 1.5,
+        "desc": "2024 Q2: NVIDIA secures $1.5B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.3,
+        "desc": "2024 Q2: TSMC invests $2.3B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.7,
+        "desc": "2024 Q2: Samsung Electronics commits $1.7B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.2,
+        "desc": "2024 Q2: SK Hynix procures $1.2B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.6,
+        "desc": "2024 Q2: Google pays Broadcom $1.6B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.4,
+        "desc": "2024 Q2: Meta allocates $1.4B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3,
+        "desc": "2024 Q2: Microsoft supplies OpenAI with $3B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 1.5,
+        "desc": "2024 Q2: OpenAI spends $1.5B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q2: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 1.1,
+        "desc": "2024 Q2: Anthropic pays $1.1B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q2: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
         "source": "vc_sovereign",
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 7.5,
-        "desc": "Blackstone, Carlyle & Magnetar lead $7.5B debt facility backed by H100/Blackwell."
+        "desc": "2024 Q2: Private debt syndicate (Blackstone, Magnetar) provides $7.5B loan collateralized by GPUs."
       },
       {
+        "id": "coreweave_nvda_gpu",
         "source": "coreweave",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 5.5,
-        "desc": "Pouring billions into NVIDIA Hopper and Blackwell server allocations."
+        "desc": "2024 Q2: CoreWeave purchases $5.5B of NVIDIA GPUs to expand its AI cloud cluster fleet."
       },
       {
+        "id": "nvda_coreweave_equity",
         "source": "nvda",
         "target": "coreweave",
         "flowType": "equity_investment",
-        "amount": 0.3,
-        "desc": "NVIDIA participates in CoreWeave equity rounds to lock captive demand."
+        "amount": 0.5,
+        "desc": "2024 Q2: NVIDIA invests $0.5B strategic equity into Neocloud partner CoreWeave."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 3.2,
-        "desc": "SK Hynix posts record quarterly operating profit led by HBM pricing."
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q2: Inactive or concluded channel for this period."
       },
       {
-        "source": "nvda",
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q2: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2024 Q2: xAI purchases $1.8B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 5.5,
-        "desc": "TSMC expands CoWoS outlays to meet Blackwell dual-die requirements."
+        "amount": 0.5,
+        "desc": "2024 Q2: SK Hynix contracts TSMC advanced foundry for $0.5B to produce custom HBM4 logic base dies."
       },
       {
-        "source": "amzn",
-        "target": "anthropic",
-        "flowType": "equity_investment",
-        "amount": 2,
-        "desc": "Amazon closes final $2.75B of $4B pledge."
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 1.4,
+        "desc": "2024 Q2: Global enterprises and subscribers generate $1.4B in verified ChatGPT and API software revenue."
       },
       {
-        "source": "anthropic",
-        "target": "amzn",
-        "flowType": "cloud_credit",
-        "amount": 0.7,
-        "desc": "Claude 3.5 Sonnet trained on AWS Bedrock instances."
-      },
-      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 1.5,
-        "desc": "Microsoft Copilot and Azure AI API enterprise billings."
+        "amount": 2.2,
+        "desc": "2024 Q2: Enterprise clients deliver $2.2B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.5,
+        "desc": "2024 Q2: Enterprise software clients generate $0.5B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.08,
+        "desc": "2024 Q2: DeepSeek generates $0.08B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -1951,53 +2854,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.8,
+        "desc": "2024 Q3: Microsoft allocates $7.8B to procure NVIDIA accelerator server clusters for Azure AI."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.5,
+        "desc": "2024 Q3: Google deploys $5.5B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.6,
+        "desc": "2024 Q3: Amazon AWS purchases $6.6B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.4,
+        "desc": "2024 Q3: Meta allocates $6.4B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 7.2,
+        "desc": "2024 Q3: NVIDIA awards TSMC $7.2B for leading-edge wafer allocation and CoWoS packaging."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 4.1,
+        "desc": "2024 Q3: NVIDIA procures $4.1B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 2.2,
+        "desc": "2024 Q3: NVIDIA secures $2.2B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.6,
+        "desc": "2024 Q3: TSMC invests $2.6B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.9,
+        "desc": "2024 Q3: Samsung Electronics commits $1.9B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.4,
+        "desc": "2024 Q3: SK Hynix procures $1.4B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2,
+        "desc": "2024 Q3: Google pays Broadcom $2B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2024 Q3: Meta allocates $1.8B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3.2,
+        "desc": "2024 Q3: Microsoft supplies OpenAI with $3.2B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 1.9,
+        "desc": "2024 Q3: OpenAI spends $1.9B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q3: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 1.4,
+        "desc": "2024 Q3: Anthropic pays $1.4B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q3: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q3: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.2,
+        "desc": "2024 Q3: CoreWeave purchases $4.2B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q3: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0.8,
+        "desc": "2024 Q3: CoreWeave executes $0.8B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
         "source": "vc_sovereign",
         "target": "openai",
         "flowType": "equity_investment",
-        "amount": 6.6,
-        "desc": "Thrive, SoftBank, MGX, and Microsoft lead $6.6B syndicate at $157B valuation."
+        "amount": 0,
+        "desc": "2024 Q3: Operating on existing treasury; no primary mega equity financing tranche active."
       },
       {
+        "id": "xai_nvda_gpu",
         "source": "xai",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.5,
-        "desc": "Purchasing 100,000 H100s for Memphis Colossus data center."
+        "desc": "2024 Q3: xAI purchases $3.5B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 3.6,
-        "desc": "SK Hynix starts volume production of 12-layer HBM3E (36GB)."
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.7,
+        "desc": "2024 Q3: SK Hynix contracts TSMC advanced foundry for $0.7B to produce custom HBM4 logic base dies."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 1.2,
-        "desc": "Samsung passes PRA validation tests for 8-Hi HBM3E."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 1.5,
-        "desc": "Training cluster spend for next-generation Strawberry (o1)."
-      },
-      {
-        "source": "tsmc",
-        "target": "asml",
-        "flowType": "equipment_purchase",
-        "amount": 2.1,
-        "desc": "Procuring additional EUV scanners for 3nm capacity ramp."
-      },
-      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 1.3,
-        "desc": "OpenAI annualized revenue surpasses $4B."
+        "amount": 2,
+        "desc": "2024 Q3: Global enterprises and subscribers generate $2B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 2.8,
+        "desc": "2024 Q3: Enterprise clients deliver $2.8B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.8,
+        "desc": "2024 Q3: Enterprise software clients generate $0.8B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.12,
+        "desc": "2024 Q3: DeepSeek generates $0.12B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -2207,60 +3285,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 5.2,
-        "desc": "Mega procurement of GB200 and H200 accelerators."
+        "amount": 9.2,
+        "desc": "2024 Q4: Microsoft allocates $9.2B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
-        "target": "avgo",
+        "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 1.8,
-        "desc": "Broadcom designs and manufactures Google TPU v5p and TPU v6 nodes."
+        "amount": 6.8,
+        "desc": "2024 Q4: Google deploys $6.8B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.9,
+        "desc": "2024 Q4: Amazon AWS purchases $7.9B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
         "source": "meta",
-        "target": "avgo",
+        "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 1.1,
-        "desc": "Meta MTIA v2 ASIC acceleration and Arista/Broadcom Ethernet."
+        "amount": 7.6,
+        "desc": "2024 Q4: Meta allocates $7.6B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 4,
-        "desc": "Blackwell production consumes massive quantities of 8-Hi & 12-Hi HBM3E."
-      },
-      {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 1.5,
-        "desc": "Samsung qualifies 12-Hi HBM3E with NVIDIA customers."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 6.8,
-        "desc": "TSMC CoWoS capacity surpasses 35k wafers/month."
+        "amount": 8.6,
+        "desc": "2024 Q4: NVIDIA awards TSMC $8.6B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 4.9,
+        "desc": "2024 Q4: NVIDIA procures $4.9B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 3,
+        "desc": "2024 Q4: NVIDIA secures $3B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.9,
+        "desc": "2024 Q4: TSMC invests $2.9B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.1,
+        "desc": "2024 Q4: Samsung Electronics commits $2.1B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.6,
+        "desc": "2024 Q4: SK Hynix procures $1.6B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.5,
+        "desc": "2024 Q4: Google pays Broadcom $2.5B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.2,
+        "desc": "2024 Q4: Meta allocates $2.2B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3.5,
+        "desc": "2024 Q4: Microsoft supplies OpenAI with $3.5B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 2.4,
+        "desc": "2024 Q4: OpenAI spends $2.4B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q4: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 1.8,
+        "desc": "2024 Q4: Anthropic pays $1.8B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q4: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q4: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.8,
+        "desc": "2024 Q4: CoreWeave purchases $4.8B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q4: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 1.1,
+        "desc": "2024 Q4: CoreWeave executes $1.1B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 6.6,
+        "desc": "2024 Q4: Global VC and sovereign syndicates inject $6.6B growth equity into OpenAI."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.2,
+        "desc": "2024 Q4: xAI purchases $2.2B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.9,
+        "desc": "2024 Q4: SK Hynix contracts TSMC advanced foundry for $0.9B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 1.8,
-        "desc": "o1 reasoning API pricing commands premium token margins."
+        "amount": 2.7,
+        "desc": "2024 Q4: Global enterprises and subscribers generate $2.7B in verified ChatGPT and API software revenue."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 2.2,
-        "desc": "Enterprise Copilot seat expansions and Azure AI services."
+        "amount": 3.6,
+        "desc": "2024 Q4: Enterprise clients deliver $3.6B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 1.2,
+        "desc": "2024 Q4: Enterprise software clients generate $1.2B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.2,
+        "desc": "2024 Q4: DeepSeek generates $0.2B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -2470,60 +3716,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 4,
-        "desc": "Stargate site acquisition and preliminary nuclear energy PPAs."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 2.1,
-        "desc": "OpenAI Azure spend scales with daily user traffic and enterprise inference."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.2,
-        "desc": "Blackwell GB200 volume deliveries begin to Azure data centers."
+        "amount": 10.5,
+        "desc": "2025 Q1: Microsoft allocates $10.5B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.8,
+        "desc": "2025 Q1: Google deploys $7.8B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 5.5,
-        "desc": "AWS expands Blackwell UltraClusters."
+        "amount": 9,
+        "desc": "2025 Q1: Amazon AWS purchases $9B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 8.8,
+        "desc": "2025 Q1: Meta allocates $8.8B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 9.8,
+        "desc": "2025 Q1: NVIDIA awards TSMC $9.8B for leading-edge wafer allocation and CoWoS packaging."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 4.5,
-        "desc": "SK Hynix ships majority share of 12-Hi HBM3E for B200."
+        "amount": 5.5,
+        "desc": "2025 Q1: NVIDIA procures $5.5B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 2,
-        "desc": "Samsung expands HBM3E shipments across enterprise tier."
+        "amount": 3.8,
+        "desc": "2025 Q1: NVIDIA secures $3.8B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
-        "amount": 2.4,
-        "desc": "High-NA EUV system integration for 2nm trial production."
+        "amount": 3.2,
+        "desc": "2025 Q1: TSMC invests $3.2B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
       },
       {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.3,
+        "desc": "2025 Q1: Samsung Electronics commits $2.3B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.8,
+        "desc": "2025 Q1: SK Hynix procures $1.8B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3,
+        "desc": "2025 Q1: Google pays Broadcom $3B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.6,
+        "desc": "2025 Q1: Meta allocates $2.6B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3.8,
+        "desc": "2025 Q1: Microsoft supplies OpenAI with $3.8B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 2.9,
+        "desc": "2025 Q1: OpenAI spends $2.9B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 4,
+        "desc": "2025 Q1: Amazon executes a strategic growth capital tranche of $4B into Anthropic."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 2.2,
+        "desc": "2025 Q1: Anthropic pays $2.2B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q1: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2025 Q1: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.2,
+        "desc": "2025 Q1: CoreWeave purchases $5.2B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q1: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 1.5,
+        "desc": "2025 Q1: CoreWeave executes $1.5B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q1: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.8,
+        "desc": "2025 Q1: xAI purchases $2.8B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.2,
+        "desc": "2025 Q1: SK Hynix contracts TSMC advanced foundry for $1.2B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 3.5,
+        "desc": "2025 Q1: Global enterprises and subscribers generate $3.5B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 4.8,
+        "desc": "2025 Q1: Enterprise clients deliver $4.8B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 1.8,
+        "desc": "2025 Q1: Enterprise software clients generate $1.8B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
         "source": "end_market",
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.45,
-        "desc": "Global developers adopt DeepSeek open-weights API for low inference cost."
+        "desc": "2025 Q1: DeepSeek generates $0.45B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -2733,53 +4147,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.8,
-        "desc": "Procuring thousands of liquid-cooled GB200 server racks."
+        "amount": 12,
+        "desc": "2025 Q2: Microsoft allocates $12B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 4.5,
-        "desc": "Deploying Blackwell alongside internal TPU v6 clusters."
+        "amount": 8.9,
+        "desc": "2025 Q2: Google deploys $8.9B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 10.2,
+        "desc": "2025 Q2: Amazon AWS purchases $10.2B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 5.2,
-        "desc": "Meta mega data center campuses across the US."
+        "amount": 9.8,
+        "desc": "2025 Q2: Meta allocates $9.8B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 4.8,
-        "desc": "SK Hynix remains primary 12-layer HBM3E supplier."
-      },
-      {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 2.6,
-        "desc": "Samsung expands volume shipments of HBM3E to tier-1 server makers."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 7.5,
-        "desc": "TSMC CoWoS capacity climbs to 42,000 wafers per month."
+        "amount": 11.2,
+        "desc": "2025 Q2: NVIDIA awards TSMC $11.2B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 6,
+        "desc": "2025 Q2: NVIDIA procures $6B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 4.4,
+        "desc": "2025 Q2: NVIDIA secures $4.4B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.4,
+        "desc": "2025 Q2: TSMC invests $3.4B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.5,
+        "desc": "2025 Q2: Samsung Electronics commits $2.5B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2,
+        "desc": "2025 Q2: SK Hynix procures $2B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.4,
+        "desc": "2025 Q2: Google pays Broadcom $3.4B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.9,
+        "desc": "2025 Q2: Meta allocates $2.9B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4,
+        "desc": "2025 Q2: Microsoft supplies OpenAI with $4B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 3.4,
+        "desc": "2025 Q2: OpenAI spends $3.4B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q2: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 2.6,
+        "desc": "2025 Q2: Anthropic pays $2.6B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 1.5,
+        "desc": "2025 Q2: Google injects $1.5B strategic growth equity into Anthropic alongside GCP partnership."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2025 Q2: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.8,
+        "desc": "2025 Q2: CoreWeave purchases $5.8B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0.8,
+        "desc": "2025 Q2: NVIDIA invests $0.8B strategic equity into Neocloud partner CoreWeave."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 1.8,
+        "desc": "2025 Q2: CoreWeave executes $1.8B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q2: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4,
+        "desc": "2025 Q2: xAI purchases $4B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.5,
+        "desc": "2025 Q2: SK Hynix contracts TSMC advanced foundry for $1.5B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 4.4,
+        "desc": "2025 Q2: Global enterprises and subscribers generate $4.4B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 3,
-        "desc": "Azure Copilot Studio agent workflows adopted across Global 2000."
+        "amount": 6.2,
+        "desc": "2025 Q2: Enterprise clients deliver $6.2B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 2.5,
+        "desc": "2025 Q2: Enterprise software clients generate $2.5B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.7,
+        "desc": "2025 Q2: DeepSeek generates $0.7B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -2989,53 +4578,228 @@
     ],
     "edges": [
       {
-        "source": "coreweave",
-        "target": "vc_sovereign",
-        "flowType": "debt_collateral",
-        "amount": 2.5,
-        "desc": "Refinancing maturing 2023 debt facilities with asset-backed bonds."
-      },
-      {
-        "source": "coreweave",
-        "target": "nvda",
-        "flowType": "gpu_purchase",
-        "amount": 4,
-        "desc": "Transitioning cluster capacity from Hopper to Blackwell."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7,
-        "desc": "Continued Blackwell deployments for enterprise cloud services."
+        "amount": 13.2,
+        "desc": "2025 Q3: Microsoft allocates $13.2B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 9.8,
+        "desc": "2025 Q3: Google deploys $9.8B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11.5,
+        "desc": "2025 Q3: Amazon AWS purchases $11.5B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 10.8,
+        "desc": "2025 Q3: Meta allocates $10.8B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2025 Q3: NVIDIA awards TSMC $12.5B for leading-edge wafer allocation and CoWoS packaging."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 5,
-        "desc": "SK Hynix operating at full capacity for 12-layer HBM3E."
+        "amount": 6.4,
+        "desc": "2025 Q3: NVIDIA procures $6.4B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 3,
-        "desc": "Samsung memory division posts strong HBM revenue contribution."
+        "amount": 4.9,
+        "desc": "2025 Q3: NVIDIA secures $4.9B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.6,
+        "desc": "2025 Q3: TSMC invests $3.6B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.7,
+        "desc": "2025 Q3: Samsung Electronics commits $2.7B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.1,
+        "desc": "2025 Q3: SK Hynix procures $2.1B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
-        "amount": 2.2,
-        "desc": "Google TPU v6 custom silicon ramp across primary data centers."
+        "amount": 3.8,
+        "desc": "2025 Q3: Google pays Broadcom $3.8B for custom TPU ASIC co-design and optical interconnects."
       },
       {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2025 Q3: Meta allocates $3.2B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.2,
+        "desc": "2025 Q3: Microsoft supplies OpenAI with $4.2B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 3.9,
+        "desc": "2025 Q3: OpenAI spends $3.9B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3,
+        "desc": "2025 Q3: Anthropic pays $3B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 6,
+        "desc": "2025 Q3: Private debt syndicate (Blackstone, Magnetar) provides $6B loan collateralized by GPUs."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.5,
+        "desc": "2025 Q3: CoreWeave purchases $6.5B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 2.2,
+        "desc": "2025 Q3: CoreWeave executes $2.2B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2025 Q3: xAI purchases $3.2B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2025 Q3: SK Hynix contracts TSMC advanced foundry for $1.8B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 2.8,
-        "desc": "Agentic coding and deterministic workflows drive corporate ROI."
+        "amount": 5.5,
+        "desc": "2025 Q3: Global enterprises and subscribers generate $5.5B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 7.8,
+        "desc": "2025 Q3: Enterprise clients deliver $7.8B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 3.4,
+        "desc": "2025 Q3: Enterprise software clients generate $3.4B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 1.1,
+        "desc": "2025 Q3: DeepSeek generates $1.1B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -3245,53 +5009,228 @@
     ],
     "edges": [
       {
-        "source": "goog",
-        "target": "avgo",
-        "flowType": "gpu_purchase",
-        "amount": 2.5,
-        "desc": "TPU v6 scaling drives Broadcom custom ASIC networking segment."
-      },
-      {
-        "source": "meta",
-        "target": "avgo",
-        "flowType": "gpu_purchase",
-        "amount": 1.6,
-        "desc": "Meta deploys MTIA v2 across ranking and recommendation nodes."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7.2,
-        "desc": "Hyperscalers maintain high GPU purchases for third-party cloud customers."
+        "amount": 14,
+        "desc": "2025 Q4: Microsoft allocates $14B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 10.5,
+        "desc": "2025 Q4: Google deploys $10.5B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.2,
+        "desc": "2025 Q4: Amazon AWS purchases $12.2B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11.6,
+        "desc": "2025 Q4: Meta allocates $11.6B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 13.2,
+        "desc": "2025 Q4: NVIDIA awards TSMC $13.2B for leading-edge wafer allocation and CoWoS packaging."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 5.2,
-        "desc": "HBM3E sales drive record annual free cash flow for SK Hynix."
+        "amount": 6.8,
+        "desc": "2025 Q4: NVIDIA procures $6.8B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 3.4,
-        "desc": "Samsung ships 12-layer HBM3E at scale for AI servers."
+        "amount": 5.3,
+        "desc": "2025 Q4: NVIDIA secures $5.3B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.8,
+        "desc": "2025 Q4: TSMC invests $3.8B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.8,
+        "desc": "2025 Q4: Samsung Electronics commits $2.8B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.2,
+        "desc": "2025 Q4: SK Hynix procures $2.2B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.1,
+        "desc": "2025 Q4: Google pays Broadcom $4.1B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.5,
+        "desc": "2025 Q4: Meta allocates $3.5B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.4,
+        "desc": "2025 Q4: Microsoft supplies OpenAI with $4.4B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 4.4,
+        "desc": "2025 Q4: OpenAI spends $4.4B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q4: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3.3,
+        "desc": "2025 Q4: Anthropic pays $3.3B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q4: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2025 Q4: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7,
+        "desc": "2025 Q4: CoreWeave purchases $7B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q4: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 2.6,
+        "desc": "2025 Q4: CoreWeave executes $2.6B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 8,
+        "desc": "2025 Q4: Global VC and sovereign syndicates inject $8B growth equity into OpenAI."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.5,
+        "desc": "2025 Q4: xAI purchases $4.5B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 2.1,
+        "desc": "2025 Q4: SK Hynix contracts TSMC advanced foundry for $2.1B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 3.2,
-        "desc": "OpenAI quarterly enterprise run-rate approaches $3.2B."
+        "amount": 6.8,
+        "desc": "2025 Q4: Global enterprises and subscribers generate $6.8B in verified ChatGPT and API software revenue."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 3.6,
-        "desc": "Enterprise software suites embed agentic copilot capabilities."
+        "amount": 9.8,
+        "desc": "2025 Q4: Enterprise clients deliver $9.8B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 4.5,
+        "desc": "2025 Q4: Enterprise software clients generate $4.5B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 1.6,
+        "desc": "2025 Q4: DeepSeek generates $1.6B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -3501,53 +5440,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 3.2,
-        "desc": "Restructuring cloud partnership into commercial fee structure for antitrust compliance."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 2.8,
-        "desc": "Direct commercial payments for dedicated Stargate computing zones."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7.2,
-        "desc": "Procuring Vera Rubin and Blackwell systems."
+        "amount": 14.5,
+        "desc": "2026 Q1: Microsoft allocates $14.5B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 5.4,
-        "desc": "SK Hynix samples 16-layer HBM3E and early HBM4."
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11,
+        "desc": "2026 Q1: Google deploys $11B for NVIDIA GPU clusters alongside custom TPU silicon."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 3.6,
-        "desc": "Samsung develops custom HBM4 base dies on 4nm foundry."
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2026 Q1: Amazon AWS purchases $12.5B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12,
+        "desc": "2026 Q1: Meta allocates $12B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 8,
-        "desc": "TSMC 2nm N2 process reservation agreements."
+        "amount": 13.5,
+        "desc": "2026 Q1: NVIDIA awards TSMC $13.5B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 7,
+        "desc": "2026 Q1: NVIDIA procures $7B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 5.6,
+        "desc": "2026 Q1: NVIDIA secures $5.6B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.9,
+        "desc": "2026 Q1: TSMC invests $3.9B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.9,
+        "desc": "2026 Q1: Samsung Electronics commits $2.9B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.3,
+        "desc": "2026 Q1: SK Hynix procures $2.3B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.3,
+        "desc": "2026 Q1: Google pays Broadcom $4.3B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.7,
+        "desc": "2026 Q1: Meta allocates $3.7B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.5,
+        "desc": "2026 Q1: Microsoft supplies OpenAI with $4.5B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 4.8,
+        "desc": "2026 Q1: OpenAI spends $4.8B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 3,
+        "desc": "2026 Q1: Amazon executes a strategic growth capital tranche of $3B into Anthropic."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3.5,
+        "desc": "2026 Q1: Anthropic pays $3.5B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q1: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q1: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.2,
+        "desc": "2026 Q1: CoreWeave purchases $7.2B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q1: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 2.8,
+        "desc": "2026 Q1: CoreWeave executes $2.8B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q1: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5,
+        "desc": "2026 Q1: xAI purchases $5B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 2.5,
+        "desc": "2026 Q1: SK Hynix contracts TSMC advanced foundry for $2.5B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 3.5,
-        "desc": "Corporate agentic workflow licenses."
+        "amount": 8.2,
+        "desc": "2026 Q1: Global enterprises and subscribers generate $8.2B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 12,
+        "desc": "2026 Q1: Enterprise clients deliver $12B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 5.8,
+        "desc": "2026 Q1: Enterprise software clients generate $5.8B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 2.2,
+        "desc": "2026 Q1: DeepSeek generates $2.2B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -3757,46 +5871,228 @@
     ],
     "edges": [
       {
-        "source": "skhynix",
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 15,
+        "desc": "2026 Q2: Microsoft allocates $15B to procure NVIDIA accelerator server clusters for Azure AI."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11.5,
+        "desc": "2026 Q2: Google deploys $11.5B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 13,
+        "desc": "2026 Q2: Amazon AWS purchases $13B in NVIDIA GPUs for scalable UltraClusters."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2026 Q2: Meta allocates $12.5B to NVIDIA GPUs for next-gen LLaMA model clusters."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 1.5,
-        "desc": "SK Hynix contracts TSMC 4nm/3nm foundries for custom HBM4 base dies."
+        "amount": 14,
+        "desc": "2026 Q2: NVIDIA awards TSMC $14B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
-        "source": "samsung",
-        "target": "nvda",
-        "flowType": "hbm_purchase",
-        "amount": 4,
-        "desc": "Samsung provides one-stop turnkey HBM4 solutions (memory + 4nm foundry)."
-      },
-      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 5.8,
-        "desc": "NVIDIA secures vast majority of next-gen Rubin memory allocations."
+        "amount": 7.2,
+        "desc": "2026 Q2: NVIDIA procures $7.2B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
-        "target": "tsmc",
-        "flowType": "gpu_purchase",
-        "amount": 8.5,
-        "desc": "TSMC volume production of 2nm nanosheet wafer lots."
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 5.9,
+        "desc": "2026 Q2: NVIDIA secures $5.9B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
       },
       {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 4,
+        "desc": "2026 Q2: TSMC invests $4B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3,
+        "desc": "2026 Q2: Samsung Electronics commits $3B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.4,
+        "desc": "2026 Q2: SK Hynix procures $2.4B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
-        "amount": 2.8,
-        "desc": "Google deploys 7th-gen TPU ASIC across global regions."
+        "amount": 4.5,
+        "desc": "2026 Q2: Google pays Broadcom $4.5B for custom TPU ASIC co-design and optical interconnects."
       },
       {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.9,
+        "desc": "2026 Q2: Meta allocates $3.9B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.6,
+        "desc": "2026 Q2: Microsoft supplies OpenAI with $4.6B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 5.2,
+        "desc": "2026 Q2: OpenAI spends $5.2B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q2: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3.8,
+        "desc": "2026 Q2: Anthropic pays $3.8B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 2,
+        "desc": "2026 Q2: Google injects $2B strategic growth equity into Anthropic alongside GCP partnership."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q2: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.4,
+        "desc": "2026 Q2: CoreWeave purchases $7.4B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q2: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 3,
+        "desc": "2026 Q2: CoreWeave executes $3B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q2: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.2,
+        "desc": "2026 Q2: xAI purchases $4.2B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 2.8,
+        "desc": "2026 Q2: SK Hynix contracts TSMC advanced foundry for $2.8B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 9.8,
+        "desc": "2026 Q2: Global enterprises and subscribers generate $9.8B in verified ChatGPT and API software revenue."
+      },
+      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 4.3,
-        "desc": "Copilot agentic features reach high enterprise adoption."
+        "amount": 14.5,
+        "desc": "2026 Q2: Enterprise clients deliver $14.5B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 7.2,
+        "desc": "2026 Q2: Enterprise software clients generate $7.2B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 2.9,
+        "desc": "2026 Q2: DeepSeek generates $2.9B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -4006,53 +6302,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7.5,
-        "desc": "Procuring next-gen AI supercomputers."
+        "amount": 15.5,
+        "desc": "2026 Q3: Microsoft allocates $15.5B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12,
+        "desc": "2026 Q3: Google deploys $12B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.5,
-        "desc": "AWS datacenter infrastructure outlays."
+        "amount": 13.5,
+        "desc": "2026 Q3: Amazon AWS purchases $13.5B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 6,
-        "desc": "SK Hynix remains critical monopoly supplier of premium HBM."
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 13,
+        "desc": "2026 Q3: Meta allocates $13B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 4.2,
-        "desc": "Samsung supplies HBM4 across high-volume AI hardware tiers."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 8.8,
-        "desc": "Wafer and advanced packaging orders at TSMC."
+        "amount": 14.5,
+        "desc": "2026 Q3: NVIDIA awards TSMC $14.5B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 7.5,
+        "desc": "2026 Q3: NVIDIA procures $7.5B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 6.2,
+        "desc": "2026 Q3: NVIDIA secures $6.2B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 4.1,
+        "desc": "2026 Q3: TSMC invests $4.1B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.1,
+        "desc": "2026 Q3: Samsung Electronics commits $3.1B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.4,
+        "desc": "2026 Q3: SK Hynix procures $2.4B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.7,
+        "desc": "2026 Q3: Google pays Broadcom $4.7B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.1,
+        "desc": "2026 Q3: Meta allocates $4.1B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.8,
+        "desc": "2026 Q3: Microsoft supplies OpenAI with $4.8B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 5.5,
+        "desc": "2026 Q3: OpenAI spends $5.5B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q3: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 4,
+        "desc": "2026 Q3: Anthropic pays $4B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q3: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q3: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.6,
+        "desc": "2026 Q3: CoreWeave purchases $7.6B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q3: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 3.2,
+        "desc": "2026 Q3: CoreWeave executes $3.2B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 10,
+        "desc": "2026 Q3: Global VC and sovereign syndicates inject $10B growth equity into OpenAI."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.5,
+        "desc": "2026 Q3: xAI purchases $5.5B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 3,
+        "desc": "2026 Q3: SK Hynix contracts TSMC advanced foundry for $3B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 4.2,
-        "desc": "Enterprise workflows deliver verifiable productivity gains."
+        "amount": 11.5,
+        "desc": "2026 Q3: Global enterprises and subscribers generate $11.5B in verified ChatGPT and API software revenue."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 4.5,
-        "desc": "Commercial cloud AI bookings exceed $18B annualized run-rate."
+        "amount": 17.5,
+        "desc": "2026 Q3: Enterprise clients deliver $17.5B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 8.8,
+        "desc": "2026 Q3: Enterprise software clients generate $8.8B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 3.7,
+        "desc": "2026 Q3: DeepSeek generates $3.7B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   },
@@ -4262,60 +6733,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7,
-        "desc": "Steady-state replacement and next-gen Rubin GPU procurement."
+        "amount": 16,
+        "desc": "2026 Q4: Microsoft allocates $16B to procure NVIDIA accelerator server clusters for Azure AI."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2026 Q4: Google deploys $12.5B for NVIDIA GPU clusters alongside custom TPU silicon."
+      },
+      {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.2,
-        "desc": "AWS fleet maintenance and enterprise AI workload capacity."
+        "amount": 14,
+        "desc": "2026 Q4: Amazon AWS purchases $14B in NVIDIA GPUs for scalable UltraClusters."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 6.2,
-        "desc": "Long-term HBM4 and HBM4E multi-year supply contracts."
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 13.5,
+        "desc": "2026 Q4: Meta allocates $13.5B to NVIDIA GPUs for next-gen LLaMA model clusters."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 4.5,
-        "desc": "Samsung turnkey HBM4 solutions deployed at scale."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 9,
-        "desc": "TSMC advanced packaging and 2nm production run at peak efficiency."
+        "amount": 15,
+        "desc": "2026 Q4: NVIDIA awards TSMC $15B for leading-edge wafer allocation and CoWoS packaging."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 7.8,
+        "desc": "2026 Q4: NVIDIA procures $7.8B of exclusive HBM3/HBM3E/HBM4 stacks from SK Hynix."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 6.5,
+        "desc": "2026 Q4: NVIDIA secures $6.5B in HBM3E/HBM4 and advanced memory supply from Samsung Electronics."
+      },
+      {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
-        "amount": 2.5,
-        "desc": "Commercial High-NA EUV lithography tooling deliveries."
+        "amount": 4.2,
+        "desc": "2026 Q4: TSMC invests $4.2B in ASML EUV and High-NA lithography scanners for 2nm/A16 fab lines."
       },
       {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.2,
+        "desc": "2026 Q4: Samsung Electronics commits $3.2B for ASML EUV scanners for DRAM and foundry fabs."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.5,
+        "desc": "2026 Q4: SK Hynix procures $2.5B of ASML EUV systems for 1b/1c-nm HBM DRAM mass production."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 5,
+        "desc": "2026 Q4: Google pays Broadcom $5B for custom TPU ASIC co-design and optical interconnects."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.3,
+        "desc": "2026 Q4: Meta allocates $4.3B to Broadcom for MTIA proprietary accelerator silicon design."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 5,
+        "desc": "2026 Q4: Microsoft supplies OpenAI with $5B in Azure compute credits and dedicated infrastructure."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 5.8,
+        "desc": "2026 Q4: OpenAI spends $5.8B in hosting fees and compute consumption paid directly to Microsoft Azure."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: Operating under active cloud agreement; no new primary equity capital call."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 4.2,
+        "desc": "2026 Q4: Anthropic pays $4.2B to AWS for Bedrock compute clusters and Trainium workloads."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: Partnership active; no secondary equity injection in this quarter."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q4: Previous GPU debt facility drawn down; no new private debt tranche active."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.8,
+        "desc": "2026 Q4: CoreWeave purchases $7.8B of NVIDIA GPUs to expand its AI cloud cluster fleet."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: Strategic partnership active; no incremental equity transaction this quarter."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 3.4,
+        "desc": "2026 Q4: CoreWeave executes $3.4B in asset-backed securitization (ABS) and debt refinancing."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: Operating on existing treasury; no primary mega equity financing tranche active."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5,
+        "desc": "2026 Q4: xAI purchases $5B of NVIDIA liquid-cooled GPUs for the Memphis Colossus supercluster."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2026 Q4: SK Hynix contracts TSMC advanced foundry for $3.2B to produce custom HBM4 logic base dies."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 4.5,
-        "desc": "Enterprise autonomous multi-agent platform subscriptions."
+        "amount": 13.5,
+        "desc": "2026 Q4: Global enterprises and subscribers generate $13.5B in verified ChatGPT and API software revenue."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 4.7,
-        "desc": "Office 365 Copilot autonomous agents enterprise penetration."
+        "amount": 21,
+        "desc": "2026 Q4: Enterprise clients deliver $21B in Microsoft 365 Copilot and Azure AI commercial revenue."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 10.5,
+        "desc": "2026 Q4: Enterprise software clients generate $10.5B in Claude API token billing revenue."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 4.5,
+        "desc": "2026 Q4: DeepSeek generates $4.5B in low-cost high-efficiency reasoning API token revenue."
       }
     ]
   }

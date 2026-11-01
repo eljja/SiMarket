@@ -125,7 +125,7 @@ enData.forEach((period, idx) => {
     if (!enNodeIds.has(edge.target)) {
       throw new Error(`[${qId}] Edge #${eIdx} invalid target: ${edge.target}`);
     }
-    if (typeof edge.amount !== 'number' || edge.amount <= 0) {
+    if (typeof edge.amount !== 'number' || edge.amount < 0) {
       throw new Error(`[${qId}] Edge #${eIdx} invalid amount: ${edge.amount}`);
     }
     if (!edge.flowType || typeof edge.flowType !== 'string') {

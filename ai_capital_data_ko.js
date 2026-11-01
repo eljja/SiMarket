@@ -268,116 +268,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 2.5,
-        "desc": "Azure 클러스터 기반 초기 분기 컴퓨팅 크레딧 집행."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 0.35,
-        "desc": "GPT-3.5 및 GPT-4 추론을 위한 Azure 데이터센터 사용료 지불."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.8,
-        "desc": "Azure OpenAI 서비스를 위한 A100/H100 가속기 서버 발주."
+        "desc": "2023 Q1: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $2.8B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.2,
-        "desc": "자체 TPU 클러스터와 병행하여 엔비디아 GPU 확보."
+        "desc": "2023 Q1: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $2.2B 발주."
       },
       {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.1,
-        "desc": "AWS EC2 P4d/P5 인스턴스 확충을 위한 하드웨어 조달."
+        "desc": "2023 Q1: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $2.1B 지출."
       },
       {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2,
-        "desc": "엔비디아 호퍼 기반 AI 연구용 슈퍼클러스터(RSC) 구축."
+        "desc": "2023 Q1: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $2B 구매 집행."
       },
       {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 2.2,
-        "desc": "TSMC 4N 공정 웨이퍼 및 CoWoS 어드밴스드 패키징 라인 예약."
+        "desc": "2023 Q1: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $2.2B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 0.8,
-        "desc": "H100 SXM용 HBM3 메모리 독점 공급 조달 계약."
+        "desc": "2023 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $0.8B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.3,
-        "desc": "표준 GDDR6 및 초기 HBM 공급 협상."
+        "desc": "2023 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.3B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.5,
-        "desc": "3nm/5nm 생산 라인을 위한 EUV 노광 장비 조달."
+        "desc": "2023 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.5B 지출."
       },
       {
+        "id": "samsung_asml_equip",
         "source": "samsung",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.1,
-        "desc": "선단 DRAM 및 파운드리용 EUV 노광 장비 도입."
+        "desc": "2023 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.1B 발주."
       },
       {
+        "id": "skhynix_asml_equip",
         "source": "skhynix",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 0.6,
-        "desc": "1a/1b nm HBM 제조용 EUV 노광기 도입."
+        "desc": "2023 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.6B 도입."
       },
       {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.7,
-        "desc": "TPU v4/v5e ASIC 공동 개발 및 광학 상호연결망 구축."
+        "desc": "2023 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.7B 지출."
       },
       {
-        "source": "vc_sovereign",
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.5,
+        "desc": "2023 Q1: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $2.5B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.35,
+        "desc": "2023 Q1: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.35B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
         "target": "anthropic",
         "flowType": "equity_investment",
-        "amount": 0.4,
-        "desc": "AI 정렬 및 안전성 연구를 위한 시리즈 B 벤처 투자."
+        "amount": 0,
+        "desc": "2023 Q1: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
       },
       {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.2,
-        "desc": "ChatGPT Plus 유료 구독 및 개발자 API 사용료 결제."
+        "desc": "2023 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.2B 달성."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 0.6,
-        "desc": "기업용 Azure OpenAI 서비스 토큰 사용료 매출."
+        "desc": "2023 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $0.6B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2023 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.01,
+        "desc": "2023 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.01B 달성."
       }
     ]
   },
@@ -587,95 +699,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.6,
-        "desc": "H100 SXM 모듈 대규모 선제 발주."
+        "desc": "2023 Q2: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $3.6B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.6,
-        "desc": "구글 클라우드 내 엔비디아 가속기 클러스터 증설."
+        "desc": "2023 Q2: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $2.6B 발주."
       },
       {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.8,
-        "desc": "EFA 네트워킹 기반 AWS 울트라클러스터 구축."
+        "desc": "2023 Q2: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $2.8B 지출."
       },
       {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 2.5,
-        "desc": "LLaMA 2 학습을 위한 호퍼 GPU 물량 확보."
+        "desc": "2023 Q2: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $2.5B 구매 집행."
       },
       {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 2.8,
-        "desc": "TSMC에 CoWoS 패키징 긴급 증설 요청 및 웨이퍼 발주."
+        "desc": "2023 Q2: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $2.8B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
         "amount": 1.2,
-        "desc": "HBM3 적층 메모리 대량 구매(SK하이닉스 점유율 85% 이상 장악)."
+        "desc": "2023 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $1.2B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
         "amount": 0.4,
-        "desc": "DGX 서버 시스템용 고성능 DRAM 및 기업용 SSD 공급."
+        "desc": "2023 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.4B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.6,
-        "desc": "Fab 18 선단 3nm 라인 EUV 시스템 반입."
+        "desc": "2023 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.6B 지출."
       },
       {
-        "source": "skhynix",
-        "target": "asml",
-        "flowType": "equipment_purchase",
-        "amount": 0.7,
-        "desc": "1b nm HBM 생산능력 확대를 위한 노광 장비 조달."
-      },
-      {
+        "id": "samsung_asml_equip",
         "source": "samsung",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.2,
-        "desc": "평택 캠퍼스 선단 라인 EUV 장비 지속 도입."
+        "desc": "2023 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.2B 발주."
       },
       {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.7,
+        "desc": "2023 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.7B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2023 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
         "source": "meta",
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.5,
-        "desc": "자체 AI 가속기 MTIA v1 개발 협력."
+        "desc": "2023 Q2: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $0.5B 지출."
       },
       {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.2,
+        "desc": "2023 Q2: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $2.2B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.5,
+        "desc": "2023 Q2: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.5B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0,
+        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q2: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.4,
+        "desc": "2023 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $0.4B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0.1,
+        "desc": "2023 Q2: 엔비디아가 핵심 네오클라우드 고객사인 코어위브에 $0.1B 전략적 지분 투자."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.35,
-        "desc": "유료 개인 및 초기 비즈니스 구독 매출 급증."
+        "desc": "2023 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.35B 달성."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
         "amount": 0.75,
-        "desc": "포춘 500대 기업의 Azure AI 파일럿 도입 매출."
+        "desc": "2023 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $0.75B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0,
+        "desc": "2023 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.02,
+        "desc": "2023 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.02B 달성."
       }
     ]
   },
@@ -885,67 +1130,228 @@
     ],
     "edges": [
       {
-        "source": "vc_sovereign",
-        "target": "coreweave",
-        "flowType": "debt_collateral",
-        "amount": 2.3,
-        "desc": "블랙스톤/마그네타가 H100 GPU를 담보로 23억 달러 사모 대출 제공."
-      },
-      {
-        "source": "coreweave",
-        "target": "nvda",
-        "flowType": "gpu_purchase",
-        "amount": 2.1,
-        "desc": "조달한 부채로 엔비디아에 수만 장의 H100 추가 발주."
-      },
-      {
-        "source": "amzn",
-        "target": "anthropic",
-        "flowType": "equity_investment",
-        "amount": 1.25,
-        "desc": "40억 달러 중 1차 트랜치(12.5억 달러) 집행 및 AWS 우선 계약."
-      },
-      {
-        "source": "anthropic",
-        "target": "amzn",
-        "flowType": "cloud_credit",
-        "amount": 0.4,
-        "desc": "AWS 인프라에서 Claude 학습 및 추론 컴퓨팅 비용 집행."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.8,
-        "desc": "Azure 인프라용 대규모 가속기 지속 구매."
+        "desc": "2023 Q3: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $3.8B 집행."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 1.6,
-        "desc": "SK하이닉스 HBM3 라인 100% 가동 및 전량 엔비디아 납품."
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.8,
+        "desc": "2023 Q3: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $2.8B 발주."
       },
       {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3,
+        "desc": "2023 Q3: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $3B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.7,
+        "desc": "2023 Q3: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $2.7B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
         "amount": 3.2,
-        "desc": "TSMC, 엔비디아 요청에 따라 CoWoS 패키징 생산량 2배 확대 추진."
+        "desc": "2023 Q3: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $3.2B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 1.6,
+        "desc": "2023 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $1.6B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 0.5,
+        "desc": "2023 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.5B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.7,
+        "desc": "2023 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.7B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.2,
+        "desc": "2023 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.2B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.7,
+        "desc": "2023 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.7B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
         "amount": 0.8,
-        "desc": "브로드컴 스위치와 결합된 TPU v5p 슈퍼컴퓨터 증설."
+        "desc": "2023 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
       },
       {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.6,
+        "desc": "2023 Q3: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $0.6B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2,
+        "desc": "2023 Q3: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $2B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.7,
+        "desc": "2023 Q3: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.7B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 1.25,
+        "desc": "2023 Q3: 아마존이 앤트로픽에 전략적 투자 트랜치 $1.25B를 직접 납입."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.4,
+        "desc": "2023 Q3: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $0.4B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 2.3,
+        "desc": "2023 Q3: 블랙스톤/마그네타 등 사모펀드가 GPU를 담보로 코어위브에 $2.3B 사모 대출 공급."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.1,
+        "desc": "2023 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $2.1B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q3: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q3: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q3: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q3: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
         "amount": 0.5,
-        "desc": "기업 전용 ChatGPT Enterprise 요금제 출시로 매출 확대."
+        "desc": "2023 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.5B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 1,
+        "desc": "2023 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $1B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.08,
+        "desc": "2023 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.08B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.03,
+        "desc": "2023 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.03B 달성."
       }
     ]
   },
@@ -1155,67 +1561,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 3.5,
-        "desc": "올트먼 복귀 후 거버넌스 안정화와 함께 Azure 전용 인프라 확충."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 0.8,
-        "desc": "GPT-4 Turbo 출시로 Azure 데이터센터 사용량 급증."
-      },
-      {
-        "source": "goog",
-        "target": "anthropic",
-        "flowType": "equity_investment",
-        "amount": 1,
-        "desc": "구글의 앤트로픽 추가 20억 달러 투자 약정 및 클라우드 연계."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 4.2,
-        "desc": "엔비디아 H100 최대 단일 구매 고객으로 등극."
+        "amount": 4.4,
+        "desc": "2023 Q4: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $4.4B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2023 Q4: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $3.2B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.6,
+        "desc": "2023 Q4: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $3.6B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 3,
-        "desc": "LLaMA 3 대형 모델 훈련을 위한 가속기 대량 확보."
+        "amount": 3.4,
+        "desc": "2023 Q4: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $3.4B 구매 집행."
       },
       {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 3.8,
+        "desc": "2023 Q4: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $3.8B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 1.9,
-        "desc": "2024년 HBM3 물량 완판 및 판가 프리미엄 반영."
+        "amount": 2,
+        "desc": "2023 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $2B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 0.6,
-        "desc": "초기 HBM3E 24GB 샘플 공급 및 퀄 테스트 개시."
+        "amount": 0.7,
+        "desc": "2023 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $0.7B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
         "amount": 1.8,
-        "desc": "N3E 공정 안정화 및 High-NA EUV 시험 장비 도입 계약."
+        "desc": "2023 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $1.8B 지출."
       },
       {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.3,
+        "desc": "2023 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.3B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 0.8,
+        "desc": "2023 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $0.8B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1,
+        "desc": "2023 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $1B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 0.8,
+        "desc": "2023 Q4: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $0.8B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.5,
+        "desc": "2023 Q4: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $2.5B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 0.95,
+        "desc": "2023 Q4: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $0.95B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.6,
+        "desc": "2023 Q4: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $0.6B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 2,
+        "desc": "2023 Q4: 구글이 앤트로픽에 $2B 규모의 전략적 자본 투자를 집행."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.5,
+        "desc": "2023 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $2.5B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2023 Q4: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2023 Q4: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.2,
+        "desc": "2023 Q4: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $0.2B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2023 Q4: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 0.7,
+        "desc": "2023 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $0.7B 달성."
+      },
+      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 1,
-        "desc": "월 30달러 M365 코파일럿 상용 출시로 기업 라이선스 매출 개시."
+        "amount": 1.3,
+        "desc": "2023 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $1.3B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.15,
+        "desc": "2023 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.15B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.04,
+        "desc": "2023 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.04B 달성."
       }
     ]
   },
@@ -1425,60 +1992,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 4.8,
-        "desc": "GB200 NVL72 수랭식 슈퍼팟 시스템 선제 예약 주문."
+        "amount": 5.2,
+        "desc": "2024 Q1: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $5.2B 집행."
       },
       {
-        "source": "meta",
+        "id": "goog_nvda_gpu",
+        "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.8,
-        "desc": "연말까지 60만 개 H100 환산 컴퓨팅 확보를 위한 공격적 매입."
+        "desc": "2024 Q1: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $3.8B 발주."
       },
       {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 3.5,
-        "desc": "엔비디아 그레이스 호퍼 기반 AWS 세이바 프로젝트 진행."
+        "amount": 4.4,
+        "desc": "2024 Q1: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $4.4B 지출."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 2.5,
-        "desc": "SK하이닉스, 세계 최초 8단 HBM3E 대량 양산 및 엔비디아 독점 공급."
-      },
-      {
-        "source": "samsung",
+        "id": "meta_nvda_gpu",
+        "source": "meta",
         "target": "nvda",
-        "flowType": "hbm_purchase",
-        "amount": 0.8,
-        "desc": "삼성전자 12단 HBM3E 퀄 테스트용 샘플 공급."
-      },
-      {
-        "source": "goog",
-        "target": "avgo",
         "flowType": "gpu_purchase",
-        "amount": 1.2,
-        "desc": "구글 TPU v5e/v5p 주문형 반도체 설계 및 제조 지출."
+        "amount": 4.2,
+        "desc": "2024 Q1: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $4.2B 구매 집행."
       },
       {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 4.5,
-        "desc": "블랙웰 양산을 위한 TSMC CoWoS-L 라인 전량 예약."
+        "amount": 4.6,
+        "desc": "2024 Q1: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $4.6B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 2.6,
+        "desc": "2024 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $2.6B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 1,
+        "desc": "2024 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $1B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2,
+        "desc": "2024 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.5,
+        "desc": "2024 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.5B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1,
+        "desc": "2024 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.3,
+        "desc": "2024 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $1.3B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.1,
+        "desc": "2024 Q1: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $1.1B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 2.8,
+        "desc": "2024 Q1: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $2.8B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 1.2,
+        "desc": "2024 Q1: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $1.2B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 2.75,
+        "desc": "2024 Q1: 아마존이 앤트로픽에 전략적 투자 트랜치 $2.75B를 직접 납입."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 0.8,
+        "desc": "2024 Q1: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $0.8B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2024 Q1: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $3.2B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 0.5,
+        "desc": "2024 Q1: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $0.5B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0,
+        "desc": "2024 Q1: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 0.9,
-        "desc": "엔터프라이즈 ChatGPT 유료 고객사 60만 개 돌파."
+        "amount": 1,
+        "desc": "2024 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $1B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 1.7,
+        "desc": "2024 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $1.7B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.3,
+        "desc": "2024 Q1: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.3B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.05,
+        "desc": "2024 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.05B 달성."
       }
     ]
   },
@@ -1688,60 +2423,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.4,
+        "desc": "2024 Q2: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $6.4B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.6,
+        "desc": "2024 Q2: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $4.6B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.4,
+        "desc": "2024 Q2: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $5.4B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.2,
+        "desc": "2024 Q2: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $5.2B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 5.8,
+        "desc": "2024 Q2: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $5.8B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 3.3,
+        "desc": "2024 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $3.3B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 1.5,
+        "desc": "2024 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $1.5B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.3,
+        "desc": "2024 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2.3B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.7,
+        "desc": "2024 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.7B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.2,
+        "desc": "2024 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.2B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.6,
+        "desc": "2024 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $1.6B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.4,
+        "desc": "2024 Q2: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $1.4B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3,
+        "desc": "2024 Q2: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $3B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 1.5,
+        "desc": "2024 Q2: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $1.5B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 1.1,
+        "desc": "2024 Q2: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $1.1B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q2: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
         "source": "vc_sovereign",
         "target": "coreweave",
         "flowType": "debt_collateral",
         "amount": 7.5,
-        "desc": "블랙스톤/칼라일이 주도하는 75억 달러 규모의 GPU 담보 부채 조달."
+        "desc": "2024 Q2: 블랙스톤/마그네타 등 사모펀드가 GPU를 담보로 코어위브에 $7.5B 사모 대출 공급."
       },
       {
+        "id": "coreweave_nvda_gpu",
         "source": "coreweave",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 5.5,
-        "desc": "조달 부채를 엔비디아 서버 클러스터 구매에 직접 투입."
+        "desc": "2024 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $5.5B 대규모 구매 집행."
       },
       {
+        "id": "nvda_coreweave_equity",
         "source": "nvda",
         "target": "coreweave",
         "flowType": "equity_investment",
-        "amount": 0.3,
-        "desc": "수요 보장을 위해 엔비디아가 코어위브 지분에 직접 재투자."
+        "amount": 0.5,
+        "desc": "2024 Q2: 엔비디아가 핵심 네오클라우드 고객사인 코어위브에 $0.5B 전략적 지분 투자."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 3.2,
-        "desc": "HBM 판가 급등으로 SK하이닉스 분기 영업이익 사상 최대치 갱신."
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q2: 해당 분기 활성 거래 없음 (종료 또는 개시 전)."
       },
       {
-        "source": "nvda",
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2024 Q2: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $1.8B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 5.5,
-        "desc": "블랙웰 듀얼 다이 패키징을 위한 TSMC 지출 급증."
+        "amount": 0.5,
+        "desc": "2024 Q2: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $0.5B 발주."
       },
       {
-        "source": "amzn",
-        "target": "anthropic",
-        "flowType": "equity_investment",
-        "amount": 2,
-        "desc": "아마존의 앤트로픽 40억 달러 투자 잔여분 완납."
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 1.4,
+        "desc": "2024 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $1.4B 달성."
       },
       {
-        "source": "anthropic",
-        "target": "amzn",
-        "flowType": "cloud_credit",
-        "amount": 0.7,
-        "desc": "Claude 3.5 Sonnet의 AWS 베드록 인프라 학습 비용 정산."
-      },
-      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 1.5,
-        "desc": "M365 코파일럿 및 Azure AI API 엔터프라이즈 결제."
+        "amount": 2.2,
+        "desc": "2024 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $2.2B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.5,
+        "desc": "2024 Q2: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.5B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.08,
+        "desc": "2024 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.08B 달성."
       }
     ]
   },
@@ -1951,53 +2854,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.8,
+        "desc": "2024 Q3: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $7.8B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.5,
+        "desc": "2024 Q3: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $5.5B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.6,
+        "desc": "2024 Q3: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $6.6B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.4,
+        "desc": "2024 Q3: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $6.4B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 7.2,
+        "desc": "2024 Q3: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $7.2B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 4.1,
+        "desc": "2024 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $4.1B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 2.2,
+        "desc": "2024 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $2.2B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.6,
+        "desc": "2024 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2.6B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.9,
+        "desc": "2024 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $1.9B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.4,
+        "desc": "2024 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.4B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2,
+        "desc": "2024 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $2B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2024 Q3: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $1.8B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3.2,
+        "desc": "2024 Q3: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $3.2B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 1.9,
+        "desc": "2024 Q3: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $1.9B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q3: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 1.4,
+        "desc": "2024 Q3: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $1.4B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q3: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.2,
+        "desc": "2024 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $4.2B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 0.8,
+        "desc": "2024 Q3: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $0.8B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
         "source": "vc_sovereign",
         "target": "openai",
         "flowType": "equity_investment",
-        "amount": 6.6,
-        "desc": "스라이브/소프트뱅크/MS 주도로 1,570억 달러 기업가치에 66억 달러 투자."
+        "amount": 0,
+        "desc": "2024 Q3: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
       },
       {
+        "id": "xai_nvda_gpu",
         "source": "xai",
         "target": "nvda",
         "flowType": "gpu_purchase",
         "amount": 3.5,
-        "desc": "멤피스 콜로서스 데이터센터 구축을 위한 10만 개 H100 직구매."
+        "desc": "2024 Q3: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $3.5B 직접 구매."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 3.6,
-        "desc": "SK하이닉스, 세계 최초 12단 36GB HBM3E 양산 출하."
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.7,
+        "desc": "2024 Q3: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $0.7B 발주."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 1.2,
-        "desc": "삼성전자 8단 HBM3E 양산 승인(PRA) 및 공급 확대."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 1.5,
-        "desc": "추론 모델 Strawberry(o1) 훈련을 위한 Azure 비용 지출."
-      },
-      {
-        "source": "tsmc",
-        "target": "asml",
-        "flowType": "equipment_purchase",
-        "amount": 2.1,
-        "desc": "3nm 공정 확충을 위한 추가 EUV 노광 장비 반입."
-      },
-      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 1.3,
-        "desc": "오픈AI 연간 환산 매출 40억 달러 돌파."
+        "amount": 2,
+        "desc": "2024 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $2B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 2.8,
+        "desc": "2024 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $2.8B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 0.8,
+        "desc": "2024 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $0.8B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.12,
+        "desc": "2024 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.12B 달성."
       }
     ]
   },
@@ -2207,60 +3285,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 5.2,
-        "desc": "GB200 및 H200 가속기 대규모 조달 집행."
+        "amount": 9.2,
+        "desc": "2024 Q4: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $9.2B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
-        "target": "avgo",
+        "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 1.8,
-        "desc": "구글 TPU v5p 및 차세대 TPU v6 맞춤형 칩 생산 비용."
+        "amount": 6.8,
+        "desc": "2024 Q4: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $6.8B 발주."
       },
       {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.9,
+        "desc": "2024 Q4: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $7.9B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
         "source": "meta",
-        "target": "avgo",
+        "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 1.1,
-        "desc": "메타 차세대 MTIA 가속기 및 AI 백본 네트워킹 구축."
+        "amount": 7.6,
+        "desc": "2024 Q4: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $7.6B 구매 집행."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 4,
-        "desc": "블랙웰 가속기 양산에 따른 8단/12단 HBM3E 대량 흡수."
-      },
-      {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 1.5,
-        "desc": "삼성전자 12단 HBM3E 주요 엔비디아 고객사 승인 공급."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 6.8,
-        "desc": "TSMC CoWoS 생산능력 월 3만 5천 장 돌파."
+        "amount": 8.6,
+        "desc": "2024 Q4: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $8.6B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 4.9,
+        "desc": "2024 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $4.9B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 3,
+        "desc": "2024 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $3B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.9,
+        "desc": "2024 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $2.9B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.1,
+        "desc": "2024 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.1B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.6,
+        "desc": "2024 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.6B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.5,
+        "desc": "2024 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $2.5B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.2,
+        "desc": "2024 Q4: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $2.2B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3.5,
+        "desc": "2024 Q4: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $3.5B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 2.4,
+        "desc": "2024 Q4: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $2.4B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 1.8,
+        "desc": "2024 Q4: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $1.8B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q4: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2024 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.8,
+        "desc": "2024 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $4.8B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2024 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 1.1,
+        "desc": "2024 Q4: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $1.1B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 6.6,
+        "desc": "2024 Q4: 글로벌 벤처/국부펀드 신디케이트가 오픈AI에 $6.6B 규모 메가 지분 투자 유치."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.2,
+        "desc": "2024 Q4: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $2.2B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 0.9,
+        "desc": "2024 Q4: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $0.9B 발주."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 1.8,
-        "desc": "o1 추론 모델 API의 고단가 토큰 판매로 매출 신장."
+        "amount": 2.7,
+        "desc": "2024 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $2.7B 달성."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 2.2,
-        "desc": "대기업 엔터프라이즈 코파일럿 좌석 확대 및 매출 가속."
+        "amount": 3.6,
+        "desc": "2024 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $3.6B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 1.2,
+        "desc": "2024 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $1.2B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.2,
+        "desc": "2024 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.2B 달성."
       }
     ]
   },
@@ -2470,60 +3716,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 4,
-        "desc": "스타게이트 부지 매입 및 원자력 PPA 전력 공급 계약 착수."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 2.1,
-        "desc": "일일 활성 사용자 및 기업 추론 트래픽 폭증에 따른 Azure 비용 정산."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.2,
-        "desc": "Azure 데이터센터향 블랙웰 GB200 양산 물량 본격 반입."
+        "amount": 10.5,
+        "desc": "2025 Q1: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $10.5B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.8,
+        "desc": "2025 Q1: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $7.8B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 5.5,
-        "desc": "AWS 차세대 블랙웰 울트라클러스터 증설."
+        "amount": 9,
+        "desc": "2025 Q1: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $9B 지출."
       },
       {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 8.8,
+        "desc": "2025 Q1: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $8.8B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 9.8,
+        "desc": "2025 Q1: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $9.8B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 4.5,
-        "desc": "B200용 12단 HBM3E 메모리 지배적 물량 공급 지속."
+        "amount": 5.5,
+        "desc": "2025 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $5.5B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 2,
-        "desc": "엔터프라이즈 가속기향 삼성전자 HBM3E 공급량 확대."
+        "amount": 3.8,
+        "desc": "2025 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $3.8B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
-        "amount": 2.4,
-        "desc": "2nm 시험 양산을 위한 High-NA EUV 장비 라인 통합."
+        "amount": 3.2,
+        "desc": "2025 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.2B 지출."
       },
       {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.3,
+        "desc": "2025 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.3B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 1.8,
+        "desc": "2025 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $1.8B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3,
+        "desc": "2025 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $3B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.6,
+        "desc": "2025 Q1: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $2.6B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 3.8,
+        "desc": "2025 Q1: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $3.8B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 2.9,
+        "desc": "2025 Q1: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $2.9B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 4,
+        "desc": "2025 Q1: 아마존이 앤트로픽에 전략적 투자 트랜치 $4B를 직접 납입."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 2.2,
+        "desc": "2025 Q1: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $2.2B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2025 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.2,
+        "desc": "2025 Q1: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $5.2B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 1.5,
+        "desc": "2025 Q1: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $1.5B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 2.8,
+        "desc": "2025 Q1: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $2.8B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.2,
+        "desc": "2025 Q1: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $1.2B 발주."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 3.5,
+        "desc": "2025 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $3.5B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 4.8,
+        "desc": "2025 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $4.8B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 1.8,
+        "desc": "2025 Q1: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $1.8B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
         "source": "end_market",
         "target": "deepseek",
         "flowType": "enterprise_revenue",
         "amount": 0.45,
-        "desc": "극도의 저비용 추론 매력으로 글로벌 개발자 DeepSeek API 대거 채택."
+        "desc": "2025 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.45B 달성."
       }
     ]
   },
@@ -2733,53 +4147,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.8,
-        "desc": "수랭식 GB200 서버 랙 수천 대 조달 집행."
+        "amount": 12,
+        "desc": "2025 Q2: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $12B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
         "source": "goog",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 4.5,
-        "desc": "자체 TPU v6 클러스터와 병행하여 블랙웰 대규모 반입."
+        "amount": 8.9,
+        "desc": "2025 Q2: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $8.9B 발주."
       },
       {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 10.2,
+        "desc": "2025 Q2: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $10.2B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
         "source": "meta",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 5.2,
-        "desc": "미국 전역의 메타 초대형 데이터센터 캠퍼스 인프라 확충."
+        "amount": 9.8,
+        "desc": "2025 Q2: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $9.8B 구매 집행."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 4.8,
-        "desc": "SK하이닉스, 12단 HBM3E 최대 공급 지위 지속 수성."
-      },
-      {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 2.6,
-        "desc": "삼성전자 HBM3E 대량 양산 납품 본격 확대."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 7.5,
-        "desc": "TSMC CoWoS 생산능력 월 4만 2천 장으로 확대."
+        "amount": 11.2,
+        "desc": "2025 Q2: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $11.2B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 6,
+        "desc": "2025 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $6B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 4.4,
+        "desc": "2025 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $4.4B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.4,
+        "desc": "2025 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.4B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.5,
+        "desc": "2025 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.5B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2,
+        "desc": "2025 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.4,
+        "desc": "2025 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $3.4B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 2.9,
+        "desc": "2025 Q2: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $2.9B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4,
+        "desc": "2025 Q2: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $4B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 3.4,
+        "desc": "2025 Q2: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $3.4B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 2.6,
+        "desc": "2025 Q2: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $2.6B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 1.5,
+        "desc": "2025 Q2: 구글이 앤트로픽에 $1.5B 규모의 전략적 자본 투자를 집행."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2025 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.8,
+        "desc": "2025 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $5.8B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0.8,
+        "desc": "2025 Q2: 엔비디아가 핵심 네오클라우드 고객사인 코어위브에 $0.8B 전략적 지분 투자."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 1.8,
+        "desc": "2025 Q2: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $1.8B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4,
+        "desc": "2025 Q2: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $4B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.5,
+        "desc": "2025 Q2: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $1.5B 발주."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 4.4,
+        "desc": "2025 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $4.4B 달성."
+      },
+      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 3,
-        "desc": "글로벌 2000대 기업의 Azure 코파일럿 스튜디오 에이전트 도입."
+        "amount": 6.2,
+        "desc": "2025 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $6.2B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 2.5,
+        "desc": "2025 Q2: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $2.5B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 0.7,
+        "desc": "2025 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $0.7B 달성."
       }
     ]
   },
@@ -2989,53 +4578,228 @@
     ],
     "edges": [
       {
-        "source": "coreweave",
-        "target": "vc_sovereign",
-        "flowType": "debt_collateral",
-        "amount": 2.5,
-        "desc": "2023년 만기 도래 부채를 자산유동화 채권으로 차환(리파이낸싱)."
-      },
-      {
-        "source": "coreweave",
-        "target": "nvda",
-        "flowType": "gpu_purchase",
-        "amount": 4,
-        "desc": "호퍼 중심에서 블랙웰 인프라로의 전환을 위한 신규 발주."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7,
-        "desc": "엔터프라이즈 클라우드 지원을 위한 블랙웰 지속 도입."
+        "amount": 13.2,
+        "desc": "2025 Q3: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $13.2B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 9.8,
+        "desc": "2025 Q3: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $9.8B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11.5,
+        "desc": "2025 Q3: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $11.5B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 10.8,
+        "desc": "2025 Q3: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $10.8B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2025 Q3: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $12.5B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 5,
-        "desc": "SK하이닉스 12단 HBM3E 풀가동 및 안정적 공급."
+        "amount": 6.4,
+        "desc": "2025 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $6.4B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 3,
-        "desc": "삼성전자 메모리 사업부 HBM 매출 비중 대폭 확대."
+        "amount": 4.9,
+        "desc": "2025 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $4.9B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.6,
+        "desc": "2025 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.6B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.7,
+        "desc": "2025 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.7B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.1,
+        "desc": "2025 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.1B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
-        "amount": 2.2,
-        "desc": "구글 TPU v6 자체 가속기 대규모 양산 및 데이터센터 배치."
+        "amount": 3.8,
+        "desc": "2025 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $3.8B 지출."
       },
       {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2025 Q3: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $3.2B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.2,
+        "desc": "2025 Q3: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $4.2B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 3.9,
+        "desc": "2025 Q3: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $3.9B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3,
+        "desc": "2025 Q3: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $3B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 6,
+        "desc": "2025 Q3: 블랙스톤/마그네타 등 사모펀드가 GPU를 담보로 코어위브에 $6B 사모 대출 공급."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 6.5,
+        "desc": "2025 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $6.5B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 2.2,
+        "desc": "2025 Q3: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $2.2B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q3: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2025 Q3: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $3.2B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 1.8,
+        "desc": "2025 Q3: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $1.8B 발주."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 2.8,
-        "desc": "코딩 에이전트 및 결정론적 업무 자동화로 기업 결제 급증."
+        "amount": 5.5,
+        "desc": "2025 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $5.5B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 7.8,
+        "desc": "2025 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $7.8B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 3.4,
+        "desc": "2025 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $3.4B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 1.1,
+        "desc": "2025 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $1.1B 달성."
       }
     ]
   },
@@ -3245,53 +5009,228 @@
     ],
     "edges": [
       {
-        "source": "goog",
-        "target": "avgo",
-        "flowType": "gpu_purchase",
-        "amount": 2.5,
-        "desc": "TPU v6 대규모 양산으로 브로드컴 맞춤형 칩 부문 급성장."
-      },
-      {
-        "source": "meta",
-        "target": "avgo",
-        "flowType": "gpu_purchase",
-        "amount": 1.6,
-        "desc": "메타 랭킹 및 추천 시스템에 MTIA v2 자체 칩 전면 배치."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7.2,
-        "desc": "외부 클라우드 고객 유치를 위한 최신 GPU 지속 확보."
+        "amount": 14,
+        "desc": "2025 Q4: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $14B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 10.5,
+        "desc": "2025 Q4: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $10.5B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.2,
+        "desc": "2025 Q4: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $12.2B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11.6,
+        "desc": "2025 Q4: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $11.6B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 13.2,
+        "desc": "2025 Q4: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $13.2B 발주."
+      },
+      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 5.2,
-        "desc": "HBM3E 판매 호조로 SK하이닉스 사상 최대 연간 잉여현금흐름 창출."
+        "amount": 6.8,
+        "desc": "2025 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $6.8B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
         "target": "samsung",
         "flowType": "hbm_purchase",
-        "amount": 3.4,
-        "desc": "삼성전자 12단 HBM3E 대량 양산 및 주요 AI 서버 공급."
+        "amount": 5.3,
+        "desc": "2025 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $5.3B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.8,
+        "desc": "2025 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.8B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.8,
+        "desc": "2025 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.8B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.2,
+        "desc": "2025 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.2B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.1,
+        "desc": "2025 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.1B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.5,
+        "desc": "2025 Q4: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $3.5B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.4,
+        "desc": "2025 Q4: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $4.4B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 4.4,
+        "desc": "2025 Q4: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $4.4B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3.3,
+        "desc": "2025 Q4: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $3.3B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q4: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2025 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7,
+        "desc": "2025 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2025 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 2.6,
+        "desc": "2025 Q4: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $2.6B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 8,
+        "desc": "2025 Q4: 글로벌 벤처/국부펀드 신디케이트가 오픈AI에 $8B 규모 메가 지분 투자 유치."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.5,
+        "desc": "2025 Q4: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $4.5B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 2.1,
+        "desc": "2025 Q4: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $2.1B 발주."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 3.2,
-        "desc": "오픈AI 분기 실매출 32억 달러 육박."
+        "amount": 6.8,
+        "desc": "2025 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $6.8B 달성."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 3.6,
-        "desc": "엔터프라이즈 코파일럿 소프트웨어 수익화 안착."
+        "amount": 9.8,
+        "desc": "2025 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $9.8B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 4.5,
+        "desc": "2025 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $4.5B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 1.6,
+        "desc": "2025 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $1.6B 달성."
       }
     ]
   },
@@ -3501,53 +5440,228 @@
     ],
     "edges": [
       {
-        "source": "msft",
-        "target": "openai",
-        "flowType": "cloud_credit",
-        "amount": 3.2,
-        "desc": "반독점 규제 준수를 위해 순환 크레딧을 상업적 현금 수수료 모델로 전환."
-      },
-      {
-        "source": "openai",
-        "target": "msft",
-        "flowType": "cloud_credit",
-        "amount": 2.8,
-        "desc": "전용 스타게이트 컴퓨팅 존 사용에 따른 직접 현금 결제."
-      },
-      {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7.2,
-        "desc": "베라 루빈 및 차세대 블랙웰 시스템 조달."
+        "amount": 14.5,
+        "desc": "2026 Q1: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $14.5B 집행."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 5.4,
-        "desc": "SK하이닉스, 16단 HBM3E 및 초기 HBM4 샘플 공급."
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11,
+        "desc": "2026 Q1: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $11B 발주."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 3.6,
-        "desc": "삼성전자, 4nm 파운드리 기반 맞춤형 HBM4 베이스 다이 개발 공급."
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2026 Q1: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $12.5B 지출."
       },
       {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12,
+        "desc": "2026 Q1: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $12B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 8,
-        "desc": "TSMC 선단 2nm N2 공정 생산 라인 사전 예약 계약."
+        "amount": 13.5,
+        "desc": "2026 Q1: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $13.5B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 7,
+        "desc": "2026 Q1: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 5.6,
+        "desc": "2026 Q1: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $5.6B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.9,
+        "desc": "2026 Q1: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $3.9B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.9,
+        "desc": "2026 Q1: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $2.9B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.3,
+        "desc": "2026 Q1: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.3B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.3,
+        "desc": "2026 Q1: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.3B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.7,
+        "desc": "2026 Q1: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $3.7B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.5,
+        "desc": "2026 Q1: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $4.5B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 4.8,
+        "desc": "2026 Q1: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $4.8B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 3,
+        "desc": "2026 Q1: 아마존이 앤트로픽에 전략적 투자 트랜치 $3B를 직접 납입."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3.5,
+        "desc": "2026 Q1: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $3.5B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q1: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q1: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.2,
+        "desc": "2026 Q1: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.2B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q1: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 2.8,
+        "desc": "2026 Q1: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $2.8B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q1: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5,
+        "desc": "2026 Q1: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $5B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 2.5,
+        "desc": "2026 Q1: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $2.5B 발주."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 3.5,
-        "desc": "기업용 자율 에이전트 워크플로우 라이선스 매출 성장."
+        "amount": 8.2,
+        "desc": "2026 Q1: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $8.2B 달성."
+      },
+      {
+        "id": "market_msft_rev",
+        "source": "end_market",
+        "target": "msft",
+        "flowType": "enterprise_revenue",
+        "amount": 12,
+        "desc": "2026 Q1: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $12B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 5.8,
+        "desc": "2026 Q1: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $5.8B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 2.2,
+        "desc": "2026 Q1: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $2.2B 달성."
       }
     ]
   },
@@ -3757,46 +5871,228 @@
     ],
     "edges": [
       {
-        "source": "skhynix",
+        "id": "msft_nvda_gpu",
+        "source": "msft",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 15,
+        "desc": "2026 Q2: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $15B 집행."
+      },
+      {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 11.5,
+        "desc": "2026 Q2: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $11.5B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
+        "source": "amzn",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 13,
+        "desc": "2026 Q2: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $13B 지출."
+      },
+      {
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2026 Q2: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $12.5B 구매 집행."
+      },
+      {
+        "id": "nvda_tsmc_gpu",
+        "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 1.5,
-        "desc": "SK하이닉스, HBM4 베이스 다이 생산을 위해 TSMC 파운드리 활용."
+        "amount": 14,
+        "desc": "2026 Q2: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $14B 발주."
       },
       {
-        "source": "samsung",
-        "target": "nvda",
-        "flowType": "hbm_purchase",
-        "amount": 4,
-        "desc": "삼성전자, 메모리+파운드리 턴키 기반 HBM4 솔루션 납품 확대."
-      },
-      {
+        "id": "nvda_skhynix_hbm",
         "source": "nvda",
         "target": "skhynix",
         "flowType": "hbm_purchase",
-        "amount": 5.8,
-        "desc": "루빈 아키텍처용 HBM 공급 물량 완판 확보."
+        "amount": 7.2,
+        "desc": "2026 Q2: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7.2B 지출."
       },
       {
+        "id": "nvda_samsung_hbm",
         "source": "nvda",
-        "target": "tsmc",
-        "flowType": "gpu_purchase",
-        "amount": 8.5,
-        "desc": "TSMC 2nm 나노시트 웨이퍼 양산 라인 가동."
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 5.9,
+        "desc": "2026 Q2: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $5.9B 조달."
       },
       {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 4,
+        "desc": "2026 Q2: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $4B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3,
+        "desc": "2026 Q2: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $3B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.4,
+        "desc": "2026 Q2: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.4B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
         "source": "goog",
         "target": "avgo",
         "flowType": "gpu_purchase",
-        "amount": 2.8,
-        "desc": "구글 7세대 TPU 맞춤형 ASIC 전 세계 리전 배치."
+        "amount": 4.5,
+        "desc": "2026 Q2: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.5B 지출."
       },
       {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 3.9,
+        "desc": "2026 Q2: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $3.9B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.6,
+        "desc": "2026 Q2: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $4.6B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 5.2,
+        "desc": "2026 Q2: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $5.2B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q2: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 3.8,
+        "desc": "2026 Q2: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $3.8B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 2,
+        "desc": "2026 Q2: 구글이 앤트로픽에 $2B 규모의 전략적 자본 투자를 집행."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q2: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.4,
+        "desc": "2026 Q2: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.4B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q2: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 3,
+        "desc": "2026 Q2: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $3B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q2: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 4.2,
+        "desc": "2026 Q2: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $4.2B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 2.8,
+        "desc": "2026 Q2: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $2.8B 발주."
+      },
+      {
+        "id": "market_openai_rev",
+        "source": "end_market",
+        "target": "openai",
+        "flowType": "enterprise_revenue",
+        "amount": 9.8,
+        "desc": "2026 Q2: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $9.8B 달성."
+      },
+      {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 4.3,
-        "desc": "기업 내 M365 코파일럿 에이전트 기능 도입 가속."
+        "amount": 14.5,
+        "desc": "2026 Q2: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $14.5B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 7.2,
+        "desc": "2026 Q2: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $7.2B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 2.9,
+        "desc": "2026 Q2: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $2.9B 달성."
       }
     ]
   },
@@ -4006,53 +6302,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7.5,
-        "desc": "차세대 슈퍼컴퓨터 인프라 조달 지속."
+        "amount": 15.5,
+        "desc": "2026 Q3: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $15.5B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12,
+        "desc": "2026 Q3: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $12B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.5,
-        "desc": "AWS 대형 데이터센터 인프라 확장 지속."
+        "amount": 13.5,
+        "desc": "2026 Q3: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $13.5B 지출."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 6,
-        "desc": "SK하이닉스 고대역폭 메모리 독점적 공급 수혜 지속."
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 13,
+        "desc": "2026 Q3: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $13B 구매 집행."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 4.2,
-        "desc": "삼성전자 HBM4 양산 출하로 강력한 실적 기여."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 8.8,
-        "desc": "TSMC 선단 패키징 및 웨이퍼 최대 주문."
+        "amount": 14.5,
+        "desc": "2026 Q3: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $14.5B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 7.5,
+        "desc": "2026 Q3: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7.5B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 6.2,
+        "desc": "2026 Q3: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $6.2B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
+        "source": "tsmc",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 4.1,
+        "desc": "2026 Q3: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $4.1B 지출."
+      },
+      {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.1,
+        "desc": "2026 Q3: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $3.1B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.4,
+        "desc": "2026 Q3: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.4B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.7,
+        "desc": "2026 Q3: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $4.7B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.1,
+        "desc": "2026 Q3: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $4.1B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 4.8,
+        "desc": "2026 Q3: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $4.8B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 5.5,
+        "desc": "2026 Q3: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $5.5B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q3: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 4,
+        "desc": "2026 Q3: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $4B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q3: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q3: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.6,
+        "desc": "2026 Q3: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.6B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q3: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 3.2,
+        "desc": "2026 Q3: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $3.2B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 10,
+        "desc": "2026 Q3: 글로벌 벤처/국부펀드 신디케이트가 오픈AI에 $10B 규모 메가 지분 투자 유치."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5.5,
+        "desc": "2026 Q3: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $5.5B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 3,
+        "desc": "2026 Q3: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $3B 발주."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 4.2,
-        "desc": "검증된 업무 생산성을 입증한 기업용 에이전트 결제 확대."
+        "amount": 11.5,
+        "desc": "2026 Q3: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $11.5B 달성."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 4.5,
-        "desc": "상업용 클라우드 AI 매출 연간 환산 180억 달러 돌파."
+        "amount": 17.5,
+        "desc": "2026 Q3: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $17.5B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 8.8,
+        "desc": "2026 Q3: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $8.8B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 3.7,
+        "desc": "2026 Q3: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $3.7B 달성."
       }
     ]
   },
@@ -4262,60 +6733,228 @@
     ],
     "edges": [
       {
+        "id": "msft_nvda_gpu",
         "source": "msft",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 7,
-        "desc": "차세대 루빈 GPU 및 주기적 교체 수요에 따른 안정적 발주."
+        "amount": 16,
+        "desc": "2026 Q4: Azure AI 인프라 확충을 위해 엔비디아 가속기 서버에 $16B 집행."
       },
       {
+        "id": "goog_nvda_gpu",
+        "source": "goog",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 12.5,
+        "desc": "2026 Q4: 구글 클라우드(GCP) AI 하이퍼컴퓨터 확장을 위해 엔비디아 가속기에 $12.5B 발주."
+      },
+      {
+        "id": "amzn_nvda_gpu",
         "source": "amzn",
         "target": "nvda",
         "flowType": "gpu_purchase",
-        "amount": 6.2,
-        "desc": "AWS 가속기 클라우드 유지보수 및 용량 확충."
+        "amount": 14,
+        "desc": "2026 Q4: AWS UltraCluster 확장 및 EC2 인스턴스를 위해 엔비디아에 $14B 지출."
       },
       {
-        "source": "nvda",
-        "target": "skhynix",
-        "flowType": "hbm_purchase",
-        "amount": 6.2,
-        "desc": "차세대 HBM4 및 HBM4E 다년 장기 공급 계약 체결."
+        "id": "meta_nvda_gpu",
+        "source": "meta",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 13.5,
+        "desc": "2026 Q4: LLaMA 모델 학습 및 메타 AI 데이터센터를 위해 엔비디아 GPU에 $13.5B 구매 집행."
       },
       {
-        "source": "nvda",
-        "target": "samsung",
-        "flowType": "hbm_purchase",
-        "amount": 4.5,
-        "desc": "삼성전자 HBM4 턴키 솔루션 대량 출하 및 공급 다변화."
-      },
-      {
+        "id": "nvda_tsmc_gpu",
         "source": "nvda",
         "target": "tsmc",
         "flowType": "gpu_purchase",
-        "amount": 9,
-        "desc": "TSMC 2nm 및 첨단 패키징 라인의 고효율 대량 양산."
+        "amount": 15,
+        "desc": "2026 Q4: 엔비디아가 TSMC의 선단 노드 웨이퍼 및 CoWoS 어드밴스드 패키징에 $15B 발주."
       },
       {
+        "id": "nvda_skhynix_hbm",
+        "source": "nvda",
+        "target": "skhynix",
+        "flowType": "hbm_purchase",
+        "amount": 7.8,
+        "desc": "2026 Q4: 엔비디아가 SK하이닉스의 고대역폭메모리(HBM3/HBM3E/HBM4) 공급에 $7.8B 지출."
+      },
+      {
+        "id": "nvda_samsung_hbm",
+        "source": "nvda",
+        "target": "samsung",
+        "flowType": "hbm_purchase",
+        "amount": 6.5,
+        "desc": "2026 Q4: 엔비디아가 삼성전자로부터 HBM3E/HBM4 및 초고속 DRAM/SSD에 $6.5B 조달."
+      },
+      {
+        "id": "tsmc_asml_equip",
         "source": "tsmc",
         "target": "asml",
         "flowType": "equipment_purchase",
-        "amount": 2.5,
-        "desc": "High-NA EUV 상용 양산 장비 지속 반입."
+        "amount": 4.2,
+        "desc": "2026 Q4: TSMC가 3nm/2nm/A16 라인 증설을 위해 ASML 선단 EUV/High-NA 장비에 $4.2B 지출."
       },
       {
+        "id": "samsung_asml_equip",
+        "source": "samsung",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 3.2,
+        "desc": "2026 Q4: 삼성전자가 평택 캠퍼스 및 선단 DRAM 라인 확충을 위해 ASML 장비에 $3.2B 발주."
+      },
+      {
+        "id": "skhynix_asml_equip",
+        "source": "skhynix",
+        "target": "asml",
+        "flowType": "equipment_purchase",
+        "amount": 2.5,
+        "desc": "2026 Q4: SK하이닉스가 1b/1c nm HBM DRAM 양산 강화를 위해 ASML EUV 장비에 $2.5B 도입."
+      },
+      {
+        "id": "goog_avgo_gpu",
+        "source": "goog",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 5,
+        "desc": "2026 Q4: 구글이 맞춤형 TPU(v4/v5/v6) ASIC 설계 및 네트워킹을 위해 브로드컴에 $5B 지출."
+      },
+      {
+        "id": "meta_avgo_gpu",
+        "source": "meta",
+        "target": "avgo",
+        "flowType": "gpu_purchase",
+        "amount": 4.3,
+        "desc": "2026 Q4: 메타가 자체 추론/학습 가속기 MTIA 설계 및 네트워킹을 위해 브로드컴에 $4.3B 지출."
+      },
+      {
+        "id": "msft_openai_credit",
+        "source": "msft",
+        "target": "openai",
+        "flowType": "cloud_credit",
+        "amount": 5,
+        "desc": "2026 Q4: MS가 오픈AI에 클라우드 컴퓨팅 크레딧 및 전략적 인프라 비용으로 $5B 공급."
+      },
+      {
+        "id": "openai_msft_spend",
+        "source": "openai",
+        "target": "msft",
+        "flowType": "cloud_credit",
+        "amount": 5.8,
+        "desc": "2026 Q4: 오픈AI가 ChatGPT 및 API 호스팅을 위한 Azure 데이터센터 사용료로 MS에 $5.8B 지불."
+      },
+      {
+        "id": "amzn_anthropic_equity",
+        "source": "amzn",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: 기존 체결 투자 트랜치 이행 중; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "anthropic_amzn_spend",
+        "source": "anthropic",
+        "target": "amzn",
+        "flowType": "cloud_credit",
+        "amount": 4.2,
+        "desc": "2026 Q4: 앤트로픽이 Claude 모델 학습 및 Bedrock 서비스를 위해 AWS 인프라 비용 $4.2B 지출."
+      },
+      {
+        "id": "goog_anthropic_equity",
+        "source": "goog",
+        "target": "anthropic",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: 파트너십 약정 유지; 해당 분기 신규 지분 납입 없음."
+      },
+      {
+        "id": "vc_coreweave_debt",
+        "source": "vc_sovereign",
+        "target": "coreweave",
+        "flowType": "debt_collateral",
+        "amount": 0,
+        "desc": "2026 Q4: 기존 GPU 담보 부채 차입 집행 완료; 해당 분기 신규 부채 조달 없음."
+      },
+      {
+        "id": "coreweave_nvda_gpu",
+        "source": "coreweave",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 7.8,
+        "desc": "2026 Q4: 코어위브가 조달한 자본/부채로 엔비디아 최신 GPU에 $7.8B 대규모 구매 집행."
+      },
+      {
+        "id": "nvda_coreweave_equity",
+        "source": "nvda",
+        "target": "coreweave",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: 지분 관계 유지; 해당 분기 신규 지분 취득 없음."
+      },
+      {
+        "id": "coreweave_vc_refinance",
+        "source": "coreweave",
+        "target": "vc_sovereign",
+        "flowType": "debt_collateral",
+        "amount": 3.4,
+        "desc": "2026 Q4: 코어위브가 GPU 자산유동화(ABS) 및 부채 차환을 통해 사모대출 시장에 $3.4B 상환/차환."
+      },
+      {
+        "id": "vc_openai_equity",
+        "source": "vc_sovereign",
+        "target": "openai",
+        "flowType": "equity_investment",
+        "amount": 0,
+        "desc": "2026 Q4: 기존 지분 조달 자금 집행 중; 해당 분기 대규모 신규 벤처 지분 유치 없음."
+      },
+      {
+        "id": "xai_nvda_gpu",
+        "source": "xai",
+        "target": "nvda",
+        "flowType": "gpu_purchase",
+        "amount": 5,
+        "desc": "2026 Q4: xAI가 멤피스 '콜로서스' 등 초대형 슈퍼클러스터용 엔비디아 GPU에 $5B 직접 구매."
+      },
+      {
+        "id": "skhynix_tsmc_foundry",
+        "source": "skhynix",
+        "target": "tsmc",
+        "flowType": "gpu_purchase",
+        "amount": 3.2,
+        "desc": "2026 Q4: SK하이닉스가 HBM4 맞춤형 베이스 다이 생산을 위해 TSMC 선단 파운드리에 $3.2B 발주."
+      },
+      {
+        "id": "market_openai_rev",
         "source": "end_market",
         "target": "openai",
         "flowType": "enterprise_revenue",
-        "amount": 4.5,
-        "desc": "자율 멀티 에이전트 플랫폼 엔터프라이즈 구독 매출."
+        "amount": 13.5,
+        "desc": "2026 Q4: 전 세계 기업 및 유료 사용자의 ChatGPT Plus 및 API 실매출 $13.5B 달성."
       },
       {
+        "id": "market_msft_rev",
         "source": "end_market",
         "target": "msft",
         "flowType": "enterprise_revenue",
-        "amount": 4.7,
-        "desc": "M365 코파일럿 자율 에이전트의 광범위한 기업 침투율 달성."
+        "amount": 21,
+        "desc": "2026 Q4: 포춘 500대 기업의 M365 Copilot 및 Azure AI 기업 실매출 $21B 기록."
+      },
+      {
+        "id": "market_anthropic_rev",
+        "source": "end_market",
+        "target": "anthropic",
+        "flowType": "enterprise_revenue",
+        "amount": 10.5,
+        "desc": "2026 Q4: Claude 3.5 Sonnet 엔터프라이즈 API 토큰 소비 실매출 $10.5B 달성."
+      },
+      {
+        "id": "market_deepseek_rev",
+        "source": "end_market",
+        "target": "deepseek",
+        "flowType": "enterprise_revenue",
+        "amount": 4.5,
+        "desc": "2026 Q4: 저비용 고효율 오픈 추론 모델 DeepSeek-R1 API 토큰 실매출 $4.5B 달성."
       }
     ]
   }

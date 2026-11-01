@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function calcEdgeWidth(amount) {
-    return Math.max(2.5, Math.min(18, Math.sqrt(amount) * 2.8));
+    if (!amount || amount <= 0) return 0;
+    return Math.max(2.0, Math.min(18, Math.sqrt(amount) * 2.8));
   }
 
   function isLightMode() {
@@ -179,18 +180,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const edgesData = period.edges
       .filter(e => allowedNodeIds.has(e.source) && allowedNodeIds.has(e.target))
       .map(e => {
-        const flowDef = window.flowTypeDefinitionsKo[e.flowType] || { color: '#38bdf8', name: e.flowType };
+        const flowDef = (window.flowTypeDefinitionsKo || {})[e.flowType] || { color: '#38bdf8', name: e.flowType };
         const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
+        const isActive = e.amount > 0;
         return {
-          id: `${e.source}_${e.target}_${e.flowType}`,
+          id: e.id || `${e.source}_${e.target}_${e.flowType}`,
           source: e.source,
           target: e.target,
           value: e.amount,
+          symbol: isActive ? ['none', 'arrow'] : ['none', 'none'],
+          symbolSize: isActive ? [4, 9] : [0, 0],
           lineStyle: {
-            width: calcEdgeWidth(e.amount),
+            width: isActive ? calcEdgeWidth(e.amount) : 0,
             color: flowDef.color,
             curveness: 0.16,
-            opacity: selectedEntityId ? (isConnected ? 0.95 : 0.2) : 0.75
+            opacity: isActive ? (selectedEntityId ? (isConnected ? 0.95 : 0.15) : 0.8) : 0
+          },
+          emphasis: {
+            disabled: !isActive,
+            lineStyle: {
+              width: isActive ? calcEdgeWidth(e.amount) + 2 : 0,
+              opacity: 1
+            }
           },
           raw: e
         };
@@ -215,7 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
           } else if (params.dataType === 'edge') {
             const e = params.data.raw;
-            const flowDef = window.flowTypeDefinitionsKo[e.flowType] || { name: e.flowType };
+            if (!e || !e.amount || e.amount <= 0) return '';
+            const flowDef = (window.flowTypeDefinitionsKo || {})[e.flowType] || { name: e.flowType };
             return `
               <div style="font-weight: 700; color: #ffb300; margin-bottom: 4px;">${flowDef.name}</div>
               <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px;">분기당 $${e.amount.toLocaleString()} Billion (약 ${(e.amount * 1.35).toFixed(1)}조 원)</div>
@@ -399,8 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
     dossierDesc.textContent = node.desc;
     dossierYear.textContent = period.label;
 
-    // 해당 기업에 연결된 분기별 거래 목록
-    const connectedEdges = period.edges.filter(e => e.source === node.id || e.target === node.id);
+    // 해당 기업에 연결된 분기별 실질 거래 목록 (활성 거래만)
+    const connectedEdges = period.edges.filter(e => (e.source === node.id || e.target === node.id) && e.amount > 0);
     dossierFlows.innerHTML = '';
 
     if (connectedEdges.length === 0) {
