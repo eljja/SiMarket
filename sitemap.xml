@@ -40,8 +40,8 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://eljja.github.io/SiMarket/simarket_preview.png</image:loc>
-      <image:title>SiMarket - AI Capital Flow & Ouroboros Loop Analysis</image:title>
-      <image:caption>Interactive force-directed knowledge graph modeling AI circular financing, vendor financing, and Capex-Revenue gap.</image:caption>
+      <image:title>SiMarket - Quarterly AI Capital Flow & Semiconductor Supply Chain Analysis (2023–2026)</image:title>
+      <image:caption>Interactive quarterly knowledge graph modeling AI circular financing, semiconductor supply chain links across Samsung, SK Hynix, TSMC, Broadcom, ASML, NVIDIA, and the Sequoia Capex gap.</image:caption>
     </image:image>
   </url>
   <url>
@@ -54,8 +54,8 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://eljja.github.io/SiMarket/simarket_preview.png</image:loc>
-      <image:title>SiMarket - AI 자금 순환 및 라운드트리핑 분석</image:title>
-      <image:caption>2022-2026년 글로벌 AI 자금 순환 및 설비투자 대비 실질 소프트웨어 매출 결손 시각화</image:caption>
+      <image:title>SiMarket - 분기별 AI 자금 순환 및 반도체 공급망 심층 분석 (2023–2026)</image:title>
+      <image:caption>2023-2026년 분기별 AI 순환금융 및 삼성전자, SK하이닉스, TSMC, 브로드컴, ASML 반도체 가치사슬 시각화</image:caption>
     </image:image>
   </url>
 </urlset>

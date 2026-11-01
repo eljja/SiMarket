@@ -114,6 +114,27 @@
   align-items: center;
 }
 
+.btn-fit-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  color: var(--accent-primary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-fit-view:hover {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
 .legend-pill {
   display: inline-flex;
   align-items: center;

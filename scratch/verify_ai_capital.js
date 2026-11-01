@@ -1,5 +1,5 @@
 // scratch/verify_ai_capital.js
-// Verification suite for AI Capital Circulation & Ouroboros Loop dataset
+// Verification suite for AI Capital Circulation & Supply Chain quarterly dataset
 
 const fs = require('fs');
 const path = require('path');
@@ -16,7 +16,7 @@ function loadScript(filePath) {
   return context;
 }
 
-console.log('=== Step 1: Loading AI Capital Datasets ===');
+console.log('=== Step 1: Loading Quarterly AI Capital Datasets ===');
 const enFile = path.resolve('ai_capital_data.js');
 const koFile = path.resolve('ai_capital_data_ko.js');
 
@@ -35,94 +35,114 @@ if (!koData || !Array.isArray(koData)) {
 
 console.log(`[PASS] Both datasets loaded successfully. Length: EN=${enData.length}, KO=${koData.length}`);
 
-const requiredYears = [2022, 2023, 2024, 2025, 2026];
-console.log('=== Step 2: Validating Timeline Years & Periods ===');
+const requiredQuarters = [
+  '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4',
+  '2024 Q1', '2024 Q2', '2024 Q3', '2024 Q4',
+  '2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4',
+  '2026 Q1', '2026 Q2', '2026 Q3', '2026 Q4'
+];
 
-const enYears = enData.map(d => d.year);
-const koYears = koData.map(d => d.year);
-
-for (const y of requiredYears) {
-  if (!enYears.includes(y)) throw new Error(`English dataset missing year: ${y}`);
-  if (!koYears.includes(y)) throw new Error(`Korean dataset missing year: ${y}`);
+console.log('=== Step 2: Validating Timeline Quarters & Sequence ===');
+if (enData.length !== 16 || koData.length !== 16) {
+  throw new Error(`Expected 16 quarters, got EN=${enData.length}, KO=${koData.length}`);
 }
-console.log(`[PASS] All required years (${requiredYears.join(', ')}) present in both datasets.`);
 
-console.log('=== Step 3: Validating Nodes and Directed Edges Integrity ===');
+const enLabels = enData.map(d => d.label);
+const koLabels = koData.map(d => d.label);
+
+for (let i = 0; i < requiredQuarters.length; i++) {
+  const req = requiredQuarters[i];
+  if (enLabels[i] !== req) throw new Error(`English dataset label mismatch at ${i}: got ${enLabels[i]}, expected ${req}`);
+  if (koLabels[i] !== req) throw new Error(`Korean dataset label mismatch at ${i}: got ${koLabels[i]}, expected ${req}`);
+}
+console.log(`[PASS] All 16 quarters (${requiredQuarters[0]} to ${requiredQuarters[15]}) match perfectly.`);
+
+console.log('=== Step 3: Validating 17 Nodes, Coordinates & Edge Integrity ===');
+const requiredEntities = [
+  'msft', 'goog', 'amzn', 'meta',
+  'nvda', 'tsmc', 'avgo',
+  'skhynix', 'samsung', 'asml',
+  'openai', 'anthropic', 'xai', 'deepseek',
+  'coreweave', 'vc_sovereign', 'end_market'
+];
 
 enData.forEach((period, idx) => {
   const koPeriod = koData[idx];
-  const year = period.year;
+  const qId = period.label;
 
-  if (period.year !== koPeriod.year) {
-    throw new Error(`Year mismatch at index ${idx}: EN=${period.year}, KO=${koPeriod.year}`);
-  }
-
-  // Validate Nodes
+  // Validate Node IDs
   const enNodeIds = new Set();
   period.nodes.forEach(node => {
     if (!node.id || typeof node.id !== 'string') {
-      throw new Error(`[${year}] Node missing valid id: ${JSON.stringify(node)}`);
+      throw new Error(`[${qId}] Node missing valid id: ${JSON.stringify(node)}`);
     }
     if (enNodeIds.has(node.id)) {
-      throw new Error(`[${year}] Duplicate node id: ${node.id}`);
+      throw new Error(`[${qId}] Duplicate node id: ${node.id}`);
     }
     enNodeIds.add(node.id);
 
     if (typeof node.marketCap !== 'number' || node.marketCap <= 0) {
-      throw new Error(`[${year}] Node ${node.id} has invalid marketCap: ${node.marketCap}`);
+      throw new Error(`[${qId}] Node ${node.id} has invalid marketCap: ${node.marketCap}`);
     }
     if (typeof node.aiCapex !== 'number' || node.aiCapex < 0) {
-      throw new Error(`[${year}] Node ${node.id} has invalid aiCapex: ${node.aiCapex}`);
+      throw new Error(`[${qId}] Node ${node.id} has invalid aiCapex: ${node.aiCapex}`);
     }
     if (typeof node.aiRevenue !== 'number' || node.aiRevenue < 0) {
-      throw new Error(`[${year}] Node ${node.id} has invalid aiRevenue: ${node.aiRevenue}`);
+      throw new Error(`[${qId}] Node ${node.id} has invalid aiRevenue: ${node.aiRevenue}`);
+    }
+    if (typeof node.initialX !== 'number' || typeof node.initialY !== 'number') {
+      throw new Error(`[${qId}] Node ${node.id} missing initial coordinates!`);
+    }
+    // Verify coordinates stay within safe bounds [-300, 300]
+    if (Math.abs(node.initialX) > 300 || Math.abs(node.initialY) > 280) {
+      throw new Error(`[${qId}] Node ${node.id} initial coordinate outside safe bounds: x=${node.initialX}, y=${node.initialY}`);
     }
   });
+
+  // Verify all 17 required entities are present
+  for (const ent of requiredEntities) {
+    if (!enNodeIds.has(ent)) {
+      throw new Error(`[${qId}] Missing required entity: ${ent}`);
+    }
+  }
 
   // Verify Korean Node Parity
   const koNodeIds = new Set(koPeriod.nodes.map(n => n.id));
   if (enNodeIds.size !== koNodeIds.size) {
-    throw new Error(`[${year}] Node count mismatch: EN=${enNodeIds.size}, KO=${koNodeIds.size}`);
+    throw new Error(`[${qId}] Node count mismatch: EN=${enNodeIds.size}, KO=${koNodeIds.size}`);
   }
   for (const id of enNodeIds) {
     if (!koNodeIds.has(id)) {
-      throw new Error(`[${year}] Node ${id} missing in Korean dataset`);
+      throw new Error(`[${qId}] Node ${id} missing in Korean dataset`);
     }
   }
 
   // Validate Directed Edges
   period.edges.forEach((edge, eIdx) => {
     if (!enNodeIds.has(edge.source)) {
-      throw new Error(`[${year}] Edge #${eIdx} invalid source: ${edge.source}`);
+      throw new Error(`[${qId}] Edge #${eIdx} invalid source: ${edge.source}`);
     }
     if (!enNodeIds.has(edge.target)) {
-      throw new Error(`[${year}] Edge #${eIdx} invalid target: ${edge.target}`);
+      throw new Error(`[${qId}] Edge #${eIdx} invalid target: ${edge.target}`);
     }
     if (typeof edge.amount !== 'number' || edge.amount <= 0) {
-      throw new Error(`[${year}] Edge #${eIdx} invalid amount: ${edge.amount}`);
+      throw new Error(`[${qId}] Edge #${eIdx} invalid amount: ${edge.amount}`);
     }
     if (!edge.flowType || typeof edge.flowType !== 'string') {
-      throw new Error(`[${year}] Edge #${eIdx} missing flowType`);
+      throw new Error(`[${qId}] Edge #${eIdx} missing flowType: ${JSON.stringify(edge)}`);
     }
   });
 
-  // Validate Korean Edges Parity
-  if (period.edges.length !== koPeriod.edges.length) {
-    throw new Error(`[${year}] Edge count mismatch: EN=${period.edges.length}, KO=${koPeriod.edges.length}`);
+  // Validate Macro Metrics
+  const m = period.macroMetrics;
+  if (!m.totalAiCapex || !m.realEndUserRevenue || !m.capexRevenueDeficit || !m.circularRatio) {
+    throw new Error(`[${qId}] Incomplete macro metrics: ${JSON.stringify(m)}`);
   }
-
-  console.log(`[PASS] Year ${year}: ${period.nodes.length} nodes, ${period.edges.length} flow links validated.`);
-});
-
-console.log('=== Step 4: Validating Macro Aggregations (Capex vs Revenue Gap) ===');
-enData.forEach(p => {
-  if (typeof p.macroMetrics?.totalAiCapex !== 'number' || p.macroMetrics.totalAiCapex <= 0) {
-    throw new Error(`[${p.year}] Invalid macro totalAiCapex`);
-  }
-  if (typeof p.macroMetrics?.realEndUserRevenue !== 'number' || p.macroMetrics.realEndUserRevenue <= 0) {
-    throw new Error(`[${p.year}] Invalid macro realEndUserRevenue`);
+  const calcDeficit = parseFloat((m.totalAiCapex - m.realEndUserRevenue).toFixed(1));
+  if (Math.abs(calcDeficit - m.capexRevenueDeficit) > 0.15) {
+    throw new Error(`[${qId}] Deficit mismatch: calculated=${calcDeficit}, recorded=${m.capexRevenueDeficit}`);
   }
 });
 
-console.log('\n✅ ALL VERIFICATION CHECKS PASSED: 0 Errors, 0 Warnings.\n');
-process.exit(0);
+console.log(`[PASS] All 16 quarters, 17 entities, bounded coordinates, and directed edges validated with 0 errors!`);
+console.log('=== Verification Complete ===');

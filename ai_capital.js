@@ -1,8 +1,9 @@
 // ai_capital.js - Global AI Capital Flow & Ouroboros Loop Engine (English)
+// Quarterly Edition (2023 Q1 - 2026 Q4)
 
 document.addEventListener('DOMContentLoaded', () => {
   // ─── Application State ───────────────────────────────────────
-  let activeIndex = 2; // Default to 2024 (peak circularity debate)
+  let activeIndex = 6; // Default to 2024 Q3 (The $600B Question & Peak Circularity)
   let isPlaying = false;
   let playInterval = null;
   let playSpeed = 1000;
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const speedControl = document.getElementById('speed-control');
   const timelineSlider = document.getElementById('timeline-slider');
   const currentPeriodLabel = document.getElementById('current-period');
+  const btnFitGraph = document.getElementById('btn-fit-graph');
 
   const kpiCapexVal = document.getElementById('kpi-capex-val');
   const kpiRevenueVal = document.getElementById('kpi-revenue-val');
@@ -53,18 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyCitationBtn = document.getElementById('copy-citation-btn');
   const toastContainer = document.getElementById('toast-container');
 
+  // Configure slider bounds
+  if (timelineSlider) {
+    timelineSlider.min = '0';
+    timelineSlider.max = (timeline.length - 1).toString();
+    timelineSlider.value = activeIndex.toString();
+  }
+
   // ─── Initialize ECharts ──────────────────────────────────────
   const networkChart = echarts.init(networkChartDom);
   const barChart = echarts.init(barChartDom);
 
   // ─── Node Sizing & Visual Helpers ────────────────────────────
   function calcNodeSize(marketCap) {
-    // Square root scaling with clamping for visual legibility
-    return Math.round(Math.max(26, Math.min(82, 16 + Math.sqrt(marketCap) * 1.05)));
+    // Balanced square-root scaling with clamping [24, 76] to ensure clean hierarchy without crowding
+    return Math.round(Math.max(24, Math.min(76, 16 + Math.sqrt(marketCap) * 0.95)));
   }
 
   function calcEdgeWidth(amount) {
-    return Math.max(2, Math.min(18, Math.sqrt(amount) * 2.4));
+    return Math.max(2, Math.min(18, Math.sqrt(amount) * 2.5));
   }
 
   function isLightMode() {
@@ -86,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const allowedNodeIds = new Set(filteredNodes.map(n => n.id));
 
     const nodesData = filteredNodes.map(n => {
-      const catDef = window.categoryDefinitions[n.category] || { color: '#00e5ff' };
+      const catDef = window.categoryDefinitions[n.category] || { color: '#00e5ff', name: n.category };
       const isSelected = n.id === selectedEntityId;
       return {
         id: n.id,
@@ -94,11 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         category: catDef.name,
         symbolSize: calcNodeSize(n.marketCap),
         value: n.marketCap,
+        // Pre-assigned bounded coordinate anchor (keeps layout securely inside viewport)
+        x: n.initialX,
+        y: n.initialY,
         itemStyle: {
           color: catDef.color,
           borderColor: isSelected ? '#ffffff' : (isLight ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)'),
           borderWidth: isSelected ? 4 : 1.5,
-          shadowBlur: isSelected ? 20 : 8,
+          shadowBlur: isSelected ? 22 : 8,
           shadowColor: catDef.color
         },
         label: {
@@ -116,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const edgesData = period.edges
       .filter(e => allowedNodeIds.has(e.source) && allowedNodeIds.has(e.target))
       .map(e => {
-        const flowDef = window.flowTypeDefinitions[e.flowType] || { color: '#38bdf8' };
+        const flowDef = window.flowTypeDefinitions[e.flowType] || { color: '#38bdf8', name: e.flowType };
         const isConnected = e.source === selectedEntityId || e.target === selectedEntityId;
         return {
           source: e.source,
@@ -145,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <div style="font-weight: 700; font-size: 1rem; color: var(--accent-primary); margin-bottom: 4px;">${n.name}</div>
               <div style="font-size: 0.8rem; color: ${isLight ? '#475569' : '#9ca3af'}; margin-bottom: 6px;">${params.data.category}</div>
               <div style="font-size: 0.85rem;"><strong>Enterprise Value:</strong> $${n.marketCap.toLocaleString()} B</div>
-              <div style="font-size: 0.85rem;"><strong>Annual AI Capex:</strong> $${n.aiCapex.toLocaleString()} B</div>
-              <div style="font-size: 0.85rem;"><strong>AI Hardware/Service Revenue:</strong> $${n.aiRevenue.toLocaleString()} B</div>
+              <div style="font-size: 0.85rem;"><strong>Quarterly AI Capex:</strong> $${n.aiCapex.toLocaleString()} B/Q</div>
+              <div style="font-size: 0.85rem;"><strong>Quarterly AI Revenue:</strong> $${n.aiRevenue.toLocaleString()} B/Q</div>
               <div style="font-size: 0.75rem; color: #ffb300; margin-top: 6px;">👉 Click node to view financial ties</div>
             `;
           } else if (params.dataType === 'edge') {
@@ -154,14 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const flowDef = window.flowTypeDefinitions[e.flowType] || { name: e.flowType };
             return `
               <div style="font-weight: 700; color: #ffb300; margin-bottom: 4px;">${flowDef.name}</div>
-              <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px;">$${e.amount.toLocaleString()} Billion</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px;">$${e.amount.toLocaleString()} Billion / Quarter</div>
               <div style="font-size: 0.82rem; max-width: 260px; line-height: 1.4;">${e.desc}</div>
             `;
           }
         }
       },
       legend: { show: false },
-      animationDuration: 800,
+      animationDuration: 700,
       animationEasingUpdate: 'cubicOut',
       series: [
         {
@@ -170,19 +182,23 @@ document.addEventListener('DOMContentLoaded', () => {
           data: nodesData,
           links: edgesData,
           categories: categories,
+          center: ['50%', '50%'],
+          zoom: 0.82,
           roam: true,
           draggable: true,
+          scaleLimit: { min: 0.45, max: 2.2 },
           edgeSymbol: ['none', 'arrow'],
-          edgeSymbolSize: 8,
+          edgeSymbolSize: 7,
+          // Tuned physics to prevent nodes from drifting out of bounds
           force: {
-            repulsion: 500,
-            edgeLength: [90, 240],
-            gravity: 0.11,
-            friction: 0.6
+            repulsion: 220,
+            edgeLength: [50, 130],
+            gravity: 0.28,
+            friction: 0.75
           },
           emphasis: {
             focus: 'adjacency',
-            lineStyle: { width: 6 }
+            lineStyle: { width: 5 }
           }
         }
       ]
@@ -196,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subColor = isLight ? '#475569' : '#9ca3af';
 
     if (activeBarMode === 'capex') {
-      // Entity AI Capex Ranking
+      // Entity AI Capex Ranking for Active Quarter
       const sortedNodes = [...period.nodes]
         .filter(n => n.aiCapex > 0)
         .sort((a, b) => a.aiCapex - b.aiCapex);
@@ -212,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return {
         title: {
-          text: `Annual AI Capex Ranking (${period.year})`,
+          text: `Quarterly AI Capex Ranking (${period.label})`,
           textStyle: { color: textColor, fontSize: 13, fontWeight: 700 },
           top: 0,
           left: 0
@@ -220,9 +236,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltip: {
           trigger: 'axis',
           axisPointer: { type: 'shadow' },
-          formatter: (p) => `${p[0].name}: <strong>$${p[0].value} B</strong>`
+          formatter: (p) => `${p[0].name}: <strong>$${p[0].value} B/Q</strong> (Annualized: ~$${(p[0].value * 4).toFixed(1)}B/yr)`
         },
-        grid: { top: 35, bottom: 25, left: 110, right: 35 },
+        grid: { top: 35, bottom: 25, left: 125, right: 35 },
         xAxis: {
           type: 'value',
           axisLabel: { color: subColor, formatter: '${value}B' },
@@ -249,14 +265,26 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       };
     } else {
-      // Sequoia Deficit Gap View: Cumulative Capex vs. Real End-User Revenue across timeline
-      const years = timeline.map(p => p.year.toString());
-      const capexData = timeline.map(p => p.macroMetrics.totalAiCapex);
-      const revenueData = timeline.map(p => p.macroMetrics.realEndUserRevenue);
+      // Sequoia Deficit Gap View: Capex vs. Real End-User Revenue across all 16 quarters
+      const labels = timeline.map(p => p.label);
+      const capexData = timeline.map((p, idx) => ({
+        value: p.macroMetrics.totalAiCapex,
+        itemStyle: {
+          color: idx === activeIndex ? '#f43f5e' : 'rgba(244, 63, 94, 0.65)',
+          borderRadius: [4, 4, 0, 0]
+        }
+      }));
+      const revenueData = timeline.map((p, idx) => ({
+        value: p.macroMetrics.realEndUserRevenue,
+        itemStyle: {
+          color: idx === activeIndex ? '#00e5ff' : 'rgba(0, 229, 255, 0.65)',
+          borderRadius: [4, 4, 0, 0]
+        }
+      }));
 
       return {
         title: {
-          text: 'The $600B Question: Capex vs. Real Revenue',
+          text: 'The $600B Question: Quarterly Capex vs. Real Revenue',
           textStyle: { color: textColor, fontSize: 13, fontWeight: 700 },
           top: 0,
           left: 0
@@ -265,9 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
           trigger: 'axis',
           formatter: (p) => `
             <strong>${p[0].name}</strong><br/>
-            ${p[0].marker} ${p[0].seriesName}: <strong>$${p[0].value} B</strong><br/>
-            ${p[1].marker} ${p[1].seriesName}: <strong>$${p[1].value} B</strong><br/>
-            <span style="color: #f43f5e; font-weight: 700;">Deficit Gap: $${(p[0].value - p[1].value).toFixed(1)} B</span>
+            ${p[0].marker} ${p[0].seriesName}: <strong>$${p[0].value} B/Q</strong><br/>
+            ${p[1].marker} ${p[1].seriesName}: <strong>$${p[1].value} B/Q</strong><br/>
+            <span style="color: #f43f5e; font-weight: 700;">Quarterly Deficit: $${(p[0].value - p[1].value).toFixed(1)} B</span>
           `
         },
         legend: {
@@ -276,11 +304,16 @@ document.addEventListener('DOMContentLoaded', () => {
           top: 0,
           right: 0
         },
-        grid: { top: 40, bottom: 25, left: 45, right: 20 },
+        grid: { top: 40, bottom: 35, left: 45, right: 20 },
         xAxis: {
           type: 'category',
-          data: years,
-          axisLabel: { color: textColor, fontWeight: 600 }
+          data: labels,
+          axisLabel: {
+            color: subColor,
+            fontSize: 9,
+            rotate: 35,
+            interval: 0
+          }
         },
         yAxis: {
           type: 'value',
@@ -291,14 +324,12 @@ document.addEventListener('DOMContentLoaded', () => {
           {
             name: 'AI Capex Outlay',
             type: 'bar',
-            data: capexData,
-            itemStyle: { color: '#ffb300', borderRadius: [4, 4, 0, 0] }
+            data: capexData
           },
           {
             name: 'Real Software Revenue',
             type: 'bar',
-            data: revenueData,
-            itemStyle: { color: '#00e5ff', borderRadius: [4, 4, 0, 0] }
+            data: revenueData
           }
         ]
       };
@@ -316,17 +347,17 @@ document.addEventListener('DOMContentLoaded', () => {
     dossierCategory.textContent = catDef.name;
     dossierCategory.style.borderColor = catDef.color;
     dossierVal.textContent = `$${node.marketCap.toLocaleString()} B`;
-    dossierCapex.textContent = `$${node.aiCapex.toLocaleString()} B`;
-    dossierRev.textContent = `$${node.aiRevenue.toLocaleString()} B`;
+    dossierCapex.textContent = `$${node.aiCapex.toLocaleString()} B/Q`;
+    dossierRev.textContent = `$${node.aiRevenue.toLocaleString()} B/Q`;
     dossierDesc.textContent = node.desc;
-    dossierYear.textContent = period.year.toString();
+    dossierYear.textContent = period.label;
 
     // Direct flows connected to this entity
     const connectedEdges = period.edges.filter(e => e.source === node.id || e.target === node.id);
     dossierFlows.innerHTML = '';
 
     if (connectedEdges.length === 0) {
-      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted);">No major tracked external circular links in this period.</div>';
+      dossierFlows.innerHTML = '<div style="font-size: 0.78rem; color: var(--text-muted); padding: 8px 0;">No major external transaction tracked in this quarter.</div>';
       return;
     }
 
@@ -346,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </span>
           <span style="font-size: 0.7rem; color: ${flowDef.color};">${flowDef.name}</span>
         </div>
-        <span style="font-family: var(--font-mono); font-weight: 800; color: var(--accent-primary);">$${e.amount}B</span>
+        <span style="font-family: var(--font-mono); font-weight: 800; color: var(--accent-primary);">$${e.amount}B/Q</span>
       `;
       dossierFlows.appendChild(item);
     });
@@ -358,8 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Indicators
     timelineSlider.value = activeIndex;
-    currentPeriodLabel.textContent = period.year.toString();
-    networkYearDisplay.textContent = period.year.toString();
+    currentPeriodLabel.textContent = `${period.label} (${period.dateRange})`;
+    networkYearDisplay.textContent = period.label;
 
     kpiCapexVal.textContent = period.macroMetrics.totalAiCapex.toFixed(1);
     kpiRevenueVal.textContent = period.macroMetrics.realEndUserRevenue.toFixed(1);
@@ -368,10 +399,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Charts
     networkChart.setOption(getNetworkOptions(period));
-    barChart.setOption(getBarChartOptions(period));
+    barChart.setOption(getBarChartOptions(period), true);
 
     // Update Dossier
     updateEntityDossier();
+  }
+
+  // ─── Fit View to Screen (Center & Contain) ────────────────────
+  function resetGraphView() {
+    networkChart.setOption({
+      series: [{
+        zoom: 0.82,
+        center: ['50%', '50%']
+      }]
+    });
+    showToast('Graph view centered and fitted within canvas.');
+  }
+
+  if (btnFitGraph) {
+    btnFitGraph.addEventListener('click', resetGraphView);
   }
 
   // ─── Playback Control Logic ──────────────────────────────────
