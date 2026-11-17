@@ -112,6 +112,25 @@ for (const lang of ['en', 'ko']) {
   assert(api && typeof api === 'object', `[${lang}] window.__memoryAtlasTest not exposed`);
   if (!api) continue;
 
+  // 0. Test Dual Horizontal Bar Chart Race Options (Set 1: Market Size $B, Set 2: Total Capacity Bytes)
+  for (const capScale of ['linear', 'log']) {
+    for (const yIdx of [0, 15, 30, 45, 46]) {
+      api.state.view = 'history';
+      api.state.raceCapScale = capScale;
+      api.state.yearIndex = yIdx;
+      const rOpts = api.buildRaceOptions(api.state);
+      assert(rOpts && rOpts.rev && rOpts.cap, `[${lang}] buildRaceOptions(${capScale}, idx=${yIdx}) missing rev or cap`);
+      assert(rOpts.rev.series[0].data.length === 6 && rOpts.cap.series[0].data.length === 6, `[${lang}] race bars must have 6 items`);
+      for (const k of ['rev', 'cap']) {
+        const c = echarts.init(null, null, { renderer: 'svg', ssr: true, width: 440, height: 340 });
+        c.setOption(rOpts[k]);
+        const svg = c.renderToSVGString();
+        assert(svg.includes('<svg') && svg.length > 800, `[${lang}] SSR race chart ${k} (${capScale}) failed`);
+        c.dispose();
+      }
+    }
+  }
+
   // 1. Test History Options across all 3 metrics & ECharts SSR
   for (const metric of ['revenue', 'capacity', 'price']) {
     for (const yIdx of [0, 15, 30, 45, 46]) {

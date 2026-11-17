@@ -197,9 +197,71 @@
 
       <!-- Left Column: Primary Interactive Chart + Timeline -->
       <section class="glass-panel mem-main-panel" aria-labelledby="mem-main-title">
-        <div class="mem-main-header">
+
+        <!-- TOP: Dual Horizontal Bar Chart Race (Market Size $B + Total Capacity EB) -->
+        <div id="mem-race-section" class="mem-race-section">
+          <div class="mem-main-header">
+            <div>
+              <h2 id="mem-race-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">6-Tier Memory &amp; Storage Bar Chart Race (1980–2026E)</h2>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">Side-by-side horizontal ranking race: <strong>Set 1 = Market Size (Revenue, $B)</strong> vs. <strong>Set 2 = Total Shipped Capacity (Bytes)</strong></p>
+            </div>
+            <div class="mem-control-group">
+              <button id="race-scale-linear" class="mem-ctrl-btn active" title="Show Capacity bars on Linear Scale">Capacity: Linear</button>
+              <button id="race-scale-log" class="mem-ctrl-btn" title="Show Capacity bars on Log10 Scale so all 6 tiers are visible">Capacity: Log Scale</button>
+            </div>
+          </div>
+
+          <div class="mem-dual-race-grid">
+            <!-- Set 1: Market Size (Revenue, $B) Horizontal Bar Race -->
+            <div class="mem-race-card">
+              <div class="mem-race-card-header">
+                <span class="mem-race-card-title">💰 Set 1: Market Size (Revenue, USD)</span>
+                <span id="race-rev-total-badge" class="mem-race-card-sub">Total: $0.0B</span>
+              </div>
+              <div id="mem-race-rev-chart" class="mem-race-canvas" style="width: 100%; height: 340px;"></div>
+            </div>
+
+            <!-- Set 2: Total Capacity (Bytes) Horizontal Bar Race -->
+            <div class="mem-race-card">
+              <div class="mem-race-card-header">
+                <span class="mem-race-card-title">📦 Set 2: Total Shipped Capacity (Bytes)</span>
+                <span id="race-cap-total-badge" class="mem-race-card-sub">Total: 0.0 EB</span>
+              </div>
+              <div id="mem-race-cap-chart" class="mem-race-canvas" style="width: 100%; height: 340px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Control Bar (Controls both Bar Chart Race & Trajectory Cursor) -->
+        <div class="timeline-bar">
+          <div class="play-controls">
+            <button id="prev-btn" class="btn-icon btn-step" aria-label="Previous Year" title="Previous Year">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline" title="Play / Pause">
+              <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
+              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button id="next-btn" class="btn-icon btn-step" aria-label="Next Year" title="Next Year">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            <select id="speed-control" class="speed-control" aria-label="Playback Speed">
+              <option value="1200">Slow (1.2s)</option>
+              <option value="600" selected>Normal (0.6s)</option>
+              <option value="250">Fast (0.25s)</option>
+            </select>
+          </div>
+
+          <div class="slider-container">
+            <input type="range" id="timeline-slider" aria-label="Timeline Year Slider" min="0" max="46" value="45">
+            <span id="current-period" class="time-label-current">2025</span>
+          </div>
+        </div>
+
+        <!-- BOTTOM: Full Historical Trajectory Chart (1980–2026E) / Supply / Outlook -->
+        <div class="mem-history-trend-divider">
           <div>
-            <h2 id="mem-main-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">Global Memory & Storage Usage Trajectory (1980–2026E)</h2>
+            <h2 id="mem-main-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">Global Memory &amp; Storage Market Revenue (1980–2026E)</h2>
             <p id="mem-main-subtitle" style="font-size: 0.8rem; color: var(--text-secondary);">Annual market revenue ($B), exabytes shipped (EB), and cost per gigabyte ($/GB) across all 6 tiers</p>
           </div>
 
@@ -244,34 +306,8 @@
 
         <!-- Main ECharts Stage -->
         <div class="mem-chart-stage">
-          <div id="mem-main-chart" style="width: 100%; height: 100%;"></div>
+          <div id="mem-main-chart" style="width: 100%; height: 480px;"></div>
           <div id="mem-year-display" class="mem-year-watermark">2025</div>
-        </div>
-
-        <!-- Timeline Control Bar -->
-        <div class="timeline-bar">
-          <div class="play-controls">
-            <button id="prev-btn" class="btn-icon btn-step" aria-label="Previous Year" title="Previous Year">
-              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline" title="Play / Pause">
-              <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
-              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
-            <button id="next-btn" class="btn-icon btn-step" aria-label="Next Year" title="Next Year">
-              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
-            <select id="speed-control" class="speed-control" aria-label="Playback Speed">
-              <option value="1200">Slow (1.2s)</option>
-              <option value="600" selected>Normal (0.6s)</option>
-              <option value="250">Fast (0.25s)</option>
-            </select>
-          </div>
-
-          <div class="slider-container">
-            <input type="range" id="timeline-slider" aria-label="Timeline Year Slider" min="0" max="46" value="45">
-            <span id="current-period" class="time-label-current">2025</span>
-          </div>
         </div>
       </section>
 

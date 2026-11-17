@@ -197,9 +197,71 @@
 
       <!-- 좌측 컬럼: 메인 인터랙티브 차트 및 타임라인 컨트롤 -->
       <section class="glass-panel mem-main-panel" aria-labelledby="mem-main-title">
-        <div class="mem-main-header">
+
+        <!-- 상단: 2세트 가로 바 차트 레이스 (세트 1: 시장 크기 $B | 세트 2: 전체 출하 용량 Bytes) -->
+        <div id="mem-race-section" class="mem-race-section">
+          <div class="mem-main-header">
+            <div>
+              <h2 id="mem-race-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">6대 메모리·스토리지 가로 바 차트 레이스 (1980–2026E)</h2>
+              <p style="font-size: 0.8rem; color: var(--text-secondary);">Si Market과 동일한 가로 막대 레이스 2세트: <strong>세트 1 = 시장 크기(매출액, $B)</strong> vs. <strong>세트 2 = 전체 용량(출하량, Bytes)</strong></p>
+            </div>
+            <div class="mem-control-group">
+              <button id="race-scale-linear" class="mem-ctrl-btn active" title="전체 용량 바를 실제 비례(선형 스케일)로 표시">용량: 실제비례 (Linear)</button>
+              <button id="race-scale-log" class="mem-ctrl-btn" title="전체 용량 바를 로그 스케일로 표시하여 소용량 메모리(SRAM·NOR·DRAM)도 한눈에 비교">용량: 로그비교 (Log)</button>
+            </div>
+          </div>
+
+          <div class="mem-dual-race-grid">
+            <!-- 세트 1: 시장 크기 (매출액, $B) 가로 바 레이스 -->
+            <div class="mem-race-card">
+              <div class="mem-race-card-header">
+                <span class="mem-race-card-title">💰 세트 1: 시장 크기 (매출액, USD)</span>
+                <span id="race-rev-total-badge" class="mem-race-card-sub">합계: $0.0B</span>
+              </div>
+              <div id="mem-race-rev-chart" class="mem-race-canvas" style="width: 100%; height: 340px;"></div>
+            </div>
+
+            <!-- 세트 2: 전체 용량 (출하량, Bytes) 가로 바 레이스 -->
+            <div class="mem-race-card">
+              <div class="mem-race-card-header">
+                <span class="mem-race-card-title">📦 세트 2: 전체 용량 (출하 용량, Bytes)</span>
+                <span id="race-cap-total-badge" class="mem-race-card-sub">합계: 0.0 EB</span>
+              </div>
+              <div id="mem-race-cap-chart" class="mem-race-canvas" style="width: 100%; height: 340px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 타임라인 컨트롤 바 (상단 2세트 바 차트 레이스 및 하단 추이 그래프 동시 제어) -->
+        <div class="timeline-bar">
+          <div class="play-controls">
+            <button id="prev-btn" class="btn-icon btn-step" aria-label="이전 연도" title="이전 연도">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button id="play-btn" class="btn-icon" aria-label="재생/일시정지" title="재생 / 일시정지">
+              <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
+              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button id="next-btn" class="btn-icon btn-step" aria-label="다음 연도" title="다음 연도">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            <select id="speed-control" class="speed-control" aria-label="재생 속도">
+              <option value="1200">느리게 (1.2초)</option>
+              <option value="600" selected>보통 (0.6초)</option>
+              <option value="250">빠르게 (0.25초)</option>
+            </select>
+          </div>
+
+          <div class="slider-container">
+            <input type="range" id="timeline-slider" aria-label="타임라인 슬라이더" min="0" max="46" value="45">
+            <span id="current-period" class="time-label-current">2025</span>
+          </div>
+        </div>
+
+        <!-- 하단: 시계열 누적 추이 그래프 (1980–2026E) / 수급 / 10년 전망 -->
+        <div class="mem-history-trend-divider">
           <div>
-            <h2 id="mem-main-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">글로벌 메모리 & 스토리지 사용량 추이 (1980–2026E)</h2>
+            <h2 id="mem-main-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">글로벌 6대 메모리·스토리지 매출액 추이 (1980–2026E)</h2>
             <p id="mem-main-subtitle" style="font-size: 0.8rem; color: var(--text-secondary);">6대 메모리 계층별 연간 시장 금액($B), 출하 용량(EB), GB당 단가($/GB) 시계열 변화</p>
           </div>
 
@@ -244,34 +306,8 @@
 
         <!-- 메인 차트 영역 -->
         <div class="mem-chart-stage">
-          <div id="mem-main-chart" style="width: 100%; height: 100%;"></div>
+          <div id="mem-main-chart" style="width: 100%; height: 480px;"></div>
           <div id="mem-year-display" class="mem-year-watermark">2025</div>
-        </div>
-
-        <!-- 타임라인 컨트롤 바 -->
-        <div class="timeline-bar">
-          <div class="play-controls">
-            <button id="prev-btn" class="btn-icon btn-step" aria-label="이전 연도" title="이전 연도">
-              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <button id="play-btn" class="btn-icon" aria-label="재생/일시정지" title="재생 / 일시정지">
-              <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
-              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
-            <button id="next-btn" class="btn-icon btn-step" aria-label="다음 연도" title="다음 연도">
-              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
-            <select id="speed-control" class="speed-control" aria-label="재생 속도">
-              <option value="1200">느리게 (1.2초)</option>
-              <option value="600" selected>보통 (0.6초)</option>
-              <option value="250">빠르게 (0.25초)</option>
-            </select>
-          </div>
-
-          <div class="slider-container">
-            <input type="range" id="timeline-slider" aria-label="타임라인 슬라이더" min="0" max="46" value="45">
-            <span id="current-period" class="time-label-current">2025</span>
-          </div>
         </div>
       </section>
 

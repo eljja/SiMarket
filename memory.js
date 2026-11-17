@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const state = {
     view: 'history',        // 'history' | 'supply' | 'outlook'
     metric: 'revenue',      // 'revenue' | 'capacity' | 'price'
+    raceCapScale: 'linear', // 'linear' | 'log'
     techFilter: 'all',      // 'all' | 'sram' | 'dram' | 'nor' | 'nand' | 'hdd' | 'tape'
     supplyTech: 'dram',     // 'dram' | 'nand' | 'hdd'
     scenario: 'base',       // 'bear' | 'base' | 'bull'
@@ -106,10 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // DOM References
   const el = (id) => document.getElementById(id);
   const mainChartDom = el('mem-main-chart');
+  const raceRevDom = el('mem-race-rev-chart');
+  const raceCapDom = el('mem-race-cap-chart');
   const sideChartADom = el('mem-side-chart-a');
   const sideChartBDom = el('mem-side-chart-b');
 
   const mainChart = echarts.init(mainChartDom);
+  const raceRevChart = raceRevDom ? echarts.init(raceRevDom) : null;
+  const raceCapChart = raceCapDom ? echarts.init(raceCapDom) : null;
   const sideChartA = echarts.init(sideChartADom);
   const sideChartB = echarts.init(sideChartBDom);
 
@@ -149,6 +154,198 @@ document.addEventListener('DOMContentLoaded', () => {
     const yrs = activeYearsArray();
     if (state.yearIndex < 0) state.yearIndex = 0;
     if (state.yearIndex >= yrs.length) state.yearIndex = yrs.length - 1;
+  }
+
+  function formatBytesFromEB(eb) {
+    if (eb === null || eb === undefined || !Number.isFinite(eb) || eb <= 0) return '—';
+    if (eb >= 1) return formatNum(eb, 1) + ' EB';
+    if (eb >= 1e-3) return formatNum(eb * 1e3, 1) + ' PB';
+    if (eb >= 1e-6) return formatNum(eb * 1e6, 1) + ' TB';
+    if (eb >= 1e-9) return formatNum(eb * 1e9, 1) + ' GB';
+    return formatNum(eb * 1e12, 1) + ' MB';
+  }
+
+  // ─── 0. Build Dual Horizontal Bar Chart Race Options (Market Size $B + Total Capacity Bytes) ───
+  function buildRaceOptions(st = state) {
+    const pal = themePalette();
+    const h = db.history;
+    const idx = Math.min(Math.max(0, st.yearIndex), h.years.length - 1);
+    const selYear = h.years[idx];
+    const animSpeed = parseInt((el('speed-control') && el('speed-control').value) || '550', 10);
+
+    // Set 1: Market Size (Revenue, $B)
+    const revItems = db.techs.map(tech => {
+      const v = h.revenue[tech.id][idx];
+      return {
+        id: tech.id,
+        name: t(tech.name),
+        rawVal: v !== null && v > 0 ? v : 0,
+        color: tech.color
+      };
+    });
+    const totalRev = revItems.reduce((a, x) => a + x.rawVal, 0) || 1;
+    revItems.sort((a, b) => b.rawVal - a.rawVal);
+
+    const revOpt = {
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: pal.tooltipBg,
+        borderColor: pal.tooltipBorder,
+        textStyle: { color: pal.text, fontSize: 12 },
+        formatter: (p) => {
+          const d = p.data;
+          if (!d) return '';
+          return `<strong>${d.name} (${selYear})</strong><br/>` +
+            `${LANG === 'ko' ? '시장 크기' : 'Market Size'}: <strong>$${formatNum(d.rawVal, 2)}B</strong><br/>` +
+            `${LANG === 'ko' ? '점유율' : 'Share'}: <strong>${d.share.toFixed(1)}%</strong>`;
+        }
+      },
+      grid: { top: 8, bottom: 20, left: 10, right: 118, containLabel: true },
+      xAxis: {
+        type: 'value',
+        max: 'dataMax',
+        splitLine: { lineStyle: { color: pal.gridLine } },
+        axisLabel: { color: pal.sub, fontSize: 10, formatter: (v) => '$' + formatNum(v, 0) + 'B' }
+      },
+      yAxis: {
+        type: 'category',
+        inverse: true,
+        data: revItems.map(x => x.name),
+        axisTick: { show: true, alignWithLabel: true, interval: 0 },
+        axisLine: { lineStyle: { color: pal.gridLine } },
+        axisLabel: { interval: 0, color: pal.text, fontSize: 11, fontWeight: 700 },
+        animationDuration: 300,
+        animationDurationUpdate: 300
+      },
+      series: [{
+        realtimeSort: true,
+        type: 'bar',
+        barWidth: 22,
+        data: revItems.map(x => ({
+          name: x.name,
+          value: x.rawVal,
+          rawVal: x.rawVal,
+          share: (x.rawVal / totalRev) * 100,
+          itemStyle: { color: x.color, borderRadius: [0, 6, 6, 0] }
+        })),
+        label: {
+          show: true,
+          position: 'right',
+          valueAnimation: true,
+          color: pal.text,
+          fontSize: 11,
+          fontWeight: 700,
+          fontFamily: 'JetBrains Mono, monospace',
+          formatter: (p) => {
+            const d = p.data;
+            if (!d || d.rawVal <= 0) return LANG === 'ko' ? '미출시' : 'N/A';
+            return `$${formatNum(d.rawVal, 2)}B (${d.share.toFixed(1)}%)`;
+          }
+        }
+      }],
+      animationDuration: 300,
+      animationDurationUpdate: animSpeed,
+      animationEasingUpdate: 'linear'
+    };
+
+    // Set 2: Total Shipped Capacity (Bytes: EB/PB/TB/GB)
+    const isLogCap = st.raceCapScale === 'log';
+    const capItems = db.techs.map(tech => {
+      const v = h.capacity[tech.id][idx];
+      return {
+        id: tech.id,
+        name: t(tech.name),
+        rawVal: v !== null && v > 0 ? v : 0,
+        color: tech.color
+      };
+    });
+    const totalCap = capItems.reduce((a, x) => a + x.rawVal, 0) || 1;
+    capItems.sort((a, b) => b.rawVal - a.rawVal);
+
+    // For log bar visualization, transform positive values via log10(val / minFloor) so bars start at 0 and grow left-to-right cleanly
+    const posVals = capItems.filter(x => x.rawVal > 0).map(x => x.rawVal);
+    const minPos = posVals.length ? Math.min(...posVals) : 1e-9;
+    const logFloor = minPos / 10;
+
+    const capOpt = {
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: pal.tooltipBg,
+        borderColor: pal.tooltipBorder,
+        textStyle: { color: pal.text, fontSize: 12 },
+        formatter: (p) => {
+          const d = p.data;
+          if (!d) return '';
+          return `<strong>${d.name} (${selYear})</strong><br/>` +
+            `${LANG === 'ko' ? '출하 용량' : 'Shipped Capacity'}: <strong>${formatBytesFromEB(d.rawVal)}</strong><br/>` +
+            `${LANG === 'ko' ? '용량 비중' : 'Byte Share'}: <strong>${d.share.toFixed(2)}%</strong>`;
+        }
+      },
+      grid: { top: 8, bottom: 20, left: 10, right: 128, containLabel: true },
+      xAxis: {
+        type: 'value',
+        max: 'dataMax',
+        splitLine: { lineStyle: { color: pal.gridLine } },
+        axisLabel: {
+          color: pal.sub,
+          fontSize: 10,
+          formatter: (v) => {
+            if (isLogCap) {
+              const ebVal = logFloor * Math.pow(10, v);
+              return formatBytesFromEB(ebVal);
+            }
+            return formatBytesFromEB(v);
+          }
+        }
+      },
+      yAxis: {
+        type: 'category',
+        inverse: true,
+        data: capItems.map(x => x.name),
+        axisTick: { show: true, alignWithLabel: true, interval: 0 },
+        axisLine: { lineStyle: { color: pal.gridLine } },
+        axisLabel: { interval: 0, color: pal.text, fontSize: 11, fontWeight: 700 },
+        animationDuration: 300,
+        animationDurationUpdate: 300
+      },
+      series: [{
+        realtimeSort: true,
+        type: 'bar',
+        barWidth: 22,
+        data: capItems.map(x => {
+          const plotVal = x.rawVal <= 0 ? 0 : (isLogCap ? Math.max(0.1, Math.log10(x.rawVal / logFloor)) : x.rawVal);
+          return {
+            name: x.name,
+            value: plotVal,
+            rawVal: x.rawVal,
+            share: (x.rawVal / totalCap) * 100,
+            itemStyle: { color: x.color, borderRadius: [0, 6, 6, 0] }
+          };
+        }),
+        label: {
+          show: true,
+          position: 'right',
+          valueAnimation: true,
+          color: pal.text,
+          fontSize: 11,
+          fontWeight: 700,
+          fontFamily: 'JetBrains Mono, monospace',
+          formatter: (p) => {
+            const d = p.data;
+            if (!d || d.rawVal <= 0) return LANG === 'ko' ? '미출시' : 'N/A';
+            const shStr = d.share >= 0.1 ? `${d.share.toFixed(1)}%` : '<0.1%';
+            return `${formatBytesFromEB(d.rawVal)} (${shStr})`;
+          }
+        }
+      }],
+      animationDuration: 300,
+      animationDurationUpdate: animSpeed,
+      animationEasingUpdate: 'linear'
+    };
+
+    return { rev: revOpt, cap: capOpt, totalRev, totalCap, year: selYear };
   }
 
   // ─── 1. Build History Main Chart Option ──────────────────────
@@ -728,6 +925,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selYear = yrs[state.yearIndex];
 
     // Toggle visible control groups
+    if (el('mem-race-section')) el('mem-race-section').style.display = state.view === 'history' ? 'flex' : 'none';
     if (el('ctrl-group-history')) el('ctrl-group-history').style.display = state.view === 'history' ? 'inline-flex' : 'none';
     if (el('mem-tech-filter-row')) el('mem-tech-filter-row').style.display = state.view === 'history' ? 'flex' : 'none';
     if (el('ctrl-group-supply')) el('ctrl-group-supply').style.display = state.view === 'supply' ? 'inline-flex' : 'none';
@@ -735,6 +933,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el('ctrl-group-outlook-met')) el('ctrl-group-outlook-met').style.display = state.view === 'outlook' ? 'inline-flex' : 'none';
 
     if (state.view === 'history') {
+      const raceOpts = buildRaceOptions(state);
+      if (raceRevChart) {
+        raceRevChart.setOption(raceOpts.rev);
+        raceRevChart.resize();
+      }
+      if (raceCapChart) {
+        raceCapChart.setOption(raceOpts.cap);
+        raceCapChart.resize();
+      }
+      if (el('race-rev-total-badge')) {
+        el('race-rev-total-badge').textContent = `${selYear}: $${formatNum(raceOpts.totalRev, 1)}B`;
+      }
+      if (el('race-cap-total-badge')) {
+        el('race-cap-total-badge').textContent = `${selYear}: ${formatBytesFromEB(raceOpts.totalCap)}`;
+      }
       if (el('mem-main-title')) {
         el('mem-main-title').textContent = state.metric === 'revenue' ? UI.histTitleRev : (state.metric === 'capacity' ? UI.histTitleCap : UI.histTitlePrc);
       }
@@ -761,6 +974,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideOpts = buildSideOptions(state);
     sideChartA.setOption(sideOpts.a, true);
     sideChartB.setOption(sideOpts.b, true);
+    mainChart.resize();
+    sideChartA.resize();
+    sideChartB.resize();
     updateKPIsAndTable();
   }
 
@@ -913,8 +1129,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (el('race-scale-linear')) {
+    el('race-scale-linear').addEventListener('click', () => {
+      state.raceCapScale = 'linear';
+      el('race-scale-linear').classList.add('active');
+      if (el('race-scale-log')) el('race-scale-log').classList.remove('active');
+      render();
+    });
+  }
+  if (el('race-scale-log')) {
+    el('race-scale-log').addEventListener('click', () => {
+      state.raceCapScale = 'log';
+      el('race-scale-log').classList.add('active');
+      if (el('race-scale-linear')) el('race-scale-linear').classList.remove('active');
+      render();
+    });
+  }
+
   window.addEventListener('resize', () => {
     mainChart.resize();
+    if (raceRevChart) raceRevChart.resize();
+    if (raceCapChart) raceCapChart.resize();
     sideChartA.resize();
     sideChartB.resize();
   });
@@ -925,6 +1160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.__memoryAtlasTest = {
     state,
     t,
+    buildRaceOptions,
     buildHistoryOption,
     buildSupplyOption,
     buildOutlookOption,

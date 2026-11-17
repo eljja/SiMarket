@@ -11,6 +11,7 @@ const REQUIRED_IDS = [
   'supply-dram', 'supply-nand', 'supply-hdd',
   'scn-bear', 'scn-base', 'scn-bull',
   'out-capacity', 'out-revenue',
+  'mem-race-section', 'mem-race-rev-chart', 'mem-race-cap-chart', 'race-scale-linear', 'race-scale-log',
   'mem-main-chart', 'mem-side-chart-a', 'mem-side-chart-b',
   'kpi-mem-rev', 'kpi-mem-cap', 'kpi-dram-price', 'kpi-nand-price',
   'prev-btn', 'play-btn', 'next-btn', 'speed-control', 'timeline-slider', 'current-period',
@@ -41,6 +42,12 @@ for (const file of ['memory.html', 'memory_ko.html']) {
   if (!new RegExp(`<html[^>]*lang="${expectedLang}"`).test(html)) {
     errors++;
     console.error(`[FAIL] ${file} must have <html lang="${expectedLang}">`);
+  }
+  const racePos = html.indexOf('id="mem-race-rev-chart"');
+  const mainPos = html.indexOf('id="mem-main-chart"');
+  if (racePos < 0 || mainPos < 0 || racePos > mainPos) {
+    errors++;
+    console.error(`[FAIL] ${file}: Dual Bar Race (#mem-race-rev-chart) must appear ABOVE #mem-main-chart`);
   }
 }
 
