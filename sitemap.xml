@@ -58,4 +58,32 @@
       <image:caption>2023-2026년 분기별 AI 순환금융 및 삼성전자, SK하이닉스, TSMC, 브로드컴, ASML 반도체 가치사슬 시각화</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://eljja.github.io/SiMarket/memory.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/memory.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://eljja.github.io/SiMarket/memory_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eljja.github.io/SiMarket/memory.html"/>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eljja.github.io/SiMarket/simarket_preview.png</image:loc>
+      <image:title>SiMarket Memory Atlas - Global SRAM/DRAM/NOR/NAND/HDD/Tape History &amp; 2035 Outlook</image:title>
+      <image:caption>46-year empirical archive of global memory and storage revenue, exabytes shipped, $/GB price curves, vendor wafer supply vs. demand, and 10-year AI/Robotics/Autonomous demand outlook.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://eljja.github.io/SiMarket/memory_ko.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/memory.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://eljja.github.io/SiMarket/memory_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eljja.github.io/SiMarket/memory.html"/>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eljja.github.io/SiMarket/simarket_preview.png</image:loc>
+      <image:title>SiMarket 메모리 아틀라스 - 글로벌 6대 메모리 사용량 히스토리, 수급 및 2035 수요 전망</image:title>
+      <image:caption>1980-2035년 SRAM, DRAM, NOR, NAND, HDD, Tape 금액·용량·단가 추이 및 제조사 수급·AI/자율주행/로봇 수요 예측 대시보드</image:caption>
+    </image:image>
+  </url>
 </urlset>

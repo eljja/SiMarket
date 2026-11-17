@@ -10,7 +10,12 @@ An interactive, high-fidelity data visualization dashboard tracing the historica
 
 ## 🚀 Project Overview (What this Repo Did)
 
-This repository hosts a multi-market, dual-language semiconductor market intelligence dashboard. Starting as a basic DRAM tracker, the project has evolved into a comprehensive analytics suite that covers:
+This repository hosts a 3-application, dual-language semiconductor & memory market intelligence suite:
+1. **📊 [Si Market (`index.html`)](https://eljja.github.io/SiMarket/)**: 1970–2026 global semiconductor market size and vendor market share race across 10 sub-sectors (moved cleanly into a dedicated sub-navigation bar).
+2. **🔄 [AI Capital Flow (`ai_capital.html`)](https://eljja.github.io/SiMarket/ai_capital.html)**: 2017–2026 Q4 interactive supply-chain and circular financing ("Ouroboros loop") network graph & Sequoia Capex deficit tracker.
+3. **💾 [Memory Atlas (`memory.html`)](https://eljja.github.io/SiMarket/memory.html)**: 1980–2035 global memory & storage hierarchy intelligence covering **SRAM, DRAM (incl. HBM), NOR Flash, NAND Flash, HDD, and Magnetic Tape** across Revenue ($B), Shipped Capacity (Exabytes), $/GB price curves, vendor wafer supply vs. actual consumption, and 10-year demand forecasts across AI Data Centers, Cloud, PC, Smartphone, Autonomous Driving, Robotics, and Edge/IoT.
+
+Starting as a basic DRAM tracker, the suite covers:
 * **10 Dashboard Categories**: Traces the market size and vendor shares across 10 distinct sub-sectors:
   1. **Total Semiconductor** (Aggregate dollar revenue model)
   2. **DRAM** (Dynamic Random-Access Memory & HBM3E/HBM4)
