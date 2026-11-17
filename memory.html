@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Atlas: Global SRAM/DRAM/NOR/NAND/HDD/Tape History, Supply-Demand & 2035 Outlook | SiMarket</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Empirical 1980–2035 global memory & storage intelligence tracking SRAM, DRAM, NOR Flash, NAND Flash, HDD, and Magnetic Tape by revenue ($B), shipped capacity (Exabytes), $/GB price curves, vendor wafer supply vs. demand, and 10-year AI/Autonomous/Robotics demand forecasts.">
+  <meta name="keywords" content="DRAM Bit Shipments, NAND Exabytes, HBM3E HBM4 Supply Demand, SRAM Market Size, NOR Flash History, HDD Exabyte Shipments, LTO Tape Storage, Memory Price per GB History, AI Data Center Memory Forecast 2035, Autonomous Driving Memory, Humanoid Robot Memory">
+  <meta name="author" content="SiMarket Group">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#060913">
+
+  <!-- OpenGraph & Twitter Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SiMarket">
+  <meta property="og:url" content="https://eljja.github.io/SiMarket/memory.html">
+  <meta property="og:title" content="Memory Atlas (1980–2035): SRAM · DRAM · NOR · NAND · HDD · Tape | SiMarket">
+  <meta property="og:description" content="46 years of verified memory & storage history (Revenue, Exabytes, $/GB), vendor wafer capacity vs. consumption, and 10-year AI/Robotics/Autonomous demand outlook.">
+  <meta property="og:image" content="https://eljja.github.io/SiMarket/simarket_preview.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical & Multilingual Annotations -->
+  <link rel="canonical" href="https://eljja.github.io/SiMarket/memory.html" />
+  <link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/memory.html" />
+  <link rel="alternate" hreflang="ko" href="https://eljja.github.io/SiMarket/memory_ko.html" />
+  <link rel="alternate" hreflang="x-default" href="https://eljja.github.io/SiMarket/memory.html" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://eljja.github.io/SiMarket/memory.html#webapp",
+        "url": "https://eljja.github.io/SiMarket/memory.html",
+        "name": "SiMarket Memory Atlas — Global Memory & Storage Hierarchy Intelligence",
+        "description": "Interactive analytics platform tracing global SRAM, DRAM, NOR, NAND, HDD, and Tape usage (USD & Exabytes), vendor supply-demand-price cycles, and 2025–2035 application demand forecasts.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://eljja.github.io/SiMarket/memory.html#dataset",
+        "name": "Global Memory & Storage Hierarchy Historical & Forecast Dataset (1980–2035)",
+        "description": "Source-verified annual dataset of revenue ($B), capacity shipped (EB), and $/GB pricing across SRAM, DRAM, NOR, NAND, HDD, and Tape, plus vendor wafer capacity and 10-year segment forecasts."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="memory.css">
+</head>
+<body class="market-total">
+
+  <div class="app-container">
+
+    <!-- Top Navigation Header -->
+    <header class="glass-panel">
+      <div class="logo-section">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <h1>Si<span>Market</span> <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-primary); border: 1px solid rgba(0,229,255,0.35); padding: 2px 8px; border-radius: 6px; margin-left: 4px;">Memory Atlas</span></h1>
+          <div class="lang-switch-container">
+            <span class="lang-switch-btn active">EN</span>
+            <a href="memory_ko.html" class="lang-switch-btn">KO</a>
+          </div>
+          <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme" title="Toggle Light/Dark Theme">
+            <svg id="theme-sun-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+            <svg id="theme-moon-icon" viewBox="0 0 24 24" style="display: none;"><path d="M12.3 2c.43 0 .77.35.7.78-.6 3.73 1.58 7.37 5.1 8.51.42.14.63.6.46 1.01-.94 2.37-2.88 4.22-5.34 4.96-3.83 1.15-7.85-.92-9.15-4.63-1.3-3.71.55-7.79 4.38-8.94 1.25-.37 2.57-.34 3.85-.05.28.06.56-.12.63-.4.05-.22-.05-.46-.26-.54z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="app-nav" aria-label="Primary Application Navigation">
+        <a href="index.html" class="app-nav-link">
+          <span>📊</span>
+          <span>Si Market</span>
+        </a>
+        <a href="ai_capital.html" class="app-nav-link">
+          <span>🔄</span>
+          <span>AI Capital Flow</span>
+        </a>
+        <a href="memory.html" class="app-nav-link active">
+          <span>💾</span>
+          <span>Memory Atlas</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Sub-Menu Bar: 3 Analytical Lenses -->
+    <nav id="mem-subnav" class="glass-panel sub-menu-bar mem-subnav-bar" aria-label="Memory Atlas Analytical Views">
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <span class="sub-menu-label">Analytical Lens</span>
+        <div class="mem-view-tabs">
+          <button id="view-history" class="tab-btn active">1. Usage History (1980–2026E)</button>
+          <button id="view-supply" class="tab-btn">2. Supply · Demand · Price Cycles</button>
+          <button id="view-outlook" class="tab-btn">3. 10-Year Demand Outlook (2025–2035)</button>
+        </div>
+      </div>
+      <div class="quality-legend-bar" aria-label="Data Provenance Quality Flags">
+        <span>Provenance Flags:</span>
+        <span class="q-badge q-R" title="Directly reported by WSTS, TrendForce, Gartner, IDC, TRENDFOCUS, LTO Consortium, or SEC filings">[R] Reported</span>
+        <span class="q-badge q-E" title="Derived estimate reconciled via Revenue = Capacity × ASP">[E] Derived</span>
+        <span class="q-badge q-I" title="Interpolated between adjacent benchmark years">[I] Interpolated</span>
+        <span class="q-badge q-F" title="Scenario-based forward projection">[F] Forecast</span>
+      </div>
+    </nav>
+
+    <!-- Hero Marketing & Executive Summary Banner -->
+    <section class="glass-panel hero-marketing-bar" aria-label="Memory Hierarchy Executive Briefing">
+      <div class="hero-marketing-main">
+        <div class="hero-badge-pill">💾 46-Year Empirical Archive & 2035 AI Memory Horizon</div>
+        <h2 class="hero-headline">From $1,000,000/GB SRAM to $0.004/GB Tape: The Global Memory & Storage Hierarchy</h2>
+        <p class="hero-subcopy">Tracing 6 tiers of the memory & storage stack (SRAM · DRAM · NOR · NAND · HDD · Tape) across 8 orders of magnitude in cost-per-bit decline, wafer supply-demand cycles, and the 2025–2035 explosion driven by AI clusters, autonomous vehicles, and humanoid robotics.</p>
+        <div class="hero-search-tags">
+          <span class="search-tag-label">Core Stack:</span>
+          <span class="tag-chip">#SRAM_Cache</span>
+          <span class="tag-chip">#DRAM_HBM3E_HBM4</span>
+          <span class="tag-chip">#NOR_CodeFlash</span>
+          <span class="tag-chip">#3D_NAND_eSSD</span>
+          <span class="tag-chip">#Nearline_HAMR_HDD</span>
+          <span class="tag-chip">#LTO_Archival_Tape</span>
+        </div>
+      </div>
+
+      <div class="hero-quick-facts">
+        <div class="facts-header">
+          <span class="facts-title">📌 3 Structural Laws of Memory</span>
+          <span class="facts-subtitle">Empirical Findings</span>
+        </div>
+        <ul class="facts-list">
+          <li><strong>1. Revenue vs. Byte Inversion:</strong> DRAM + NAND capture &gt;85% of dollar revenue, while HDD + Tape still store &gt;55% of annual exabytes shipped.</li>
+          <li><strong>2. HBM Wafer Cannibalization:</strong> HBM consumes ~3× the wafer area per bit of standard DDR5, tightening DRAM bit supply even at record Capex.</li>
+          <li><strong>3. The 2035 AI & Physical AI Surge:</strong> AI data centers, L4 autonomous fleets, and humanoid robots drive the fastest memory bit CAGR over the next decade.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Macro KPI Ribbon -->
+    <section class="glass-panel memory-kpi-ribbon" aria-label="Selected Year Macro Memory Metrics">
+      <div class="mem-kpi-card">
+        <span id="kpi-label-1" class="mem-kpi-label">Total Memory & Storage Revenue</span>
+        <div class="mem-kpi-value-row">
+          <span class="mem-kpi-unit">$</span>
+          <span id="kpi-mem-rev" class="mem-kpi-val">0.0</span>
+          <span id="kpi-unit-1" class="mem-kpi-unit">B</span>
+        </div>
+        <span id="kpi-sub-1" class="mem-kpi-sub">SRAM + DRAM + NOR + NAND + HDD + Tape</span>
+      </div>
+
+      <div class="mem-kpi-card accent-emerald">
+        <span id="kpi-label-2" class="mem-kpi-label">Total Annual Capacity Shipped</span>
+        <div class="mem-kpi-value-row">
+          <span id="kpi-mem-cap" class="mem-kpi-val">0.0</span>
+          <span id="kpi-unit-2" class="mem-kpi-unit">EB</span>
+        </div>
+        <span id="kpi-sub-2" class="mem-kpi-sub">1 Exabyte = 10¹⁸ Bytes (1 Billion GB)</span>
+      </div>
+
+      <div class="mem-kpi-card accent-amber">
+        <span id="kpi-label-3" class="mem-kpi-label">DRAM Blended Price per GB</span>
+        <div class="mem-kpi-value-row">
+          <span class="mem-kpi-unit">$</span>
+          <span id="kpi-dram-price" class="mem-kpi-val">0.00</span>
+          <span id="kpi-unit-3" class="mem-kpi-unit">/GB</span>
+        </div>
+        <span id="kpi-sub-3" class="mem-kpi-sub">Includes HBM premium mix from 2023+</span>
+      </div>
+
+      <div class="mem-kpi-card accent-rose">
+        <span id="kpi-label-4" class="mem-kpi-label">NAND Flash Blended Price per GB</span>
+        <div class="mem-kpi-value-row">
+          <span class="mem-kpi-unit">$</span>
+          <span id="kpi-nand-price" class="mem-kpi-val">0.00</span>
+          <span id="kpi-unit-4" class="mem-kpi-unit">/GB</span>
+        </div>
+        <span id="kpi-sub-4" class="mem-kpi-sub">Blended wafer, client & enterprise SSD</span>
+      </div>
+    </section>
+
+    <!-- Main Interactive Workspace -->
+    <main class="mem-dashboard-grid">
+
+      <!-- Left Column: Primary Interactive Chart + Timeline -->
+      <section class="glass-panel mem-main-panel" aria-labelledby="mem-main-title">
+        <div class="mem-main-header">
+          <div>
+            <h2 id="mem-main-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">Global Memory & Storage Usage Trajectory (1980–2026E)</h2>
+            <p id="mem-main-subtitle" style="font-size: 0.8rem; color: var(--text-secondary);">Annual market revenue ($B), exabytes shipped (EB), and cost per gigabyte ($/GB) across all 6 tiers</p>
+          </div>
+
+          <div class="mem-controls-row">
+            <!-- History Controls -->
+            <div id="ctrl-group-history" class="mem-control-group">
+              <button id="metric-revenue" class="mem-ctrl-btn active">Revenue ($B)</button>
+              <button id="metric-capacity" class="mem-ctrl-btn">Capacity (EB)</button>
+              <button id="metric-price" class="mem-ctrl-btn">Price ($/GB)</button>
+            </div>
+
+            <!-- Supply Controls -->
+            <div id="ctrl-group-supply" class="mem-control-group" style="display: none;">
+              <button id="supply-dram" class="mem-ctrl-btn active">DRAM (+HBM)</button>
+              <button id="supply-nand" class="mem-ctrl-btn">NAND Flash</button>
+              <button id="supply-hdd" class="mem-ctrl-btn">HDD Nearline</button>
+            </div>
+
+            <!-- Outlook Controls -->
+            <div id="ctrl-group-outlook-scn" class="mem-control-group" style="display: none;">
+              <button id="scn-bear" class="mem-ctrl-btn">Bear</button>
+              <button id="scn-base" class="mem-ctrl-btn active">Base</button>
+              <button id="scn-bull" class="mem-ctrl-btn">Bull</button>
+            </div>
+            <div id="ctrl-group-outlook-met" class="mem-control-group" style="display: none;">
+              <button id="out-capacity" class="mem-ctrl-btn active">Demand (EB)</button>
+              <button id="out-revenue" class="mem-ctrl-btn">Spend ($B)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology Filter Pills (History View) -->
+        <div id="mem-tech-filter-row" class="mem-tech-pills">
+          <span class="mem-tech-pill active" data-tech="all"><span class="mem-tech-dot" style="background:#fff;"></span> All 6 Tiers</span>
+          <span class="mem-tech-pill" data-tech="sram"><span class="mem-tech-dot" style="background:#f43f5e;"></span> SRAM</span>
+          <span class="mem-tech-pill" data-tech="dram"><span class="mem-tech-dot" style="background:#00e5ff;"></span> DRAM</span>
+          <span class="mem-tech-pill" data-tech="nor"><span class="mem-tech-dot" style="background:#a855f7;"></span> NOR Flash</span>
+          <span class="mem-tech-pill" data-tech="nand"><span class="mem-tech-dot" style="background:#10b981;"></span> NAND Flash</span>
+          <span class="mem-tech-pill" data-tech="hdd"><span class="mem-tech-dot" style="background:#f59e0b;"></span> HDD</span>
+          <span class="mem-tech-pill" data-tech="tape"><span class="mem-tech-dot" style="background:#64748b;"></span> Magnetic Tape</span>
+        </div>
+
+        <!-- Main ECharts Stage -->
+        <div class="mem-chart-stage">
+          <div id="mem-main-chart" style="width: 100%; height: 100%;"></div>
+          <div id="mem-year-display" class="mem-year-watermark">2025</div>
+        </div>
+
+        <!-- Timeline Control Bar -->
+        <div class="timeline-bar">
+          <div class="play-controls">
+            <button id="prev-btn" class="btn-icon btn-step" aria-label="Previous Year" title="Previous Year">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button id="play-btn" class="btn-icon" aria-label="Play/Pause Timeline" title="Play / Pause">
+              <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
+              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button id="next-btn" class="btn-icon btn-step" aria-label="Next Year" title="Next Year">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            <select id="speed-control" class="speed-control" aria-label="Playback Speed">
+              <option value="1200">Slow (1.2s)</option>
+              <option value="600" selected>Normal (0.6s)</option>
+              <option value="250">Fast (0.25s)</option>
+            </select>
+          </div>
+
+          <div class="slider-container">
+            <input type="range" id="timeline-slider" aria-label="Timeline Year Slider" min="0" max="46" value="45">
+            <span id="current-period" class="time-label-current">2025</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Synchronized Breakdown Charts, Data Table & Milestones -->
+      <aside class="mem-sidebar">
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span id="side-title-a">Selected Year Breakdown</span>
+            <span id="side-badge-a" class="q-badge q-R">2025</span>
+          </div>
+          <div class="mem-side-chart-box">
+            <div id="mem-side-chart-a" style="width: 100%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span id="side-title-b">Structural Mix & Sufficiency</span>
+            <span id="side-badge-b" class="q-badge q-E">Share %</span>
+          </div>
+          <div class="mem-side-chart-box">
+            <div id="mem-side-chart-b" style="width: 100%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span id="side-table-title">Verified Metrics & Provenance Table</span>
+          </div>
+          <div id="side-table" class="mem-table-wrap"></div>
+        </div>
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span>Chronological Industry Milestones</span>
+          </div>
+          <div id="milestone-list" class="mem-milestone-list"></div>
+        </div>
+
+      </aside>
+    </main>
+
+    <!-- Deep-Dive Analytical Briefing & Verified Sources -->
+    <section class="glass-panel seo-insights-section" aria-label="Memory Hierarchy Methodology & Sources">
+      <div class="insights-header">
+        <div class="insights-badge">🔬 Empirical Methodology & Structural Insights</div>
+        <h2>Why the 6-Tier Memory Hierarchy Never Converges into One Universal Medium</h2>
+        <p class="insights-subtitle">Every tier trades off latency (sub-nanosecond SRAM to seconds on Tape) against density and $/GB across 6 orders of magnitude.</p>
+      </div>
+
+      <div class="loops-grid">
+        <article class="loop-card">
+          <span class="loop-badge">Tier 1–2: Volatile Compute Memory (SRAM & DRAM)</span>
+          <h3 style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary);">The Memory Wall & HBM Packaging Revolution</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+            6-transistor SRAM delivers sub-nanosecond latency for CPU/GPU registers and L1–L3 caches, but costs &gt;$1,000/GB and has shrunk as a standalone chip market as cache migrated on-die. DRAM (1T1C) forms main working memory; since 2023, 3D-stacked HBM3E/HBM4 has reshaped DRAM economics—consuming ~3× wafer capacity per bit while commanding 4–5× ASP premiums.
+          </p>
+        </article>
+
+        <article class="loop-card">
+          <span class="loop-badge">Tier 3–4: Solid-State Non-Volatile (NOR & NAND)</span>
+          <h3 style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary);">From 2D Floating Gate to 200+ Layer 3D NAND</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+            NOR Flash offers fast random execute-in-place (XIP) reads for BIOS, automotive ADAS, and IoT firmware, stabilizing as a $2.5–3.5B specialty market. NAND Flash scaled via 3D vertical stacking (TLC/QLC) to surpass 800+ Exabytes/year, displacing client HDDs and powering high-throughput PCIe Gen5/Gen6 AI data center SSDs.
+          </p>
+        </article>
+
+        <article class="loop-card">
+          <span class="loop-badge">Tier 5–6: Magnetic Bulk & Cold Archive (HDD & Tape)</span>
+          <h3 style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary);">Why Exabyte Gravity Still Pulls Toward Platter & Tape</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+            Despite unit shipments falling from 651M (2010) to ~120M, HDD total exabytes topped 1,100+ EB/year via 24–36TB helium/HAMR nearline drives at ~$0.012/GB—roughly 5–8× cheaper per byte than enterprise SSD. LTO-9/10 magnetic tape remains the ultimate air-gapped archive at ~$0.004–0.008/GB with zero idle power for hyperscale AI training corpora.
+          </p>
+        </article>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">📚 Primary Data Sources & Verification Registry</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary);">Every series in Memory Atlas is cross-checked against the following primary statistical bodies, market trackers, and corporate disclosures:</p>
+        <div id="sources-list" class="sources-grid"></div>
+      </div>
+
+      <div class="citation-magnet-banner" style="margin-top: 1.5rem;">
+        <div class="citation-header-row">
+          <div class="citation-badge">Open for Academic & Industry Citation</div>
+          <h4>📢 Research & Engineering Citation Guide</h4>
+        </div>
+        <p>All historical series, supply-demand curves, and 2035 segment projections are open for citation in research papers, investor decks, and technical articles:</p>
+        <div class="citation-box">
+          <code id="citation-text">Source: SiMarket Memory Atlas — Global Memory & Storage Hierarchy Database (https://eljja.github.io/SiMarket/memory.html)</code>
+          <button id="copy-citation-btn" class="btn-copy-citation" title="Copy citation to clipboard">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span>Copy Citation</span>
+          </button>
+        </div>
+      </div>
+
+      <footer class="insights-footer">
+        <p>Data Sources: WSTS, TrendForce/DRAMeXchange, Gartner, TechInsights (IC Insights), Yole Group, IDC, TRENDFOCUS, LTO Program Consortium, John C. McCallum, SEC/KRX/TSE Filings. Apache 2.0 License.</p>
+      </footer>
+    </section>
+
+  </div>
+
+  <!-- Apache ECharts Library -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+  <!-- Database & Engine -->
+  <script src="memory_data.js"></script>
+  <script src="memory.js"></script>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+</body>
+</html>

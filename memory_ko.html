@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메모리 아틀라스: 전 세계 SRAM/DRAM/NOR/NAND/HDD/Tape 사용량 히스토리, 수급·가격 및 2035 수요 전망 | SiMarket</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="1980~2035년 글로벌 메모리·스토리지 6대 계층(SRAM, DRAM, NOR, NAND, HDD, Tape)의 매출액($B), 출하 용량(Exabytes), GB당 가격 추이, 주요 업체별 웨이퍼 생산능력(kWPM) 대비 실수요·수급 곡선, 향후 10년 AI·자율주행·로봇·데이터센터·PC 수요 예측 대시보드.">
+  <meta name="keywords" content="메모리 반도체 시장규모, DRAM 출하량, NAND 플래시 용량, HBM3E HBM4 수급, SRAM 시장, NOR 플래시, HDD 출하량, LTO 테이프 스토리지, 메모리 GB당 가격 역사, 2035 AI 메모리 수요 예측, 자율주행 메모리, 휴머노이드 로봇 메모리">
+  <meta name="author" content="SiMarket Group">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#060913">
+
+  <!-- OpenGraph & Twitter Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SiMarket">
+  <meta property="og:url" content="https://eljja.github.io/SiMarket/memory_ko.html">
+  <meta property="og:title" content="메모리 아틀라스 (1980–2035): SRAM · DRAM · NOR · NAND · HDD · Tape | SiMarket">
+  <meta property="og:description" content="46년 실증 데이터로 본 전 세계 메모리·스토리지 금액·용량·가격 히스토리, 주요 제조사 생산능력 대비 수급 곡선, 그리고 AI·자율주행·로봇 중심의 10년 수요 전망.">
+  <meta property="og:image" content="https://eljja.github.io/SiMarket/simarket_preview.png">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical & Multilingual Annotations -->
+  <link rel="canonical" href="https://eljja.github.io/SiMarket/memory_ko.html" />
+  <link rel="alternate" hreflang="en" href="https://eljja.github.io/SiMarket/memory.html" />
+  <link rel="alternate" hreflang="ko" href="https://eljja.github.io/SiMarket/memory_ko.html" />
+  <link rel="alternate" hreflang="x-default" href="https://eljja.github.io/SiMarket/memory.html" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://eljja.github.io/SiMarket/memory_ko.html#webapp",
+        "url": "https://eljja.github.io/SiMarket/memory_ko.html",
+        "name": "SiMarket 메모리 아틀라스 — 글로벌 메모리 & 스토리지 계층 인텔리전스",
+        "description": "SRAM, DRAM, NOR, NAND, HDD, Tape 6대 메모리의 역사적 매출·용량·가격 추이와 제조사 수급 곡선, 2025–2035년 AI·자율주행·로봇 수요처별 전망을 시각화하는 분석 시스템.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://eljja.github.io/SiMarket/memory_ko.html#dataset",
+        "name": "글로벌 메모리 & 스토리지 역사 및 2035 수요 예측 데이터베이스 (1980–2035)",
+        "description": "SRAM, DRAM, NOR, NAND, HDD, Tape의 연도별 매출($B), 출하 용량(EB), $/GB 가격 및 업체별 웨이퍼 생산능력과 10년 수요처별 전망 데이터셋."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="memory.css">
+</head>
+<body class="market-total">
+
+  <div class="app-container">
+
+    <!-- 상단 내비게이션 헤더 -->
+    <header class="glass-panel">
+      <div class="logo-section">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <h1>Si<span>Market</span> <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-primary); border: 1px solid rgba(0,229,255,0.35); padding: 2px 8px; border-radius: 6px; margin-left: 4px;">Memory Atlas</span></h1>
+          <div class="lang-switch-container">
+            <a href="memory.html" class="lang-switch-btn">EN</a>
+            <span class="lang-switch-btn active">KO</span>
+          </div>
+          <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="다크/라이트 테마 전환" title="다크/라이트 테마 전환">
+            <svg id="theme-sun-icon" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+            <svg id="theme-moon-icon" viewBox="0 0 24 24" style="display: none;"><path d="M12.3 2c.43 0 .77.35.7.78-.6 3.73 1.58 7.37 5.1 8.51.42.14.63.6.46 1.01-.94 2.37-2.88 4.22-5.34 4.96-3.83 1.15-7.85-.92-9.15-4.63-1.3-3.71.55-7.79 4.38-8.94 1.25-.37 2.57-.34 3.85-.05.28.06.56-.12.63-.4.05-.22-.05-.46-.26-.54z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="app-nav" aria-label="주요 서비스 내비게이션">
+        <a href="index_ko.html" class="app-nav-link">
+          <span>📊</span>
+          <span>Si Market</span>
+        </a>
+        <a href="ai_capital_ko.html" class="app-nav-link">
+          <span>🔄</span>
+          <span>AI 자금 순환</span>
+        </a>
+        <a href="memory_ko.html" class="app-nav-link active">
+          <span>💾</span>
+          <span>메모리 아틀라스</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- 서브 메뉴 바: 3대 핵심 분석 뷰 -->
+    <nav id="mem-subnav" class="glass-panel sub-menu-bar mem-subnav-bar" aria-label="메모리 아틀라스 분석 모드">
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <span class="sub-menu-label">분석 뷰</span>
+        <div class="mem-view-tabs">
+          <button id="view-history" class="tab-btn active">1. 사용량 히스토리 (1980–2026E)</button>
+          <button id="view-supply" class="tab-btn">2. 생산능력 · 수급 · 가격 사이클</button>
+          <button id="view-outlook" class="tab-btn">3. 향후 10년 수요처별 전망 (2025–2035)</button>
+        </div>
+      </div>
+      <div class="quality-legend-bar" aria-label="데이터 출처 및 신뢰도 등급">
+        <span>데이터 검증 등급:</span>
+        <span class="q-badge q-R" title="WSTS, TrendForce, Gartner, IDC, TRENDFOCUS, LTO 컨소시엄, 기업 공시 등 공인 통계 직접 인용">[R] 공인 통계</span>
+        <span class="q-badge q-E" title="매출액 = 출하용량 × 평균단가(ASP) 항등식 기반 교차 검증 추정치">[E] 교차산출</span>
+        <span class="q-badge q-I" title="인접 공인 기준연도 간 보간 데이터">[I] 기준보간</span>
+        <span class="q-badge q-F" title="수요 모델 및 성장률 가정 기반 미래 예측치">[F] 미래전망</span>
+      </div>
+    </nav>
+
+    <!-- 히어로 브리핑 배너 -->
+    <section class="glass-panel hero-marketing-bar" aria-label="메모리 계층 핵심 브리핑">
+      <div class="hero-marketing-main">
+        <div class="hero-badge-pill">💾 46년 실증 데이터 아카이브 & 2035 AI 메모리 장기 전망</div>
+        <h2 class="hero-headline">GB당 100만 달러 SRAM부터 0.004달러 테이프까지: 전 세계 메모리 사용량과 수급의 모든 것</h2>
+        <p class="hero-subcopy">SRAM · DRAM · NOR · NAND · HDD · Tape 6대 메모리 계층의 1980~2026년 금액($B)·용량(Exabytes)·가격($/GB) 변천사, 주요 제조사 생산능력(웨이퍼/출하량)과 실제 소비량에 따른 수급·가격 곡선, 그리고 향후 10년간 AI·자율주행·로봇·데이터센터·PC가 견인할 수요 폭발을 정밀 분석합니다.</p>
+        <div class="hero-search-tags">
+          <span class="search-tag-label">핵심 분석 계층:</span>
+          <span class="tag-chip">#SRAM_캐시메모리</span>
+          <span class="tag-chip">#DRAM_HBM3E_HBM4</span>
+          <span class="tag-chip">#NOR_코드플래시</span>
+          <span class="tag-chip">#3D_NAND_eSSD</span>
+          <span class="tag-chip">#니어라인_HAMR_HDD</span>
+          <span class="tag-chip">#LTO_아카이브_테이프</span>
+        </div>
+      </div>
+
+      <div class="hero-quick-facts">
+        <div class="facts-header">
+          <span class="facts-title">📌 메모리 산업의 3대 구조적 법칙</span>
+          <span class="facts-subtitle">데이터 핵심 요약</span>
+        </div>
+        <ul class="facts-list">
+          <li><strong>1. 금액과 용량의 역전 구조:</strong> 전체 메모리 매출(달러)의 85% 이상은 DRAM과 NAND가 차지하지만, 출하 용량(Exabyte)의 55% 이상은 여전히 HDD와 테이프가 담당합니다.</li>
+          <li><strong>2. HBM의 웨이퍼 잠식 효과:</strong> HBM은 일반 DDR5 대비 비트당 약 3배의 웨이퍼 면적을 소모하여, 설비투자 확대에도 일반 DRAM 공급 탄력성을 제한합니다.</li>
+          <li><strong>3. 2035 AI & 피지컬 AI 폭발:</strong> 향후 10년간 AI 데이터센터, L4 자율주행차, 휴머노이드 로봇이 역대 가장 빠른 메모리 용량 연평균 성장률(CAGR)을 기록합니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 매크로 KPI 리본 -->
+    <section class="glass-panel memory-kpi-ribbon" aria-label="선택 연도 메모리 매크로 지표">
+      <div class="mem-kpi-card">
+        <span id="kpi-label-1" class="mem-kpi-label">글로벌 메모리·스토리지 총 매출액</span>
+        <div class="mem-kpi-value-row">
+          <span class="mem-kpi-unit">$</span>
+          <span id="kpi-mem-rev" class="mem-kpi-val">0.0</span>
+          <span id="kpi-unit-1" class="mem-kpi-unit">B</span>
+        </div>
+        <span id="kpi-sub-1" class="mem-kpi-sub">SRAM + DRAM + NOR + NAND + HDD + Tape 합산</span>
+      </div>
+
+      <div class="mem-kpi-card accent-emerald">
+        <span id="kpi-label-2" class="mem-kpi-label">연간 총 출하 저장 용량</span>
+        <div class="mem-kpi-value-row">
+          <span id="kpi-mem-cap" class="mem-kpi-val">0.0</span>
+          <span id="kpi-unit-2" class="mem-kpi-unit">EB</span>
+        </div>
+        <span id="kpi-sub-2" class="mem-kpi-sub">1 Exabyte(엑사바이트) = 10¹⁸ Bytes (10억 GB)</span>
+      </div>
+
+      <div class="mem-kpi-card accent-amber">
+        <span id="kpi-label-3" class="mem-kpi-label">DRAM 평균 가격 (1GB당)</span>
+        <div class="mem-kpi-value-row">
+          <span class="mem-kpi-unit">$</span>
+          <span id="kpi-dram-price" class="mem-kpi-val">0.00</span>
+          <span id="kpi-unit-3" class="mem-kpi-unit">/GB</span>
+        </div>
+        <span id="kpi-sub-3" class="mem-kpi-sub">2023년 이후 HBM 고부가 프리미엄 반영</span>
+      </div>
+
+      <div class="mem-kpi-card accent-rose">
+        <span id="kpi-label-4" class="mem-kpi-label">NAND 플래시 평균 가격 (1GB당)</span>
+        <div class="mem-kpi-value-row">
+          <span class="mem-kpi-unit">$</span>
+          <span id="kpi-nand-price" class="mem-kpi-val">0.00</span>
+          <span id="kpi-unit-4" class="mem-kpi-unit">/GB</span>
+        </div>
+        <span id="kpi-sub-4" class="mem-kpi-sub">단품·클라이언트·엔터프라이즈 SSD 통합 평균</span>
+      </div>
+    </section>
+
+    <!-- 메인 대시보드 그리드 -->
+    <main class="mem-dashboard-grid">
+
+      <!-- 좌측 컬럼: 메인 인터랙티브 차트 및 타임라인 컨트롤 -->
+      <section class="glass-panel mem-main-panel" aria-labelledby="mem-main-title">
+        <div class="mem-main-header">
+          <div>
+            <h2 id="mem-main-title" style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">글로벌 메모리 & 스토리지 사용량 추이 (1980–2026E)</h2>
+            <p id="mem-main-subtitle" style="font-size: 0.8rem; color: var(--text-secondary);">6대 메모리 계층별 연간 시장 금액($B), 출하 용량(EB), GB당 단가($/GB) 시계열 변화</p>
+          </div>
+
+          <div class="mem-controls-row">
+            <!-- 히스토리 컨트롤 -->
+            <div id="ctrl-group-history" class="mem-control-group">
+              <button id="metric-revenue" class="mem-ctrl-btn active">금액 ($B)</button>
+              <button id="metric-capacity" class="mem-ctrl-btn">용량 (EB)</button>
+              <button id="metric-price" class="mem-ctrl-btn">단가 ($/GB)</button>
+            </div>
+
+            <!-- 수급 컨트롤 -->
+            <div id="ctrl-group-supply" class="mem-control-group" style="display: none;">
+              <button id="supply-dram" class="mem-ctrl-btn active">DRAM (+HBM)</button>
+              <button id="supply-nand" class="mem-ctrl-btn">NAND 플래시</button>
+              <button id="supply-hdd" class="mem-ctrl-btn">HDD (니어라인)</button>
+            </div>
+
+            <!-- 10년 전망 컨트롤 -->
+            <div id="ctrl-group-outlook-scn" class="mem-control-group" style="display: none;">
+              <button id="scn-bear" class="mem-ctrl-btn">보수적 (Bear)</button>
+              <button id="scn-base" class="mem-ctrl-btn active">기준 (Base)</button>
+              <button id="scn-bull" class="mem-ctrl-btn">낙관적 (Bull)</button>
+            </div>
+            <div id="ctrl-group-outlook-met" class="mem-control-group" style="display: none;">
+              <button id="out-capacity" class="mem-ctrl-btn active">수요 용량 (EB)</button>
+              <button id="out-revenue" class="mem-ctrl-btn">지출 금액 ($B)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 기술별 필터 필 (히스토리 뷰) -->
+        <div id="mem-tech-filter-row" class="mem-tech-pills">
+          <span class="mem-tech-pill active" data-tech="all"><span class="mem-tech-dot" style="background:#fff;"></span> 전체 6대 메모리</span>
+          <span class="mem-tech-pill" data-tech="sram"><span class="mem-tech-dot" style="background:#f43f5e;"></span> SRAM</span>
+          <span class="mem-tech-pill" data-tech="dram"><span class="mem-tech-dot" style="background:#00e5ff;"></span> DRAM</span>
+          <span class="mem-tech-pill" data-tech="nor"><span class="mem-tech-dot" style="background:#a855f7;"></span> NOR 플래시</span>
+          <span class="mem-tech-pill" data-tech="nand"><span class="mem-tech-dot" style="background:#10b981;"></span> NAND 플래시</span>
+          <span class="mem-tech-pill" data-tech="hdd"><span class="mem-tech-dot" style="background:#f59e0b;"></span> HDD</span>
+          <span class="mem-tech-pill" data-tech="tape"><span class="mem-tech-dot" style="background:#64748b;"></span> 자기 테이프(Tape)</span>
+        </div>
+
+        <!-- 메인 차트 영역 -->
+        <div class="mem-chart-stage">
+          <div id="mem-main-chart" style="width: 100%; height: 100%;"></div>
+          <div id="mem-year-display" class="mem-year-watermark">2025</div>
+        </div>
+
+        <!-- 타임라인 컨트롤 바 -->
+        <div class="timeline-bar">
+          <div class="play-controls">
+            <button id="prev-btn" class="btn-icon btn-step" aria-label="이전 연도" title="이전 연도">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button id="play-btn" class="btn-icon" aria-label="재생/일시정지" title="재생 / 일시정지">
+              <svg viewBox="0 0 24 24" id="play-icon"><path d="M8 5v14l11-7z"/></svg>
+              <svg viewBox="0 0 24 24" id="pause-icon" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+            <button id="next-btn" class="btn-icon btn-step" aria-label="다음 연도" title="다음 연도">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+            <select id="speed-control" class="speed-control" aria-label="재생 속도">
+              <option value="1200">느리게 (1.2초)</option>
+              <option value="600" selected>보통 (0.6초)</option>
+              <option value="250">빠르게 (0.25초)</option>
+            </select>
+          </div>
+
+          <div class="slider-container">
+            <input type="range" id="timeline-slider" aria-label="타임라인 슬라이더" min="0" max="46" value="45">
+            <span id="current-period" class="time-label-current">2025</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 우측 컬럼: 세부 비교 차트, 검증 테이블, 연표 -->
+      <aside class="mem-sidebar">
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span id="side-title-a">선택 연도 세부 비교</span>
+            <span id="side-badge-a" class="q-badge q-R">2025</span>
+          </div>
+          <div class="mem-side-chart-box">
+            <div id="mem-side-chart-a" style="width: 100%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span id="side-title-b">구조적 비중 및 수급 밸런스</span>
+            <span id="side-badge-b" class="q-badge q-E">비중 %</span>
+          </div>
+          <div class="mem-side-chart-box">
+            <div id="mem-side-chart-b" style="width: 100%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span id="side-table-title">검증 데이터 및 출처 등급표</span>
+          </div>
+          <div id="side-table" class="mem-table-wrap"></div>
+        </div>
+
+        <div class="glass-panel mem-side-card">
+          <div class="mem-side-title">
+            <span>메모리 산업 핵심 기술 변곡점</span>
+          </div>
+          <div id="milestone-list" class="mem-milestone-list"></div>
+        </div>
+
+      </aside>
+    </main>
+
+    <!-- 심층 분석 브리핑 및 출처 목록 -->
+    <section class="glass-panel seo-insights-section" aria-label="메모리 계층 구조 분석 및 데이터 출처">
+      <div class="insights-header">
+        <div class="insights-badge">🔬 실증 데이터 방법론 & 산업 구조 인사이트</div>
+        <h2>왜 6대 메모리 계층은 하나의 만능 메모리로 통합되지 않는가?</h2>
+        <p class="insights-subtitle">0.5나노초의 초저지연 SRAM부터 GB당 0.004달러의 초저비용 자기 테이프까지, 속도와 비용의 100만 배 트레이드오프가 현대 컴퓨팅 계층을 형성합니다.</p>
+      </div>
+
+      <div class="loops-grid">
+        <article class="loop-card">
+          <span class="loop-badge">계층 1–2: 휘발성 연산 메모리 (SRAM & DRAM)</span>
+          <h3 style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary);">메모리 월(Memory Wall) 돌파와 HBM 적층 혁명</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+            6-트랜지스터 구조의 SRAM은 1ns 미만의 초고속 응답으로 CPU/GPU 내부 캐시(L1~L3)를 담당하지만 GB당 수천 달러의 고비용으로 인해 외장형 시장은 축소되고 SoC 내장형으로 전환되었습니다. 주기억장치인 DRAM(1T1C)은 2023년 이후 AI 가속기용 HBM3E/HBM4가 등장하며 일반 DDR5 대비 비트당 약 3배의 웨이퍼를 소모하고 4~5배의 단가 프리미엄을 형성하는 구조적 변혁을 겪고 있습니다.
+          </p>
+        </article>
+
+        <article class="loop-card">
+          <span class="loop-badge">계층 3–4: 반도체 비휘발성 저장장치 (NOR & NAND)</span>
+          <h3 style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary);">코드 실행용 NOR와 200단+ 3D NAND의 분화</h3>
+          <p style="font-size: 1.02rem; font-weight: 700; display:none;"></h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+            임의 읽기 속도가 빠른 NOR 플래시는 바이오스(BIOS), 전장 ADAS, 무선이어폰(TWS)·IoT 펌웨어 코드 저장용으로 연 25~35억 달러 규모의 필수 시장을 유지하고 있습니다. 반면 대용량 저장용 NAND 플래시는 3D 수직 적층(TLC/QLC) 기술을 통해 연간 800 EB 이상의 출하량을 돌파하며 PC·스마트폰은 물론 AI 데이터센터의 초고속 eSSD 핵심 인프라로 자리 잡았습니다.
+          </p>
+        </article>
+
+        <article class="loop-card">
+          <span class="loop-badge">계층 5–6: 마그네틱 대용량 & 콜드 아카이브 (HDD & Tape)</span>
+          <h3 style="font-size: 1.02rem; font-weight: 700; color: var(--text-primary);">엑사바이트(EB) 중력이 여전히 디스크와 테이프에 머무는 이유</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+            HDD 대수 출하량은 2010년 6.5억 대에서 PC의 SSD 전환으로 급감했으나, 클라우드 데이터센터용 24~36TB 헬륨·HAMR 니어라인 HDD 덕분에 총 출하 용량은 연간 1,100 EB 이상으로 오히려 사상 최대치를 경신 중입니다. eSSD 대비 1/6 수준인 $0.012/GB의 경제성 때문이며, LTO 자기 테이프 역시 $0.004~0.008/GB의 최저 비용과 대기전력 '0'을 무기로 AI 학습 원본 데이터 및 장기 백업 수요를 흡수하고 있습니다.
+          </p>
+        </article>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">📚 공인 데이터 출처 및 레퍼런스 목록</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary);">본 시스템의 모든 시계열 수치와 수급 추정치는 아래 기관의 보고서 및 기업 공시 자료를 교차 검증하여 구축되었습니다:</p>
+        <div id="sources-list" class="sources-grid"></div>
+      </div>
+
+      <div class="citation-magnet-banner" style="margin-top: 1.5rem;">
+        <div class="citation-header-row">
+          <div class="citation-badge">학술 · 산업 리포트 인용 안내</div>
+          <h4>📢 리서치 및 기술 문서 인용 가이드</h4>
+        </div>
+        <p>메모리 아틀라스의 모든 역사적 시계열 데이터, 수급 곡선, 2035 수요 예측 그래프는 리서치 보고서·학술 논문·언론 기사에 자유롭게 인용하실 수 있습니다:</p>
+        <div class="citation-box">
+          <code id="citation-text">출처: SiMarket Memory Atlas — 글로벌 메모리 & 스토리지 인텔리전스 (https://eljja.github.io/SiMarket/memory_ko.html)</code>
+          <button id="copy-citation-btn" class="btn-copy-citation" title="인용 문구 복사">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span>인용 복사</span>
+          </button>
+        </div>
+      </div>
+
+      <footer class="insights-footer">
+        <p>데이터 출처: WSTS, TrendForce/DRAMeXchange, Gartner, TechInsights (IC Insights), Yole Group, IDC, TRENDFOCUS, LTO Program Consortium, John C. McCallum, 각 사 IR 공시. Apache 2.0 라이선스.</p>
+      </footer>
+    </section>
+
+  </div>
+
+  <!-- Apache ECharts Library -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+  <!-- Database & Engine -->
+  <script src="memory_data.js"></script>
+  <script src="memory.js"></script>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+</body>
+</html>
